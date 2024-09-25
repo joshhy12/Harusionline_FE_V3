@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './images/logo.png';
 import { Container, Row, Col, Nav } from 'react-bootstrap';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaApple, FaAndroid } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin  } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -11,18 +11,27 @@ const Footer = () => {
           
           <Col md={3}>
             <img src={logo} alt="Company Logo" className="img-fluid mb-3" style={{maxWidth: '150px'}} />
-            <p>© 2024 Your Company Name. All rights reserved.</p>
+            <p>Harusi online ni mfumo unaorahisisha kupangilia & kuratibu shughuli yako bure kupitia huduma kama kutuma taarifa, kupanga bajeti, kupokea na kurekodi taarifa za fedha.</p>
           </Col>
+
+        
 
           <Col md={3}>
             <h5>Quick Links</h5>
             <Nav className="flex-column">
               <Nav.Item><Nav.Link href="/" className="text-light">Home</Nav.Link></Nav.Item>
               <Nav.Item><Nav.Link href="/about" className="text-light">About</Nav.Link></Nav.Item>
-              <Nav.Item><Nav.Link href="/services" className="text-light">Services</Nav.Link></Nav.Item>
-              <Nav.Item><Nav.Link href="/contact" className="text-light">Contact</Nav.Link></Nav.Item>
+              
+              <Nav.Item><Nav.Link href="/services" className="text-light">Tuma Taarifa</Nav.Link></Nav.Item>
+              <Nav.Item><Nav.Link href="/contact" className="text-light">Kumbusha Michango</Nav.Link></Nav.Item>
+              <Nav.Item><Nav.Link href="/services" className="text-light">Tuma Mialiko</Nav.Link></Nav.Item>
+              <Nav.Item><Nav.Link href="/contact" className="text-light">E-cards</Nav.Link></Nav.Item>
+              <Nav.Item><Nav.Link href="/services" className="text-light">Tuma Taarifa</Nav.Link></Nav.Item>
+            
             </Nav>
           </Col>
+
+          
 
           <Col md={3}>
             <h5>Follow Us</h5>
@@ -34,11 +43,17 @@ const Footer = () => {
             </div>
           </Col>
 
+         
+
           <Col md={3}>
             <h5>Download Our App</h5>
             <div className="d-flex">
-              <a href="#" className="text-light me-3"><FaApple size={24} /></a>
-              <a href="#" className="text-light"><FaAndroid size={24} /></a>
+              <a href="https://www.apple.com" className="text-light me-3" target="_blank" rel="noopener noreferrer">
+                <img src={require('./images/app-apple.png')} alt="Apple App Store" style={{width: '124px', height: '37px'}} />
+              </a>
+              <a href="https://play.google.com" className="text-light" target="_blank" rel="noopener noreferrer">
+                <img src={require('./images/app-google.png')} alt="Google Play Store" style={{width: '124px', height: '37px'}} />
+              </a>
             </div>
           </Col>
         </Row>
@@ -46,5 +61,4 @@ const Footer = () => {
     </footer>
   );
 };
-
 export default Footer;
