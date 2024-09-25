@@ -1,4 +1,6 @@
 import React from 'react';
+
+
 import logo from './images/logo.png';
 import { Container, Row, Col, Nav } from 'react-bootstrap';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin  } from 'react-icons/fa';
@@ -9,6 +11,8 @@ const Footer = () => {
       <Container>
         <Row className="mb-3">
           
+          
+
           <Col md={3}>
             <img src={logo} alt="Company Logo" className="img-fluid mb-3" style={{maxWidth: '150px'}} />
             <p>Harusi online ni mfumo unaorahisisha kupangilia & kuratibu shughuli yako bure kupitia huduma kama kutuma taarifa, kupanga bajeti, kupokea na kurekodi taarifa za fedha.</p>
