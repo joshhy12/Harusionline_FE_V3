@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header';
+import Home from './components/Home';
 import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        {/* Your main content goes here */}
+        <Home />
       </main>
       <Footer />
     </div>
