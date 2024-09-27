@@ -8,6 +8,9 @@
  * @returns {JSX.Element} The rendered `E_card` component.
  */
 // E_card.js
+
+
+
 import React, { useState } from 'react';
 import { Card, Col, Row, Button, Container } from 'react-bootstrap';
 import image1 from './images/1.jpg';

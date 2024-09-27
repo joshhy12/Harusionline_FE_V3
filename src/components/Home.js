@@ -44,7 +44,7 @@ function Home() {
                 style={{ objectFit: 'cover', height: '80vh' }}
               />
               <Carousel.Caption>
-                <h1 className="display-4 mb-4">KUMBUSHIA MICHAN</h1>
+                <h1 className="display-4 mb-4">KUMBUSHIA MICHANGO</h1>
                 <p className="lead mb-5">Harusi online ni mfumo unaorahisisha kupangilia & kuratibu shughuli yako bure.</p>
               </Carousel.Caption>
             </Carousel.Item>
