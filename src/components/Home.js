@@ -1,6 +1,6 @@
 import React from 'react';
 import image1 from './images/1.jpg'; // Assuming you have an image named 1.jpg
-
+import image2 from './images/2.jpg';
 import { Carousel, Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 function Home() {
@@ -8,40 +8,62 @@ function Home() {
     <Container className="my-5">
       {/* Carousel Section */}
       <Row className="justify-content-center mb-5">
-        <Col md={8}>
+        <Col xs={12}>
           <Carousel>
             <Carousel.Item>
-              <div className="text-center">
-                <h1 className="display-4 mb-4">First slide label</h1>
-                <p className="lead mb-5">Some representative placeholder content for the first slide of the carousel.</p>
-              </div>
+              <img
+                className="d-block w-100"
+                src={image2}
+                alt="First slide"
+                style={{ objectFit: 'cover', height: '80vh' }}
+              />
+              <Carousel.Caption>
+                <h1 className="display-4 mb-4">HARUSI ONLINE</h1>
+                <p className="lead mb-5">Panga & Ratibu Shughuli yako, BURE!.</p>
+              </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item>
-              <div className="text-center">
-                <h1 className="display-4 mb-4">Second slide label</h1>
-                <p className="lead mb-5">Some representative placeholder content for the second slide of the carousel.</p>
-              </div>
+              <img
+                className="d-block w-100"
+                src={image2}
+                alt="Second slide"
+                style={{ objectFit: 'cover', height: '80vh' }}
+              />
+              <Carousel.Caption>
+                <h1 className="display-4 mb-4">TUMA KADI ZA KIDIGITALI </h1>
+                <p className="lead mb-5">kupitia huduma kama kutuma taarifa, kupanga bajeti, kupokea na kurekodi taarifa za fedha, kukukutanisha na watoa huduma na huduma nyingine nyingi..</p>
+              </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item>
-              <div className="text-center">
-                <h1 className="display-4 mb-4">Third slide label</h1>
-                <p className="lead mb-5">Some representative placeholder content for the third slide of the carousel.</p>
-              </div>
+              <img
+                className="d-block w-100"
+                src={image2}
+                alt="Third slide"
+                style={{ objectFit: 'cover', height: '80vh' }}
+              />
+              <Carousel.Caption>
+                <h1 className="display-4 mb-4">KUMBUSHIA MICHAN</h1>
+                <p className="lead mb-5">Harusi online ni mfumo unaorahisisha kupangilia & kuratibu shughuli yako bure.</p>
+              </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
         </Col>
       </Row>
+
+
+
+
 
       {/* Features Section */}
       <Row>
         <Col md={4}>
           <Card className="mb-4">
             <Card.Body>
-              <Card.Title>Feature 1</Card.Title>
+              <Card.Title>Jisajili</Card.Title>
               <Card.Text>
-                Description of your first main feature or service.
+              Anza kwa kujisajili BURE! Mratibu wa shughuli au mtoa huduma.
               </Card.Text>
               <Button variant="primary">Learn More</Button>
             </Card.Body>
@@ -50,9 +72,9 @@ function Home() {
         <Col md={4}>
           <Card className="mb-4">
             <Card.Body>
-              <Card.Title>Feature 2</Card.Title>
+              <Card.Title>Weka Taarifa Zako</Card.Title>
               <Card.Text>
-                Description of your second main feature or service.
+              Pakia orodha ya wadau wako, weka taarifa za shughuli yako.
               </Card.Text>
               <Button variant="primary">Learn More</Button>
             </Card.Body>
@@ -61,9 +83,9 @@ function Home() {
         <Col md={4}>
           <Card className="mb-4">
             <Card.Body>
-              <Card.Title>Feature 3</Card.Title>
+              <Card.Title>Kuwa Online</Card.Title>
               <Card.Text>
-                Description of your third main feature or service.
+              Pata tovuti maalum kwaajili ya biashara/shughuli yako baada ya uhakiki.
               </Card.Text>
               <Button variant="primary">Learn More</Button>
             </Card.Body>
@@ -82,7 +104,7 @@ function Home() {
                 {[...Array(4)].map((_, idx) => (
                   <div className="col" key={idx}>
                     <div className="card shadow-sm">
-                      <a href="#">
+                      <a href="#!" aria-label="Event image">
                         <img src={image1} alt="Album content" className="bd-placeholder-img card-img-top" width="100%" height="225" />
                       </a>
                       <div className="card-body">
@@ -97,8 +119,7 @@ function Home() {
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                ))}              </div>
             </div>
           </div>
         </Col>
