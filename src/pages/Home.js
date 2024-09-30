@@ -1,6 +1,6 @@
 import React from 'react';
-import image1 from './images/1.jpg'; // Assuming you have an image named 1.jpg
-import image2 from './images/2.jpg';
+import image1 from '../images/1.jpg'; // Assuming you have an image named 1.jpg
+import image2 from '../images/2.jpg';
 import { Carousel, Container, Row, Col, Card, Button } from 'react-bootstrap';
 
 function Home() {

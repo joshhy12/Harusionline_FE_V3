@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './images/logo.png';
+import logo from '../images/logo.png';
 import { Container, Row, Col, Nav } from 'react-bootstrap';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
-import './styles/Footer.css'; // Import your CSS file for styling
+import '../styles/Footer.css'; 
 
 const Footer = () => {
 
@@ -40,10 +40,10 @@ const Footer = () => {
             <h5>Download Our App</h5>
             <div className="d-flex">
               <a href="https://www.apple.com" className="text-light me-3" target="_blank" rel="noopener noreferrer">
-                <img src={require('./images/app-apple.png')} alt="Apple App Store" style={{ width: '124px', height: '37px' }} />
+                <img src={require('../images/app-apple.png')} alt="Apple App Store" style={{ width: '124px', height: '37px' }} />
               </a>
               <a href="https://play.google.com" className="text-light" target="_blank" rel="noopener noreferrer">
-                <img src={require('./images/app-google.png')} alt="Google Play Store" style={{ width: '124px', height: '37px' }} />
+                <img src={require('../images/app-google.png')} alt="Google Play Store" style={{ width: '124px', height: '37px' }} />
               </a>
             </div>
             <div className="social-media-section">
