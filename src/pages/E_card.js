@@ -17,7 +17,7 @@ import image1 from '../images/1.jpg';
 import image2 from '../images/2.jpg';
 import image3 from '../images/3.jpg';
 import image4 from '../images/4.jpg';
-import '../styles/e-card.css'; // Import your CSS
+import '../styles/e-card.css'; 
 
 
 
