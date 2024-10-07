@@ -23,6 +23,7 @@ function Header() {
             <Nav.Link as={NavLink} to="/About" className="px-3" activeClassName="active-link">About</Nav.Link>
             <Nav.Link as={NavLink} to="/Contact" className="px-3" activeClassName="active-link">Contact</Nav.Link>
             <Nav.Link as={NavLink} to="/e_card" className="px-3" activeClassName="active-link">E-Card</Nav.Link>
+            <Nav.Link as={NavLink} to="/portfolio" className="px-3" activeClassName="active-link">Portfolio</Nav.Link>
           </Nav>
           <Nav className="ms-auto">
             <Button variant="outline-primary" className="me-2">Login</Button>

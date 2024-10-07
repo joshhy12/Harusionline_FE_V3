@@ -1,62 +1,68 @@
+.pinterest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Ensure 3 cards per row */
+  gap: 16px; /* Space between the cards */
+  justify-items: center; /* Center the cards horizontally */
+}
+
+@media (max-width: 1200px) {
+  .pinterest-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .pinterest-grid {
+    grid-template-columns: 1fr; /* 1 card per row for small screens */
+  }
+}
+
 .card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-  
-  .card-img-top {
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .card-body {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  
-  .card-text {
-    flex-grow: 1;
-  }
-  
-  .card-footer {
-    background-color: transparent;
-    border-top: none;
-    padding-top: 0;
-  }
-  
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .col-md-3 {
-    margin-bottom: 20px;
-  }
-  
-  @media (min-width: 768px) {
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      margin-right: -10px;
-      margin-left: -10px;
-    }
-    
-    .col-md-3 {
-      padding-right: 10px;
-      padding-left: 10px;
-    }
-  }
-  
+  width: 100%; /* Full column width */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Hover zoom effect */
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-title {
+  font-size: 1rem; /* Smaller title */
+  margin-bottom: 8px;
+}
+
+.card-text {
+  font-size: 0.8rem; /* Smaller description */
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.text-muted {
+  font-size: 0.8rem; /* Smaller price */
+  font-weight: bold;
+}
+
+button {
+  font-size: 0.8rem; /* Smaller button */
+  padding: 4px 10px;
+  border-radius: 20px;
+}
