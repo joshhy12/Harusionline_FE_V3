@@ -61,8 +61,20 @@
   font-weight: bold;
 }
 
-button {
-  font-size: 0.8rem; /* Smaller button */
-  padding: 4px 10px;
-  border-radius: 20px;
+.filter-btn {
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
 }
+
+.filter-btn:hover, .filter-btn:focus {
+  background-color: transparent;
+  color: #0056b3;
+  border-color: #0056b3;
+}
+
+.filter-btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
