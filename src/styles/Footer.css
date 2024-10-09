@@ -18,7 +18,7 @@
 
 
   #footer {
-    background: #587187;
+    background: #f8f9fa;
     padding: 0 0 30px 0;
     color: #0d0d0d;
     font-size: 14px;
@@ -92,7 +92,7 @@
 
   #footer .footer-top .footer-links ul i {
     padding-right: 2px;
-    color: #9eccf4;
+    color: #4a85ff;
     font-size: 18px;
     line-height: 1;
   }
@@ -115,7 +115,7 @@
   }
 
   #footer .footer-top .footer-links ul a:hover {
-    color: #727ea3;
+    color: #4a85ff;
   }
 
   #footer .footer-top .footer-newsletter form {
@@ -141,14 +141,14 @@
     background: none;
     font-size: 16px;
     padding: 0 20px;
-    background: #428bca;
+    background: #4a85ff;
     color: #fff;
     transition: 0.3s;
     border-radius: 4;
   }
 
   #footer .footer-top .footer-newsletter form input[type=submit]:hover {
-    background: #5295ce;
+    background: #054e8f;
   }
 
   #footer .copyright {
