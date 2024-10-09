@@ -43,8 +43,9 @@ const E_card = () => {
     default: 4,
     1100: 3,
     700: 2,
-    500: 1
+    500: 2  // Changed from 1 to 2
   };
+  
 
   return (
     <Container>
