@@ -17,7 +17,7 @@ const Contact = () => {
       <br></br>
       <section id="faq" className="faq section-bg">
         <div className="container" data-aos="fade-up">
-          <div className="section-title">
+          <div className="section-title text-center">
             <h2>Frequently Asked Questions</h2>
           </div>
           <div className="row d-flex align-items-stretch">
