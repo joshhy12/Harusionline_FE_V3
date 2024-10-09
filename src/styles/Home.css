@@ -1,0 +1,69 @@
+
+/*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+.services {
+    padding-bottom: 30px;
+  }
+  
+  .services .icon-box {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .services .icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.5s;
+    color: #4a85ff;
+    box-shadow: 0px 0 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  }
+  
+  .services .icon i {
+    font-size: 36px;
+    line-height: 0;
+  }
+  
+  .services .icon-box:hover .icon {
+    box-shadow: 0px 0 30px rgba(66, 139, 202, 0.5);
+  }
+  
+  .services .title {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .services .title a {
+    color: #444;
+    transition: 0.3s;
+  }
+  
+  .services .title a:hover {
+    color: #428bca;
+  }
+  
+  .services .title::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #4a85ff;
+    bottom: 0;
+    left: calc(50% - 25px);
+  }
+  
+  .services .description {
+    line-height: 24px;
+    font-size: 14px;
+  }

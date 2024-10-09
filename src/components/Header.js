@@ -17,19 +17,18 @@ function Header() {
           /> Harusi Online
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={NavLink} to="/Home" className="px-3" activeClassName="active-link">Home</Nav.Link>
-            <Nav.Link as={NavLink} to="/About" className="px-3" activeClassName="active-link">About</Nav.Link>
-            <Nav.Link as={NavLink} to="/Contact" className="px-3" activeClassName="active-link">Contact</Nav.Link>
-            <Nav.Link as={NavLink} to="/e_card" className="px-3" activeClassName="active-link">E-Card</Nav.Link>
-            <Nav.Link as={NavLink} to="/portfolio" className="px-3" activeClassName="active-link">Portfolio</Nav.Link>
-          </Nav>
-          <Nav className="ms-auto">
-            <Button variant="outline-primary" className="me-2">Login</Button>
-            <Button variant="primary">Sign Up</Button>
-          </Nav>
-        </Navbar.Collapse>
+<Navbar.Collapse id="basic-navbar-nav">
+  <Nav className="ms-auto">
+    <Nav.Link as={NavLink} to="/Home" className="px-3" activeClassName="active-link">Home</Nav.Link>
+    <Nav.Link as={NavLink} to="/About" className="px-3" activeClassName="active-link">About</Nav.Link>
+    <Nav.Link as={NavLink} to="/Contact" className="px-3" activeClassName="active-link">Contact</Nav.Link>
+    <Nav.Link as={NavLink} to="/e_card" className="px-3" activeClassName="active-link">E-Card</Nav.Link>
+    <Nav.Link as={NavLink} to="/portfolio" className="px-3" activeClassName="active-link">Portfolio</Nav.Link>
+    <Button variant="outline-primary" className="ms-3 me-2">Login</Button>
+    <Button variant="primary">Sign Up</Button>
+  </Nav>
+</Navbar.Collapse>
+
       </Container>
     </Navbar>
   );

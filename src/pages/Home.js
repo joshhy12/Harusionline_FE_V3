@@ -2,6 +2,9 @@ import React from 'react';
 import image1 from '../images/1.jpg'; // Assuming you have an image named 1.jpg
 import image2 from '../images/2.jpg';
 import { Carousel, Container, Row, Col, Card, Button } from 'react-bootstrap';
+import '../styles/Home.css'; 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 function Home() {
   return (
@@ -65,7 +68,7 @@ function Home() {
               <Card.Text>
               Anza kwa kujisajili BURE! Mratibu wa shughuli au mtoa huduma.
               </Card.Text>
-              <Button variant="primary">Learn More</Button>
+              <Button variant="outline-primary">Learn More</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -76,7 +79,7 @@ function Home() {
               <Card.Text>
               Pakia orodha ya wadau wako, weka taarifa za shughuli yako.
               </Card.Text>
-              <Button variant="primary">Learn More</Button>
+              <Button variant="outline-primary">Learn More</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -87,11 +90,57 @@ function Home() {
               <Card.Text>
               Pata tovuti maalum kwaajili ya biashara/shughuli yako baada ya uhakiki.
               </Card.Text>
-              <Button variant="primary">Learn More</Button>
+              <Button variant="outline-primary">Learn More</Button>
             </Card.Body>
           </Card>
         </Col>
       </Row>
+
+
+
+      <section id="services" className="services">
+        <div className="container" data-aos="fade-up">
+          <div className="section-title">
+            <h2>Services</h2>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div className="icon"><i className="bi bi-envelope-paper-heart"></i></div>
+            <h4 className="title">Kadi za Kidigitali</h4>
+              <p className="description"> Badala ya kuchapa kadi za mwaliko, tumia mfumo wetu kuunda kadi za kidigitali nzuri na zenye mvuto. Kadi hizi zinaweza kubinafsishwa kwa urahisi na kushirikiwa kwa njia ya kiungo au kupitia mitandao ya kijamii. </p>
+            </div>
+            <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div className="icon"><i className="bi bi-gift"></i></div>
+              <h4 className="title">Kukumbushia Michango</h4>
+              <p className="description"> Fuatilia kwa urahisi michango ya wageni wako. Mfumo wetu utakutumia taarifa za kila mchango na kukukumbusha kuwashukuru wageni. Ukiwa na kipengele hiki, utapanga bajeti yako kwa urahisi.</p>
+            </div>
+            <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div className="icon"><i className="bi bi-envelope"></i></div>
+              <h4 className="title">Mialiko ya SMS na Email</h4>
+              <p className="description">Fikia wageni wako wote kwa haraka na urahisi kwa kutuma mialiko ya harusi yako kupitia SMS na email. Unaweza kuambatisha kadi yako ya kidigitali moja kwa moja kwenye ujumbe.</p>
+            </div>
+            <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div className="icon"><i className="bi bi-people"></i></div>
+              <h4 className="title">Kamati</h4>
+              <p className="description"> Unda kamati ya harusi na uwape kila mmoja majukumu mahususi. Mfumo wetu utakusaidia kusimamia kazi zote za kamati na kuhakikisha kuwa kila kitu kinakwenda vizuri.</p>
+            </div>
+            <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div className="icon"><i className="bi bi-cash-coin"></i></div>
+              <h4 className="title">Ripoti za Fedha</h4>
+              <p className="description">Pata muhtasari kamili wa fedha zako zote za harusi. Ripoti zetu zitakusaidia kufuatilia gharama zako na kuhakikisha kuwa unabakia kwenye bajeti.</p>
+            </div>
+            <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+              <div className="icon"><i className="bi bi-globe"></i></div>
+              <h4 className="title">Tovuti ya Bure</h4>
+              <p className="description">Tunakupa tovuti yako ya harusi bila malipo ili uweze kushiriki maelezo yote muhimu kuhusu harusi yako na wageni wako. Tovuti hii itakuwa na muonekano mzuri na itakuwa rahisi kutumia kwenye simu.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      
 
       {/* Events Section */}
       <Row>

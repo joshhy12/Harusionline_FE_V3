@@ -16,7 +16,7 @@ import '../styles/e-card.css';
 
 
 export const items = [
-  { id: 1, title: 'Wedding Event', description: 'Beautiful wedding invitation for your big day.', image: image1, category: 'wedding', price: 'Tsh 400' },
+  { id: 1, title: 'Wedding Event', description: 'Beautiful wedding invitation for your big day.', image: image9, category: 'kitchen-party', price: 'Tsh 400' },
   { id: 2, title: 'Send Off Event', description: 'Elegant send off celebration card.', image: image10, category: 'send-off', price: 'Tsh 900' },
   { id: 3, title: 'Kitchen Party Event', description: 'Bright kitchen party invitation with modern design.', image: image3, category: 'kitchen-party', price: 'Tsh 600' },
   { id: 4, title: 'Anniversary Event', description: 'Celebrate your special anniversary with this card.', image: image4, category: 'anniversary', price: 'Tsh 600' },
