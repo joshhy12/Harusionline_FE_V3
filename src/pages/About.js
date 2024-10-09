@@ -1,57 +1,44 @@
-  import React from 'react';
-  import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import React from 'react';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import '../styles/About.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+const About = () => {
+  return (
+    <Container className="my-5">
+      <Row>
+        <Col>
+          <h1 className="text-center mb-4">Kuhusu Sisi</h1>
+          <p>
+            Tunakupa njia rahisi na ya kufurahisha ya kupanga harusi yako ndoto. Mfumo wetu wa kupanga harusi mtandaoni umekusudiwa kukusaidia katika kila hatua, kutoka kwa kutuma mialiko hadi kufuatilia michango. Kwa kutumia teknolojia ya kisasa, tunakuwezesha kusimamia maelezo yote muhimu ya harusi yako kutoka kwenye simu yako.
+          </p>
+          <h2 className="mt-4 mb-3">Kwa nini ututue?</h2>
+          <ul>
+            <li><strong>Rahisi kutumia:</strong> Mfumo wetu umeundwa kwa ajili ya kila mtu, hata kama wewe si mtaalamu wa teknolojia.</li>
+            <li><strong>Ufanisi:</strong> Okoa muda na ujitahidi kidogo kwa kupanga harusi yako mtandaoni.</li>
+            <li><strong>Binafsisha:</strong> Fanya harusi yako iwe ya kipekee kwa kubinafsisha kila kitu kutoka kwa mialiko hadi kwenye tovuti yako ya harusi.</li>
+          </ul>
+          <h2 className="mt-4 mb-3">Vipengele vyetu muhimu:</h2>
+          <ul>
+            <li>Kadi za mwaliko za kidigitali zinazobinafsishwa</li>
+            <li>Ufuatiliaji wa RSVP na michango</li>
+            <li>Tovuti ya harusi iliyotengenezwa tayari</li>
+            <li>Usimamizi wa orodha ya wageni</li>
+            <li>Na mengi zaidi!</li>
+          </ul>
+          <h2 className="mt-4 mb-3">Ubora wetu:</h2>
+          <ul>
+            <li>Ulinzi wa data salama</li>
+            <li>Huduma kwa wateja wa hali ya juu</li>
+            <li>Zana za kisasa za kupanga harusi</li>
+          </ul>
+          <div className="text-center mt-5">
+            <h3>Tayari kuanza kupanga harusi yako ya ndoto?</h3>
+            <Button variant="btn btn-outline-primary" size="lg" className="btn btn-outline-primary">Jisajili Sasa</Button>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
+};
 
-  const About = () => {
-    return (
-      <Container className="my-5">
-        <Row>
-          <Col>
-            <h1 className="text-center mb-4">About Us</h1>
-            <Card className="mb-4">
-              <Card.Body>
-                <Card.Text>
-                  Welcome to our company! We are passionate about delivering high-quality products and services to our customers.
-                </Card.Text>
-                <Card.Text>
-                  Our mission is to innovate and create solutions that make a positive impact on people's lives.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          
-            <h2 className="mb-3">Our Values</h2>
-            <Card className="mb-4">
-              <Card.Body>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">Customer Satisfaction</li>
-                  <li className="list-group-item">Innovation</li>
-                  <li className="list-group-item">Integrity</li>
-                  <li className="list-group-item">Teamwork</li>
-                </ul>
-              </Card.Body>
-            </Card>
-          
-            <h2 className="mb-3">Our Team</h2>
-            <Card className="mb-4">
-              <Card.Body>
-                <Card.Text>
-                  We have a dedicated team of professionals who are experts in their respective fields. Together, we work towards achieving our goals and exceeding customer expectations.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          
-            <h2 className="mb-3">Contact Us</h2>
-            <Card>
-              <Card.Body>
-                <Card.Text>
-                  If you have any questions or would like to learn more about our company, please don't hesitate to reach out to us.
-                </Card.Text>
-                <Button href="mailto:info@ourcompany.com" variant="primary">Email Us</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    );
-  };
-
-  export default About;
+export default About;

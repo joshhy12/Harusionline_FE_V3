@@ -39,6 +39,21 @@ const Contact = () => {
               Yes, our system is designed to be intuitive and easy to use, even for those who aren't tech-savvy.
               </p>
             </div>
+            <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
+              <h4>Can I create digital invitations?</h4>
+              <p>
+              Absolutely! Our system allows you to design and send beautiful digital invitations to your guests              </p>
+            </div>
+            <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
+              <h4>How does the guest list feature work?</h4>
+              <p>
+              You can easily add guests, track RSVPs, and manage seating arrangements.              </p>
+            </div>
+            <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
+              <h4>Is there a feature for finding vendors?</h4>
+              <p>
+              We offer a directory of trusted wedding vendors to help you find the perfect professionals for your day.              </p>
+            </div>
             {/* Add more FAQ items here */}
           </div>
         </div>
