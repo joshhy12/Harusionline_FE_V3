@@ -2,6 +2,24 @@
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
+
+.btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .card .btn-group .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+
 .services {
     padding-bottom: 30px;
   }
