@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRef } from 'react';
 import image1 from '../images/1.jpg'; // Assuming you have an image named 1.jpg
 import image2 from '../images/2.jpg';
 import { Carousel, Container, Row, Col, Card, Button } from 'react-bootstrap';
@@ -7,6 +8,80 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 function Home() {
+  
+  const events = [
+    {
+      id: 1,
+      title: "Wedding of Lillian and John",
+      description: "A beautiful garden wedding ceremony",
+      image: image1,
+      year: "2023"
+    },
+    {
+      id: 2,
+      title: "Emily's 30th Birthday Bash",
+      description: "Celebrating three decades of awesomeness",
+      image: image2,
+      year: "2023"
+    },
+    {
+      id: 3,
+      title: "Annual Charity Gala",
+      description: "Raising funds for children's education",
+      image: image1,
+      year: "2023"
+    },
+    {
+      id: 4,
+      title: "Tech Conference 2023",
+      description: "Exploring the latest in AI and machine learning",
+      image: image2,
+      year: "2023"
+    },
+    {
+      id: 5,
+      title: "Summer Music Festival",
+      description: "Three days of non-stop music and fun",
+      image: image1,
+      year: "2023"
+    },
+    {
+      id: 6,
+      title: "Corporate Team Building Retreat",
+      description: "Strengthening bonds and boosting morale",
+      image: image2,
+      year: "2023"
+    },
+    {
+      id: 7,
+      title: "Art Exhibition Opening Night",
+      description: "Showcasing local artists' latest works",
+      image: image1,
+      year: "2023"
+    },
+    {
+      id: 8,
+      title: "Food and Wine Tasting Event",
+      description: "Indulge in gourmet delights and fine wines",
+      image: image2,
+      year: "2023"
+    }
+  ];
+
+
+  const scrollContainerRef = useRef(null);
+
+  const scroll = (direction) => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      const scrollAmount = direction === 'left' ? -300 : 300;
+      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+
+  
+
   return (
     <Container className="my-5">
       {/* Carousel Section */}
@@ -145,35 +220,35 @@ function Home() {
       {/* Events Section */}
       <Row>
         <Col md={12}>
-          <h2 className="text-center mb-4">Events Za Leo</h2>
-          <div className="album py-5 bg-light">
-            <div className="container">
-              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-                {/* Repeat the card structure */}
-                {[...Array(4)].map((_, idx) => (
-                  <div className="col" key={idx}>
-                    <div className="card shadow-sm">
-                      <a href="#!" aria-label="Event image">
-                        <img src={image1} alt="Album content" className="bd-placeholder-img card-img-top" width="100%" height="225" />
-                      </a>
-                      <div className="card-body">
-                        <h5 className="card-title">Image Title</h5>
-                        <p className="card-text">This is a detailed description of the image.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                          <div className="btn-group">
+        <h2 className="text-center mb-4">Events Za Leo</h2>
+        <div className="events-container position-relative">
+        <button className="btn btn-primary scroll-btn left" onClick={() => scroll('left')}>&lt;</button>
+        <div className="events-scroll" ref={scrollContainerRef}>
+              {events.map((event) => (
+                <div className="event-card" key={event.id}>
+                  <div className="card shadow-sm">
+                    <a href="#!" aria-label={event.title}>
+                      <img src={event.image} alt={event.title} className="bd-placeholder-img card-img-top" width="100%" height="225" />
+                    </a>
+                    <div className="card-body">
+                      <h5 className="card-title">{event.title}</h5>
+                      {/* <p className="card-text">{event.description}</p> */}
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="btn-group">
                           <button type="button" className="btn btn-sm btn-outline-primary">View</button>
-
-                          </div>
-                          <small className="text-muted">2024</small>
                         </div>
+                        <small className="text-muted">{event.year}</small>
                       </div>
                     </div>
                   </div>
-                ))}              </div>
+                </div>
+              ))}
             </div>
+            <button className="btn btn-primary scroll-btn right" onClick={() => scroll('right')}>&gt;</button>
           </div>
         </Col>
       </Row>
+
 
       {/* Watoa Huduma Section */}
       <Row>
@@ -192,7 +267,7 @@ function Home() {
                         <p className="card-text">This is a detailed description of the image.</p>
                         <div className="d-flex justify-content-between align-items-center">
                           <div className="btn-group">
-<button type="button" className="btn btn-sm btn-outline-primary">View</button>
+                            <button type="button" className="btn btn-sm btn-outline-primary">View</button>
                           </div>
                         </div>
                       </div>
