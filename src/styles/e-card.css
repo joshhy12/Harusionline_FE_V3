@@ -1,64 +1,53 @@
-.pinterest-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Ensure 3 cards per row */
-  gap: 16px; /* Space between the cards */
-  justify-items: center; /* Center the cards horizontally */
+.my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -30px;
+  width: auto;
 }
 
-@media (max-width: 1200px) {
-  .pinterest-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row for medium screens */
-  }
+.my-masonry-grid_column {
+  padding-left: 30px;
+  background-clip: padding-box;
 }
 
-@media (max-width: 768px) {
-  .pinterest-grid {
-    grid-template-columns: 1fr; /* 1 card per row for small screens */
-  }
-}
-
-.card {
-  width: 100%; /* Full column width */
+.card-wrapper {
+  margin-bottom: 30px;
+  break-inside: avoid;
+  width: 100%;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
 }
 
-.card:hover {
-  transform: scale(1.05); /* Hover zoom effect */
+.card-wrapper:hover {
+  transform: scale(1.05);
 }
 
 .card-img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  display: block;
 }
 
-.card-body {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+@media (max-width: 1200px) {
+  .my-masonry-grid {
+    margin-left: -15px;
+  }
+  .my-masonry-grid_column {
+    padding-left: 15px;
+  }
 }
 
-.card-title {
-  font-size: 1rem; /* Smaller title */
-  margin-bottom: 8px;
-}
-
-.card-text {
-  font-size: 0.8rem; /* Smaller description */
-  color: #555;
-  margin-bottom: 8px;
-}
-
-.text-muted {
-  font-size: 0.8rem; /* Smaller price */
-  font-weight: bold;
+@media (max-width: 800px) {
+  .my-masonry-grid {
+    margin-left: -15px;
+  }
+  .my-masonry-grid_column {
+    padding-left: 15px;
+  }
 }
 
 .filter-btn {
@@ -77,4 +66,3 @@
   background-color: #007bff;
   color: white;
 }
-
