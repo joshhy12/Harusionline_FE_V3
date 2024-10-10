@@ -1,14 +1,15 @@
 import React from 'react';
 import { useRef } from 'react';
-import image1 from '../images/1.jpg'; // Assuming you have an image named 1.jpg
+import image1 from '../images/1.jpg';
 import image2 from '../images/2.jpg';
+import logo from '../images/logo.png';
 import { Carousel, Container, Row, Col, Card, Button } from 'react-bootstrap';
-import '../styles/Home.css'; 
+import '../styles/Home.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 function Home() {
-  
+
   const events = [
     {
       id: 1,
@@ -80,55 +81,45 @@ function Home() {
   };
 
 
-  
+
 
   return (
     <Container className="my-5">
       {/* Carousel Section */}
-      <Row className="justify-content-center mb-5">
-        <Col xs={12}>
-          <Carousel>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={image2}
-                alt="First slide"
-                style={{ objectFit: 'cover', height: '80vh' }}
-              />
-              <Carousel.Caption>
-                <h1 className="display-4 mb-4">HARUSI ONLINE</h1>
-                <p className="lead mb-5">Panga & Ratibu Shughuli yako, BURE!.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
 
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={image2}
-                alt="Second slide"
-                style={{ objectFit: 'cover', height: '80vh' }}
-              />
-              <Carousel.Caption>
-                <h1 className="display-4 mb-4">TUMA KADI ZA KIDIGITALI </h1>
-                <p className="lead mb-5">kupitia huduma kama kutuma taarifa, kupanga bajeti, kupokea na kurekodi taarifa za fedha, kukukutanisha na watoa huduma na huduma nyingine nyingi..</p>
-              </Carousel.Caption>
-            </Carousel.Item>
 
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={image2}
-                alt="Third slide"
-                style={{ objectFit: 'cover', height: '80vh' }}
-              />
-              <Carousel.Caption>
-                <h1 className="display-4 mb-4">KUMBUSHIA MICHANGO</h1>
-                <p className="lead mb-5">Harusi online ni mfumo unaorahisisha kupangilia & kuratibu shughuli yako bure.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
+
+
+      <Row className="align-items-start">
+        <Col xs={12} md={6} className="text-center text-md-start mt-5">
+
+          <h1 className="main-title">Panga & Ratibu Shughuli yako, BURE!</h1>
+          <p className="description">
+            Harusi online ni mfumo unaorahisisha kupangilia & kuratibu shughuli yako bure kupitia huduma kama kutuma taarifa, kupanga bajeti, kupokea na kurekodi taarifa za fedha, kukutanisha na watoa huduma, mialiko ya kidijitali na huduma nyingine nyingi.. Vilevile tunawakutanisha wanakamati wa shughuli na watoa huduma kama ukumbi, chakula nk.
+          </p>
+          <div className="d-flex justify-content-center justify-content-md-start mt-4">
+            <Button variant="primary" className="me-3">Sajili Shughuli</Button>
+            <Button variant="outline-primary">Watoa Huduma</Button>
+          </div>
         </Col>
+        <Col xs={12} md={6} className="text-center position-relative">
+          <img src={require('../images/homie1.png')} alt="Bride and Groom" className="bride-image w-100" />
+          <div className="position-absolute top-0 start-0 p-3">
+            <a href="https://apps.apple.com/us/app/harusi-online/id1629222934" target="_blank" rel="noopener noreferrer">
+              <img src={require('../images/apple.png')} alt="Get it on the App Store" className="store-badge" style={{ width: '150px', height: 'auto' }} />
+            </a>
+          </div>
+          <div className="position-absolute bottom-0 end-0 p-3">
+            <a href="https://play.google.com/store/apps/details?id=harusi.online.mobile&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+              <img src={require('../images/android.png')} alt="Get it on Google Play" className="store-badge" style={{ width: '150px', height: 'auto' }} />
+            </a>
+          </div>
+        </Col>
+
+
+
       </Row>
+
 
 
 
@@ -141,7 +132,7 @@ function Home() {
             <Card.Body>
               <Card.Title>Jisajili</Card.Title>
               <Card.Text>
-              Anza kwa kujisajili BURE! Mratibu wa shughuli au mtoa huduma.
+                Anza kwa kujisajili BURE! Mratibu wa shughuli au mtoa huduma.
               </Card.Text>
               <Button variant="outline-primary">Learn More</Button>
             </Card.Body>
@@ -152,7 +143,7 @@ function Home() {
             <Card.Body>
               <Card.Title>Weka Taarifa Zako</Card.Title>
               <Card.Text>
-              Pakia orodha ya wadau wako, weka taarifa za shughuli yako.
+                Pakia orodha ya wadau wako, weka taarifa za shughuli yako.
               </Card.Text>
               <Button variant="outline-primary">Learn More</Button>
             </Card.Body>
@@ -163,7 +154,7 @@ function Home() {
             <Card.Body>
               <Card.Title>Kuwa Online</Card.Title>
               <Card.Text>
-              Pata tovuti maalum kwaajili ya biashara/shughuli yako baada ya uhakiki.
+                Pata tovuti maalum kwaajili ya biashara/shughuli yako baada ya uhakiki.
               </Card.Text>
               <Button variant="outline-primary">Learn More</Button>
             </Card.Body>
@@ -181,8 +172,8 @@ function Home() {
 
           <div className="row">
             <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div className="icon"><i className="bi bi-envelope-paper-heart"></i></div>
-            <h4 className="title">Kadi za Kidigitali</h4>
+              <div className="icon"><i className="bi bi-envelope-paper-heart"></i></div>
+              <h4 className="title">Kadi za Kidigitali</h4>
               <p className="description"> Badala ya kuchapa kadi za mwaliko, tumia mfumo wetu kuunda kadi za kidigitali nzuri na zenye mvuto. Kadi hizi zinaweza kubinafsishwa kwa urahisi na kushirikiwa kwa njia ya kiungo au kupitia mitandao ya kijamii. </p>
             </div>
             <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
@@ -215,15 +206,15 @@ function Home() {
       </section>
 
 
-      
+
 
       {/* Events Section */}
       <Row>
         <Col md={12}>
-        <h2 className="text-center mb-4">Events Za Leo</h2>
-        <div className="events-container position-relative">
-        <button className="btn btn-primary scroll-btn left" onClick={() => scroll('left')}>&lt;</button>
-        <div className="events-scroll" ref={scrollContainerRef}>
+          <h2 className="text-center mb-4">Events Za Leo</h2>
+          <div className="events-container position-relative">
+            <button className="btn btn-primary scroll-btn left" onClick={() => scroll('left')}>&lt;</button>
+            <div className="events-scroll" ref={scrollContainerRef}>
               {events.map((event) => (
                 <div className="event-card" key={event.id}>
                   <div className="card shadow-sm">
