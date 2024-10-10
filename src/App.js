@@ -8,6 +8,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import E_card from './pages/E_card';
 import CardDetails from './pages/CardDetails';
+import Gharama from './pages/Gharama';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/e_card" element={<E_card/>} />
             <Route path="/card-details/:id" element={<CardDetails />} />
+            <Route path="/gharama" element={<Gharama />} />
           </Routes>
         </main>
 

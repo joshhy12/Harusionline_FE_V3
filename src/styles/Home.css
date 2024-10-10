@@ -61,6 +61,12 @@
   }
 }
 
+.custom-button:hover {
+  color: white !important;
+  background-color: #4a85ff !important;
+  border-color: #4a85ff !important;
+}
+
 
 
 

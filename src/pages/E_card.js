@@ -49,6 +49,7 @@ const E_card = () => {
 
   return (
     <Container>
+      <br></br>
       <h2 className="text-center mb-4">Digital Card</h2>
       <div className="text-center mb-4">
         <Button variant="outline-primary" onClick={() => handleFilterChange('all')} className={`m-1 ${filter === 'all' ? 'active' : ''}`}>All</Button>

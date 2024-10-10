@@ -88,8 +88,7 @@ function Home() {
       {/* Carousel Section */}
 
 
-
-
+  {/* Home panel Section */}
       <Row className="align-items-start">
         <Col xs={12} md={6} className="text-center text-md-start mt-5">
 
@@ -97,10 +96,21 @@ function Home() {
           <p className="description">
             Harusi online ni mfumo unaorahisisha kupangilia & kuratibu shughuli yako bure kupitia huduma kama kutuma taarifa, kupanga bajeti, kupokea na kurekodi taarifa za fedha, kukutanisha na watoa huduma, mialiko ya kidijitali na huduma nyingine nyingi.. Vilevile tunawakutanisha wanakamati wa shughuli na watoa huduma kama ukumbi, chakula nk.
           </p>
+
           <div className="d-flex justify-content-center justify-content-md-start mt-4">
-            <Button variant="primary" className="me-3">Sajili Shughuli</Button>
-            <Button variant="outline-primary">Watoa Huduma</Button>
+            <Button
+              variant="outline-primary"
+              className="px-4 py-2 rounded-pill fw-bold custom-button"
+              style={{
+                color: '#24366b',
+                borderColor: '#24366b',
+                transition: 'all 0.3s ease'
+              }}
+            >
+              Jisajili sasa
+            </Button>
           </div>
+
         </Col>
         <Col xs={12} md={6} className="text-center position-relative">
           <img src={require('../images/homie1.png')} alt="Bride and Groom" className="bride-image w-100" />
@@ -115,14 +125,11 @@ function Home() {
             </a>
           </div>
         </Col>
-
-
-
       </Row>
 
 
 
-
+<br></br>
 
 
       {/* Features Section */}
