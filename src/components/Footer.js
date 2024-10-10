@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from '../images/logo.png';
 import { Container, Row, Col, Nav } from 'react-bootstrap';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import '../styles/Footer.css';
 import { Link } from 'react-router-dom';
 
@@ -49,7 +47,7 @@ const Footer = () => {
             <Col lg={3} md={6} className="footer-links">
               <h4>Our Services</h4>
               <ul>
-              <li><i className="bi bi-chevron-right"></i> <Link to="/WatoaHuduma">Watoa Huduma</Link></li>
+              <li><i className="bi bi-chevron-right"></i> <Link to="/Events">All Events</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="#tuma-taarifa">Tuma Taarifa</Link></li>
                 <li><i className="bx bi-chevron-right"></i> <Link to="/e_card">Kadi za Kidigitali</Link></li>
                 <li><i className="bx bi-chevron-right"></i> <Link to="#tuma-mialiko">Tuma Mialiko</Link></li>
