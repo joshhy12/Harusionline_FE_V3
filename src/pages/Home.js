@@ -2,10 +2,12 @@ import React from 'react';
 import { useRef } from 'react';
 import image1 from '../images/1.jpg';
 import image2 from '../images/2.jpg';
-import logo from '../images/logo.png';
-import { Carousel, Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { FaUserPlus, FaHandshake, FaEnvelopeOpenText } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import homepanelImage from '../images/homepanel.svg';
 
 
 function Home() {
@@ -88,7 +90,7 @@ function Home() {
       {/* Carousel Section */}
 
 
-  {/* Home panel Section */}
+      {/* Home panel Section */}
       <Row className="align-items-start">
         <Col xs={12} md={6} className="text-center text-md-start mt-5">
 
@@ -113,7 +115,7 @@ function Home() {
 
         </Col>
         <Col xs={12} md={6} className="text-center position-relative">
-          <img src={require('../images/homie1.png')} alt="Bride and Groom" className="bride-image w-100" />
+          <img src={homepanelImage} alt="Bride and Groom" className="bride-image w-100" />
           <div className="position-absolute top-0 start-0 p-3">
             <a href="https://apps.apple.com/us/app/harusi-online/id1629222934" target="_blank" rel="noopener noreferrer">
               <img src={require('../images/apple.png')} alt="Get it on the App Store" className="store-badge" style={{ width: '150px', height: 'auto' }} />
@@ -129,45 +131,44 @@ function Home() {
 
 
 
-<br></br>
+      <br></br>
 
 
-      {/* Features Section */}
-      <Row>
-        <Col md={4}>
-          <Card className="mb-4">
-            <Card.Body>
-              <Card.Title>Jisajili</Card.Title>
-              <Card.Text>
-                Anza kwa kujisajili BURE! Mratibu wa shughuli au mtoa huduma.
-              </Card.Text>
-              <Button variant="outline-primary">Learn More</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card className="mb-4">
-            <Card.Body>
-              <Card.Title>Weka Taarifa Zako</Card.Title>
-              <Card.Text>
-                Pakia orodha ya wadau wako, weka taarifa za shughuli yako.
-              </Card.Text>
-              <Button variant="outline-primary">Learn More</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card className="mb-4">
-            <Card.Body>
-              <Card.Title>Kuwa Online</Card.Title>
-              <Card.Text>
-                Pata tovuti maalum kwaajili ya biashara/shughuli yako baada ya uhakiki.
-              </Card.Text>
-              <Button variant="outline-primary">Learn More</Button>
-            </Card.Body>
-          </Card>
-        </Col>
+
+
+
+      <Row className="my-5 g-4">
+        {[
+          { icon: FaUserPlus, title: "Jisajili", text: "Anza kwa kujisajili BURE! Mratibu wa shughuli au mtoa huduma.", link: "#" },
+          { icon: FaHandshake, title: "Watoa Huduma ", text: "Tizama Watoa Huduma Wetu,ili kuweza Kujipatia Mziki,Mapambo,Usafiri,Chakula.", link: "/WatoaHuduma" },
+          { icon: FaEnvelopeOpenText, title: "Kadi za Kidigitali", text: "Tuma mialiko ya harusi yako kwa njia ya kidigitali, na uhifadhi pesa na karatasi.", link: "/e_card" }
+        ].map((item, index) => (
+          <Col key={index} xs={12} sm={6} md={4} className="d-flex">
+            <Card className="mb-4 shadow-sm hover-card w-100">
+              <Card.Body className="d-flex flex-column">
+                <div className="text-center mb-3">
+                  <item.icon size={40} color="#4a85ff" />
+                </div>
+                <Card.Title className="text-center fs-5">{item.title}</Card.Title>
+                <Card.Text className="text-center flex-grow-1 small">{item.text}</Card.Text>
+                <Button
+                  as={Link}
+                  to={item.link}
+                  variant="outline-primary"
+                  size="sm"
+                  className="mt-3 rounded-pill mx-auto d-block"
+                  style={{ width: 'fit-content' }}
+                >
+                  Click Here
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
       </Row>
+
+
+
 
 
 
@@ -215,68 +216,85 @@ function Home() {
 
 
 
-      {/* Events Section */}
       <Row>
-        <Col md={12}>
-          <h2 className="text-center mb-4">Events Za Leo</h2>
-          <div className="events-container position-relative">
-            <button className="btn btn-primary scroll-btn left" onClick={() => scroll('left')}>&lt;</button>
-            <div className="events-scroll" ref={scrollContainerRef}>
-              {events.map((event) => (
-                <div className="event-card" key={event.id}>
-                  <div className="card shadow-sm">
-                    <a href="#!" aria-label={event.title}>
-                      <img src={event.image} alt={event.title} className="bd-placeholder-img card-img-top" width="100%" height="225" />
-                    </a>
-                    <div className="card-body">
-                      <h5 className="card-title">{event.title}</h5>
-                      {/* <p className="card-text">{event.description}</p> */}
-                      <div className="d-flex justify-content-between align-items-center">
-                        <div className="btn-group">
-                          <button type="button" className="btn btn-sm btn-outline-primary">View</button>
-                        </div>
-                        <small className="text-muted">{event.year}</small>
-                      </div>
-                    </div>
+  <Col md={12}>
+    <div className="events-container position-relative">
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2 className="mb-0">Events Za Leo</h2>
+        <Button as="a" href="/events" variant="outline-primary" className="see-all-button rounded-pill">
+          All Events 
+        </Button>
+      </div>
+      <button className="btn btn-primary scroll-btn left" onClick={() => scroll('left')}>&lt;</button>
+      <div className="events-scroll" ref={scrollContainerRef}>
+        {events.map((event) => (
+          <div className="event-card" key={event.id}>
+            <div className="card shadow-sm">
+              <a href="#!" aria-label={event.title}>
+                <img src={event.image} alt={event.title} className="bd-placeholder-img card-img-top" width="100%" height="225" />
+              </a>
+              <div className="card-body">
+                <h5 className="card-title">{event.title}</h5>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-primary">View</button>
                   </div>
+                  <small className="text-muted">{event.year}</small>
                 </div>
-              ))}
+              </div>
             </div>
-            <button className="btn btn-primary scroll-btn right" onClick={() => scroll('right')}>&gt;</button>
           </div>
-        </Col>
-      </Row>
+        ))}
+      </div>
+      <button className="btn btn-primary scroll-btn right" onClick={() => scroll('right')}>&gt;</button>
+    </div>
+  </Col>
+</Row>
+
+
 
 
       {/* Watoa Huduma Section */}
       <Row>
-        <Col md={12}>
-          <h2 className="text-center mb-4">Watoa Huduma</h2>
-          <div className="album py-5 bg-light">
-            <div className="container">
-              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-                {/* Repeat the card structure */}
-                {[...Array(4)].map((_, idx) => (
-                  <div className="col" key={idx}>
-                    <div className="card shadow-sm">
-                      <img src={image1} alt="Album content" className="bd-placeholder-img card-img-top" width="100%" height="225" />
-                      <div className="card-body">
-                        <h5 className="card-title">Image Title</h5>
-                        <p className="card-text">This is a detailed description of the image.</p>
-                        <div className="d-flex justify-content-between align-items-center">
-                          <div className="btn-group">
-                            <button type="button" className="btn btn-sm btn-outline-primary">View</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+  <Col md={12}>
+    <div className="events-container position-relative">
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2 className="mb-0">Watoa Huduma </h2>
+        <Button as="a" href="/WatoaHuduma" variant="outline-primary" className="see-all-button rounded-pill">
+        Watoa Huduma Wote
+        </Button>
+      </div>
+      <button className="btn btn-primary scroll-btn left" onClick={() => scroll('left')}>&lt;</button>
+      <div className="events-scroll" ref={scrollContainerRef}>
+        {events.map((event) => (
+          <div className="event-card" key={event.id}>
+            <div className="card shadow-sm">
+              <a href="#!" aria-label={event.title}>
+                <img src={event.image} alt={event.title} className="bd-placeholder-img card-img-top" width="100%" height="225" />
+              </a>
+              <div className="card-body">
+                <h5 className="card-title">{event.title}</h5>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="btn-group">
+                    <button type="button" className="btn btn-sm btn-outline-primary">View</button>
                   </div>
-                ))}
+                  <small className="text-muted">{event.year}</small>
+                </div>
               </div>
             </div>
           </div>
-        </Col>
-      </Row>
+        ))}
+      </div>
+      <button className="btn btn-primary scroll-btn right" onClick={() => scroll('right')}>&gt;</button>
+    </div>
+  </Col>
+</Row>
+
+
+
+
+
+
     </Container>
   );
 }

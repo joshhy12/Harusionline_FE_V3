@@ -1,0 +1,45 @@
+.events-container {
+    font-family: 'The Seasons', sans-serif;
+    padding: 20px;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .filter-buttons .btn {
+    margin: 5px;
+  }
+  
+ .event-card {
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .event-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    background-color: #7094FF;
+    color: white;
+    border-radius: 15px;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+  }
+  
+  .event-date {
+    color: #6c757d;
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 576px) {
+    .events-container .row {
+      justify-content: center;
+    }
+  }

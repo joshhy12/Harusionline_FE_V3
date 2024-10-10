@@ -11,6 +11,7 @@ import CardDetails from './pages/CardDetails';
 import Gharama from './pages/Gharama';
 import TermsAndConditions from './pages/TermsAndConditions';
 import WatoaHuduma from './pages/WatoaHuduma';
+import Events from './pages/Events';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/gharama" element={<Gharama />} />
             <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
             <Route path="/WatoaHuduma" element={<WatoaHuduma />} />
+            <Route path="/Events" element={<Events />} />
           </Routes>
         </main>
 

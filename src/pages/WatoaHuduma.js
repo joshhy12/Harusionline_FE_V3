@@ -1,13 +1,14 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import image1 from '../images/1.jpg';
+import image2 from '../images/2.jpg';
 
 const serviceProviders = [
-  { id: 1, name: 'Mpishi Bora', service: 'Catering', image: 'path/to/image1.jpg' },
-  { id: 2, name: 'Picha Nzuri', service: 'Photography', image: 'path/to/image2.jpg' },
-  { id: 3, name: 'Muziki Safi', service: 'DJ Services', image: 'path/to/image3.jpg' },
-  { id: 4, name: 'Mapambo Yetu', service: 'Decoration', image: 'path/to/image4.jpg' },
+  { id: 1, name: 'Mpishi Bora', service: 'Catering', image: image1 },
+  { id: 2, name: 'Picha Nzuri', service: 'Photography', image: image2 },
+  { id: 3, name: 'Muziki Safi', service: 'DJ Services', image: image1 },
+  { id: 4, name: 'Mapambo Yetu', service: 'Decoration', image: image2 },
 ];
-
 function WatoaHuduma() {
   return (
     <Container className="my-5">

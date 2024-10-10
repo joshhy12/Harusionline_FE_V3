@@ -41,7 +41,7 @@ const Footer = () => {
               <ul>
                 <li><i className="bi bi-chevron-right"></i> <Link to="/">Home</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="/about">About us</Link></li>
-                <li><i className="bi bi-chevron-right"></i> <Link to="#services">Services</Link></li>
+                <li><i className="bi bi-chevron-right"></i> <Link to="/Gharama">Gharama</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="/e_card">E-Card</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="">Jisajili</Link></li>
               </ul>
@@ -49,9 +49,9 @@ const Footer = () => {
             <Col lg={3} md={6} className="footer-links">
               <h4>Our Services</h4>
               <ul>
+              <li><i className="bi bi-chevron-right"></i> <Link to="/WatoaHuduma">Watoa Huduma</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="#tuma-taarifa">Tuma Taarifa</Link></li>
-                <li><i className="bi bi-chevron-right"></i> <Link to="#kumbusha-michango">Kumbusha Michango</Link></li>
-                <li><i className="bx bi-chevron-right"></i> <Link to="#kadi-za-kidigitali">Kadi za Kidigitali</Link></li>
+                <li><i className="bx bi-chevron-right"></i> <Link to="/e_card">Kadi za Kidigitali</Link></li>
                 <li><i className="bx bi-chevron-right"></i> <Link to="#tuma-mialiko">Tuma Mialiko</Link></li>
                 <li><i className="bx bi-chevron-right"></i> <Link to="#ripori-ya-fedha">Ripori ya Fedha</Link></li>
               </ul>

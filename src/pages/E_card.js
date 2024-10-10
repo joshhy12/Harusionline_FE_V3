@@ -20,14 +20,16 @@ export const items = [
   { id: 2, title: 'Send Off Event', image: image10, category: 'send-off', price: 'Tsh 900' },
   { id: 3, title: 'Kitchen Party Event', image: image3, category: 'kitchen-party', price: 'Tsh 600' },
   { id: 4, title: 'Anniversary Event', image: image4, category: 'anniversary', price: 'Tsh 600' },
-  { id: 5, title: 'Birthday Party', image: image6, category: 'wedding', price: 'Tsh 1400' },
+  { id: 5, title: 'Birthday Party', image: image1, category: 'wedding', price: 'Tsh 1400' },
   { id: 6, title: 'Graduation Ceremony', image: image2, category: 'send-off', price: 'Tsh 200' },
   { id: 7, title: 'Baby Shower', image: image9, category: 'send-off', price: 'Tsh 1000' },
   { id: 8, title: 'Corporate Event', image: image5, category: 'anniversary', price: 'Tsh 400' },
   { id: 9, title: 'Engagement Party', image: image10, category: 'kitchen-party', price: 'Tsh 800' },
   { id: 10, title: 'Retirement Celebration', image: image8, category: 'anniversary', price: 'Tsh 600' },
   { id: 11, title: 'Housewarming Party', image: image7, category: 'wedding', price: 'Tsh 500' },
-  { id: 12, title: 'Another Housewarming', image: image11, category: 'anniversary', price: 'Tsh 700' }
+  { id: 12, title: 'Another Housewarming', image: image11, category: 'anniversary', price: 'Tsh 700' },
+  { id: 12, title: 'Another Housewarming', image: image6, category: 'anniversary', price: 'Tsh 700' }
+
 ];
 
 const E_card = () => {
