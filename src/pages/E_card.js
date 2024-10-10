@@ -54,11 +54,11 @@ const E_card = () => {
       <br></br>
       <h2 className="text-center mb-4">Digital Card</h2>
       <div className="text-center mb-4">
-        <Button variant="outline-primary" onClick={() => handleFilterChange('all')} className={`m-1 ${filter === 'all' ? 'active' : ''}`}>All</Button>
-        <Button variant="outline-primary" onClick={() => handleFilterChange('wedding')} className={`m-1 ${filter === 'wedding' ? 'active' : ''}`}>Wedding</Button>
-        <Button variant="outline-primary" onClick={() => handleFilterChange('send-off')} className={`m-1 ${filter === 'send-off' ? 'active' : ''}`}>Send Off</Button>
-        <Button variant="outline-primary" onClick={() => handleFilterChange('kitchen-party')} className={`m-1 ${filter === 'kitchen-party' ? 'active' : ''}`}>Kitchen Party</Button>
-        <Button variant="outline-primary" onClick={() => handleFilterChange('anniversary')} className={`m-1 ${filter === 'anniversary' ? 'active' : ''}`}>Anniversary</Button>
+        <Button variant="outline-primary" onClick={() => handleFilterChange('all')} className={`m-1 rounded-pill ${filter === 'all' ? 'active' : ''}`}>All</Button>
+        <Button variant="outline-primary" onClick={() => handleFilterChange('wedding')} className={`m-1 rounded-pill ${filter === 'wedding' ? 'active' : ''}`}>Wedding</Button>
+        <Button variant="outline-primary" onClick={() => handleFilterChange('send-off')} className={`m-1 rounded-pill ${filter === 'send-off' ? 'active' : ''}`}>Send Off</Button>
+        <Button variant="outline-primary" onClick={() => handleFilterChange('kitchen-party')} className={`m-1 rounded-pill ${filter === 'kitchen-party' ? 'active' : ''}`}>Kitchen Party</Button>
+        <Button variant="outline-primary" onClick={() => handleFilterChange('anniversary')} className={`m-1 rounded-pill ${filter === 'anniversary' ? 'active' : ''}`}>Anniversary</Button>
       </div>
 
       <Masonry

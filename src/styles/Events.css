@@ -37,9 +37,3 @@
     color: #6c757d;
     font-size: 0.9em;
   }
-
-  @media (max-width: 576px) {
-    .events-container .row {
-      justify-content: center;
-    }
-  }
