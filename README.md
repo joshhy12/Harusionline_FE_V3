@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Harusi Online
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based web application for [briefly describe the purpose of your project].
+
+## Table of Contents
+
+* [Getting Started](#getting-started)
+* [Project Structure](#project-structure)
+* [Available Scripts](#available-scripts)
+* [Dependencies](#dependencies)
+* [Components](#components)
+* [Pages](#pages)
+* [Styles](#styles)
+* [Deployment](#deployment)
+* [Troubleshooting](#troubleshooting)
+
+## Getting Started
+
+To get started with the project, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/your-username/your-repo-name.git`
+2. Install dependencies: `npm install`
+3. Start the development server: `npm start`
+
+## Project Structure
+
+The project is organized into the following folders:
+
+* `public`: contains static assets and the `index.html` file
+* `src`: contains the React application code
+	+ `components`: reusable UI components
+	+ `pages`: individual pages of the application
+	+ `styles`: global CSS styles
+	+ `App.js`: the main application component
+	+ `index.js`: the entry point of the application
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+* `npm start`: starts the development server
+* `npm test`: runs the test suite
+* `npm run build`: builds the application for production
+* `npm run eject`: ejects the Create React App configuration
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Dependencies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The project uses the following dependencies:
 
-### `npm test`
+* [react](cci:4://file:///c:/Users/Documents/GitHub/react-harusiOnline/src/pages/Contact.js:0:0-4:0): ^18.3.1
+* `react-dom`: ^18.3.1
+* `react-scripts`: 5.0.1
+* `react-router-dom`: ^6.26.2
+* `bootstrap`: ^5.3.3
+* `react-bootstrap`: ^2.10.4
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Components
 
-### `npm run build`
+The project includes the following reusable UI components:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* `Header`: the application header
+* `Footer`: the application footer
+* `Card`: a reusable card component
+* `Button`: a reusable button component
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Pages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project includes the following individual pages:
 
-### `npm run eject`
+* `Home`: the application homepage
+* `About`: the about page
+* `Contact`: the contact page
+* `E_card`: the e-card page
+* `Events`: the events page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Styles
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The project uses global CSS styles defined in [src/styles](cci:7://file:///c:/Users/Loady/Documents/GitHub/react-harusiOnline/src/styles:0:0-0:0).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Deployment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The project can be deployed to a production environment using the `npm run build` script.
 
-## Learn More
+## Troubleshooting
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you encounter any issues, please refer to the Create React App documentation or seek help from the community.
