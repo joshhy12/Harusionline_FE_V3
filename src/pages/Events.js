@@ -84,8 +84,9 @@ const Events = () => {
                   <Card.Title>{event.name}</Card.Title>
                   <Card.Text>{event.tag}</Card.Text>
                   <Link to={`/event/${event.id}`} state={{ event }}>
-                    <Button variant="primary">View Details</Button>
+                    <Button variant="primary" className="rounded-pill">View Details</Button>
                   </Link>
+
                 </Card.Body>
               </Card>
             </Col>

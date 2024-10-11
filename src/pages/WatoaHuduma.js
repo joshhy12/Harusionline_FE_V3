@@ -84,12 +84,13 @@ const WatoaHuduma = () => {
               <Card.Body>
                 <Card.Title>{provider.name}</Card.Title>
                 <Card.Text>{provider.service}</Card.Text>
-                <Link 
+                <Link
                   to={`/watoa-huduma-details/${provider.id}`}
                   state={{ provider }} // Pass the provider data using state
                 >
-                  <Button variant="primary">View Details</Button>
+                  <Button variant="primary" className="rounded-pill">View Details</Button>
                 </Link>
+
               </Card.Body>
             </Card>
           </Col>
