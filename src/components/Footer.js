@@ -37,11 +37,11 @@ const Footer = () => {
             <Col lg={2} md={6} className="footer-links">
               <h4>Useful Links</h4>
               <ul>
-                <li><i className="bi bi-chevron-right"></i> <Link to="/">Home</Link></li>
+                <li><i className="bi bi-chevron-right"></i> <Link to="/Home">Home</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="/about">About us</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="/Gharama">Gharama</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="/e_card">E-Card</Link></li>
-                <li><i className="bi bi-chevron-right"></i> <Link to="">Jisajili</Link></li>
+                <li><i className="bi bi-chevron-right"></i> <Link to="/login">Jisajili</Link></li>
               </ul>
             </Col>
             <Col lg={3} md={6} className="footer-links">

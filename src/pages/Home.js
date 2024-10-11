@@ -100,17 +100,19 @@ function Home() {
           </p>
 
           <div className="d-flex justify-content-center justify-content-md-start mt-4">
-            <Button
-              variant="outline-primary"
-              className="px-4 py-2 rounded-pill fw-bold custom-button"
-              style={{
-                color: '#24366b',
-                borderColor: '#24366b',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              Jisajili sasa
-            </Button>
+            <Link to="/login">
+              <Button
+                variant="outline-primary"
+                className="px-4 py-2 rounded-pill fw-bold custom-button"
+                style={{
+                  color: '#24366b',
+                  borderColor: '#24366b',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                Jisajili sasa
+              </Button>
+            </Link>
           </div>
 
         </Col>
@@ -139,7 +141,7 @@ function Home() {
 
       <Row className="my-5 g-4">
         {[
-          { icon: FaUserPlus, title: "Jisajili", text: "Anza kwa kujisajili BURE! Mratibu wa shughuli au mtoa huduma.", link: "#" },
+          { icon: FaUserPlus, title: "Jisajili", text: "Anza kwa kujisajili BURE! Mratibu wa shughuli au mtoa huduma.", link: "/login" },
           { icon: FaHandshake, title: "Watoa Huduma ", text: "Tizama Watoa Huduma Wetu,ili kuweza Kujipatia Mziki,Mapambo,Usafiri,Chakula.", link: "/WatoaHuduma" },
           { icon: FaEnvelopeOpenText, title: "Kadi za Kidigitali", text: "Tuma mialiko ya harusi yako kwa njia ya kidigitali, na uhifadhi pesa na karatasi.", link: "/e_card" }
         ].map((item, index) => (
@@ -217,78 +219,78 @@ function Home() {
 
 
       <Row>
-  <Col md={12}>
-    <div className="events-container position-relative">
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2 className="mb-0">Events Za Leo</h2>
-        <Button as="a" href="/events" variant="outline-primary" className="see-all-button rounded-pill">
-          All Events 
-        </Button>
-      </div>
-      <button className="btn btn-primary scroll-btn left" onClick={() => scroll('left')}>&lt;</button>
-      <div className="events-scroll" ref={scrollContainerRef}>
-        {events.map((event) => (
-          <div className="event-card" key={event.id}>
-            <div className="card shadow-sm">
-              <a href="#!" aria-label={event.title}>
-                <img src={event.image} alt={event.title} className="bd-placeholder-img card-img-top" width="100%" height="225" />
-              </a>
-              <div className="card-body">
-                <h5 className="card-title">{event.title}</h5>
-                <div className="d-flex justify-content-between align-items-center">
-                  <div className="btn-group">
-                    <button type="button" className="btn btn-sm btn-outline-primary">View</button>
-                  </div>
-                  <small className="text-muted">{event.year}</small>
-                </div>
-              </div>
+        <Col md={12}>
+          <div className="events-container position-relative">
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <h2 className="mb-0">Events Za Leo</h2>
+              <Button as="a" href="/events" variant="outline-primary" className="see-all-button rounded-pill">
+                All Events
+              </Button>
             </div>
+            <button className="btn btn-primary scroll-btn left" onClick={() => scroll('left')}>&lt;</button>
+            <div className="events-scroll" ref={scrollContainerRef}>
+              {events.map((event) => (
+                <div className="event-card" key={event.id}>
+                  <div className="card shadow-sm">
+                    <a href="#!" aria-label={event.title}>
+                      <img src={event.image} alt={event.title} className="bd-placeholder-img card-img-top" width="100%" height="225" />
+                    </a>
+                    <div className="card-body">
+                      <h5 className="card-title">{event.title}</h5>
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="btn-group">
+                          <button type="button" className="btn btn-sm btn-outline-primary">View</button>
+                        </div>
+                        <small className="text-muted">{event.year}</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <button className="btn btn-primary scroll-btn right" onClick={() => scroll('right')}>&gt;</button>
           </div>
-        ))}
-      </div>
-      <button className="btn btn-primary scroll-btn right" onClick={() => scroll('right')}>&gt;</button>
-    </div>
-  </Col>
-</Row>
+        </Col>
+      </Row>
 
 
 
 
       {/* Watoa Huduma Section */}
       <Row>
-  <Col md={12}>
-    <div className="events-container position-relative">
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2 className="mb-0">Watoa Huduma </h2>
-        <Button as="a" href="/WatoaHuduma" variant="outline-primary" className="see-all-button rounded-pill">
-        Watoa Huduma Wote
-        </Button>
-      </div>
-      <button className="btn btn-primary scroll-btn left" onClick={() => scroll('left')}>&lt;</button>
-      <div className="events-scroll" ref={scrollContainerRef}>
-        {events.map((event) => (
-          <div className="event-card" key={event.id}>
-            <div className="card shadow-sm">
-              <a href="#!" aria-label={event.title}>
-                <img src={event.image} alt={event.title} className="bd-placeholder-img card-img-top" width="100%" height="225" />
-              </a>
-              <div className="card-body">
-                <h5 className="card-title">{event.title}</h5>
-                <div className="d-flex justify-content-between align-items-center">
-                  <div className="btn-group">
-                    <button type="button" className="btn btn-sm btn-outline-primary">View</button>
-                  </div>
-                  <small className="text-muted">{event.year}</small>
-                </div>
-              </div>
+        <Col md={12}>
+          <div className="events-container position-relative">
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <h2 className="mb-0">Watoa Huduma </h2>
+              <Button as="a" href="/WatoaHuduma" variant="outline-primary" className="see-all-button rounded-pill">
+                Watoa Huduma Wote
+              </Button>
             </div>
+            <button className="btn btn-primary scroll-btn left" onClick={() => scroll('left')}>&lt;</button>
+            <div className="events-scroll" ref={scrollContainerRef}>
+              {events.map((event) => (
+                <div className="event-card" key={event.id}>
+                  <div className="card shadow-sm">
+                    <a href="#!" aria-label={event.title}>
+                      <img src={event.image} alt={event.title} className="bd-placeholder-img card-img-top" width="100%" height="225" />
+                    </a>
+                    <div className="card-body">
+                      <h5 className="card-title">{event.title}</h5>
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="btn-group">
+                          <button type="button" className="btn btn-sm btn-outline-primary">View</button>
+                        </div>
+                        <small className="text-muted">{event.year}</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <button className="btn btn-primary scroll-btn right" onClick={() => scroll('right')}>&gt;</button>
           </div>
-        ))}
-      </div>
-      <button className="btn btn-primary scroll-btn right" onClick={() => scroll('right')}>&gt;</button>
-    </div>
-  </Col>
-</Row>
+        </Col>
+      </Row>
 
 
 

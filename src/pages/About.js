@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Button } from 'react-bootstrap';
+import { Link  } from 'react-router-dom';
 import '../styles/About.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -48,16 +49,23 @@ const About = () => {
         </div>
       </section>
 
-      <div className="text-center mt-5">
-        <Button
-          variant="outline-primary"
-          className="px-4 py-2 rounded-pill fw-bold custom-button"
-          style={{
-            color: '#24366b',
-            borderColor: '#24366b',
-            transition: 'all 0.3s ease'
-          }} >Jisajili sasa</Button>
-      </div>
+      <div className="d-flex justify-content-center justify-content-md-start mt-4">
+            <Link to="/login">
+              <Button
+                variant="outline-primary"
+                className="px-4 py-2 rounded-pill fw-bold custom-button"
+                style={{
+                  color: '#24366b',
+                  borderColor: '#24366b',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                Jisajili sasa
+              </Button>
+            </Link>
+          </div>
+
+
     </Container>
   );
 };

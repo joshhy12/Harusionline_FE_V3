@@ -27,6 +27,8 @@ function Header() {
             <Nav.Link as={NavLink} to="/About" className="px-3 nav-link" onClick={closeNavbar}>About</Nav.Link>
             <Nav.Link as={NavLink} to="/Contact" className="px-3 nav-link" onClick={closeNavbar}>Contact</Nav.Link>
             <Nav.Link as={NavLink} to="/e_card" className="px-3 nav-link" onClick={closeNavbar}>E-Card</Nav.Link>
+            <Nav.Link as={NavLink} to="/login" className="px-3 nav-link" onClick={closeNavbar}>Jisajili / Ingia</Nav.Link>
+
             <NavDropdown title="More Options" id="basic-nav-dropdown" className="px-3">
               <NavDropdown.Item as={NavLink} to="/WatoaHuduma" onClick={closeNavbar}>Watoa Huduma</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/Gharama" onClick={closeNavbar}>Gharama</NavDropdown.Item>

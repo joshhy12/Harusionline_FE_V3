@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col,Button } from 'react-bootstrap';
+import { Link  } from 'react-router-dom';
 import gharamaImage from '../images/eCards_pricing.svg'; // Make sure to add your image
 
 function Gharama() {
@@ -25,17 +26,19 @@ function Gharama() {
         </Col>
 
         <div className="d-flex justify-content-center justify-content-md-start mt-4">
-            <Button
-              variant="outline-primary"
-              className="px-4 py-2 rounded-pill fw-bold custom-button"
-              style={{
-                color: '#24366b',
-                borderColor: '#24366b',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              Jisajili sasa
-            </Button>
+            <Link to="/login">
+              <Button
+                variant="outline-primary"
+                className="px-4 py-2 rounded-pill fw-bold custom-button"
+                style={{
+                  color: '#24366b',
+                  borderColor: '#24366b',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                Jisajili sasa
+              </Button>
+            </Link>
           </div>
 
       </Row>

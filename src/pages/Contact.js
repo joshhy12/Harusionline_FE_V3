@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import '../styles/Contact.css'; 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 

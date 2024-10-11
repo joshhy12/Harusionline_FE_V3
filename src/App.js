@@ -14,6 +14,7 @@ import WatoaHuduma from './pages/WatoaHuduma';
 import Events from './pages/Events';
 import EventDetails from './pages/EventDetails';
 import WatoaHudumaDetails from './pages/WatoaHudumaDetails';
+import LoginSignup from './pages/LoginSignup';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -37,9 +38,11 @@ function App() {
             <Route path="/watoa-huduma-details/:id" element={<WatoaHudumaDetails />} />
             <Route path="/Events" element={<Events />} />
             <Route path="/event/:id" element={<EventDetails />} />
-            
 
-            
+
+            <Route path="/login" element={<LoginSignup />} />
+
+          
           </Routes>
         </main>
 
