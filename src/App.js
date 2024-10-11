@@ -13,6 +13,7 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import WatoaHuduma from './pages/WatoaHuduma';
 import Events from './pages/Events';
 import EventDetails from './pages/EventDetails';
+import WatoaHudumaDetails from './pages/WatoaHudumaDetails';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -33,6 +34,7 @@ function App() {
             <Route path="/gharama" element={<Gharama />} />
             <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
             <Route path="/WatoaHuduma" element={<WatoaHuduma />} />
+            <Route path="/watoa-huduma-details/:id" element={<WatoaHudumaDetails />} />
             <Route path="/Events" element={<Events />} />
             <Route path="/event/:id" element={<EventDetails />} />
             

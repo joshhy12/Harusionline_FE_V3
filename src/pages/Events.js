@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Link, Routes, Route } from 'react-router-dom';
-import EventDetails from '../pages/EventDetails'; // Import EventDetails component
-
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import image2 from '../card/2.jpg';
 import image3 from '../card/3.jpg';
 import image4 from '../card/4.jpg';
@@ -17,7 +15,6 @@ const Events = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulating an API call with added events
     const data = [
       { id: 1, name: "John & Jane's Wedding", tag: "wedding", date: "2023-08-15", image: image2 },
       { id: 2, name: "Lillith Kitchen Party", tag: "kitchenparty", date: "2023-07-20", image: image3 },
@@ -42,9 +39,7 @@ const Events = () => {
     setLoading(false);
   }, []);
 
-  const filteredEvents = events.filter(event => 
-    filter === 'all' || event.tag === filter
-  );
+  const filteredEvents = events.filter(event => filter === 'all' || event.tag === filter);
 
   const buttonStyle = {
     margin: '0.25rem',
@@ -54,9 +49,7 @@ const Events = () => {
     border: '1px solid #007bff',
     backgroundColor: 'transparent',
     color: '#007bff',
-    transition: 'all 0.3s ease',
     cursor: 'pointer',
-    outline: 'none',
   };
 
   const activeStyle = {
@@ -66,69 +59,39 @@ const Events = () => {
   };
 
   return (
-    <Container>
-      <Routes>
-        {/* Route for Event Details */}
-        <Route path="/event/:id" element={<EventDetails events={events} />} />
-      </Routes>
-
+    <Container className="my-5">
       <h2 className="text-center mb-4">All Events</h2>
 
-      <div className="filter-buttons" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <button
-          style={filter === 'all' ? activeStyle : buttonStyle}
-          onClick={() => setFilter('all')}
-        >
-          All
-        </button>
-        <button
-          style={filter === 'wedding' ? activeStyle : buttonStyle}
-          onClick={() => setFilter('wedding')}
-        >
-          Wedding
-        </button>
-        <button
-          style={filter === 'sendoff' ? activeStyle : buttonStyle}
-          onClick={() => setFilter('sendoff')}
-        >
-          Send Off
-        </button>
-        <button
-          style={filter === 'kitchenparty' ? activeStyle : buttonStyle}
-          onClick={() => setFilter('kitchenparty')}
-        >
-          Kitchen Party
-        </button>
-        <button
-          style={filter === 'anniversary' ? activeStyle : buttonStyle}
-          onClick={() => setFilter('anniversary')}
-        >
-          Anniversary
-        </button>
+      {/* Filter Buttons */}
+      <div className="filter-buttons text-center mb-4">
+        <button style={filter === 'all' ? activeStyle : buttonStyle} onClick={() => setFilter('all')}>All</button>
+        <button style={filter === 'wedding' ? activeStyle : buttonStyle} onClick={() => setFilter('wedding')}>Wedding</button>
+        <button style={filter === 'sendoff' ? activeStyle : buttonStyle} onClick={() => setFilter('sendoff')}>Send Off</button>
+        <button style={filter === 'kitchenparty' ? activeStyle : buttonStyle} onClick={() => setFilter('kitchenparty')}>Kitchen Party</button>
+        <button style={filter === 'anniversary' ? activeStyle : buttonStyle} onClick={() => setFilter('anniversary')}>Anniversary</button>
       </div>
 
+      {/* Event Cards */}
       {loading ? (
         <div>Loading events...</div>
       ) : (
         <Row xs={1} sm={2} md={3} lg={4} className="g-4">
           {filteredEvents.map(event => (
             <Col key={event.id}>
-              <Card className="h-100" as={Link} to={`/event/${event.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Card className="h-100">
                 <Card.Img variant="top" src={event.image} alt={event.name} />
                 <Card.Body>
                   <Card.Title>{event.name}</Card.Title>
                   <Card.Text>{event.tag}</Card.Text>
+                  <Link to={`/event/${event.id}`} state={{ event }}>
+                    <Button variant="primary">View Details</Button>
+                  </Link>
                 </Card.Body>
-                <Card.Footer>
-                  <small className="text-muted">Event Date: {event.date}</small>
-                </Card.Footer>
               </Card>
             </Col>
           ))}
         </Row>
       )}
-
-      <br />
     </Container>
   );
 }
