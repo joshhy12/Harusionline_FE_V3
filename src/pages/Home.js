@@ -182,7 +182,7 @@ function Home() {
             <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
               <div className="icon"><i className="bi bi-envelope-paper-heart"></i></div>
               <h4 className="title">Kadi za Kidigitali</h4>
-              <p className="description"> Badala ya kuchapa kadi za mwaliko, tumia mfumo wetu kuunda kadi za kidigitali nzuri na zenye mvuto. Kadi hizi zinaweza kubinafsishwa kwa urahisi na kushirikiwa kwa njia ya kiungo au kupitia mitandao ya kijamii. </p>
+              <p className="description">  Badala ya kuchapa kadi za mwaliko, unaweza kutengeneza kadi nzuri za kidigitali kwa kutumia simu yako. Kadi hizi zinaweza kutumwa kwa urahisi kwa njia ya Whatsapp na SMS na kisha kutumwa kwa wageni wako kwa kubofya tu. </p>
             </div>
             <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
               <div className="icon"><i className="bi bi-gift"></i></div>

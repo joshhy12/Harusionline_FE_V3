@@ -20,42 +20,52 @@ const Contact = () => {
           <div className="section-title text-center">
             <h2>Frequently Asked Questions</h2>
           </div>
+
+
+
           <div className="row d-flex align-items-stretch">
-            <div className="col-lg-6 faq-item" data-aos="fade-up">
-              <h4>What is an online wedding planning system?</h4>
-              <p>
-              An online wedding planning system is a digital tool that helps you organize and manage every aspect of your wedding, from guest lists to budget tracking.
-              </p>
-            </div>
-            <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
-              <h4>How does it work</h4>
-              <p>
-              Simply create an account, input your wedding details, and start using the various features to plan your special day.
-              </p>
-            </div>
-            <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
-              <h4>Is it user-friendly?</h4>
-              <p>
-              Yes, our system is designed to be intuitive and easy to use, even for those who aren't tech-savvy.
-              </p>
-            </div>
-            <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
-              <h4>Can I create digital invitations?</h4>
-              <p>
-              Absolutely! Our system allows you to design and send beautiful digital invitations to your guests              </p>
-            </div>
-            <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
-              <h4>How does the guest list feature work?</h4>
-              <p>
-              You can easily add guests, track RSVPs, and manage seating arrangements.              </p>
-            </div>
-            <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
-              <h4>Is there a feature for finding vendors?</h4>
-              <p>
-              We offer a directory of trusted wedding vendors to help you find the perfect professionals for your day.              </p>
-            </div>
-            {/* Add more FAQ items here */}
-          </div>
+  <div className="col-lg-6 faq-item" data-aos="fade-up">
+    <h4>Je, mfumo wa kupanga harusi mtandaoni ni nini?</h4>
+    <p>
+      Mfumo wa kupanga harusi mtandaoni ni chombo cha kidijitali kinachokusaidia kupanga na kusimamia kila kipengele cha harusi yako, kuanzia orodha ya wageni hadi kufuatilia bajeti.
+    </p>
+  </div>
+  <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
+    <h4>Unavyofanya kazi?</h4>
+    <p>
+      Ni rahisi, unda akaunti, ingiza maelezo ya harusi yako, na anza kutumia vipengele mbalimbali kupanga siku yako maalum.
+    </p>
+  </div>
+  <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
+    <h4>Je, ni rahisi kutumia?</h4>
+    <p>
+      Ndiyo, mfumo wetu umetengenezwa kuwa wa urahisi kutumia hata kwa wale ambao si wajuzi wa teknolojia.
+    </p>
+  </div>
+  <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
+    <h4>Je, naweza kutengeneza mwaliko wa kidijitali?</h4>
+    <p>
+      Bila shaka! Mfumo wetu unakuwezesha kubuni na kutuma mialiko ya kidijitali nzuri kwa wageni wako.
+    </p>
+  </div>
+  <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
+    <h4>Je, kipengele cha orodha ya wageni kinafanyaje kazi?</h4>
+    <p>
+      Unaweza kuongeza wageni kwa urahisi, kufuatilia majibu ya mialiko (RSVPs), na kupanga mipangilio ya viti.
+    </p>
+  </div>
+  <div className="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
+    <h4>Je, kuna kipengele cha kupata watoa huduma?</h4>
+    <p>
+      Tunatoa orodha ya watoa huduma wa harusi waliothibitishwa ili kukusaidia kupata wataalamu bora kwa siku yako.
+    </p>
+  </div>
+  {/* Ongeza maswali ya ziada ya FAQ hapa */}
+</div>
+
+
+
+
         </div>
       </section>
 
@@ -113,6 +123,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      <br></br>
+      <br></br>
       </Container>
     </>
   );
