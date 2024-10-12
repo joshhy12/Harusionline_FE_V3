@@ -1,0 +1,79 @@
+.loginSignupContainer {
+    background-color: #f8f9fa;
+  }
+  
+  .leftSection {
+    background-color: #007bff; /* Using Bootstrap's primary color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo {
+    max-width: 200px;
+  }
+  
+  .activeNav {
+    background-color: #007bff; /* Active tab color */
+    color: white;
+  }
+
+
+  
+
+.customButton {
+    border-radius: 50px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+  
+  
+  .login-signup-container {
+    background-color: #ffffff;
+    min-height: 100vh;
+  }
+  
+  .card {
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  
+  .nav-pills .nav-link {
+    color: #24366b;
+    border-radius: 0.5rem;
+  }
+  
+  .nav-pills .nav-link.active {
+    background-color: #24366b;
+    color: white;
+  }
+  
+  .nav-pills .nav-link:hover:not(.active) {
+    background-color: rgba(36, 54, 107, 0.1);
+  }
+  
+  .btn-primary {
+    background-color: #24366b;
+    border-color: #24366b;
+  }
+  
+  
+  
+  .btn-link {
+    color: #24366b;
+    text-decoration: none;
+  }
+  
+  
+  
+  .bg-primary {
+    background-color: #24366b !important;
+  }
+  
+  @media (max-width: 767.98px) {
+    .card {
+      border-radius: 0;
+    }
+  }             
+  

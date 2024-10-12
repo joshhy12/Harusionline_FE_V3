@@ -1,3 +1,13 @@
+
+
+.customButton {
+  border-radius: 50px;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+
 .login-signup-container {
   background-color: #ffffff;
   min-height: 100vh;
@@ -27,20 +37,14 @@
   border-color: #24366b;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: #1c2a54 !important;
-  border-color: #1c2a54 !important;
-}
+
 
 .btn-link {
   color: #24366b;
   text-decoration: none;
 }
 
-.btn-link:hover, .btn-link:focus {
-  color: #1c2a54;
-  text-decoration: underline;
-}
+
 
 .bg-primary {
   background-color: #24366b !important;

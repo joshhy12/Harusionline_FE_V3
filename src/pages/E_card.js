@@ -47,7 +47,7 @@ const E_card = () => {
     700: 2,
     500: 2  // Changed from 1 to 2
   };
-  
+
 
   return (
     <Container>
@@ -64,8 +64,7 @@ const E_card = () => {
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
+        columnClassName="my-masonry-grid_column" >
         {filteredItems.map(item => (
           <div key={item.id} className="card-wrapper">
             <Link to={`/card-details/${item.id}`}>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Card, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import styles from '../styles/LoginSignup.module.css';
 import '../styles/LoginSignup.css';
 import logo from '../images/logo.png';
 
@@ -9,41 +10,42 @@ const LoginSignup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission (login or signup) here
     console.log('Form submitted');
   };
 
   return (
-    <Container fluid className="login-signup-container py-5">
+    <Container fluid className={`${styles.loginSignupContainer} py-5`}>
       <Row className="justify-content-center align-items-center">
         <Col xs={12} lg={8} xl={9}>
           <Card className="shadow-lg">
             <Card.Body className="p-0">
               <Row className="g-0">
-                <Col md={6} lg={5} className="d-flex align-items-center justify-content-center p-5 bg-primary">
+                <Col md={6} lg={5} className={`${styles.leftSection} p-5`}>
                   <div className="text-center">
-                    <img src={logo} alt="Harusi Online" className="logo mb-4" style={{ maxWidth: '200px' }} />
+                    <img src={logo} alt="Harusi Online" className={`${styles.logo} mb-4`} />
                     <h2 className="fw-bold mb-2 text-white">Karibu,</h2>
                     <p className="text-white mb-0">Karibu Harusionline, Ingia kuendelea</p>
                   </div>
                 </Col>
-                
-                <Col md={6} lg={7} className="p-5">
+
+                <Col md={6} lg={7} className="p-4">
                   <Nav variant="pills" className="nav-fill mb-4">
                     <Nav.Item>
-                      <Nav.Link 
-                        eventKey="login" 
+                      <Nav.Link
+                        eventKey="login"
                         active={activeTab === 'login'}
                         onClick={() => setActiveTab('login')}
+                        className={activeTab === 'login' ? styles.activeNav : ''}
                       >
                         Ingia
                       </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link 
-                        eventKey="signup" 
+                      <Nav.Link
+                        eventKey="signup"
                         active={activeTab === 'signup'}
                         onClick={() => setActiveTab('signup')}
+                        className={activeTab === 'signup' ? styles.activeNav : ''}
                       >
                         Jisajili
                       </Nav.Link>
@@ -62,6 +64,7 @@ const LoginSignup = () => {
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                       <Form.Control type="password" placeholder="Password" required />
                     </Form.Group>
+
                     {activeTab === 'login' && (
                       <div className="text-end mb-3">
                         <Link to="/forgot-password" className="text-primary">Nimesahau Password</Link>
@@ -81,7 +84,7 @@ const LoginSignup = () => {
                             Jisajili BURE sasa
                           </Button>
                         </>
-                      ) : (                
+                      ) : (
                         <>
                           Una akaunti tayari?{' '}
                           <Button variant="link" className="p-0" onClick={() => setActiveTab('login')}>
@@ -92,8 +95,6 @@ const LoginSignup = () => {
                     </p>
                   </div>
                 </Col>
-
-
               </Row>
             </Card.Body>
           </Card>
@@ -103,6 +104,4 @@ const LoginSignup = () => {
   );
 };
 
-
-
-export default LoginSignup;    
+export default LoginSignup;
