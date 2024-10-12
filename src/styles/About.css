@@ -1,4 +1,21 @@
 .container ul li {
-    color: black;
+    color
+    : black;
   }
+  
+  .custom-img {
+    width: 200px; /* Set desired width */
+    height: 200px; /* Set desired height */
+    object-fit: cover; /* Ensures the image covers the entire width and height */
+    border-radius: 15px; /* Adds rounded corners */
+    border: 3px solid #24366b; /* Adds a border */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+  }
+  
+  
+  .custom-img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+
+  
   
