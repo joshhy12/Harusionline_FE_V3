@@ -1,0 +1,46 @@
+.provider-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 0.5rem; /* Rounded corners for the image */
+  }
+  
+  .card {
+    border: none; /* Remove the default border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 1.5rem; /* Space below the card */
+  }
+  
+  .card-body {
+    padding: 2rem; /* Increase padding for better spacing */
+  }
+  
+  .card-title {
+    font-size: 1.75rem; /* Larger title font */
+    font-weight: bold; /* Bold title */
+    color: #333; /* Dark color for the title */
+  }
+  
+  .card-text {
+    font-size: 1rem; /* Standard font size for text */
+    margin-bottom: 0.5rem; /* Spacing between text items */
+    color: #555; /* Darker gray for regular text */
+  }
+  
+  strong {
+    color: #007bff; /* Change the color of strong text only */
+  }
+  
+  a {
+    color: #007bff; /* Set link color to blue */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  /* Optional: Add some margin to the bottom of the card body for spacing */
+  .card-body {
+    margin-bottom: 1rem;
+  }
+  

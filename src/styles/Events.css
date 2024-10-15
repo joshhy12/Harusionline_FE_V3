@@ -1,39 +1,43 @@
-.events-container {
-    font-family: 'The Seasons', sans-serif;
-    padding: 20px;
-  }
-  
-  .filter-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-  
-  .filter-buttons .btn {
-    margin: 5px;
-  }
-  
- .event-card {
-  margin-bottom: 20px;
-  transition: transform 0.3s ease-in-out;
+/* Events Section */
+.events-section {
+  padding: 20px 0; /* Add padding for spacing */
 }
-  
-  .event-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .event-tag {
-    display: inline-block;
-    padding: 3px 8px;
-    background-color: #7094FF;
-    color: white;
-    border-radius: 15px;
-    font-size: 0.8em;
-    margin-bottom: 5px;
-  }
-  
-  .event-date {
-    color: #6c757d;
-    font-size: 0.9em;
-  }
+
+.section-title {
+  font-size: 2rem; /* Increase font size for title */
+  font-weight: bold; /* Make title bold */
+  margin-bottom: 1.5rem; /* Space below title */
+}
+
+/* Filter Button Styles */
+.filter-buttons {
+  margin-bottom: 1rem;
+}
+
+.filter-btn {
+  margin: 0 5px; /* Space between buttons */
+}
+
+/* Events Grid */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 15px; /* Space between cards */
+}
+
+/* Card Styles */
+.event-card {
+  border: none; /* Remove default border */
+  border-radius: 10px; /* Round corners */
+  transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.event-card:hover {
+  transform: scale(1.03); /* Slightly enlarge card on hover */
+}
+
+/* Card Image */
+.card-img-top {
+  border-top-left-radius: 10px; /* Round top corners */
+  border-top-right-radius: 10px; /* Round top corners */
+}

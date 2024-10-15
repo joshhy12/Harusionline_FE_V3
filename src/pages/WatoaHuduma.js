@@ -1,21 +1,27 @@
-import React, { useState } from 'react';
+// src/components/WatoaHuduma.js
+
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import image1 from '../images/1.jpg';
-import image2 from '../images/2.jpg';
-
-const serviceProviders = [
-  { id: 1, name: 'Mpishi Bora', service: 'Catering', image: image1, details: 'Best catering service in town.' },
-  { id: 2, name: 'Picha Nzuri', service: 'Photography', image: image2, details: 'Professional photography services.' },
-  { id: 3, name: 'Muziki Safi', service: 'DJ Services', image: image1, details: 'Top-notch DJ services for any event.' },
-  { id: 4, name: 'Mapambo Yetu', service: 'Decoration', image: image2, details: 'Elegant decoration services for weddings.' },
-];
+import { getWatoaHuduma } from '../api/api_WatoaHuduma';
+import '../styles/WatoaHudma.css';
 
 const WatoaHuduma = () => {
+  const [serviceProviders, setServiceProviders] = useState([]);
   const [filter, setFilter] = useState('all');
 
+  useEffect(() => {
+    const fetchServiceProviders = async () => {
+      const data = await getWatoaHuduma();
+      if (data) {
+        setServiceProviders(data);
+      }
+    };
+    fetchServiceProviders();
+  }, []);
+
   const filteredProviders = serviceProviders.filter(
-    (provider) => filter === 'all' || provider.service.toLowerCase() === filter
+    (provider) => filter === 'all' || provider.categories.some(category => category.category.toLowerCase() === filter)
   );
 
   const buttonStyle = {
@@ -50,28 +56,22 @@ const WatoaHuduma = () => {
           All
         </button>
         <button
-          style={filter === 'catering' ? activeStyle : buttonStyle}
-          onClick={() => setFilter('catering')}
+          style={filter === 'mapambo' ? activeStyle : buttonStyle}
+          onClick={() => setFilter('mapambo')}
         >
-          Catering
+          Mapambo
         </button>
         <button
-          style={filter === 'photography' ? activeStyle : buttonStyle}
-          onClick={() => setFilter('photography')}
+          style={filter === 'vinywaji' ? activeStyle : buttonStyle}
+          onClick={() => setFilter('vinywaji')}
         >
-          Photography
+          Vinywaji
         </button>
         <button
-          style={filter === 'dj services' ? activeStyle : buttonStyle}
-          onClick={() => setFilter('dj services')}
+          style={filter === 'mapishi' ? activeStyle : buttonStyle}
+          onClick={() => setFilter('mapishi')}
         >
-          DJ Services
-        </button>
-        <button
-          style={filter === 'decoration' ? activeStyle : buttonStyle}
-          onClick={() => setFilter('decoration')}
-        >
-          Decoration
+          Mapishi
         </button>
       </div>
 
@@ -80,18 +80,20 @@ const WatoaHuduma = () => {
         {filteredProviders.map((provider) => (
           <Col key={provider.id} md={3} className="mb-4">
             <Card className="h-100">
-              <Card.Img variant="top" src={provider.image} alt={provider.name} />
-              <Card.Body>
+              <Card.Img variant="top" src={provider.wallpaper.md_photo} alt={provider.name} />
+              <Card.Body className="d-flex flex-column">
                 <Card.Title>{provider.name}</Card.Title>
-                <Card.Text>{provider.service}</Card.Text>
-                <Link
-                  to={`/watoa-huduma-details/${provider.id}`}
-                  state={{ provider }} // Pass the provider data using state
-                >
-                  <Button variant="primary" className="rounded-pill">View Details</Button>
-                </Link>
-
+                <Card.Text>{provider.location}</Card.Text>
+                <div className="mt-auto"> {/* This div pushes the button to the bottom */}
+                  <Link
+                    to={`/watoa-huduma-details/${provider.id}`}
+                    state={{ provider }} // Pass the provider data using state
+                  >
+                    <Button variant="primary" className="rounded-pill">View Details</Button>
+                  </Link>
+                </div>
               </Card.Body>
+
             </Card>
           </Col>
         ))}

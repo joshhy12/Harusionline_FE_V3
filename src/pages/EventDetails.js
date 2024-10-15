@@ -1,27 +1,32 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { Container, Card, Row, Col } from 'react-bootstrap';
+import '../styles/EventDetails.css';
 
 const EventDetails = () => {
   const location = useLocation();
-  const { event } = location.state || {}; // Get the event data from state
-
-  if (!event) {
-    return <div>Event not found</div>;
-  }
+  const { event } = location.state;
 
   return (
-    <Container className="mt-5">
+    <Container className="my-5">
       <Row>
         <Col md={6}>
-          <Image src={event.image} alt={event.name} fluid />
+          <img
+            src={event.wallpaper[0]?.md_photo}
+            alt={event.event_title}
+            className="event-image"
+          />
         </Col>
         <Col md={6}>
-          <h2>{event.name}</h2>
-          <p><strong>Date:</strong> {event.date}</p>
-          <p><strong>Category:</strong> {event.tag}</p>
-          <p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <Button variant="primary">RSVP</Button>
+          <Card className="h-100">
+            <Card.Body>
+              <Card.Title>{event.event_title}</Card.Title>
+              <Card.Text><strong>Type:</strong> {event.event_type}</Card.Text>
+              <Card.Text><strong>Date:</strong> {new Date(event.event_date).toLocaleDateString()}</Card.Text>
+              {/* Add more details as needed */}
+              <Card.Text><strong>Description:</strong> {event.description || "No description available."}</Card.Text>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>
