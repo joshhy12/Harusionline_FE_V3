@@ -1,5 +1,3 @@
-// src/api/api_WatoaHuduma.js
-
 import axios from 'axios';
 
 const API_URL = 'https://test.harusi.online/api/service_providers';

@@ -1,7 +1,6 @@
-// src/E_card.js
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Form, Row, Col } from 'react-bootstrap';
 import Masonry from 'react-masonry-css';
 import { fetchECards } from '../api/api_Ecard'; // Adjust the import path as necessary
 import '../styles/e-card.css';
@@ -9,6 +8,7 @@ import '../styles/e-card.css';
 const E_card = () => {
   const [items, setItems] = useState([]);
   const [filter, setFilter] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,8 +25,20 @@ const E_card = () => {
     setFilter(category);
   };
 
-  const filteredItems = filter === 'all' ? items : items.filter(item => item.card_category === filter);
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
+  //search by name and by event type functin 
+  const filteredItems = items.filter(item => {
+    const matchesCategory = filter === 'all' || item.card_category === filter;
+    const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.event_type.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.card_category.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  //the grid style for the phone and deskitop
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
@@ -38,12 +50,27 @@ const E_card = () => {
     <Container>
       <br />
       <h2 className="text-center mb-4">Digital Card</h2>
-      <div className="text-center mb-4">
-        <Button variant="outline-primary" onClick={() => handleFilterChange('all')} className={`m-1 rounded-pill ${filter === 'all' ? 'active' : ''}`}>All</Button>
-        <Button variant="outline-primary" onClick={() => handleFilterChange('Invitation')} className={`m-1 rounded-pill ${filter === 'Invitation' ? 'active' : ''}`}>Invitation</Button>
-        <Button variant="outline-primary" onClick={() => handleFilterChange('Harusi')} className={`m-1 rounded-pill ${filter === 'Harusi' ? 'active' : ''}`}>Harusi</Button>
-        {/* Add more filters as needed */}
-      </div>
+
+      <Row className="mb-4">
+        <Col md={8} className="d-flex align-items-center">
+          <Button variant="outline-primary" onClick={() => handleFilterChange('all')} className={`m-1 rounded-pill ${filter === 'all' ? 'active' : ''}`}>All</Button>
+          <Button variant="outline-primary" onClick={() => handleFilterChange('Invitation')} className={`m-1 rounded-pill ${filter === 'Invitation' ? 'active' : ''}`}>Invitation</Button>
+          <Button variant="outline-primary" onClick={() => handleFilterChange('Harusi')} className={`m-1 rounded-pill ${filter === 'Harusi' ? 'active' : ''}`}>Harusi</Button>
+          {/* Add more filters as needed */}
+        </Col>
+        <Col md={4}>
+          <Form className="d-flex justify-content-end">
+            <Form.Control
+              type="text"
+              placeholder="Search by name or event type"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="me-2" // Add margin-end for spacing
+            />
+            <Button variant="outline-primary" className="rounded-pill">Search</Button>
+          </Form>
+        </Col>
+      </Row>
 
       {loading ? (
         <h2 className="text-center">Loading cards...</h2>

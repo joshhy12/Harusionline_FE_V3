@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Card, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom'; 
-import '../styles/Events.css';
+import { Container, Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import styles from '../styles/Events.module.css'; // Update the import statement
 import { fetchEvents } from '../api/api_events';
 
 const Events = () => {
@@ -19,43 +19,43 @@ const Events = () => {
     getEvents();
   }, []);
 
-  const filteredEvents = filter === 'all' 
-    ? events 
+  const filteredEvents = filter === 'all'
+    ? events
     : events.filter(event => event.event_type.toLowerCase() === filter);
 
   return (
-    <section className="events-section">
+    <section className={styles.eventsSection}>
       <Container>
-        <h2 className="section-title text-center mb-4">Our Events</h2>
-        <div className="filter-buttons text-center mb-4">
-          {['all', 'harusi', 'kitchen party', 'send-off', 'anniversary' ,'Engagement'].map(type => (
-            <Button 
-              key={type} 
-              variant="outline-primary" 
-              onClick={() => setFilter(type)} 
-              className={`filter-btn ${filter === type ? 'active' : ''}`}
+        <h2 className={styles.sectionTitle + " text-center mb-4"}>Our Events</h2>
+        <div className={styles.filterButtons + " text-center mb-4"}>
+          {['all', 'harusi', 'kitchen party', 'send-off', 'anniversary', 'Engagement'].map(type => (
+            <Button
+              key={type}
+              variant="outline-primary"
+              onClick={() => setFilter(type)}
+              style={{ borderRadius: '20px', margin: '5px' }} // Added margin for spacing
             >
               {type.charAt(0).toUpperCase() + type.slice(1)}
             </Button>
           ))}
         </div>
 
+
         {loading ? (
           <h2 className="text-center">Loading events...</h2>
         ) : (
-          <div className="events-grid">
+          <div className={styles.eventsGrid}>
             {filteredEvents.map(event => (
-              <Card key={event.id} className="event-card">
-                <Card.Img variant="top" src={event.wallpaper[0]?.md_photo} alt={event.event_title} />
+              <Card key={event.id} className={styles.eventCard}>
+                <Link to={`/event/${event.id}`} state={{ event }}>
+                  <Card.Img variant="top" src={event.wallpaper[0]?.md_photo} alt={event.event_title} />
+                </Link>
                 <Card.Body>
                   <Card.Title>{event.event_title}</Card.Title>
                   <Card.Text>{event.event_type}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
                   <small className="text-muted">Event Date: {new Date(event.event_date).toLocaleDateString()}</small>
-                  <Link to={`/event/${event.id}`} state={{ event }}>
-                    <Button variant="primary" className="rounded-pill">View Details</Button>
-                  </Link>
                 </Card.Footer>
               </Card>
             ))}

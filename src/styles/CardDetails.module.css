@@ -1,0 +1,38 @@
+/* CardDetails.module.css */
+
+.container {
+  margin: 2rem 0; /* Margin around the container */
+}
+
+.cardImage {
+  width: 100%; /* Ensure the image takes the full width of the column */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Use 'contain' to ensure the entire image is visible */
+  max-height: 400px; /* Set a max height to prevent overflow */
+  cursor: pointer; /* Change cursor to pointer for better UX */
+}
+
+.card {
+  border: 1px solid #e0e0e0; /* Add border to the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for better visual */
+  transition: transform 0.2s; /* Add transition effect */
+  flex-grow: 1; /* Allow the card to grow and take full height */
+}
+
+.card:hover {
+  transform: scale(1.02); /* Slightly scale up the card on hover */
+}
+
+/* Added media query for mobile adjustments */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 20px; /* Adjust spacing on smaller screens */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .cardImage {
+    max-height: 300px; /* Adjust max height for mobile */
+    object-fit: contain; /* Ensure the full image is displayed */
+  }
+}

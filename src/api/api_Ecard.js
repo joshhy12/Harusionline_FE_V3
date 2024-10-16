@@ -1,4 +1,3 @@
-// src/api/api_Ecard.js
 import axios from 'axios';
 
 const API_URL = 'https://test.harusi.online/api/ecards/templates'; // E-cards API endpoint

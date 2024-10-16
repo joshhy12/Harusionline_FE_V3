@@ -1,8 +1,7 @@
-// src/CardDetails.js
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Container, Card, Row, Col, Button, Modal } from 'react-bootstrap'; // Added Modal for full screen view
-import '../styles/card-details.css'; // Adjust the import path as necessary
+import { Container, Card, Row, Col, Button, Modal } from 'react-bootstrap';
+import styles from '../styles/CardDetails.module.css'; // Import the CSS module
 
 const CardDetails = () => {
   const location = useLocation();
@@ -23,26 +22,22 @@ const CardDetails = () => {
   };
 
   return (
-    <Container className="my-5">
+    <Container className={styles.container}>
       <Row>
         <Col md={6} xs={12} className="mb-4 mb-md-0">
           <img
             src={card.wallpaper} // Assuming wallpaper is a single image URL
             alt={card.name}
-            className="card-image" // You can define this class in your CSS
+            className={styles.cardImage} // Use CSS module class
             onClick={handleOpenModal} // Open modal on image click
-            style={{ cursor: 'pointer' }} // Change cursor to pointer for better UX
           />
         </Col>
         <Col md={6} xs={12} className="d-flex align-items-start flex-column">
-          <Card className="h-100 w-100 overflow-auto">
-            {/* Add overflow-auto for mobile to handle long text */}
+          <Card className={`${styles.card} h-100 w-100 overflow-auto`}>
             <Card.Body className="text-wrap">
-              {/* Ensure text wraps properly on mobile */}
               <Card.Title>{card.name}</Card.Title>
               <Card.Text>
                 <strong>Category:</strong> {card.card_category} <br />
-                {/*  <strong>Description:</strong> {card.description || "No description available."} <br /> */}
                 <strong>Price:</strong> {card.price} <br />
                 <strong>Send to WhatsApp:</strong> {card.send_to_whatsapp ? 'Yes' : 'No'} <br />
               </Card.Text>

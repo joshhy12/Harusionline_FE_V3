@@ -1,0 +1,174 @@
+/* styles/WatoaHuduma.module.css */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .filterButtons {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .filterButton {
+    margin: 0.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    border: 1px solid #007bff;
+    background-color: transparent;
+    color: #007bff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .filterButton:hover,
+  .filterButtonActive {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    margin-bottom: 1rem;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cardImage {
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .cardBody {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cardText {
+    flex-grow: 1;
+    margin-bottom: 0.5rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
+  .buttonContainer {
+    margin-top: auto;
+  }
+  
+  .roundedPill {
+    border-radius: 50px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 576px) {
+    .card {
+      min-height: 250px;
+    }
+  
+    .cardImage {
+      height: 120px;
+    }
+  
+    .cardTitle {
+      font-size: 1rem;
+    }
+  
+    .cardText {
+      font-size: 0.8rem;
+    }
+  
+    .roundedPill {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+    }
+  }
+  
+
+  @media (max-width: 576px) {
+    .container {
+      padding-left: 0; /* Remove left padding */
+      padding-right: 0; /* Remove right padding */
+    }
+  
+   
+    .card {
+      width: 100%; /* Ensure cards take full width */
+      margin: 0; /* Remove margin between cards */
+    }
+  
+    .cardImage {
+      height: 150px; /* Adjust image height for mobile */
+    }
+  
+    .cardTitle {
+      font-size: 1.2rem; /* Increase title size for visibility */
+    }
+  
+    .cardText {
+      font-size: 0.9rem; /* Slightly larger text for readability */
+    }
+  
+    .roundedPill {
+      padding: 0.5rem 1rem; /* Adjust padding for buttons */
+      font-size: 0.9rem; /* Keep consistent font size */
+    }
+  }
+  
+ /* Container for the search and filter section */
+.searchFilterContainer {
+    display: flex;
+    justify-content: space-between; /* Aligns filter buttons to the left and search button to the right */
+    align-items: center; /* Vertically centers the items */
+    margin-bottom: 1rem; /* Space below the section */
+  }
+  
+  /* Adjusting the search input to not be too wide */
+  .searchInput {
+    flex-grow: 1; /* Allows the search input to take available space */
+    margin-right: 0.5rem; /* Space between input and button */
+  }
+  
+  /* Ensuring the filter buttons are aligned properly */
+  .filterButtons {
+    display: flex;
+    gap: 0.5rem; /* Space between filter buttons */
+  }
+  
+
+  .roundedPill {
+    border-radius: 50px;
+  }
+  
+  .loginRegisterBtn {
+    margin-bottom: 1rem;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+  }
