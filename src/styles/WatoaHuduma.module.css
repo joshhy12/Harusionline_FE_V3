@@ -4,11 +4,31 @@
     padding-right: 15px;
   }
   
-  h1 {
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+  .heading {
+    font-family: 'Merriweather', serif;  
     font-size: 2rem;
-    font-weight: bold;
-    color: #333;
+    font-weight: 700;
+    color: #24366b;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    padding: 10px 0;
+    border-bottom: 4px solid #ffffff;
+    position: relative;
   }
+  
+  .heading::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 150px;
+    height: 3px;
+    background-color: #007bff;
+    transform: translateX(-50%);
+  }
+  
   
   .filterButtons {
     text-align: center;

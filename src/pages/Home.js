@@ -133,7 +133,7 @@ const Home = () => {
         <Col md={12}>
           <div className="events-container position-relative">
             <div className="d-flex justify-content-between align-items-center mb-3">
-              <h2 className="mb-0">Events Za Leo</h2>
+            <h2 className="section-header-left">Events Za Leo</h2>
               <Button as={Link} to="/events" variant="outline-primary" className="see-all-button rounded-pill">
                 All Events
               </Button>
@@ -169,7 +169,7 @@ const Home = () => {
         <Col md={12}>
           <div className="events-container position-relative">
             <div className="d-flex justify-content-between align-items-center mb-3">
-              <h2 className="mb-0">Watoa Huduma</h2>
+            <h2 className="section-header-left">Watoa Huduma</h2>
               <Button as={Link} to="/WatoaHuduma" variant="outline-primary" className="see-all-button rounded-pill">
                 Watoa Huduma Wote
               </Button>

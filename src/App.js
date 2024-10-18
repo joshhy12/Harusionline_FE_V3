@@ -22,15 +22,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <Router>
+
+
       <Routes>
-      <Route path="/event-website/:slug" element={<EventWebsite />} />
-      <Route
-          path="*"
-          element={
+        {/* Router for the WEBISTE   */}
+        <Route path="/event-website/:slug" element={<EventWebsite />} />
+
+
+        <Route
+          path="*" element={
             <div className="App">
               <Header />
               <main>
                 <Routes>
+                  {/* Router for the main PROJECT  */}
                   <Route path="/" element={<Home />} />
                   <Route path="/home" element={<Home />} />
                   <Route path="/about" element={<About />} />

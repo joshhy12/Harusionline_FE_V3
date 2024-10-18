@@ -40,33 +40,34 @@ const Template3 = ({ event, theme, color }) => {
       </section>
 
       <section id="details" className={styles.details}>
-        <Container>
-          <h2>Wedding Details</h2>
-          <Row>
-            <Col md={4}>
-              <div className={styles.detailCard}>
-                <h3>Ceremony</h3>
-                <p>2:00 PM</p>
-                <p>Sunset Beach</p>
-              </div>
-            </Col>
-            <Col md={4}>
-              <div className={styles.detailCard}>
-                <h3>Reception</h3>
-                <p>6:00 PM</p>
-                <p>Oceanview Resort</p>
-              </div>
-            </Col>
-            <Col md={4}>
-              <div className={styles.detailCard}>
-                <h3>Dress Code</h3>
-                <p>Beach Formal</p>
-                <p>Bring your dancing shoes!</p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+  <Container>
+    <h2>Wedding Details</h2>
+    <Row>
+      <Col md={4}>
+        <div className={styles.detailCard}>
+          <h3><i className="fas fa-church"></i> Ceremony</h3>
+          <p>2:00 PM</p>
+          <p>Sunset Beach</p>
+        </div>
+      </Col>
+      <Col md={4}>
+        <div className={styles.detailCard}>
+          <h3>Reception</h3>
+          <p>6:00 PM</p>
+          <p>Oceanview Resort</p>
+        </div>
+      </Col>
+      <Col md={4}>
+        <div className={styles.detailCard}>
+          <h3>Dress Code</h3>
+          <p>Beach Formal</p>
+          <p>Bring your dancing shoes!</p>
+        </div>
+      </Col>
+    </Row>
+  </Container>
+</section>
+
 
       <section id="rsvp" className={styles.rsvp}>
         <Container>

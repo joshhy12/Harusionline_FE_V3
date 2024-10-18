@@ -49,14 +49,22 @@ const E_card = () => {
   return (
     <Container>
       <br />
-      <h2 className="text-center mb-4">Digital Card</h2>
-
+      <h2 className="text-center mb-4 stylish-heading">Digital Card</h2>
+      
       <Row className="mb-4">
         <Col md={8} className="d-flex align-items-center">
           <Button variant="outline-primary" onClick={() => handleFilterChange('all')} className={`m-1 rounded-pill ${filter === 'all' ? 'active' : ''}`}>All</Button>
           <Button variant="outline-primary" onClick={() => handleFilterChange('Invitation')} className={`m-1 rounded-pill ${filter === 'Invitation' ? 'active' : ''}`}>Invitation</Button>
-          <Button variant="outline-primary" onClick={() => handleFilterChange('Harusi')} className={`m-1 rounded-pill ${filter === 'Harusi' ? 'active' : ''}`}>Harusi</Button>
+          <Button variant="outline-primary" onClick={() => handleFilterChange('Wedding')} className={`m-1 rounded-pill ${filter === 'Wedding' ? 'active' : ''}`}>Wedding</Button>
+          <Button variant="outline-primary" onClick={() => handleFilterChange('sendoff')} className={`m-1 rounded-pill ${filter === 'sendoff' ? 'active' : ''}`}>send-off</Button>
+
+          {/*<Button variant="outline-primary" onClick={() => handleFilterChange('Anniversary')} className={`m-1 rounded-pill ${filter === 'Anniversary' ? 'active' : ''}`}>Anniversary</Button>
+          <Button variant="outline-primary" onClick={() => handleFilterChange('kitchenparty')} className={`m-1 rounded-pill ${filter === 'kitchenparty' ? 'active' : ''}`}>kitchenparty</Button>
+
           {/* Add more filters as needed */}
+
+
+          
         </Col>
         <Col md={4}>
           <Form className="d-flex justify-content-end">

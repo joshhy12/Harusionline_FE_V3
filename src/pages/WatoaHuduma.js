@@ -46,7 +46,7 @@ const WatoaHuduma = () => {
 
   return (
     <Container className={styles.container}>
-      <h1 className="text-center mb-4">Watoa Huduma</h1>
+      <br></br><h1 className={`text-center mb-4 ${styles.heading}`}>Watoa Huduma</h1>
 
       {/* Login/Register Button */}
       <div className="text-center mb-4">
@@ -101,6 +101,9 @@ const WatoaHuduma = () => {
           </Col>
         ))}
       </Row>
+
+
+
 
       {/* Login/Register Modal */}
       <Modal show={showModal} onHide={handleModalClose}>

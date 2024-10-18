@@ -1,3 +1,9 @@
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 .template3 {
   font-family: 'Lato', sans-serif;
 }
@@ -122,5 +128,28 @@
 
   .storyImage {
     margin-bottom: 30px;
+  }
+}
+
+.details {
+  color: blue;
+}
+
+
+.template3 .header h1 {
+  font-size: 2.5rem;
+  padding: 20px;
+}
+
+.template3 .story h2 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .template3 .header h1 {
+    font-size: 1.8rem;
+  }
+  .template3 .storyImage {
+    width: 100%;
   }
 }

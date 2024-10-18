@@ -1,3 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+.stylish-heading {
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #24366b;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  padding: 15px 0;
+  border-bottom: 3px solid #f0f0f0;
+  position: relative;
+}
+
+.stylish-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 159px;
+  height: 3px;
+  background-color: #007bff;
+  transform: translateX(-50%);
+}
+
+
 .my-masonry-grid {
   display: -webkit-box;
   display: -ms-flexbox;

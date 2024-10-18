@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Row, Col,Button } from 'react-bootstrap';
 import { Link  } from 'react-router-dom';
 import gharamaImage from '../images/eCards_pricing.svg'; // Make sure to add your image
+import '../styles/Gharama.css';
+
 
 function Gharama() {
   return (
@@ -11,7 +13,7 @@ function Gharama() {
           <img src={gharamaImage} alt="Gharama" className="img-fluid rounded" />
         </Col>
         <Col md={6}>
-        <h2 className="main-title" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Bei na Gharama</h2>
+        <h2 className="pricing-header">Bei na Gharama</h2>
         <p>
           Kwa huduma ambazo zinalipiwa Harusi online inatumia mfumo wa kulipia kadri unavyotumia, yaani 'Pay-As-You-Go'. Katika utaratibu wa kujihudumia mwenyewe (Self-Service)
           Hata hivyo huduma kama tovuti ya shughuli, menejimenti ya bajeti, ahadi, michango na taarifa za fedha, ripoti za PDF/Excel na za Whatsapp pamoja na mialiko kwa njia ya Email ni BURE. Pia kwa mtoa huduma, hakuna gharama utakayochajiwa kwa kuweka taarifa kwenye profile yako na kwa platform ya harusionline kukutanisha na wateja. Malipo utakayotakiwa kulipa ni    
