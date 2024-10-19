@@ -35,12 +35,12 @@ const EventDetails = () => {
   };
 
   const generateSlug = (title) => {
-    return title.toLowerCase().replace(/\s+/g, '-');
+    return title.toLowerCase().replace(/\s+/g, '');
   };
 
   const handleCreateWebsite = () => {
     const slug = generateSlug(event.event_title);
-    const websiteUrl = `/event-website/${slug}`;
+    const websiteUrl = `https://${slug}.Harusi.Online`;
     const stateData = {
       event,
       template: selectedTemplate,

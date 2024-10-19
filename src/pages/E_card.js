@@ -55,6 +55,8 @@ const E_card = () => {
         <Col md={8} className="d-flex align-items-center">
           <Button variant="outline-primary" onClick={() => handleFilterChange('all')} className={`m-1 rounded-pill ${filter === 'all' ? 'active' : ''}`}>All</Button>
           <Button variant="outline-primary" onClick={() => handleFilterChange('Invitation')} className={`m-1 rounded-pill ${filter === 'Invitation' ? 'active' : ''}`}>Invitation</Button>
+          <Button variant="outline-primary" onClick={() => handleFilterChange('Contribution')} className={`m-1 rounded-pill ${filter === 'Contribution' ? 'active' : ''}`}>Contribution</Button>
+
           <Button variant="outline-primary" onClick={() => handleFilterChange('Wedding')} className={`m-1 rounded-pill ${filter === 'Wedding' ? 'active' : ''}`}>Wedding</Button>
           <Button variant="outline-primary" onClick={() => handleFilterChange('sendoff')} className={`m-1 rounded-pill ${filter === 'sendoff' ? 'active' : ''}`}>send-off</Button>
 
