@@ -31,14 +31,20 @@ const Events = () => {
           {['all', 'harusi', 'kitchen party', 'send-off', 'anniversary', 'Engagement'].map(type => (
             <Button
               key={type}
-              variant="outline-primary"
+              variant={filter === type ? "primary" : "outline-primary"}
               onClick={() => setFilter(type)}
-              style={{ borderRadius: '20px', margin: '5px' }} // Added margin for spacing
+              style={{
+                borderRadius: '20px',
+                margin: '5px',
+                backgroundColor: filter === type ? '#007bff' : 'transparent',
+                color: filter === type ? 'white' : '#007bff'
+              }}
             >
               {type.charAt(0).toUpperCase() + type.slice(1)}
             </Button>
           ))}
         </div>
+
 
 
         {loading ? (
