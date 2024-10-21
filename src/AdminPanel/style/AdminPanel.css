@@ -1,0 +1,45 @@
+.admin-panel {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background-color: #343a40;
+    padding: 20px;
+    color: white;
+    height: 100vh;
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar nav ul li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .top-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dashboard-cards {
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-cards .card {
+    margin-right: 15px;
+  }
+  

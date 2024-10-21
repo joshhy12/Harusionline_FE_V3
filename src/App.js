@@ -19,6 +19,11 @@ import EventWebsite from './pages/EventWebsite';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import AdminPanel from './AdminPanel/AdminPanel';
+import Layout from './AdminPanel/Layout'
+import Dashboard from './AdminPanel/Dashboard'
+
+
 function App() {
   return (
     <Router>
@@ -27,7 +32,8 @@ function App() {
       <Routes>
         {/* Router for the WEBISTE   */}
         <Route path="/event-website/:slug" element={<EventWebsite />} />
-
+        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/admin" element={<Dashboard />} />
 
         <Route
           path="*" element={
