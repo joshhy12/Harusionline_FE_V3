@@ -3,20 +3,6 @@ import { Link } from 'react-router-dom';
 import './AdminPanel.css';
 import logo from '../images/logo.png';
 
-import { useEffect } from 'react';
-
-function AdminPanel() {
-  useEffect(() => {
-    // Initialize all dropdowns
-    const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
-    dropdownElementList.map(function (dropdownToggleEl) {
-      return new window.bootstrap.Dropdown(dropdownToggleEl)
-    })
-  }, []);
-
-   
-
-
 function AdminPanel() {
   return (
     <div id="page-top">
@@ -138,8 +124,8 @@ function AdminPanel() {
               {/* Right-side profile section */}
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item dropdown no-arrow">
-                <a className="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span className="mr-2 d-none d-lg-inline text-gray-600 small">Admin test</span>
+                  <a className="nav-link dropdown-toggle" href="" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span className="mr-2 d-none d-lg-inline text-gray-600 small">Admin test</span>
                     <img className="img-profile rounded-circle" src={logo} alt="#" style={{ width: '40px', height: '40px' }} />
                   </a>
                   <div className="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -190,6 +176,7 @@ function AdminPanel() {
                              Ahadi
                             </div>
                             <div className="h5 mb-0 font-weight-bold text-gray-800">Tsh 400,000</div>
+                          
                           </div>
                           <div className="col-auto">
                             <i className="bi bi-calendar fa-2x text-gray-300"></i>

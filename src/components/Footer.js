@@ -54,7 +54,7 @@ const Footer = () => {
                 <li><i className="bx bi-chevron-right"></i> <Link to="/e_card">Kadi za Kidigitali</Link></li>
                 <li><i className="bx bi-chevron-right"></i> <Link to="#tuma-mialiko">Tuma Mialiko</Link></li>
                 <li><i className="bx bi-chevron-right"></i> <Link to="#ripori-ya-fedha">Ripori ya Fedha</Link></li>
-                <li><i className="bx bi-chevron-right"></i> <Link to="/Watoa Huduma">Login As MtoaHuduma</Link></li>
+                <li><i className="bx bi-chevron-right"></i> <Link to="/WatoaHuduma">Login As MtoaHuduma</Link></li>
 
               </ul>
             </Col>

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { FaUserPlus, FaHandshake, FaEnvelopeOpenText } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { fetchEvents } from '../api/api_events';
+import eventService from '../api/api_events';
 import { getWatoaHuduma } from '../api/api_WatoaHuduma';
 import '../styles/Home.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -16,13 +16,15 @@ const Home = () => {
 
   useEffect(() => {
     const loadData = async () => {
-      const eventData = await fetchEvents();
+      const eventData = await eventService.fetchEvents();
       const watoaHudumaData = await getWatoaHuduma();
       if (eventData) setEvents(eventData);
       if (watoaHudumaData) setWatoaHuduma(watoaHudumaData);
     };
     loadData();
   }, []);
+  
+  
 
   const scroll = (direction, ref) => {
     const container = ref.current;
