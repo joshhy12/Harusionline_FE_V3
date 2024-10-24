@@ -1,0 +1,138 @@
+.sidebar-container {
+  width: 120px;
+  height: 100vh;
+  background-color: #4169E1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1030;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sidebar-container::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-content {
+  padding: 1rem 0.5rem;
+  height: 100%;
+}
+
+/* Section Title Styling (like INTERFACE, ADDONS) */
+.sidebar-section-title {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.5rem 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo-section {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sidebar-logo {
+  width: 90px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 7px 0;
+}
+
+.nav-link-custom {
+  color: rgba(255, 255, 255, 0.8) !important;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  min-height: 70px;
+  justify-content: center;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.nav-link-custom:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white !important;
+  opacity: 1;
+}
+
+.nav-link-custom.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white !important;
+  opacity: 1;
+}
+
+/* Icons Styling */
+.nav-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sidebar overlay for mobile */
+.sidebar-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1025;
+}
+
+@media (max-width: 768px) {
+  .sidebar-container {
+    transform: translateX(-100%);
+    width: 120px;
+  }
+
+  .sidebar-container.open {
+    transform: translateX(0);
+  }
+
+  .nav-link-custom {
+    font-size: 0.85rem;
+    padding: 1rem 0.5rem;
+    min-height: 80px;
+  }
+
+  .nav-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .sidebar-logo {
+    width: 100px;
+    padding: 5px 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .sidebar-container {
+    transform: none;
+    width: 120px;
+  }
+}
