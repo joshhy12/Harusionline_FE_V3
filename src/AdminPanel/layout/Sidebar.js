@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaUsers, FaUserFriends, FaMoneyBillWave, FaHandHoldingUsd, FaLayerGroup, FaMoneyBill, FaDonate, FaImages, FaChartBar, FaIdCard, FaWhatsapp, FaHistory, FaSms, FaCog } from 'react-icons/fa';
@@ -8,17 +8,9 @@ import logo from './assets/logo.png';
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   const location = useLocation();
 
-  // Close sidebar when a link is clicked
   const handleLinkClick = () => {
     toggleSidebar();  // Close sidebar after navigation
   };
-
-  useEffect(() => {
-    // Close sidebar on page load if it's open
-    if (isOpen) {
-      toggleSidebar();
-    }
-  }, [location, isOpen, toggleSidebar]);
 
   return (
     <>      
@@ -59,7 +51,7 @@ const NavItem = ({ to, icon: Icon, label, active, onClick }) => (
     className={`nav-link-custom ${active ? 'active' : ''}`}
     onClick={onClick}
   >
-    <Icon className="d-block mx-auto mb-1" size={24} />
+    <Icon className="d-block mx-auto mb-1" size={20} />
     {label}
   </Nav.Link>
 );

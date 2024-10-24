@@ -1,5 +1,5 @@
 .sidebar-container {
-  width: 120px;
+  width: 130px;
   height: 100vh;
   background-color: #4169E1;
   position: fixed;
@@ -21,18 +21,6 @@
   height: 100%;
 }
 
-/* Section Title Styling (like INTERFACE, ADDONS) */
-.sidebar-section-title {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.7rem;
-  font-weight: bold;
-  padding: 0.5rem 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
 .logo-section {
   margin-bottom: 2rem;
   text-align: center;
@@ -51,7 +39,7 @@
   margin-bottom: 0.5rem;
   padding: 0.75rem 0.25rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Ensure icons stack above text */
   align-items: center;
   text-align: center;
   transition: all 0.2s ease;
@@ -62,6 +50,7 @@
   text-decoration: none;
   opacity: 0.85;
 }
+
 
 .nav-link-custom:hover {
   background-color: rgba(255, 255, 255, 0.1);
@@ -75,14 +64,13 @@
   opacity: 1;
 }
 
-/* Icons Styling */
 .nav-icon {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
 h3 {
-  color: white;
+  color: #24366b;
   font-size: 0.8rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -91,7 +79,6 @@ h3 {
   text-overflow: ellipsis;
 }
 
-/* Sidebar overlay for mobile */
 .sidebar-overlay {
   display: block;
   position: fixed;
@@ -106,7 +93,7 @@ h3 {
 @media (max-width: 768px) {
   .sidebar-container {
     transform: translateX(-100%);
-    width: 120px;
+    width: 130px;
   }
 
   .sidebar-container.open {
