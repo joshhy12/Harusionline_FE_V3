@@ -1,0 +1,56 @@
+/* Style for the card */
+.card {
+    border: 1px solid #dee2e6; /* Light border around the card */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  }
+  
+  /* Table container */
+  .data-table-wrapper {
+    margin-top: 20px;
+    border: 1px solid #dee2e6; /* Border around the table */
+    border-radius: 5px;
+    overflow: hidden; /* Avoid overflow */
+  }
+  
+  /* Styling the DataTable */
+  .rdt_Table {
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 0;
+  }
+  
+  /* Table Header */
+  .rdt_TableHeadRow {
+    background-color: #f8f9fa; /* Light grey background for headers */
+    border-bottom: 2px solid #dee2e6; /* Line under the header */
+  }
+  
+  /* Table Row */
+  .rdt_TableRow {
+    border-bottom: 1px solid #dee2e6; /* Line between rows */
+  }
+  
+  /* Hover effect on rows */
+  .rdt_TableRow:hover {
+    background-color: #f1f1f1; /* Light grey hover effect */
+  }
+  
+  /* Table Cells */
+  .rdt_TableCell {
+    padding: 8px;
+    border-right: 1px solid #dee2e6; /* Line between columns */
+  }
+  
+  /* Remove last border from the rightmost cell */
+  .rdt_TableCell:last-child {
+    border-right: none;
+  }
+  
+  /* Pagination styles */
+  .rdt_Pagination {
+    border-top: 1px solid #dee2e6;
+    padding-top: 15px;
+    text-align: right;
+  }
+  
