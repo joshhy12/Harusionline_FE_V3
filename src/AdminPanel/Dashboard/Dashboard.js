@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaPaperPlane, FaBell, FaEnvelope, FaIdCard, FaUsers } from 'react-icons/fa';
 import './Dashboard.css';
 
@@ -36,50 +37,60 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Action buttons */}
       <div className="row mt-4">
-        <div className="col text-center">
-          <div className="bg-light p-4 rounded-lg">
-            <div className="dashText">
-              <FaPaperPlane className="mb-2" size={24} />
-              <div>Tuma Taarifa</div>
-            </div>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="bg-light p-4 rounded-lg">
-            <div className="dashText">
-              <FaBell className="mb-2" size={24} />
-              <div>Kumbusha Michango</div>
-            </div>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="bg-light p-4 rounded-lg">
-            <div className="dashText">
-              <FaEnvelope className="mb-2" size={24} />
-              <div>Tuma Mialiko</div>
-            </div>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="bg-light p-4 rounded-lg">
-            <div className="dashText">
-              <FaIdCard className="mb-2" size={24} />
-              <div>E-cards</div>
-            </div>
-          </div>
-        </div>
-        <div className="col text-center">
-          <div className="bg-light p-4 rounded-lg">
-            <div className="dashText">
-              <FaUsers className="mb-2" size={24} />
-              <div>Import Contacts</div>
-            </div>
-          </div>
+  <div className="col text-center">
+    <Link to="/admin/send-report" className="text-decoration-none">
+      <div className="bg-light p-4 rounded-lg">
+        <div className="dashText">
+          <FaPaperPlane className="mb-2" size={24} />
+          <div>Tuma Taarifa</div>
         </div>
       </div>
-    </div>
+    </Link>
+  </div>
+  <div className="col text-center">
+    <Link to="/admin/contribution-reminder" className="text-decoration-none">
+      <div className="bg-light p-4 rounded-lg">
+        <div className="dashText">
+          <FaBell className="mb-2" size={24} />
+          <div>Kumbusha Michango</div>
+        </div>
+      </div>
+    </Link>
+  </div>
+  <div className="col text-center">
+    <Link to="/admin/send-invitations" className="text-decoration-none">
+      <div className="bg-light p-4 rounded-lg">
+        <div className="dashText">
+          <FaEnvelope className="mb-2" size={24} />
+          <div>Tuma Mialiko</div>
+        </div>
+      </div>
+    </Link>
+  </div>
+  <div className="col text-center">
+    <Link to="/admin/ecards" className="text-decoration-none">
+      <div className="bg-light p-4 rounded-lg">
+        <div className="dashText">
+          <FaIdCard className="mb-2" size={24} />
+          <div>E-cards</div>
+        </div>
+      </div>
+    </Link>
+  </div>
+  <div className="col text-center">
+    <Link to="/admin/import-contacts" className="text-decoration-none">
+      <div className="bg-light p-4 rounded-lg">
+        <div className="dashText">
+          <FaUsers className="mb-2" size={24} />
+          <div>Import Contacts</div>
+        </div>
+      </div>
+    </Link>
+  </div>
+</div>
+</div>
+     
   );
 };
 
