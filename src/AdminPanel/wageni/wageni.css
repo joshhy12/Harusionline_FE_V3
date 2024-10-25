@@ -1,56 +1,100 @@
-/* Style for the card */
-.card {
-    border: 1px solid #dee2e6; /* Light border around the card */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+.container {
+  padding: 15px;
+}
+
+/* Table Styles */
+.table-responsive {
+  margin-top: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+/* Form Styles */
+.form-control {
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.form-control:focus {
+  border-color: #4527a0;
+  box-shadow: 0 0 0 0.2rem rgba(69, 39, 160, 0.25);
+}
+
+/* Action Icons */
+.cursor-pointer {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.cursor-pointer:hover {
+  transform: scale(1.1);
+}
+
+/* Modal Styles */
+.modal-content {
+  border-radius: 8px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
   }
-  
-  /* Table container */
-  .data-table-wrapper {
-    margin-top: 20px;
-    border: 1px solid #dee2e6; /* Border around the table */
-    border-radius: 5px;
-    overflow: hidden; /* Avoid overflow */
+
+  .d-flex {
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  /* Styling the DataTable */
-  .rdt_Table {
-    border-collapse: collapse;
+
+  .btn {
     width: 100%;
-    border-spacing: 0;
+    margin-bottom: 8px;
   }
-  
-  /* Table Header */
-  .rdt_TableHeadRow {
-    background-color: #f8f9fa; /* Light grey background for headers */
-    border-bottom: 2px solid #dee2e6; /* Line under the header */
-  }
-  
-  /* Table Row */
-  .rdt_TableRow {
-    border-bottom: 1px solid #dee2e6; /* Line between rows */
-  }
-  
-  /* Hover effect on rows */
-  .rdt_TableRow:hover {
-    background-color: #f1f1f1; /* Light grey hover effect */
-  }
-  
-  /* Table Cells */
+
   .rdt_TableCell {
     padding: 8px;
-    border-right: 1px solid #dee2e6; /* Line between columns */
+    font-size: 14px;
   }
-  
-  /* Remove last border from the rightmost cell */
-  .rdt_TableCell:last-child {
-    border-right: none;
+
+  .cursor-pointer {
+    font-size: 1rem !important;
   }
-  
-  /* Pagination styles */
+
+  .modal-dialog {
+    margin: 10px;
+  }
+
+  .form-label {
+    font-size: 14px;
+  }
+
   .rdt_Pagination {
-    border-top: 1px solid #dee2e6;
-    padding-top: 15px;
-    text-align: right;
+    font-size: 14px;
   }
-  
+}
+
+/* Custom DataTable Styles */
+.rdt_Table {
+  background: white;
+}
+
+.rdt_TableHeader {
+  background: #f8f9fa;
+  padding: 12px;
+}
+
+.rdt_TableHeadRow {
+  font-weight: bold;
+  color: #4527a0;
+}
+
+.rdt_TableRow:hover {
+  background-color: rgba(69, 39, 160, 0.05);
+}

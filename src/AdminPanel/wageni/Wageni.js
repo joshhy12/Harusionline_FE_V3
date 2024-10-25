@@ -1,77 +1,189 @@
 import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
-import { Form } from 'react-bootstrap'; // For the Show Entries dropdown
+import { Form, Button, Modal } from 'react-bootstrap';
+import {  FaEdit,FaTrash } from 'react-icons/fa';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './wageni.css'; 
 
-
 const Wageni = () => {
-  const [perPage, setPerPage] = useState(10); // Entries dropdown
+  const [perPage, setPerPage] = useState(10);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [newWageni, setNewWageni] = useState({
+    jina: '',
+    kikundi: '',
+    namba: '',
+    mchango: ''
+  });
 
-  // Sample Data
-  const visitorsData = [
-    { id: 1, name: 'John Doe', position: 'Security', office: 'New York', age: 35, startDate: '2021/01/01', salary: '$3000' },
-    { id: 2, name: 'Jane Smith', position: 'Receptionist', office: 'Los Angeles', age: 28, startDate: '2020/05/10', salary: '$2500' },
-    { id: 3, name: 'Robert White', position: 'Admin', office: 'Chicago', age: 40, startDate: '2019/08/15', salary: '$4000' },
+   // Sample Data for Wageni
+   const visitorsData = [
+    { id: 1, jina: 'John Doe', kikundi: 'Kikundi A', namba: '0753123456', mchango: 'TZS 100,000' },
+    { id: 2, jina: 'Jane Smith', kikundi: 'Kikundi B', namba: '0753987654', mchango: 'TZS 50,000' },
+    { id: 3, jina: 'Robert White', kikundi: 'Kikundi A', namba: '0753765432', mchango: 'TZS 70,000' },
+    { id: 4, jina: 'Sarah Johnson', kikundi: 'Kikundi C', namba: '0753234567', mchango: 'TZS 80,000' },
+    { id: 5, jina: 'Michael Brown', kikundi: 'Kikundi B', namba: '0753345678', mchango: 'TZS 65,000' },
+    { id: 6, jina: 'Emma Davis', kikundi: 'Kikundi A', namba: '0753456789', mchango: 'TZS 90,000' },
+    { id: 7, jina: 'James Wilson', kikundi: 'Kikundi C', namba: '0753567890', mchango: 'TZS 55,000' },
+    { id: 8, jina: 'Linda Anderson', kikundi: 'Kikundi B', namba: '0753678901', mchango: 'TZS 75,000' },
+    { id: 9, jina: 'Thomas Taylor', kikundi: 'Kikundi A', namba: '0753789012', mchango: 'TZS 85,000' },
+    { id: 10, jina: 'Patricia Martin', kikundi: 'Kikundi C', namba: '0753890123', mchango: 'TZS 95,000' },
+    { id: 11, jina: 'George Thompson', kikundi: 'Kikundi B', namba: '0753901234', mchango: 'TZS 60,000' },
+    { id: 12, jina: 'Elizabeth Clark', kikundi: 'Kikundi A', namba: '0753012345', mchango: 'TZS 70,000' },
+    { id: 13, jina: 'Daniel Lee', kikundi: 'Kikundi C', namba: '0753112233', mchango: 'TZS 80,000' },
+    { id: 14, jina: 'Maria Garcia', kikundi: 'Kikundi B', namba: '0753223344', mchango: 'TZS 90,000' },
+    { id: 15, jina: 'David Miller', kikundi: 'Kikundi A', namba: '0753334455', mchango: 'TZS 100,000' },
+    { id: 16, jina: 'Susan Wilson', kikundi: 'Kikundi C', namba: '0753445566', mchango: 'TZS 65,000' },
+    { id: 17, jina: 'Joseph Moore', kikundi: 'Kikundi B', namba: '0753556677', mchango: 'TZS 75,000' },
+    { id: 18, jina: 'Margaret White', kikundi: 'Kikundi A', namba: '0753667788', mchango: 'TZS 85,000' },
+    { id: 19, jina: 'Charles Jackson', kikundi: 'Kikundi C', namba: '0753778899', mchango: 'TZS 95,000' },
+    { id: 20, jina: 'Nancy Davis', kikundi: 'Kikundi B', namba: '0753889900', mchango: 'TZS 55,000' },
+    { id: 21, jina: 'Christopher Lee', kikundi: 'Kikundi A', namba: '0753990011', mchango: 'TZS 70,000' },
+    { id: 22, jina: 'Amanda Brown', kikundi: 'Kikundi C', namba: '0753001122', mchango: 'TZS 80,000' },
+    { id: 23, jina: 'Kevin Wilson', kikundi: 'Kikundi B', namba: '0753112233', mchango: 'TZS 90,000' },
+    { id: 24, jina: 'Michelle Taylor', kikundi: 'Kikundi A', namba: '0753223344', mchango: 'TZS 100,000' },
+    { id: 25, jina: 'Steven Johnson', kikundi: 'Kikundi C', namba: '0753334455', mchango: 'TZS 60,000' },
+    { id: 26, jina: 'Laura Martin', kikundi: 'Kikundi B', namba: '0753445566', mchango: 'TZS 70,000' },
+    { id: 27, jina: 'Ronald Thompson', kikundi: 'Kikundi A', namba: '0753556677', mchango: 'TZS 80,000' },
+    { id: 28, jina: 'Lisa Anderson', kikundi: 'Kikundi C', namba: '0753667788', mchango: 'TZS 90,000' },
+    { id: 29, jina: 'Mark Davis', kikundi: 'Kikundi B', namba: '0753778899', mchango: 'TZS 100,000' },
+    { id: 30, jina: 'Sandra Clark', kikundi: 'Kikundi A', namba: '0753889900', mchango: 'TZS 65,000' },
+    { id: 31, jina: 'Paul White', kikundi: 'Kikundi C', namba: '0753990011', mchango: 'TZS 75,000' },
+    { id: 32, jina: 'Betty Moore', kikundi: 'Kikundi B', namba: '0753001122', mchango: 'TZS 85,000' },
+    { id: 33, jina: 'Edward Lee', kikundi: 'Kikundi A', namba: '0753112233', mchango: 'TZS 95,000' },
+    { id: 34, jina: 'Helen Garcia', kikundi: 'Kikundi C', namba: '0753223344', mchango: 'TZS 55,000' },
+    { id: 35, jina: 'Frank Miller', kikundi: 'Kikundi B', namba: '0753334455', mchango: 'TZS 70,000' },
+    { id: 36, jina: 'Carol Wilson', kikundi: 'Kikundi A', namba: '0753445566', mchango: 'TZS 80,000' },
+    { id: 37, jina: 'Donald Brown', kikundi: 'Kikundi C', namba: '0753556677', mchango: 'TZS 90,000' },
+    { id: 38, jina: 'Ruth Taylor', kikundi: 'Kikundi B', namba: '0753667788', mchango: 'TZS 100,000' },
+    { id: 39, jina: 'Gary Johnson', kikundi: 'Kikundi A', namba: '0753778899', mchango: 'TZS 60,000' },
+    { id: 40, jina: 'Dorothy Martin', kikundi: 'Kikundi C', namba: '0753889900', mchango: 'TZS 70,000' },
     // Add more data as needed
   ];
 
-  // Table Columns Definition
+  const handleDownloadPDF = () => {
+    // Implement PDF download logic here
+  };
+
+  const handleAddWageni = () => {
+    // Implement add wageni logic here
+    setShowModal(false);
+  };
+
+  const handleUpdate = (row) => {
+    // Implement update logic here
+  };
+
+  const handleDelete = (row) => {
+    // Implement delete logic here
+  };
+
   const columns = [
-    { name: 'Name', selector: (row) => row.name, sortable: true },
-    { name: 'Position', selector: (row) => row.position, sortable: true },
-    { name: 'Office', selector: (row) => row.office, sortable: true },
-    { name: 'Age', selector: (row) => row.age, sortable: true },
-    { name: 'Start date', selector: (row) => row.startDate, sortable: true },
-    { name: 'Salary', selector: (row) => row.salary, sortable: true },
+    { name: 'Jina', selector: (row) => row.jina, sortable: true },
+    { name: 'Kikundi', selector: (row) => row.kikundi, sortable: true },
+    { name: 'Namba', selector: (row) => row.namba, sortable: true },
+    { name: 'Ahadi / Mchango', selector: (row) => row.mchango, sortable: true },
+    {
+      name: 'Actions',
+      cell: (row) => (
+        <>
+  <FaEdit className="text-primary me-2 cursor-pointer" style={{ fontSize: '1.2rem' }} onClick={() => handleUpdate(row)} />
+  <FaTrash className="text-danger cursor-pointer" style={{ fontSize: '1.2rem' }} onClick={() => handleDelete(row)} />
+        </>
+      ),
+    },
   ];
+
+  const filteredData = visitorsData.filter(visitor =>
+    visitor.jina.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    visitor.namba.includes(searchTerm)
+  );
 
   return (
     <div className="container mt-4">
-      <h1 className="text-center mb-4">Wageni (Visitors) Management</h1>
-      
-      <div className="card mb-4">
-        <div className="card-body">
-          <h5 className="card-title">About Visitors Management</h5>
-          <p className="card-text">
-            This section allows you to manage and track visitors to the premises. You can register new visitors,
-            view visitor history, manage check-in/check-out times, and generate visitor reports. The system helps
-            maintain security and keeps accurate records of all people visiting the facility.
-          </p>
-        </div>
+      <div className="d-flex justify-content-between mb-3">
+        <Button variant="success" onClick={() => setShowModal(true)}>
+          Add Wageni
+        </Button>
+        <Button variant="primary" onClick={handleDownloadPDF}>
+          Download PDF
+        </Button>
       </div>
 
-      {/* Entries Dropdown */}
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <Form.Group controlId="entriesDropdown" className="d-flex align-items-center">
-          <Form.Label className="mr-2">Show</Form.Label>
-          <Form.Control
-            as="select"
-            value={perPage}
-            onChange={(e) => setPerPage(Number(e.target.value))}
-            className="w-auto"
-          >
-            <option value={5}>5</option>
-            <option value={10}>10</option>
-            <option value={15}>15</option>
-            <option value={20}>20</option>
-          </Form.Control>
-          <Form.Label className="ml-2">entries</Form.Label>
-        </Form.Group>
+      <Form.Group controlId="searchInput" className="mb-3">
+        <Form.Label>Search Visitors</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Search by name or number"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </Form.Group>
+
+      <div className="table-responsive">
+        <DataTable
+          columns={columns}
+          data={filteredData}
+          pagination
+          paginationRowsPerPageOptions={[20, 50, 100]}
+          paginationPerPage={perPage}
+          onChangeRowsPerPage={setPerPage}
+          highlightOnHover
+          striped
+          dense
+        />
       </div>
 
-      {/* Data Table */}
-      <DataTable
-        columns={columns}
-        data={visitorsData}
-        pagination
-        paginationRowsPerPageOptions={[5, 10, 15, 20]}
-        paginationPerPage={perPage}
-        searchable
-        defaultSortFieldId={1}
-        highlightOnHover
-        striped
-        dense
-      />
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add New Wageni</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Jina</Form.Label>
+              <Form.Control
+                type="text"
+                value={newWageni.jina}
+                onChange={(e) => setNewWageni({...newWageni, jina: e.target.value})}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Kikundi</Form.Label>
+              <Form.Control
+                type="text"
+                value={newWageni.kikundi}
+                onChange={(e) => setNewWageni({...newWageni, kikundi: e.target.value})}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Namba</Form.Label>
+              <Form.Control
+                type="text"
+                value={newWageni.namba}
+                onChange={(e) => setNewWageni({...newWageni, namba: e.target.value})}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Ahadi / Mchango</Form.Label>
+              <Form.Control
+                type="text"
+                value={newWageni.mchango}
+                onChange={(e) => setNewWageni({...newWageni, mchango: e.target.value})}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleAddWageni}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
