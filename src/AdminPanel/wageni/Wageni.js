@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { Form, Button, Modal } from 'react-bootstrap';
-import {  FaEdit,FaTrash } from 'react-icons/fa';
-
+import { FaEdit, FaTrash, FaDownload } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './wageni.css'; 
+import './wageni.css';
 
 const Wageni = () => {
-  const [perPage, setPerPage] = useState(10);
+  const [perPage, setPerPage] = useState(100);
   const [searchTerm, setSearchTerm] = useState('');
   const [showModal, setShowModal] = useState(false);
+  const [showMultipleModal, setShowMultipleModal] = useState(false);
+  const [fileName, setFileName] = useState("No file chosen");
   const [newWageni, setNewWageni] = useState({
     jina: '',
     kikundi: '',
     namba: '',
-    mchango: ''
+    mchango: '' 
   });
 
-   // Sample Data for Wageni
-   const visitorsData = [
+  const visitorsData = [
     { id: 1, jina: 'John Doe', kikundi: 'Kikundi A', namba: '0753123456', mchango: 'TZS 100,000' },
     { id: 2, jina: 'Jane Smith', kikundi: 'Kikundi B', namba: '0753987654', mchango: 'TZS 50,000' },
     { id: 3, jina: 'Robert White', kikundi: 'Kikundi A', namba: '0753765432', mchango: 'TZS 70,000' },
-    { id: 4, jina: 'Sarah Johnson', kikundi: 'Kikundi C', namba: '0753234567', mchango: 'TZS 80,000' },
+    { id: 4, jina: 'Neema Johnson', kikundi: 'Kikundi C', namba: '0753234567', mchango: 'TZS 80,000' },
     { id: 5, jina: 'Michael Brown', kikundi: 'Kikundi B', namba: '0753345678', mchango: 'TZS 65,000' },
     { id: 6, jina: 'Emma Davis', kikundi: 'Kikundi A', namba: '0753456789', mchango: 'TZS 90,000' },
     { id: 7, jina: 'James Wilson', kikundi: 'Kikundi C', namba: '0753567890', mchango: 'TZS 55,000' },
@@ -71,6 +71,14 @@ const Wageni = () => {
     setShowModal(false);
   };
 
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFileName(file.name);
+      console.log("File chosen:", file.name);
+    }
+  };
+
   const handleUpdate = (row) => {
     // Implement update logic here
   };
@@ -80,6 +88,11 @@ const Wageni = () => {
   };
 
   const columns = [
+    { 
+      name: '#',
+      cell: (row, index) => index + 1,
+      width: '60px'
+    },
     { name: 'Jina', selector: (row) => row.jina, sortable: true },
     { name: 'Kikundi', selector: (row) => row.kikundi, sortable: true },
     { name: 'Namba', selector: (row) => row.namba, sortable: true },
@@ -88,8 +101,8 @@ const Wageni = () => {
       name: 'Actions',
       cell: (row) => (
         <>
-  <FaEdit className="text-primary me-2 cursor-pointer" style={{ fontSize: '1.2rem' }} onClick={() => handleUpdate(row)} />
-  <FaTrash className="text-danger cursor-pointer" style={{ fontSize: '1.2rem' }} onClick={() => handleDelete(row)} />
+          <FaEdit className="text-primary me-2 cursor-pointer" style={{ fontSize: '1.2rem' }} onClick={() => handleUpdate(row)} />
+          <FaTrash className="text-danger cursor-pointer" style={{ fontSize: '1.2rem' }} onClick={() => handleDelete(row)} />
         </>
       ),
     },
@@ -101,89 +114,132 @@ const Wageni = () => {
   );
 
   return (
-    <div className="container mt-4">
-      <div className="d-flex justify-content-between mb-3">
-        <Button variant="success" onClick={() => setShowModal(true)}>
-          Add Wageni
-        </Button>
-        <Button variant="primary" onClick={handleDownloadPDF}>
-          Download PDF
-        </Button>
+    <div className="container">
+      <div className="row">
+        <div className="container-fluid mt-4">
+        <h2 className="text-center" style={{ color: '#24366b' }}>Wageni Wa Shughuli</h2>
+
+          <div className="buttons-container">
+            <Button variant="outline-primary" size="sm" onClick={() => setShowModal(true)}>
+              Ongeza Mgeni
+            </Button>
+            <Button variant="outline-primary" size="sm" onClick={() => setShowMultipleModal(true)}>
+              Add Wageni Multiple
+            </Button>
+            <Button variant="outline-primary" size="sm" onClick={handleDownloadPDF}>
+              Download PDF
+            </Button>
+          </div>
+          <div className="search-box">
+            <Form.Group controlId="searchInput">
+              <Form.Label>Search Visitors</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Search by name or number"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </Form.Group>
+          </div>
+
+          <div className="table-scroll">
+            <div className="datatable-wrapper">
+              <DataTable
+                columns={columns}
+                data={filteredData}
+                pagination
+                paginationRowsPerPageOptions={[100, 200, 500]}
+                paginationPerPage={perPage}
+                onChangeRowsPerPage={setPerPage}
+                highlightOnHover
+                striped
+                dense
+                responsive
+              />
+            </div>
+          </div>
+
+          <Modal show={showModal} onHide={() => setShowModal(false)}>
+            <Modal.Header closeButton>
+              <Modal.Title>Add New Wageni</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form>
+                <Form.Group className="mb-3">
+                  <Form.Label>Jina</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={newWageni.jina}
+                    onChange={(e) => setNewWageni({...newWageni, jina: e.target.value})}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Kikundi</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={newWageni.kikundi}
+                    onChange={(e) => setNewWageni({...newWageni, kikundi: e.target.value})}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Namba</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={newWageni.namba}
+                    onChange={(e) => setNewWageni({...newWageni, namba: e.target.value})}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Mchango</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={newWageni.mchango}
+                    onChange={(e) => setNewWageni({...newWageni, mchango: e.target.value})}
+                  />
+                </Form.Group>
+              </Form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={() => setShowModal(false)}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleAddWageni}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
+
+          <Modal show={showMultipleModal} onHide={() => setShowMultipleModal(false)}>
+            <Modal.Header closeButton>
+              <Modal.Title>Import CSV / Excel File</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="text-center">
+              <p className="text-muted mb-4">Upload a CSV or Excel file with contacts</p>
+              <p className="text-muted mb-2">Click to download</p>
+              <div className="mb-3">
+                <a href="#" className="link-custom">CSV format <FaDownload /></a>
+              </div>
+              <div className="mb-4">
+                <a href="#" className="link-custom">Excel format <FaDownload /></a>
+              </div>
+              <div className="d-flex justify-content-center align-items-center mb-4">
+                <input
+                  type="file"
+                  className="form-control-file mr-2"
+                  accept=".csv, .xlsx"
+                  onChange={handleFileUpload}
+                />
+                <span className="text-muted ml-2">{fileName}</span>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={() => setShowMultipleModal(false)}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
       </div>
-
-      <Form.Group controlId="searchInput" className="mb-3">
-        <Form.Label>Search Visitors</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Search by name or number"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </Form.Group>
-
-      <div className="table-responsive">
-        <DataTable
-          columns={columns}
-          data={filteredData}
-          pagination
-          paginationRowsPerPageOptions={[20, 50, 100]}
-          paginationPerPage={perPage}
-          onChangeRowsPerPage={setPerPage}
-          highlightOnHover
-          striped
-          dense
-        />
-      </div>
-
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Add New Wageni</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group className="mb-3">
-              <Form.Label>Jina</Form.Label>
-              <Form.Control
-                type="text"
-                value={newWageni.jina}
-                onChange={(e) => setNewWageni({...newWageni, jina: e.target.value})}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Kikundi</Form.Label>
-              <Form.Control
-                type="text"
-                value={newWageni.kikundi}
-                onChange={(e) => setNewWageni({...newWageni, kikundi: e.target.value})}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Namba</Form.Label>
-              <Form.Control
-                type="text"
-                value={newWageni.namba}
-                onChange={(e) => setNewWageni({...newWageni, namba: e.target.value})}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Ahadi / Mchango</Form.Label>
-              <Form.Control
-                type="text"
-                value={newWageni.mchango}
-                onChange={(e) => setNewWageni({...newWageni, mchango: e.target.value})}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleAddWageni}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </div>
   );
 };

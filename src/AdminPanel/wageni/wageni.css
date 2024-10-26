@@ -1,19 +1,52 @@
-.container {
-  padding: 15px;
+
+
+/* Increase table data size */
+.rdt_TableCell {
+  font-size: 16px !important;
+  padding: 15px !important;
 }
 
-/* Table Styles */
+.rdt_TableHeader {
+  font-size: 17px !important;
+  font-weight: bold !important;
+}
+
+/* Make container responsive */
+
+
+
+
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  position: relative;
+}
+
 .table-responsive {
+  width: 100%;
   margin-top: 1rem;
-  background: white;
+  background: #0e77d9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 100%;
+}
+
+/* Custom DataTable Wrapper */
+.datatable-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  max-width: 100vw;
 }
 
 /* Button Styles */
 .btn {
   padding: 0.5rem 1rem;
   border-radius: 6px;
+  font-size: 16px;
 }
 
 /* Form Styles */
@@ -42,25 +75,52 @@
   border-radius: 8px;
 }
 
+/* Button Container */
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
 /* Mobile Responsive Styles */
+/* Improve mobile responsiveness */
 @media (max-width: 768px) {
   .container {
-    padding: 10px;
+    padding: 0 5px !important;
   }
 
-  .d-flex {
-    flex-direction: column;
-    gap: 10px;
+
+  .rdt_TableCell {
+    font-size: 14px !important;
+    padding: 10px !important;
+  }
+
+  .table-scroll {
+    margin: 0 -5px;
+  } 
+
+
+  .container-fluid {
+    padding: 10px;
+    overflow-x: hidden;
+  }
+
+  .buttons-container {
+    flex-direction: row;
+    gap: 8px;
   }
 
   .btn {
-    width: 100%;
-    margin-bottom: 8px;
+    padding: 0.35rem 0.75rem;
+    font-size: 14px;
   }
 
   .rdt_TableCell {
     padding: 8px;
     font-size: 14px;
+    white-space: nowrap;
   }
 
   .cursor-pointer {
@@ -78,11 +138,27 @@
   .rdt_Pagination {
     font-size: 14px;
   }
+
+  /* Prevent body scroll when table scrolls */
+  .datatable-wrapper {
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Container to prevent whole page scroll */
+  .page-container {
+    overflow-x: hidden;
+    width: 100%;
+  }
 }
 
 /* Custom DataTable Styles */
 .rdt_Table {
-  background: white;
+  min-width: 800px;
+  border-collapse: collapse;
+  background: rgb(108, 101, 101);
 }
 
 .rdt_TableHeader {
@@ -97,4 +173,82 @@
 
 .rdt_TableRow:hover {
   background-color: rgba(69, 39, 160, 0.05);
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+  white-space: nowrap;
+}
+
+
+/* Modal styles */
+.modal-content {
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.modal-header {
+  border-bottom: 1px solid #eee;
+  padding: 15px;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  border-top: 1px solid #eee;
+  padding: 15px;
+}
+
+.link-custom {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid #0d6efd;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.link-custom:hover {
+  background: #0d6efd;
+  color: white;
+}
+
+.form-control-file {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 10px;
+    padding: 5px;
+  }
+
+  .modal-body {
+    padding: 15px;
+  }
+
+  .link-custom {
+    width: 80%;
+    justify-content: center;
+    margin: 5px auto;
+  }
+
+  .form-control-file {
+    max-width: 100%;
+    font-size: 14px;
+  }
 }

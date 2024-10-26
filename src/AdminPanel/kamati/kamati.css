@@ -1,0 +1,120 @@
+.kamati-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .kamati-title {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+  }
+  
+  .kamati-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .kamati-card-body {
+    padding: 20px;
+  }
+  
+  .kamati-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .kamati-search {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .kamati-input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 200px;
+  }
+  
+  .kamati-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .kamati-btn-primary {
+    background: #0d6efd;
+    color: white;
+  }
+  
+  .kamati-btn-secondary {
+    background: #6c757d;
+    color: white;
+  }
+  
+  .kamati-btn-danger {
+    background: #dc3545;
+    color: white;
+  }
+  
+  .kamati-btn-sm {
+    padding: 4px 8px;
+    margin: 0 4px;
+  }
+  
+  .kamati-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .kamati-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .kamati-table th,
+  .kamati-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .kamati-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+  }
+  
+  .kamati-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  .kamati-badge-success {
+    background: #198754;
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .kamati-header {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .kamati-search {
+      width: 100%;
+    }
+  
+    .kamati-input {
+      flex: 1;
+    }
+  
+    .kamati-btn {
+      width: 100%;
+    }
+  }
+  
