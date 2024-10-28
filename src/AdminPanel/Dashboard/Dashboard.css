@@ -13,14 +13,14 @@
   }
 
   .dashText svg {
-    color: #2885e9 !important;
+    color: #0066ff !important;
     font-size: 24px;
     margin-bottom: 10px;
   }
   
-  .bg-light {
-    background-color: #f8f9fa;
-    border-radius: 8px;
+  .bg-dash {
+    background-color: #e9eefb;
+    border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
   
@@ -39,7 +39,7 @@
       }
 
       .dashText svg {
-        color: #2885e9 !important;
+        color: #0066ff   !important;
         font-size: 24px;
         margin-bottom: 10px;
       }

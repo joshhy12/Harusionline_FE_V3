@@ -138,9 +138,6 @@ const EventSettings = () => {
         </Tab>
 
 
-
-
-
         <Tab eventKey="notification" title="Notification Settings" className="settings-nav-link">
   <h2 className="settings-text-primary settings-mb-4">Notification Settings</h2>
 
