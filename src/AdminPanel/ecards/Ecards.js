@@ -1,6 +1,8 @@
-
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { } from 'react-bootstrap';
+import { FaPaperPlane, FaGift,  FaIdCard, FaWhatsapp } from 'react-icons/fa';
+
 import './admin_ecards.css';
 
 const AdminEcards = () => {
@@ -8,43 +10,66 @@ const AdminEcards = () => {
   const [description, setDescription] = useState('');
 
   return (
-    <Container fluid className="admin-ecards-container">
-      <Row className="justify-content-center">
-        <Col md={8}>
-          <Card className="shadow-sm">
-            <Card.Header className="bg-primary text-white">
-              <h4>E-Cards Management</h4>
-            </Card.Header>
-            <Card.Body>
-              <form>
-                <div className="form-group mb-3">
-                  <label htmlFor="title">Title</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder="Enter ecard title"
-                  />
+    <div className="container">
+    <div className="row">
+      <div className="col-12">
+      <h2 className="text-center" style={{ color: '#24366b' }}> Ecards Panel  </h2>
+
+        <p className="text-muted">
+        </p>
+
+        <div className="dashboard row mt-4">
+          <div className="dashboard col text-center">
+            <Link to="/admin/sms-topup" className="text-decoration-none">
+              <div className="dashboard bg-dash p-4 rounded-lg">
+                <div className="dashText">
+                  <FaPaperPlane className="mb-2" size={24} />
+                  <div>Genereted WhatApp Card</div>
                 </div>
-                <div className="form-group mb-3">
-                  <label htmlFor="description">Description</label>
-                  <textarea
-                    className="form-control"
-                    id="description"
-                    rows="3"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="Enter ecard description"
-                  />
+              </div>
+            </Link>
+          </div>
+
+          <div className="dashboard col text-center">
+            <Link to="/admin/contribution-reminder" className="text-decoration-none">
+              <div className="dashboard bg-dash p-4 rounded-lg">
+                <div className="dashText">
+                  <FaIdCard className="mb-2" size={24} />
+                  <div>Buy Ecards</div>
                 </div>
-              </form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+              </div>
+            </Link>
+          </div>
+
+          <div className="dashboard col text-center">
+            <Link to="admin/whatsapp-card" className="text-decoration-none">
+              <div className="dashboard bg-dash p-4 rounded-lg">
+                <div className="dashText">
+                  <FaWhatsapp className="mb-2" size={24} />
+                  <div>WhatApp Message</div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          <div className="dashboard col text-center">
+            <Link to="#" className="text-decoration-none">
+              <div className="dashboard bg-dash p-4 rounded-lg">
+                <div className="dashText">
+                  <FaGift className="mb-2" size={24} />
+                  <div>Discount </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+         
+         
+        </div>
+
+      </div>
+    </div>
+  </div>
   );
 };
 

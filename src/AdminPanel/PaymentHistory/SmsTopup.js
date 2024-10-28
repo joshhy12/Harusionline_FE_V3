@@ -1,5 +1,3 @@
-// SmsTopup.js
-
 import React from 'react';
 import './SmsTopup.css';
 
