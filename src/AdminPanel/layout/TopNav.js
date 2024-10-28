@@ -28,7 +28,7 @@ const TopNav = ({ toggleSidebar }) => {
             <FaCog className="menu-icon" /> Settings
           </Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item href="#/logout" className="logout-item">
+          <Dropdown.Item href="#/logout"  style={{ padding: '8px 15px', color: '#dc3545' }} className="logout-item">
             <FaSignOutAlt className="menu-icon" /> Logout
           </Dropdown.Item>
         </Dropdown.Menu>
