@@ -24,7 +24,7 @@ const TopNav = ({ toggleSidebar }) => {
           <Dropdown.Item href="#/profile">
             <FaUser className="menu-icon" /> Profile
           </Dropdown.Item>
-          <Dropdown.Item href="#/settings">
+          <Dropdown.Item href="/admin/settings">
             <FaCog className="menu-icon" /> Settings
           </Dropdown.Item>
           <Dropdown.Divider />

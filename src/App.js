@@ -50,7 +50,7 @@ function App() {
       
       
         {/* Admin panel routes */}
-        <Route path="/admin" element={<Layout />}>
+          <Route path="/admin" element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="kamati" element={<Kamati />} />
           <Route path="wageni" element={<Wageni />} />

@@ -23,7 +23,7 @@ const Layout = () => {
   // Close sidebar on window resize if screen becomes larger
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 768) {
+      if (window.innerWidth > 768)  {
         setSidebarOpen(false);
       }
     };
@@ -37,9 +37,13 @@ const Layout = () => {
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="content-wrapper">
         <TopNav toggleSidebar={toggleSidebar} isOpen={sidebarOpen} />
+
+
         <main className="main-content">
           <Outlet />
         </main>
+
+
       </div>
       {sidebarOpen && (
         <div 

@@ -42,7 +42,7 @@ const Footer = () => {
                 <li><i className="bi bi-chevron-right"></i> <Link to="/Gharama">Gharama</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="/e_card">E-Card</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="/login">Jisajili</Link></li>
-                <li><i className="bi bi-chevron-right"></i> <Link to="/admin">Event Admin</Link></li>
+                <li><i className="bi bi-chevron-right"></i> <Link to="/admin/dashboard">Event Admin</Link></li>
 
               </ul>
             </Col>
