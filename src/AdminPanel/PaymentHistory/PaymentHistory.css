@@ -1,0 +1,42 @@
+.Payment-table-responsive {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .Payment-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .Payment-thead {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .Payment-row:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  
+  
+  .Payment-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+  }
+  
+  .Payment-badge-success {
+    background-color: #28a745;
+  }
+  
+  .Payment-badge-warning {
+    background-color: #ffc107;
+  }
+  
+  .Payment-badge-danger {
+    background-color: #dc3545;
+  }
+  

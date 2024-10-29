@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaPaperPlane, FaBell, FaEnvelope, FaIdCard, FaUsers } from 'react-icons/fa';
+import { FaPaperPlane, FaBell, FaEnvelope, FaEnvelopeOpenText, FaUsers } from 'react-icons/fa';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -47,7 +47,7 @@ const Dashboard = () => {
 
       <div className="dashboard row mt-4">
         <div className="dashboard col text-center">
-          <Link to="/admin/send-report" className="text-decoration-none">
+          <Link to="/admin/wageni" className="text-decoration-none">
 
             <div className="dashboard bg-dash p-4 rounded-lg">
               <div className="dashText">
@@ -58,20 +58,31 @@ const Dashboard = () => {
           </Link>
         </div>
 
-        <div className="dashboard col text-center">
-          <Link to="/admin/contribution-reminder" className="text-decoration-none">
 
+        <div className="dashboard col text-center">
+          <Link to="/admin/ecards" className="text-decoration-none">
             <div className="dashboard bg-dash p-4 rounded-lg">
               <div className="dashText">
-                <FaBell className="mb-2" size={24} />
-                <div>Kumbusha Michango</div>
+                <FaEnvelopeOpenText className="mb-2" size={24} />
+                <div>E-cards</div>
               </div>
             </div>
           </Link>
         </div>
 
         <div className="dashboard col text-center">
-          <Link to="/admin/send-invitations" className="text-decoration-none">
+              <Link to="/admin/sms-topup" className="text-decoration-none">
+                <div className="dashboard bg-dash p-4 rounded-lg">
+                  <div className="dashText">
+                    <FaPaperPlane className="mb-2" size={24} />
+                    <div>Message TopUp</div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+        <div className="dashboard col text-center">
+          <Link to="" className="text-decoration-none">
 
             <div className="dashboard bg-dash p-4 rounded-lg">
               <div className="dashText">
@@ -82,20 +93,10 @@ const Dashboard = () => {
           </Link>
         </div>
 
-        <div className="dashboard col text-center">
-          <Link to="/admin/ecards" className="text-decoration-none">
-
-            <div className="dashboard bg-dash p-4 rounded-lg">
-              <div className="dashText">
-                <FaIdCard className="mb-2" size={24} />
-                <div>E-cards</div>
-              </div>
-            </div>
-          </Link>
-        </div>
+        
 
         <div className="dashboard col text-center">
-          <Link to="/admin/import-contacts" className="text-decoration-none">
+          <Link to="" className="text-decoration-none">
 
             <div className="dashboard bg-dash p-4 rounded-lg">
               <div className="dashText">

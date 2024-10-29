@@ -34,6 +34,8 @@ import Michango from './AdminPanel/michango/Michango';
 import Takwimu from './AdminPanel/takwimu/Takwimu';
 import Picha from './AdminPanel/picha/Picha';
 import Ecards from './AdminPanel/ecards/Ecards.js';
+import AdminCardDetails from './AdminPanel/ecards/AdminCardDetails'
+import GeneretedWhatAppCard from './AdminPanel/ecards/GeneretedWhatAppCard';
 import WhatsappCard from './AdminPanel/WhatsappCard/WhatsappCard';
 import PaymentHistory from './AdminPanel/PaymentHistory/PaymentHistory';
 import SmsHistory from './AdminPanel/SmsHistory/SmsHistory';
@@ -65,6 +67,8 @@ function App() {
           <Route path="takwimu" element={<Takwimu />} />
           <Route path="picha" element={<Picha />} />
           <Route path="ecards" element={<Ecards />} />
+          <Route path="/admin/ecards/:id" element={<AdminCardDetails />} />
+            <Route path="/admin/GeneratedWhatsAppCard" element={<GeneretedWhatAppCard />} />
           <Route path="whatsapp-card" element={<WhatsappCard />} />
           <Route path="payment-history" element={<PaymentHistory />} />
           <Route path="sms-history" element={<SmsHistory />} />

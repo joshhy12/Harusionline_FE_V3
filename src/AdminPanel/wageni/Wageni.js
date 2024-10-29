@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+
+
+import { Link } from 'react-router-dom';
+import { FaPaperPlane, FaUserFriends, FaDonate, FaWhatsapp, FaEdit, FaTrash, FaDownload  } from 'react-icons/fa';
+
 import DataTable from 'react-data-table-component';
 import { Form, Button, Modal } from 'react-bootstrap';
-import { FaEdit, FaTrash, FaDownload } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './wageni.css';
 
@@ -119,12 +123,58 @@ const Wageni = () => {
         <div className="container-fluid mt-4">
         <h2 className="text-center" style={{ color: '#24366b' }}>Wageni Wa Shughuli</h2>
 
+        <div className="dashboard row mt-4">
+            <div className="dashboard col text-center">
+              <Link to="" className="text-decoration-none">
+                <div className="dashboard bg-dash p-4 rounded-lg">
+                  <div className="dashText">
+                    <FaPaperPlane className="mb-2" size={24} />
+                    <div>Tuma Taarifa</div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            <div className="dashboard col text-center">
+              <Link to="" className="text-decoration-none">
+                <div className="dashboard bg-dash p-4 rounded-lg">
+                  <div className="dashText">
+                    <FaDonate className="mb-2" size={24} />
+                    <div>Kumbushia Michango</div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            <div className="dashboard col text-center">
+              <Link to="" className="text-decoration-none">
+                <div className="dashboard bg-dash p-4 rounded-lg">
+                  <div className="dashText">
+                    <FaWhatsapp className="mb-2" size={24} />
+                    <div>Tuma Mialiko</div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            <div className="dashboard col text-center">
+              <Link to="/admin/groups" className="text-decoration-none">
+                <div className="dashboard bg-dash p-4 rounded-lg">
+                  <div className="dashText">
+                    <FaUserFriends className="mb-2" size={24} />
+                    <div>Makundi </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div><br></br>
+
           <div className="buttons-container">
             <Button variant="outline-primary" size="sm" onClick={() => setShowModal(true)}>
               Ongeza Mgeni
             </Button>
             <Button variant="outline-primary" size="sm" onClick={() => setShowMultipleModal(true)}>
-              Add Wageni Multiple
+              Import Contact
             </Button>
             <Button variant="outline-primary" size="sm" onClick={handleDownloadPDF}>
               Download PDF
