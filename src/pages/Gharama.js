@@ -21,10 +21,10 @@ function Gharama() {
           <ul>
             <li>Manunuzi ya credits za SMS utakazotumia kutuma taarifa, kukumbushia michango na kutuma mialiko (Unaweza kulipia kuanzia Sh. 250 na kuendelea) </li>
             <li>Malipo kwa kadi za kidigitali ambapo utalipia kwa bei ya template uliyochagua na kwa idadi ya kadi utakazotengeneza. Tazama Card Templates kuona aina za kadi na bei zake </li>
-            <li>Uhakiki wa Kadi MLANGONI(RSVP) Kutoka Kwa Mtoa Huduma Wetu  </li>
+            <li>Bei Ya Uhakiki wa Kadi MLANGONI(RSVP) Kutoka Kwa Mtoa Huduma Wetu HAIKO NDANI YA BEI YA KADI  </li>
           </ul>
           <p>
-          Tunataka kufanya mchakato wa kupanga harusi uwe wa kufurahisha na usio na mkazo kwako. Lengo letu ni kukupa zana zote unazohitaji ili kuunda harusi ya ndoto zako, ili uweze kuzingatia mambo muhimu zaidi: kufurahia wakati huu maalum na wapendwa wako.          </p>
+          Tunataka kufanya mchakato wa kupanga harusi uwe wa kufurahisha na usio na mkazo kwako. Lengo letu ni kukupa zana zote unazohitaji ili kuunda harusi ya ndoto zako, ili uweze kuzingatia mambo muhimu zaidi: kufurahia wakati huu maalum na wapendwa wako.</p>
         </Col>
 
         <div className="d-flex justify-content-center justify-content-md-start mt-4">
