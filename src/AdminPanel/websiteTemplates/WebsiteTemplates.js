@@ -11,7 +11,7 @@ import template2Thumbnail from './templete_images/template2.jpg';
 import template3Thumbnail from './templete_images/template3.jpg';
 import template4Thumbnail from './templete_images/template4.jpg';
 import sampleImage from './templete_images/sample-image.jpg';
-import './WebsiteTemplates.css';
+import './styles/WebsiteTemplates.css';
 
 const WebsiteTemplates = () => {
   const [selectedTemplate, setSelectedTemplate] = useState(null);

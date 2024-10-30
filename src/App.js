@@ -21,7 +21,6 @@ import EventWebsite from './pages/EventWebsite';
 
 
 // Admin Components
-//mport AdminPanel from './AdminPanel/AdminPanel';
 import Dashboard from './AdminPanel/Dashboard/Dashboard';
 import Layout from './AdminPanel/layout/Layout';
 import Kamati from './AdminPanel/kamati/Kamati';
