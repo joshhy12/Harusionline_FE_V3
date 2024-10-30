@@ -1,18 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaPaperPlane, FaBell, FaEnvelope, FaEnvelopeOpenText, FaUsers } from 'react-icons/fa';
+import { FaPaperPlane,  FaEnvelope, FaEnvelopeOpenText, FaUsers } from 'react-icons/fa';
 import './Dashboard.css';
 
 const Dashboard = () => {
-  return (
+  const today = new Date();
+  const options = { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  };
+  const formattedDate = today.toLocaleDateString('en-US', options);
 
+  return (
     <div className="dashboard container mt-4">
       {/* Heading section */}
       <h2 className="dashboard-heading">Dashboard</h2>
 
       {/* Top section */}
-
-
       <div className="dashboard row bg-dash p-4 rounded-lg">
         <div className="dashboard col text-center">
           <div className="text-dark">Ahadi</div>
@@ -43,21 +49,17 @@ const Dashboard = () => {
         </div>
       </div>
 
-
-
       <div className="dashboard row mt-4">
         <div className="dashboard col text-center">
-          <Link to="/admin/wageni" className="text-decoration-none">
-
+          <Link to="" className="text-decoration-none">
             <div className="dashboard bg-dash p-4 rounded-lg">
               <div className="dashText">
                 <FaPaperPlane className="mb-2" size={24} />
-                <div>Tuma Taarifa</div>
+                <div>Kumbushia Michango</div>
               </div>
             </div>
           </Link>
         </div>
-
 
         <div className="dashboard col text-center">
           <Link to="/admin/ecards" className="text-decoration-none">
@@ -71,19 +73,18 @@ const Dashboard = () => {
         </div>
 
         <div className="dashboard col text-center">
-              <Link to="/admin/sms-topup" className="text-decoration-none">
-                <div className="dashboard bg-dash p-4 rounded-lg">
-                  <div className="dashText">
-                    <FaPaperPlane className="mb-2" size={24} />
-                    <div>Message TopUp</div>
-                  </div>
-                </div>
-              </Link>
+          <Link to="/admin/wageni" className="text-decoration-none">
+            <div className="dashboard bg-dash p-4 rounded-lg">
+              <div className="dashText">
+                <FaPaperPlane className="mb-2" size={24} />
+                <div>Tuma Taarifa</div>
+              </div>
             </div>
+          </Link>
+        </div>
 
         <div className="dashboard col text-center">
           <Link to="" className="text-decoration-none">
-
             <div className="dashboard bg-dash p-4 rounded-lg">
               <div className="dashText">
                 <FaEnvelope className="mb-2" size={24} />
@@ -93,11 +94,8 @@ const Dashboard = () => {
           </Link>
         </div>
 
-        
-
         <div className="dashboard col text-center">
           <Link to="" className="text-decoration-none">
-
             <div className="dashboard bg-dash p-4 rounded-lg">
               <div className="dashText">
                 <FaUsers className="mb-2" size={24} />
@@ -106,9 +104,7 @@ const Dashboard = () => {
             </div>
           </Link>
         </div>
-        
       </div>
-
 
       <div className="row mt-4 g-4">
         <div className="col-md-8">
@@ -129,22 +125,19 @@ const Dashboard = () => {
         <div className="col-md-4">
           <div className="bg-dash p-4 rounded-lg">
             <h1 className="dashboard-heading">Calendar</h1>
-            <div style={{ height: '300px' }}>
-              {/* Add your preferred calendar component here */}
-              {/* Example using react-calendar:
-              <Calendar
-                onChange={onChange}
-                value={date}
-              /> */}
+            <div className="text-center p-4">
+              <div className="calendar-today">
+                <div className="month">{today.toLocaleDateString('en-US', { month: 'long' })}</div>
+                <div className="day">{today.getDate()}</div>
+                <div className="year">{today.getFullYear()}</div>
+                <div className="weekday">{today.toLocaleDateString('en-US', { weekday: 'long' })}</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
-
   );
 };
-
 
 export default Dashboard;

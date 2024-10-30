@@ -1,0 +1,63 @@
+.template4-container {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+  }
+  
+  .template4-card {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .template4-content {
+    padding: 2rem;
+  }
+  
+  .template4-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .template4-section:hover {
+    transform: translateY(-5px);
+  }
+  
+  .template4-section h3 {
+    color: #24366b;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .template4-section p {
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .template4-footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #24366b;
+    color: white;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .template4-container {
+      padding: 1rem;
+    }
+    
+    .template4-content {
+      padding: 1rem;
+    }
+    
+    .template4-section {
+      padding: 1.5rem;
+    }
+  }
+  

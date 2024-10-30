@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Dropdown } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import { FaEnvelopeOpenText,FaHome, FaUsers, FaUsersCog  , FaMoneyBillWave ,FaMoneyBill, FaDonate, FaImages, FaChartBar,  FaHistory, FaSms, FaCog, FaUserCircle } from 'react-icons/fa';
+import { FaEnvelopeOpenText,FaHome, FaUsers, FaUsersCog  , FaMoneyBillWave ,FaMoneyBill, FaDonate, FaImages, FaChartBar,  FaGlobe, FaSms, FaCog, FaUserCircle } from 'react-icons/fa';
 import './style/Sidebar.css';
 import logo from './assets/logo.png';
 
@@ -41,6 +41,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             {/* <NavItem to="/admin/whatsapp-card" icon={FaWhatsapp} label="WhatsApp Card" active={location.pathname === '/admin/whatsapp-card'} onClick={handleLinkClick} /> 
             <NavItem to="/admin/payment-history" icon={FaHistory} label="Historia ya Malipo" active={location.pathname === '/admin/payment-history'} onClick={handleLinkClick} />*/}
             <NavItem to="/admin/sms-history" icon={FaSms} label="Historia Ya SMS" active={location.pathname === '/admin/sms-history'} onClick={handleLinkClick} />
+            <NavItem to="/admin/WebsiteTemplates"icon={FaGlobe}label="Website" active={location.pathname === '/admin/WebsiteTemplates'}onClick={handleLinkClick} />
             <NavItem to="/admin/settings" icon={FaCog} label="Mipangilio" active={location.pathname === '/admin/settings'} onClick={handleLinkClick} />
           </Nav>
         </div>

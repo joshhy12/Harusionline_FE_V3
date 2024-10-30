@@ -46,16 +46,6 @@ const AdminEcards = () => {
           <div className="dashboard row mt-4">
 
 
-            <div className="dashboard col text-center">
-              <Link to="" className="text-decoration-none">
-                <div className="dashboard bg-dash p-4 rounded-lg">
-                  <div className="dashText">
-                    <FaEnvelopeOpenText className="mb-2" size={24} />
-                    <div>Buy Ecards</div>
-                  </div>
-                </div>
-              </Link>
-            </div>
 
 
 

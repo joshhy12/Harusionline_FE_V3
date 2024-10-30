@@ -41,6 +41,7 @@ import PaymentHistory from './AdminPanel/PaymentHistory/PaymentHistory';
 import SmsHistory from './AdminPanel/SmsHistory/SmsHistory';
 import Settings from './AdminPanel/settings/Settings.js';
 import SmsTopup from './AdminPanel/PaymentHistory/SmsTopup';
+import WebsiteTemplates from './AdminPanel/websiteTemplates/WebsiteTemplates';
 
 
 
@@ -68,14 +69,18 @@ function App() {
           <Route path="picha" element={<Picha />} />
           <Route path="ecards" element={<Ecards />} />
           <Route path="/admin/ecards/:id" element={<AdminCardDetails />} />
-            <Route path="/admin/GeneratedWhatsAppCard" element={<GeneretedWhatAppCard />} />
+          <Route path="/admin/GeneratedWhatsAppCard" element={<GeneretedWhatAppCard />} />
           <Route path="whatsapp-card" element={<WhatsappCard />} />
           <Route path="payment-history" element={<PaymentHistory />} />
           <Route path="sms-history" element={<SmsHistory />} />
           <Route path="settings" element={<Settings />} />
           <Route path="/admin/sms-topup" element={<SmsTopup />} />
+          <Route path="websiteTemplates" element={<WebsiteTemplates />} />
         </Route>
 
+       
+       
+       
         {/* Router for the main WEBSITE */}
         <Route path="*" element={
           <div className="App">
