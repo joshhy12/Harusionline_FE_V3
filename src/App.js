@@ -51,6 +51,7 @@ function App() {
     <Router>
       <Routes>
         {/* Router for the EVENT WEBSITE */}
+      
         <Route path="/event-website/:slug" element={<EventWebsite />} />
 
       
