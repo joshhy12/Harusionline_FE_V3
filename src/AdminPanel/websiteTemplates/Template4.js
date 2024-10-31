@@ -1,44 +1,48 @@
-  import React from 'react';
-  import { Container, Row, Col, Card } from 'react-bootstrap';
-  import styles from './styles/Template4.module.css';
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import styles from './styles/Template4.module.css';
 
-  const Template4 = () => {
-    return (
-      <Container fluid className={styles['template4-container']}>
-        <Row>
-          <Col>
-            <Card className={styles['template4-card']}>
-              <Card.Body>
-                <h1 className={`text-center mb-4 ${styles.h1}`}>Template 4</h1>
-                <div className={styles['template4-content']}>
-                  <Row>
-                    <Col md={6}>
-                      <div className={styles['template4-section']}>
-                        <h3>Section 1</h3>
-                        <p>This is a sample content for section 1 of Template 4.</p>
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div className={styles['template4-section']}>
-                        <h3>Section 2</h3>
-                        <p>This is a sample content for section 2 of Template 4.</p>
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="mt-4">
-                    <Col md={12}>
-                      <div className={styles['template4-footer']}>
-                        <p>Footer content for Template 4</p>
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    );
-  };
+const Template4 = ({ event }) => {
+  return (
+    <div className={styles.pageWrapper}>
+      <div className={styles.sidebar}>
+        <img 
+          src={event?.wallpaper[0]?.md_photo || "https://storage.googleapis.com/a1aa/image/R5gipMChf6VqTyRXfy3ahzVKRx6eSVVPdYE77cwp0IMsFoYnA.jpg"} 
+          alt="Floral decoration" 
+          width="100" 
+          height="100"
+        />
+        <h1>{event?.couple_names || "Olivia & Enrico"}</h1>
+        <p>{new Date(event?.event_date).toLocaleDateString() || "15.11.2023"}</p>
+        
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Couple</a></li>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Friends</a></li>
+          <li><a href="#">Organization</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">When & Where</a></li>
+          <li><a href="#">R.S.V.P.</a></li>
+          <li><a href="#">Gift Registry</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
 
-  export default Template4;
+      <div className={styles.mainContent}>
+        <div>
+          <h1>{event?.couple_names || "Olivia & Enrico"}</h1>
+          <p>
+            {new Date(event?.event_date).toLocaleDateString('en-US', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric'
+            }).toUpperCase()} – {event?.location || "NEW YORK"}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Template4;

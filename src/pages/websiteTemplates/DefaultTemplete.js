@@ -44,82 +44,72 @@ const DefaultTemplate = ({ event, theme = 'light', color = 'primary' }) => {
             <img src={event?.wallpaper?.[0]?.md_photo || '/default-image.jpg'} alt="Event" className={styles.eventImage} />
           </Col>
           <Col md={6}>
-            <h2>Our Story</h2>
-            <p>{event?.description || "We're excited to celebrate our special day with you!"}</p>
-            <Button variant="outline-primary" className={styles.actionButton} onClick={() => setShowRsvpForm(!showRsvpForm)}>RSVP</Button>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Will you attend?</Form.Label>
+                <Form.Select
+                  name="attending"
+                  value={formData.attending}
+                  onChange={handleInputChange}
+                >
+                  <option value="yes">Yes, I will attend</option>
+                  <option value="no">No, I cannot attend</option>
+                </Form.Select>
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Number of Guests</Form.Label>
+                <Form.Select
+                  name="guests"
+                  value={formData.guests}
+                  onChange={handleInputChange}
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </Form.Select>
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Message (Optional)</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                />
+              </Form.Group>
+
+              <Button variant="primary" type="submit">
+                Submit RSVP
+              </Button>
+            </Form>
           </Col>
         </Row>
-
-        {showRsvpForm && (
-          <Row className={styles.rsvpForm}>
-            <Col md={8} className="mx-auto">
-              <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </Form.Group>
-
-                <Form.Group className="mb-3">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </Form.Group>
-
-                <Form.Group className="mb-3">
-                  <Form.Label>Will you attend?</Form.Label>
-                  <Form.Select
-                    name="attending"
-                    value={formData.attending}
-                    onChange={handleInputChange}
-                  >
-                    <option value="yes">Yes, I will attend</option>
-                    <option value="no">No, I cannot attend</option>
-                  </Form.Select>
-                </Form.Group>
-
-                <Form.Group className="mb-3">
-                  <Form.Label>Number of Guests</Form.Label>
-                  <Form.Select
-                    name="guests"
-                    value={formData.guests}
-                    onChange={handleInputChange}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                  </Form.Select>
-                </Form.Group>
-
-                <Form.Group className="mb-3">
-                  <Form.Label>Message (Optional)</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={3}
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                  />
-                </Form.Group>
-
-                <Button variant="primary" type="submit">
-                  Submit RSVP
-                </Button>
-              </Form>
-            </Col>
-          </Row>
-        )}
 
         <section className={styles.eventDetailsSection}>
           <Container>

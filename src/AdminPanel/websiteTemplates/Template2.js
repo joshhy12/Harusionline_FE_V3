@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, Navbar, Nav } from 'react-bootstrap';
 import styles from './styles/Template2.module.css';
 
 const Template2 = ({ event, theme, color }) => {
@@ -8,54 +8,63 @@ const Template2 = ({ event, theme, color }) => {
 
   return (
     <div className={`${styles.template2} ${themeClass} ${colorClass}`}>
-      <header className={styles.header}>
+      <Navbar expand="lg" className={styles.navbar}>
         <Container>
-          <h1>{event.event_title}</h1>
-          <p>{new Date(event.event_date).toLocaleDateString()}</p>
+          <Navbar.Brand href="#" className={styles.navbarBrand}>Send Off</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarNav" />
+          <Navbar.Collapse id="navbarNav">
+            <Nav className="ms-auto">
+              <Nav.Link href="#">Home</Nav.Link>
+              <Nav.Link href="#">Pages</Nav.Link>
+              <Nav.Link href="#">Portfolio</Nav.Link>
+              <Nav.Link href="#">Shop</Nav.Link>
+              <Nav.Link href="#">Contact</Nav.Link>
+              <Nav.Link href="#">Blog</Nav.Link>
+            </Nav>
+            <div className={styles.navIcons}>
+             
+            </div>
+          </Navbar.Collapse>
         </Container>
-      </header>
-      
-      <section className={styles.hero}>
-        <Container>
-          <Row>
-            <Col md={6}>
-              <img src={event.wallpaper[0]?.md_photo} alt="Couple" className={styles.heroImage} />
-            </Col>
-            <Col md={6} className={styles.heroContent}>
-              <h2>We're Getting Married!</h2>
-              <p>{event.description || "Join us for a celebration of love and commitment."}</p>
-              <Button variant="primary" className={styles.rsvpButton}>RSVP Now</Button>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      </Navbar>
 
-      <section className={styles.countdown}>
-        <Container>
-          <h2>Countdown to Our Big Day</h2>
-          <div className={styles.timer}>
-            {/* You can implement a real countdown timer here */}
-            <div>30 Days</div>
-            <div>12 Hours</div>
-            <div>45 Minutes</div>
-          </div>
-        </Container>
-      </section>
+      <div className={styles.saveTheDate}>
+        <div className={styles.settingsIcon}>
+          <i className="fas fa-cog"></i>
+        </div>
+        <h2>{event.couple_names || "Lucas & Mia"}</h2>
+        <h1>Save The Date</h1>
+        <p>We Are Getting Married {new Date(event.event_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+        
+        <div className={styles.couplePhoto}>
+          <img 
+            src={event.wallpaper[0]?.md_photo} 
+            alt="Main couple photo" 
+            className={styles.mainPhoto}
+          />
+          <img 
+            src={event.wallpaper[1]?.md_photo} 
+            alt="Secondary couple photo" 
+            className={styles.smallPhoto}
+          />
+          <div className={styles.decorativeElements}></div>
+        </div>
+      </div>
 
       <section className={styles.details}>
         <Container>
           <Row>
             <Col md={4}>
               <h3>Ceremony</h3>
-              <p>2:00 PM at Beautiful Chapel</p>
+              <p>{event.ceremony_time || "2:00 PM"} at {event.ceremony_location || "Beautiful Chapel"}</p>
             </Col>
             <Col md={4}>
               <h3>Reception</h3>
-              <p>5:00 PM at Elegant Ballroom</p>
+              <p>{event.reception_time || "5:00 PM"} at {event.reception_location || "Elegant Ballroom"}</p>
             </Col>
             <Col md={4}>
               <h3>Afterparty</h3>
-              <p>10:00 PM at Rooftop Lounge</p>
+              <p>{event.afterparty_time || "10:00 PM"} at {event.afterparty_location || "Rooftop Lounge"}</p>
             </Col>
           </Row>
         </Container>
