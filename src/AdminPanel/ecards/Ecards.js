@@ -54,7 +54,7 @@ const AdminEcards = () => {
                 <div className="dashboard bg-dash p-4 rounded-lg">
                   <div className="dashText">
                     <FaPaperPlane className="mb-2" size={24} />
-                    <div>Genereted WhatApp Card</div>
+                    <div>Genereted WhatApp Cards</div>
                   </div>
                 </div>
               </Link>
@@ -67,7 +67,7 @@ const AdminEcards = () => {
                 <div className="dashboard bg-dash p-4 rounded-lg">
                   <div className="dashText">
                     <FaWhatsapp className="mb-2" size={24} />
-                    <div>WhatApp Message</div>
+                    <div>WhatApp Messages</div>
                   </div>
                 </div>
               </Link>

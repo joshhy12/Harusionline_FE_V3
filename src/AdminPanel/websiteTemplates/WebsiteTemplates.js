@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 //import { Link } from 'react-router-dom';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
 import Template1 from './Template1';
 import Template2 from './Template2';
 import Template3 from './Template3';
@@ -28,7 +28,6 @@ const WebsiteTemplates = () => {
     { id: 2, name: "Template 2", component: <Template2 event={dummyEvent} />, image: template2Thumbnail },
     { id: 3, name: "Template 3", component: <Template3 event={dummyEvent} />, image: template3Thumbnail },
     { id: 4, name: "Template 4", component: <Template4 event={dummyEvent} />, image: template4Thumbnail }
-
   ];
 
   return (
@@ -54,29 +53,21 @@ const WebsiteTemplates = () => {
         ))}
       </Row>
       
-      {selectedTemplate && (
-        <div className="preview-container">
-          <h3 className="preview-title">Template Preview</h3>
-          <div className="preview-frame">
-            <div className="preview-toolbar">
-              <div className="preview-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <Button 
-                className="close-preview"
-                onClick={() => setSelectedTemplate(null)}
-              >
-                Close Preview
-              </Button>
-            </div>
-            <div className="preview-content">
-              {templates.find(t => t.id === selectedTemplate)?.component}
-            </div>
+      <Modal 
+        show={selectedTemplate !== null} 
+        onHide={() => setSelectedTemplate(null)}
+        size="xl"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Template Preview</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="preview-content">
+            {templates.find(t => t.id === selectedTemplate)?.component}
           </div>
-        </div>
-      )}
+        </Modal.Body>
+      </Modal>
     </Container>
   );
 };
