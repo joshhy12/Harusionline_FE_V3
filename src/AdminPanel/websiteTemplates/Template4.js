@@ -7,7 +7,7 @@ const Template4 = ({ event }) => {
     <div className={styles.pageWrapper}>
       <div className={styles.sidebar}>
         <img 
-          src={event?.wallpaper[0]?.md_photo || "https://storage.googleapis.com/a1aa/image/R5gipMChf6VqTyRXfy3ahzVKRx6eSVVPdYE77cwp0IMsFoYnA.jpg"} 
+          src={event?.wallpaper[0]?.md_photo || ""} 
           alt="Floral decoration" 
           width="100" 
           height="100"
