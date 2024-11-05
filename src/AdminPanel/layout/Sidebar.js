@@ -1,7 +1,7 @@
 import React from 'react';
-import { Nav, Dropdown } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import { FaEnvelopeOpenText,FaHome, FaUsers, FaUsersCog  , FaMoneyBillWave ,FaMoneyBill, FaDonate, FaImages, FaChartBar,  FaGlobe, FaSms, FaCog, FaUserCircle } from 'react-icons/fa';
+import { FaEnvelopeOpenText,FaHome, FaUsers, FaUsersCog  , FaMoneyBillWave ,FaMoneyBill, FaDonate, FaImages, FaChartBar,  FaGlobe, FaSms, FaCog } from 'react-icons/fa';
 import './style/Sidebar.css';
 import logo from './assets/logo.png';
 
@@ -18,12 +18,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <div className="sidebar-content">
           <div className="logo-section">
             <img src={logo} alt="Logo" className="sidebar-logo" />
-            <Dropdown className="mt-2 w-100">
-              <Dropdown.Toggle variant="transparent" id="dropdown-basic" className="w-100 d-flex align-items-center justify-content-center text-truncate" style={{ color: 'rgb(243 243 243)' }}>
-                <FaUserCircle className="me-2" style={{ fontSize: '20px' }}/>
-                Fortunatus&Dorah
-              </Dropdown.Toggle>
-            </Dropdown>        
+                  
           </div>
           
           <Nav className="flex-column">
