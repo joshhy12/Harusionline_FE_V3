@@ -1,32 +1,25 @@
   import React, { useState } from 'react';
   import DataTable from 'react-data-table-component';
   import { Form, Button } from 'react-bootstrap';
-  import { FaEdit, FaTrash } from 'react-icons/fa';
+  import {  } from 'react-icons/fa';
   import 'bootstrap/dist/css/bootstrap.min.css';
 
   const Waalikwa = () => {
     const [perPage, setPerPage] = useState(100);
     const [searchTerm, setSearchTerm] = useState('');
-
-    const visitorsData = [
-      { id: 1, name: 'John Doe', phone: '0753123456', cardType: 'Visa', cardNumber: '4532XXXXXXXX1234' },
-      { id: 2, name: 'Jane Smith', phone: '0753987654', cardType: 'MasterCard', cardNumber: '5432XXXXXXXX5678' },
-      { id: 3, name: 'Robert White', phone: '0753765432', cardType: 'Visa', cardNumber: '4111XXXXXXXX1111' },
-      { id: 4, name: 'Neema Johnson', phone: '0753234567', cardType: 'MasterCard', cardNumber: '5555XXXXXXXX4444' },
-      { id: 5, name: 'Michael Brown', phone: '0753345678', cardType: 'Visa', cardNumber: '4222XXXXXXXX2222' },
-    ];
+      const visitorsData = [
+        { id: 1, name: 'John Doe', phone: '0753123456', cardType: 'Single', cardNumber: '14A' },
+        { id: 2, name: 'Jane Smith', phone: '0753987654', cardType: 'Double', cardNumber: '39F' },
+        { id: 3, name: 'Robert White', phone: '0753765432', cardType: 'Single', cardNumber: '1A' },
+        { id: 4, name: 'Neema Johnson', phone: '0753234567', cardType: 'Double', cardNumber: '22B' },
+        { id: 5, name: 'Michael Brown', phone: '0753345678', cardType: 'Single', cardNumber: '45C' },
+      ];
 
     const handleDownloadPDF = () => {
       // Implement PDF download logic here
     };
 
-    const handleUpdate = (row) => {
-      // Implement update logic here
-    };
-
-    const handleDelete = (row) => {
-      // Implement delete logic here
-    };
+   
 
     const columns = [
       {
@@ -38,15 +31,7 @@
       { name: 'Phone', selector: (row) => row.phone, sortable: true },
       { name: 'Card Type', selector: (row) => row.cardType, sortable: true },
       { name: 'Card Number', selector: (row) => row.cardNumber, sortable: true },
-      {
-        name: 'Actions',
-        cell: (row) => (
-          <>
-            <FaEdit className="text-primary me-2 cursor-pointer" style={{ fontSize: '1.2rem' }} onClick={() => handleUpdate(row)} />
-            <FaTrash className="text-danger cursor-pointer" style={{ fontSize: '1.2rem' }} onClick={() => handleDelete(row)} />
-          </>
-        ),
-      },
+     
     ];
 
     const filteredData = visitorsData.filter(visitor =>
