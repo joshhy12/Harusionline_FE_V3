@@ -1,62 +1,129 @@
-  import React from 'react';
-  import { Table } from 'react-bootstrap';
-  import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+import DataTable from 'react-data-table-component';
+import { Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-  const SMSHistory = () => {
-    return (
-      <div className="container mt-4">
-        <h2 className="mb-4">SMS History</h2>
-        <Table striped bordered hover responsive>
-          <thead>
-            <tr>
-              <th>Muda</th>
-              <th>Taarifa</th>
-              <th>Recipient Name</th>
-              <th>Phone Number</th>
-              <th>Message</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>14/09/2024 11:34:38 AM</td>
-              <td>Jackline P Mwibule</td>
-              <td>255763600949</td>
-              <td>Karibu Jackline P Mwibule kwenye SHUGHULI (Fortunatus&Dorah). Namba ya Kadi: 23D (SINGLE)...</td>
-              <td>Success</td>
-            </tr>
-            <tr>
-              <td>9:30:16 AM</td>
-              <td>BUSHIRI KINYOWA</td>
-              <td>255718418090</td>
-              <td>Karibu BUSHIRI KINYOWA, kwenye Harusi ya Fortunatus&Dorah Namba ya kadi 53A (SINGLE)...</td>
-              <td>Failed</td>
-            </tr>
-            <tr>
-              <td>6:37:44 AM</td>
-              <td>Ms Melisa Mugonzibwa</td>
-              <td>255713302810</td>
-              <td>Karibu Ms Melisa Mugonzibwa, kwenye Harusi ya Fortunatus&Dorah Namba ya kadi 75C (SINGLE)...</td>
-              <td>Failed</td>
-            </tr>
-            <tr>
-              <td>5:36:01 AM</td>
-              <td>Frank</td>
-              <td>255655320361</td>
-              <td>Karibu Frank kwenye SHUGHULI (Fortunatus&Dorah). Namba ya Kadi: 20D (SINGLE)...</td>
-              <td>Success</td>
-            </tr>
-            <tr>
-              <td>5:36:00 AM</td>
-              <td>Adella Kirenga</td>
-              <td>255766504372</td>
-              <td>Karibu Adella Kirenga kwenye SHUGHULI (Fortunatus&Dorah). Namba ya Kadi: 22D (DOUBLE)...</td>
-              <td>Success</td>
-            </tr>
-          </tbody>
-        </Table>
-      </div>
-    );
+const SMSHistory = () => {
+  const [perPage, setPerPage] = useState(100);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const smsData = [
+    {
+      muda: '2024-12-01 11:34:38',
+      recipientName: 'Paulo Transporter',
+      phoneNumber: '255763600949',
+      message: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=) Tarehe ya Ubarikio ni 2024-12-01 (siku 25 kutoka sasa ). Mawasiliano/michango: 0755891534 AHSANTE https://prettyconfimation.harusi.online. Pretty Confimation',
+      status: 'Success'
+    },
+    {
+      muda: '2024-12-01 09:30:16',
+      recipientName: 'Magufulu Transporter',
+      phoneNumber: '255718418090',
+      message: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=) Tarehe ya Ubarikio ni 2024-12-01 (siku 25 kutoka sasa ). Mawasiliano/michango: 0755891534 AHSANTE https://prettyconfimation.harusi.online. Pretty Confimation',
+      status: 'Failed'
+    },
+    {
+      muda: '2024-12-01 06:37:44',
+      recipientName: 'Kikwete Transporter',
+      phoneNumber: '255713302810',
+      message: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=) Tarehe ya Ubarikio ni 2024-12-01 (siku 25 kutoka sasa ). Mawasiliano/michango: 0755891534 AHSANTE https://prettyconfimation.harusi.online. Pretty Confimation',
+      status: 'Failed'
+    },
+    {
+      muda: '2024-12-01 05:36:01',
+      recipientName: 'Joshy Lucas',
+      phoneNumber: '255655320361',
+      message: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=) Tarehe ya Ubarikio ni 2024-12-01 (siku 25 kutoka sasa ). Mawasiliano/michango: 0755891534 AHSANTE https://prettyconfimation.harusi.online. Pretty Confimation',
+      status: 'Success'
+    },
+    {
+      muda: '2024-12-01 05:36:00',
+      recipientName: 'Tumbo Tumbo',
+      phoneNumber: '255766504372',
+      message: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=) Tarehe ya Ubarikio ni 2024-12-01 (siku 25 kutoka sasa ). Mawasiliano/michango: 0755891534 AHSANTE https://prettyconfimation.harusi.online. Pretty Confimation',
+      status: 'Success'
+    }
+  ];
+
+  const columns = [
+    { name: 'Muda', selector: (row) => row.muda, sortable: true, width: '150px' },
+    { name: 'Recipient Name', selector: (row) => row.recipientName, sortable: true, width: '150px' },
+    { name: 'Phone Number', selector: (row) => row.phoneNumber, sortable: true, width: '130px' },
+    {
+      name: 'Message',
+      selector: (row) => row.message,
+      sortable: true,
+      width: '800px',
+      wrap: true,
+      cell: (row) => <div style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{row.message}</div>
+    },
+    {
+      name: 'Status',
+      selector: (row) => row.status,
+      sortable: true,
+      width: '200px',
+      cell: (row) => (
+        <span className={`Payment-badge Payment-badge-${row.status === 'Success' ? 'success' : 'danger'}`}>
+          {row.status}
+        </span>
+      )
+    }
+  ];
+
+  const filteredData = smsData.filter(sms =>
+    sms.recipientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    sms.phoneNumber.includes(searchTerm)
+  );
+
+  const customStyles = {
+    rows: {
+      style: {
+        fontSize: '120px', // Smaller font size for rows
+        minHeight: '40px', // Reduced row height
+      },
+    },
+    headCells: {
+      style: {
+        fontSize: '15px', // Smaller font size for headers
+        fontWeight: 'bold',
+      },
+    },
   };
 
-  export default SMSHistory;
+
+  return (
+    <div className="container mt-4">
+      <h2 className="text-center" style={{ color: '#24366b' }}>SMS History</h2>
+      <div className="search-box mb-3">
+        <Form.Group controlId="searchInput">
+          <Form.Label>Search</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Search by recipient name or phone number"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </Form.Group>
+      </div>
+      <div className="table-scroll">
+        <div className="datatable-wrapper">
+          <DataTable
+            columns={columns}
+            data={filteredData}
+            pagination
+            paginationRowsPerPageOptions={[100, 200, 500]}
+            paginationPerPage={perPage}
+            onChangeRowsPerPage={setPerPage}
+            highlightOnHover
+            striped
+            dense
+            responsive
+            customStyles={customStyles}  
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SMSHistory;

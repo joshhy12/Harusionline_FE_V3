@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Modal } from 'react-bootstrap';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Kamati = () => {
   const [perPage, setPerPage] = useState(100);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [newMember, setNewMember] = useState({
+    name: '',
+    phone: '',
+    role: ''
+  });
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
 
   const kamatiData = [
     { id: 1, name: 'Joshy lucas', phone: '+255 123 456 789', role: 'Chairman', status: 'Active' },
@@ -26,6 +35,12 @@ const Kamati = () => {
 
   const handleDelete = (row) => {
     // Implement delete logic here
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add new member logic here
+    handleClose();
   };
 
   const columns = [
@@ -68,9 +83,12 @@ const Kamati = () => {
       <div className="row">
         <div className="container-fluid mt-4">
           <h2 className="text-center" style={{ color: '#24366b' }}>Kamati Kuu</h2>
-          <div className="buttons-container">
+          <div className="buttons-container d-flex gap-2 mb-3">
             <Button variant="outline-primary" size="sm" onClick={handleDownloadPDF}>
               Kamati PDF
+            </Button>
+            <Button variant="primary" size="sm" onClick={handleShow}>
+              Ongeza Mwanakamati
             </Button>
           </div>
           <div className="search-box">
@@ -103,6 +121,50 @@ const Kamati = () => {
           </div>
         </div>
       </div>
+
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Ongeza Mwanakamati Mpya</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Label>Jina</Form.Label>
+              <Form.Control
+                type="text"
+                value={newMember.name}
+                onChange={(e) => setNewMember({...newMember, name: e.target.value})}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Namba ya Simu</Form.Label>
+              <Form.Control
+                type="number"
+                value={newMember.phone}
+                onChange={(e) => setNewMember({...newMember, phone: e.target.value})}
+                required
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Nafasi</Form.Label>
+              <Form.Select
+                value={newMember.role}
+                onChange={(e) => setNewMember({...newMember, role: e.target.value})}
+                required
+              >
+                <option value="">Chagua Nafasi</option>
+                <option value="Mwenyekiti">Mwenyekiti</option>
+                <option value="Mjumbe">Mjumbe</option>
+                <option value="Katibu">Katibu</option>
+              </Form.Select>
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Ongeza
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };

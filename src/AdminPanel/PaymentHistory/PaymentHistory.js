@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaPaperPlane, FaGift, FaTag, FaEnvelopeOpenText, FaWhatsapp } from 'react-icons/fa';
+import { FaPaperPlane, FaGift, FaEnvelopeOpenText, FaWhatsapp } from 'react-icons/fa';
+import DataTable from 'react-data-table-component';
+import { Form, Button } from 'react-bootstrap';
 import './PaymentHistory.css';
 
 const Payments = () => {
+  const [perPage, setPerPage] = useState(100);
+  const [searchTerm, setSearchTerm] = useState('');
+
   const paymentData = [
     {
       date: '2024-08-27 17:24:25',
@@ -42,6 +47,35 @@ const Payments = () => {
       status: 'Failed'
     }
   ];
+
+  const columns = [
+    { name: 'Date', selector: (row) => row.date, sortable: true },
+    { name: 'Transaction Token', selector: (row) => row.transactionToken, sortable: true },
+    { name: 'Reference', selector: (row) => row.reference, sortable: true },
+    { name: 'Payment For', selector: (row) => row.for, sortable: true },
+    { name: 'Amount', selector: (row) => row.amount, sortable: true },
+    { name: 'Payment Method', selector: (row) => row.paymentMethod, sortable: true },
+    {
+      name: 'Status',
+      selector: (row) => row.status,
+      sortable: true,
+      cell: (row) => (
+        <span className={`Payment-badge Payment-badge-${row.status === 'Paid'
+          ? 'success'
+          : row.status === 'Failed'
+            ? 'danger'
+            : 'warning'
+          }`}>
+          {row.status}
+        </span>
+      )
+    }
+  ];
+
+  const filteredData = paymentData.filter(payment =>
+    payment.reference.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    payment.transactionToken.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="container">
@@ -97,57 +131,31 @@ const Payments = () => {
               </Link>
             </div>
           </div>
-
         </div>
       </div>
 
-
-      <div className="Payment-row mt-4">
-        <div className="Payment-col">
-          <h3 className="Payment-title mb-3">Historia ya malipo</h3>
-          <div className="Payment-table-responsive" style={{ maxHeight: '500px', overflowY: 'auto' }}>
-            <table className="Payment-table">
-              <thead className="Payment-thead">
-                <tr>
-                  <th>Date</th>
-                  <th>Transaction Token</th>
-                  <th>Reference</th>
-                  <th>Payment For</th>
-                  <th>Amount</th>
-                  <th>Payment Method</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {paymentData.map((payment, index) => (
-                  <tr key={index} className="Payment-row">
-                    <td>{payment.date}</td>
-                    <td>{payment.transactionToken}</td>
-                    <td>{payment.reference}</td>
-                    <td>{payment.for}</td>
-                    <td>{payment.amount}</td>
-                    <td>{payment.paymentMethod}</td>
-                    <td>
-                      <span className={`Payment-badge Payment-badge-${payment.status === 'Paid'
-                          ? 'success'
-                          : payment.status === 'Failed'
-                            ? 'danger'
-                            : 'warning'
-                        }`}>
-                        {payment.status}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+      <div className="mt-4">
+      <h2 className="text-left" style={{ color: '#24366b' }}>Historia ya malipo</h2>
+        <div className="search-box mb-3">
+          
+        </div>
+        <div className="table-scroll">
+          <div className="datatable-wrapper">
+            <DataTable
+              columns={columns}
+              data={filteredData}
+              pagination
+              paginationRowsPerPageOptions={[100, 200, 500]}
+              paginationPerPage={perPage}
+              onChangeRowsPerPage={setPerPage}
+              highlightOnHover
+              striped
+              dense
+              responsive
+            />
           </div>
         </div>
       </div>
-
-
-
-
     </div>
   );
 };
