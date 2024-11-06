@@ -3,6 +3,7 @@
   import { Form, Button } from 'react-bootstrap';
   import {  } from 'react-icons/fa';
   import 'bootstrap/dist/css/bootstrap.min.css';
+  import { generateWaalikwaPDF } from './WaalikwaPDF';
 
   const Waalikwa = () => {
     const [perPage, setPerPage] = useState(100);
@@ -15,9 +16,9 @@
         { id: 5, name: 'Michael Brown', phone: '0753345678', cardType: 'Single', cardNumber: '45C' },
       ];
 
-    const handleDownloadPDF = () => {
-      // Implement PDF download logic here
-    };
+      const handleDownloadPDF = () => {
+        generateWaalikwaPDF(visitorsData);
+      };
 
    
 

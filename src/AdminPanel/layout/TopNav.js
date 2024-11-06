@@ -5,8 +5,8 @@ import { FaUser, FaCog, FaSignOutAlt, FaBars, FaUserCircle, FaWhatsapp } from 'r
 import './style/TopNav.css';
 
 const TopNav = ({ toggleSidebar }) => {
-  const adminName = "Admin Name";
-  const notificationCount = 3; // You can make this dynamic based on your needs
+  //const adminName = "Admin Name";
+  const notificationCount = 7; // You can make this dynamic based on your needs
 
   return (
     <nav className="top-nav">
@@ -37,7 +37,7 @@ const TopNav = ({ toggleSidebar }) => {
       <div className="d-flex align-items-center">
       <Link to="/admin/whatsapp-card" className="text-decoration-none">
   <div className="position-relative me-3">
-    <FaWhatsapp style={{ fontSize: '20px', color: '#25D366' }} />
+    <FaWhatsapp style={{ fontSize: '27px', color: '#25D366' }} />
     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
       {notificationCount}
     </span>
