@@ -39,6 +39,7 @@ import WhatsappCard from './AdminPanel/WhatsappCard/WhatsappCard';
 import PaymentHistory from './AdminPanel/PaymentHistory/PaymentHistory';
 import SmsHistory from './AdminPanel/SmsHistory/SmsHistory';
 import Settings from './AdminPanel/settings/Settings.js';
+import Calendar from './components/Calendar';
 import SmsTopup from './AdminPanel/PaymentHistory/SmsTopup';
 import WebsiteTemplates from './AdminPanel/websiteTemplates/WebsiteTemplates';
 
@@ -76,6 +77,9 @@ function App() {
           <Route path="settings" element={<Settings />} />
           <Route path="/admin/sms-topup" element={<SmsTopup />} />
           <Route path="websiteTemplates" element={<WebsiteTemplates />} />
+
+
+          <Route path="/admin/calendar" element={<Calendar />} />
         </Route>
 
        

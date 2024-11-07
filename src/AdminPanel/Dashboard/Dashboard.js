@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaPaperPlane,  FaEnvelope, FaEnvelopeOpenText, FaUsers } from 'react-icons/fa';
+import { FaPaperPlane,  FaEnvelope,FaCalendar, FaEnvelopeOpenText, FaUsers } from 'react-icons/fa';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -84,14 +84,11 @@ const Dashboard = () => {
         </div>
 
         <div className="dashboard col text-center">
-          <Link to="" className="text-decoration-none">
-            <div className="dashboard bg-dash p-4 rounded-lg">
-              <div className="dashText">
-                <FaEnvelope className="mb-2" size={24} />
-                <div>Tuma Mialiko</div>
-              </div>
-            </div>
-          </Link>
+        <Link to="/admin/calendar" className="nav-link">
+  <FaCalendar className="me-2" />
+  Event Calendar
+</Link>
+
         </div>
 
         <div className="dashboard col text-center">
@@ -136,6 +133,24 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
+      <div className="row mt-4 g-4">
+  <div className="col-md-12">
+    <div className="bg-dash p-4 rounded-lg">
+      <h1 className="dashboard-heading">Calendar</h1>
+      <div className="text-center p-4">
+        <div className="calendar-today">
+          <div className="month">{today.toLocaleDateString('en-US', { month: 'long' })}</div>
+          <div className="day">{today.getDate()}</div>
+          <div className="year">{today.getFullYear()}</div>
+          <div className="weekday">{today.toLocaleDateString('en-US', { weekday: 'long' })}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     </div>
   );
 };
