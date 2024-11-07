@@ -45,30 +45,51 @@ const SMSHistory = () => {
     }
   ];
 
-  const columns = [
-    { name: 'Muda', selector: (row) => row.muda, sortable: true, width: '150px' },
-    { name: 'Recipient Name', selector: (row) => row.recipientName, sortable: true, width: '150px' },
-    { name: 'Phone Number', selector: (row) => row.phoneNumber, sortable: true, width: '130px' },
-    {
-      name: 'Message',
-      selector: (row) => row.message,
-      sortable: true,
-      width: '800px',
-      wrap: true,
-      cell: (row) => <div style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{row.message}</div>
-    },
-    {
-      name: 'Status',
-      selector: (row) => row.status,
-      sortable: true,
-      width: '200px',
-      cell: (row) => (
-        <span className={`Payment-badge Payment-badge-${row.status === 'Success' ? 'success' : 'danger'}`}>
-          {row.status}
-        </span>
-      )
-    }
-  ];
+  // Update the message column in your columns array
+const columns = [
+  { name: 'Muda', selector: (row) => row.muda, sortable: true, width: '150px' },
+  { name: 'Recipient Name', selector: (row) => row.recipientName, sortable: true, width: '150px' },
+  { name: 'Phone Number', selector: (row) => row.phoneNumber, sortable: true, width: '130px' },
+  {
+    name: 'Message',
+    selector: (row) => row.message,
+    sortable: true,
+    width: '630px', // Reduced from 800px
+    wrap: true,
+    cell: (row) => (
+      <div style={{ 
+        whiteSpace: 'normal', 
+        wordWrap: 'break-word',
+        lineHeight: '1.2em',
+        height: '4.8em', // This will show 4 lines (1.2em * 4)
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+      }}>
+        {row.message}
+      </div>
+    )
+  },
+  {
+    name: 'Status',
+    selector: (row) => row.status,
+    sortable: true,
+    width: '100px',
+    cell: (row) => (
+      <span style={{
+        padding: '6px 12px',
+        borderRadius: '4px',
+        fontSize: '12px',
+        fontWeight: '500',
+        backgroundColor: row.status === 'Success' ? '#e8edfb' : '#ffebee',
+        color: row.status === 'Success' ? '#0066ee' : '#d32f2f'
+      }}>
+        {row.status}
+      </span>
+    )
+  }
+  
+];
+
 
   const filteredData = smsData.filter(sms =>
     sms.recipientName.toLowerCase().includes(searchTerm.toLowerCase()) ||

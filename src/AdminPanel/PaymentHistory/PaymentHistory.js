@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Card, CardContent, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { FaPaperPlane, FaGift, FaEnvelopeOpenText, FaWhatsapp } from 'react-icons/fa';
 import DataTable from 'react-data-table-component';
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import './PaymentHistory.css';
 
 const Payments = () => {
@@ -49,23 +50,26 @@ const Payments = () => {
   ];
 
   const columns = [
-    { name: 'Date', selector: (row) => row.date, sortable: true },
-    { name: 'Transaction Token', selector: (row) => row.transactionToken, sortable: true },
-    { name: 'Reference', selector: (row) => row.reference, sortable: true },
-    { name: 'Payment For', selector: (row) => row.for, sortable: true },
-    { name: 'Amount', selector: (row) => row.amount, sortable: true },
-    { name: 'Payment Method', selector: (row) => row.paymentMethod, sortable: true },
+    { name: 'Date', selector: (row) => row.date, sortable: true, width: '230px' },
+    { name: 'Transaction Token', selector: (row) => row.transactionToken, sortable: true, width: '230px' },
+    { name: 'Reference', selector: (row) => row.reference, sortable: true, width: '130px' },
+    { name: 'Payment For', selector: (row) => row.for, sortable: true, width: '200px' },
+    { name: 'Amount', selector: (row) => row.amount, sortable: true, width: '100px' },
+    { name: 'Payment Method', selector: (row) => row.paymentMethod, sortable: true, width: '150px' },
     {
       name: 'Status',
       selector: (row) => row.status,
       sortable: true,
+      width: '130px',
       cell: (row) => (
-        <span className={`Payment-badge Payment-badge-${row.status === 'Paid'
-          ? 'success'
-          : row.status === 'Failed'
-            ? 'danger'
-            : 'warning'
-          }`}>
+        <span style={{
+          padding: '6px 12px',
+          borderRadius: '4px',
+          fontSize: '12px',
+          fontWeight: '500',
+          backgroundColor: row.status === 'Paid' ? '#e0f2e9' : row.status === 'Pending' ? '#e8edfb' : '#ffebee',
+          color: row.status === 'Paid' ? '#2e7d32' : row.status === 'Pending' ? '#0066ee' : '#d32f2f'
+        }}>
           {row.status}
         </span>
       )
@@ -77,86 +81,101 @@ const Payments = () => {
     payment.transactionToken.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const customStyles = {
+    rows: {
+      style: {
+        fontSize: '120px',
+        minHeight: '40px',
+      },
+    },
+    headCells: {
+      style: {
+        fontSize: '15px',
+        fontWeight: 'bold',
+      },
+    },
+  };
+
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12">
-          <h2 className="text-center" style={{ color: '#24366b' }}> Payments Panel  </h2>
+    <Card>
+      <CardContent>
+        <h2 className="text-center" style={{ color: '#24366b' }}> Payments Panel </h2>
 
-          <p className="text-muted">
-          </p>
+        <Typography variant="body2" color="textSecondary" gutterBottom>
+          Monitor payment statuses in real-time, track transactions, and manage payment interactions effortlessly. Get comprehensive insights into payment processing, success rates, and transaction details - all in one centralized dashboard.
+        </Typography>
 
-          <div className="dashboard row mt-4">
-            <div className="dashboard col text-center">
-              <Link to="/admin/sms-topup" className="text-decoration-none">
-                <div className="dashboard bg-dash p-4 rounded-lg">
-                  <div className="dashText">
-                    <FaPaperPlane className="mb-2" size={24} />
-                    <div>Message TopUp</div>
-                  </div>
+        <div className="dashboard row mt-4">
+          <div className="dashboard col text-center">
+            <Link to="/admin/sms-topup" className="text-decoration-none">
+              <div className="dashboard bg-dash p-4 rounded-lg">
+                <div className="dashText">
+                  <FaPaperPlane className="mb-2" size={24} />
+                  <div>Message TopUp</div>
                 </div>
-              </Link>
-            </div>
+              </div>
+            </Link>
+          </div>
 
-            <div className="dashboard col text-center">
-              <Link to="/admin/ecards" className="text-decoration-none">
-                <div className="dashboard bg-dash p-4 rounded-lg">
-                  <div className="dashText">
-                    <FaEnvelopeOpenText className="mb-2" size={24} />
-                    <div>Buy Ecards</div>
-                  </div>
+          <div className="dashboard col text-center">
+            <Link to="/admin/ecards" className="text-decoration-none">
+              <div className="dashboard bg-dash p-4 rounded-lg">
+                <div className="dashText">
+                  <FaEnvelopeOpenText className="mb-2" size={24} />
+                  <div>Buy Ecards</div>
                 </div>
-              </Link>
-            </div>
+              </div>
+            </Link>
+          </div>
 
-            <div className="dashboard col text-center">
-              <Link to="/admin/send-invitations" className="text-decoration-none">
-                <div className="dashboard bg-dash p-4 rounded-lg">
-                  <div className="dashText">
-                    <FaWhatsapp className="mb-2" size={24} />
-                    <div>WhatApp Credit</div>
-                  </div>
+          <div className="dashboard col text-center">
+            <Link to="/admin/send-invitations" className="text-decoration-none">
+              <div className="dashboard bg-dash p-4 rounded-lg">
+                <div className="dashText">
+                  <FaWhatsapp className="mb-2" size={24} />
+                  <div>WhatApp Credit</div>
                 </div>
-              </Link>
-            </div>
+              </div>
+            </Link>
+          </div>
 
-            <div className="dashboard col text-center">
-              <Link to="/admin/send-invitations" className="text-decoration-none">
-                <div className="dashboard bg-dash p-4 rounded-lg">
-                  <div className="dashText">
-                    <FaGift className="mb-2" size={24} />
-                    <div>Discount </div>
-                  </div>
+          <div className="dashboard col text-center">
+            <Link to="/admin/send-invitations" className="text-decoration-none">
+              <div className="dashboard bg-dash p-4 rounded-lg">
+                <div className="dashText">
+                  <FaGift className="mb-2" size={24} />
+                  <div>Discount </div>
                 </div>
-              </Link>
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-4">
+          <h2 className="text-left" style={{ color: '#24366b' }}>Historia ya malipo</h2>
+          <div className="search-box mb-3">
+           
+          </div>
+          <div className="table-scroll">
+            <div className="datatable-wrapper">
+              <DataTable
+                columns={columns}
+                data={filteredData}
+                pagination
+                paginationRowsPerPageOptions={[100, 200, 500]}
+                paginationPerPage={perPage}
+                onChangeRowsPerPage={setPerPage}
+                highlightOnHover
+                striped
+                dense
+                responsive
+                customStyles={customStyles}
+              />
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="mt-4">
-      <h2 className="text-left" style={{ color: '#24366b' }}>Historia ya malipo</h2>
-        <div className="search-box mb-3">
-          
-        </div>
-        <div className="table-scroll">
-          <div className="datatable-wrapper">
-            <DataTable
-              columns={columns}
-              data={filteredData}
-              pagination
-              paginationRowsPerPageOptions={[100, 200, 500]}
-              paginationPerPage={perPage}
-              onChangeRowsPerPage={setPerPage}
-              highlightOnHover
-              striped
-              dense
-              responsive
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 };
 
