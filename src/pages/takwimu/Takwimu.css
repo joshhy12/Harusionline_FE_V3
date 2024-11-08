@@ -1,0 +1,103 @@
+.takwimu-container {
+    padding: 24px;
+    background: #f8f9fa;
+  }
+  
+  .takwimu-title {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 600;
+  }
+  
+  .takwimu-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    transition: transform 0.2s ease;
+  }
+  
+  .takwimu-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .takwimu-card-header {
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+    padding: 16px 20px;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .takwimu-card-title {
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .takwimu-card-body {
+    padding: 20px;
+  }
+  
+  .takwimu-stat {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .takwimu-stat-label {
+    color: #6c757d;
+    font-weight: 500;
+  }
+  
+  .takwimu-stat-value {
+    color: #2c3e50;
+    font-weight: 600;
+  }
+  
+  .takwimu-chart-container {
+    margin-top: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .takwimu-container {
+      padding: 16px;
+    }
+  
+    .takwimu-title {
+      font-size: 24px;
+    }
+  
+    .takwimu-card {
+      margin-bottom: 20px;
+    }
+  
+    .takwimu-chart-container {
+      overflow-x: auto;
+    }
+  }
+  
+  /* Chart customization */
+  .recharts-wrapper {
+    margin: 0 auto;
+  }
+  
+  .recharts-bar {
+    fill: #6366f1;
+  }
+  
+  .recharts-tooltip {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 12px;
+  }
+  

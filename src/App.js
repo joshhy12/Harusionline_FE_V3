@@ -6,23 +6,23 @@ import './App.css';  // Your frontend CSS
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import E_card from './pages/E_card';
-import CardDetails from './pages/CardDetails';
-import Gharama from './pages/Gharama';
-import TermsAndConditions from './pages/TermsAndConditions';
-import WatoaHuduma from './pages/WatoaHuduma';
-import Events from './pages/Events';
-import EventDetails from './pages/EventDetails';
-import WatoaHudumaDetails from './pages/WatoaHudumaDetails';
-import LoginSignup from './pages/LoginSignup';
-import EventWebsite from './pages/EventWebsite';
+import About from './pages/aboutUs/About.js';
+import Contact from './pages/aboutUs/Contact.js';
+import E_card from './pages/ecards/E_card.js';
+import CardDetails from './pages/ecards/CardDetails.js';
+import Gharama from './pages/aboutUs/Gharama.js';
+import TermsAndConditions from './pages/aboutUs/TermsAndConditions.js';
+import WatoaHuduma from './pages/WatoaHuduma/WatoaHuduma.js';
+import Events from './pages/Events/Events.js';
+import EventDetails from './pages/Events/EventDetails.js';
+import WatoaHudumaDetails from './pages/WatoaHuduma/WatoaHudumaDetails.js';
+import LoginSignup from './pages/LoginSignup/LoginSignup.js';
+import EventWebsite from './pages/Events/EventWebsite.js';
 
 
 // Admin Components
 import Dashboard from './AdminPanel/Dashboard/Dashboard';
-import Layout from './AdminPanel/layout/Layout';
+import Layout from './components/admin/layout/Layout';
 import Kamati from './AdminPanel/kamati/Kamati';
 import Wageni from './AdminPanel/wageni/Wageni';
 import Payments from './AdminPanel/PaymentHistory/PaymentHistory.js';

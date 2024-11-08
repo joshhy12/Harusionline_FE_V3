@@ -1,0 +1,88 @@
+.customShadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.416), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.navLink {
+  position: relative;
+  color: #333 !important;
+  transition: color 0.3s ease;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #4a85ff;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover,
+.navLink:global(.active) {
+  color: #4a85ff !important;
+}
+
+.navLink:hover::after,
+.navLink:global(.active)::after {
+  width: 100%;
+  left: 0;
+}
+
+.dropdownItem {
+  position: relative;
+  color: #333 !important;
+  transition: color 0.3s ease;
+}
+
+.dropdownItem::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #4a85ff;
+  transition: all 0.3s ease;
+}
+
+.dropdownItem:hover,
+.dropdownItem:global(.active) {
+  color: #4a85ff !important;
+  background-color: transparent !important;
+}
+
+.dropdownItem:hover::after,
+.dropdownItem:global(.active)::after {
+  width: 100%;
+  left: 0;
+}
+
+.dropdownToggle {
+  position: relative;
+  color: #333 !important;
+  transition: color 0.3s ease;
+}
+
+.dropdownToggle::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #4a85ff;
+  transition: all 0.3s ease;
+}
+
+.dropdownToggle:hover,
+.dropdownToggle:global(.show) {
+  color: #4a85ff !important;
+}
+
+.dropdownToggle:hover::after,
+.dropdownToggle:global(.show)::after {
+  width: 100%;
+  left: 0;
+}

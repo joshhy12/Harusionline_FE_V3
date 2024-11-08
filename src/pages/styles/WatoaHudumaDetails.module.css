@@ -1,0 +1,49 @@
+/* WatoaHudumaDetails.module.css */
+
+.card {
+    border: 1px solid #e0e0e0; /* Add a border to the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for better visibility */
+    transition: transform 0.2s; /* Add a transition effect */
+    height: auto; /* Allow card to adjust height */
+  }
+  
+  .providerImage {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: cover; /* Cover the entire area without distorting the image */
+  }
+  
+  .cardBody {
+    padding: 20px; /* Add padding for better text layout */
+  }
+  
+  .cardTitle {
+    font-size: 1.5rem; /* Title size */
+    font-weight: bold; /* Bold title */
+  }
+  
+  .cardText {
+    margin-bottom: 0.5rem; /* Spacing between text elements */
+  }
+  
+  .strongText {
+    font-weight: bold; /* Bold text for labels */
+  }
+  
+  .link {
+    color: blue; /* Link color */
+    text-decoration: underline; /* Underline links */
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      margin-bottom: 20px; /* Adjust spacing on smaller screens */
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+    }
+  
+    .providerImage {
+      max-height: 300px; /* Adjust max height for mobile */
+      object-fit: cover; /* Ensure the full image is displayed */
+    }
+  }
