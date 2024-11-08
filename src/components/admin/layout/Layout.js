@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import TopNav from './TopNav';
+import Footer from './Footer';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/Layout.css';
 
@@ -42,7 +44,7 @@ const Layout = () => {
         <main className="main-content">
           <Outlet />
         </main>
-
+        <Footer />
 
       </div>
       {sidebarOpen && (

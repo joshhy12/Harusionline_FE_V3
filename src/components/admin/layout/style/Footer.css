@@ -1,17 +1,16 @@
-/* Footer.css */
-.admin-footer {
-  background-color: white;
+.footer {
+  background-color: rgb(255, 255, 255);
   text-align: center;
   padding: 1rem;
   position: fixed;
   bottom: 0;
   right: 0;
-  left: 200px;
-  border-top: 1px solid #dee2e6;
+  left: 113px;
+  border-top: 1px solid #74b1ed;
 }
 
 @media (max-width: 768px) {
-  .admin-footer {
+  .footer {
     left: 0;
   }
 }

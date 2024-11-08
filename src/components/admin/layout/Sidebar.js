@@ -26,10 +26,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             <NavItem to="/admin/wageni" icon={FaUsers} label="Wageni" active={location.pathname === '/admin/wageni'} onClick={handleLinkClick} />
             <NavItem to="/admin/kamati" icon={FaUsersCog} label="Kamati" active={location.pathname === '/admin/kamati'} onClick={handleLinkClick} />
             <NavItem to="/admin/waalikwa" icon={FaEnvelopeOpenText} label="Waalikwa" active={location.pathname === '/admin/waalikwa'} onClick={handleLinkClick} />
+            <NavItem to="/admin/michango" icon={FaDonate} label="Michango" active={location.pathname === '/admin/michango'} onClick={handleLinkClick} />
+
             {/*  <NavItem to="/admin/groups" icon={FaUserFriends} label="Vikundi" active={location.pathname === '/admin/groups'} onClick={handleLinkClick} />     */}      
             <NavItem to="/admin/bajeti" icon={FaMoneyBill} label="Bajeti" active={location.pathname === '/admin/bajeti'} onClick={handleLinkClick} />
             <NavItem to="/admin/payments" icon={FaMoneyBillWave} label="Payments" active={location.pathname === '/admin/payments'} onClick={handleLinkClick} />
-            <NavItem to="/admin/michango" icon={FaDonate} label="Michango" active={location.pathname === '/admin/michango'} onClick={handleLinkClick} />
             <NavItem to="/admin/picha" icon={FaImages} label="Picha" active={location.pathname === '/admin/picha'} onClick={handleLinkClick} />
             <NavItem to="/admin/takwimu" icon={FaChartBar} label="Takwimu" active={location.pathname === '/admin/takwimu'} onClick={handleLinkClick} />
             <NavItem to="/admin/ecards" icon={FaEnvelopeOpenText} label="Ecards" active={location.pathname === '/admin/ecards'} onClick={handleLinkClick} />
