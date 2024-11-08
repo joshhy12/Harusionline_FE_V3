@@ -1,0 +1,21 @@
+
+  
+  .bg-dash:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .dashText {
+    color: #4a85ff;
+  }
+  
+  .dashboard-heading {
+    color: #24366b;
+    margin-bottom: 2rem;
+  }
+  
+  .tooltip {
+    padding: 15px;
+    border-radius: 10px;
+  }
+  

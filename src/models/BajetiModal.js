@@ -17,10 +17,15 @@ const BajetiModal = ({ show, handleClose }) => {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>New Budget Item</Modal.Title>
+        <Modal.Title>Create New Budget</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
+          <Form.Group className="mb-3">
+            <Form.Label>Budget Title</Form.Label>
+            <Form.Control type="text" placeholder="Enter budget title" />
+          </Form.Group>
+
           <Form.Group className="mb-3">
             <Form.Label>Category</Form.Label>
             <Form.Select>
@@ -33,7 +38,7 @@ const BajetiModal = ({ show, handleClose }) => {
 
           <Form.Group className="mb-3">
             <Form.Label>Amount</Form.Label>
-            <Form.Control type="number" placeholder="Enter total amount" />
+            <Form.Control type="number" placeholder="Enter amount" />
           </Form.Group>
 
           <Form.Group className="mb-3">
@@ -51,8 +56,8 @@ const BajetiModal = ({ show, handleClose }) => {
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
+        <Button variant="primary">
+          Save Budget
         </Button>
       </Modal.Footer>
     </Modal>
