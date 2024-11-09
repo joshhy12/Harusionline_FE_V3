@@ -111,7 +111,7 @@ const EventSettings = () => {
                 }} defaultValue="0" className="settings-form-control" />
               </Form.Group>
             </Col>
-          </Row>        
+          </Row>
           <Button variant="primary" className="settings-btn-primary">Save Price Settings</Button>
         </Tab>
 
@@ -139,60 +139,57 @@ const EventSettings = () => {
 
 
         <Tab eventKey="notification" title="Notification Settings" className="settings-nav-link">
-  <h2 className="settings-text-primary settings-mb-4">Notification Settings</h2>
+          <h2 className="settings-text-primary settings-mb-4">Notification Settings</h2>
 
-  <div className="grid grid-cols-2 gap-4">
-    <div>
-      <label className="block text-gray-700 mb-2">Event Information Message</label>
-      <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-        Habari #jina, Tuna furaha kukuarifu #shughuli ya #title itakayofanyika #tarehe (siku #siku kutoka sasa ). Mawasiliano #simu.
-      </textarea>
-    </div>
-    <div>
-      <label className="block text-gray-700 mb-2">Pledge Reminder Message</label>
-      <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-        Habari #jina, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (#title) #saliolaahadi
-      </textarea>
-    </div>
-    <div>
-      <label className="block text-gray-700 mb-2">Pledge Acknowledgement Message</label>
-      <div className="flex items-center mb-2">
-        <input type="checkbox" className="mr-2" checked />
-        <span>Enable</span>
-      </div>
-      <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-        Hello #jina. Asante kwa ahadi yako ya mchango wa #title. Kwa maelezo zaidi wasiliana nasi kwa Barua pepe #email au kwa simu: #simu
-      </textarea>
-    </div>
-    <div>
-      <label className="block text-gray-700 mb-2">Cash Acknowledgment Message</label>
-      <div className="flex items-center mb-2">
-        <input type="checkbox" className="mr-2" checked />
-        <span>Enable</span>
-      </div>
-      <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-        Ahsante sana #jina, Mchango wako umepokelewa kwa furaha kubwa! Kamati inakushukuru na kukupogeza kwa kukomboa ahadi yako.
-      </textarea>
-    </div>
-    <div>
-      <label className="block text-gray-700 mb-2">Event Invitation Message</label>
-      <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-        Karibu #jina, kwenye #shughuli ya #title Namba ya kadi #kadi. #tarehe ,#mahali ,#muda. Fika na Meseji hii
-      </textarea>
-    </div>
-    <div>
-      <label className="block text-gray-700 mb-2">Event Thanknote Message</label>
-      <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-        Event Thank-Note Message
-      </textarea>
-    </div>
-  </div>
-  <Button variant="primary" className="mt-4 settings-btn-primary">Save Notification Settings</Button>
-</Tab>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-gray-700 mb-2">Event Information Message</label>
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
+                Habari #jina, Tuna furaha kukuarifu #shughuli ya #title itakayofanyika #tarehe (siku #siku kutoka sasa ). Mawasiliano #simu.
+              </textarea>
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2">Pledge Reminder Message</label>
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
+                Habari #jina, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (#title) #saliolaahadi
+              </textarea>
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2">Pledge Acknowledgement Message</label>
+              <div className="flex items-center mb-2">
+                <input type="checkbox" className="mr-2" checked />
+                <span>Enable</span>
+              </div>
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
+                Hello #jina. Asante kwa ahadi yako ya mchango wa #title. Kwa maelezo zaidi wasiliana nasi kwa Barua pepe #email au kwa simu: #simu
+              </textarea>
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2">Cash Acknowledgment Message</label>
+              <div className="flex items-center mb-2">
+                <input type="checkbox" className="mr-2" checked />
+                <span>Enable</span>
+              </div>
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
+                Ahsante sana #jina, Mchango wako umepokelewa kwa furaha kubwa! Kamati inakushukuru na kukupogeza kwa kukomboa ahadi yako.
+              </textarea>
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2">Event Invitation Message</label>
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
+                Karibu #jina, kwenye #shughuli ya #title Namba ya kadi #kadi. #tarehe ,#mahali ,#muda. Fika na Meseji hii
+              </textarea>
+            </div>
+            <div>
+              <label className="block text-gray-700 mb-2">Event Thanknote Message</label>
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
+                Event Thank-Note Message
+              </textarea>
+            </div>
+          </div>
+          <Button variant="primary" className="mt-4 settings-btn-primary">Save Notification Settings</Button>
+        </Tab>
 
-
-
-        
       </Tabs>
     </Container>
   );
