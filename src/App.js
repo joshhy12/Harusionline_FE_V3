@@ -39,12 +39,12 @@ import WhatsappCard from './AdminPanel/WhatsappCard/WhatsappCard';
 import PaymentHistory from './AdminPanel/PaymentHistory/PaymentHistory';
 import SmsHistory from './AdminPanel/SmsHistory/SmsHistory';
 import Settings from './AdminPanel/settings/Settings.js';
-import Calendar from './components/Calendar';
+// import Calendar from './components/Calendar';
 import SmsTopup from './AdminPanel/PaymentHistory/SmsTopup';
 import WebsiteTemplates from './AdminPanel/websiteTemplates/WebsiteTemplates';
 
 
-
+import WatoaHudumaRoutes from './components/WatoaHuduma_admin_panel/WatoaHudumaRoutes';
 
 function App() {
   return (
@@ -53,7 +53,7 @@ function App() {
         {/* Router for the EVENT WEBSITE */}
       
         <Route path="/event-website/:slug" element={<EventWebsite />} />
-
+       
       
       
         {/* Admin panel routes */}
@@ -79,11 +79,13 @@ function App() {
           <Route path="websiteTemplates" element={<WebsiteTemplates />} />
 
 
-          <Route path="/admin/calendar" element={<Calendar />} />
+          {/* <Route path="/admin/calendar" element={<Calendar />} /> */}
         </Route>
 
        
-       
+        {/* Router for the WATOA HUDUMA */}
+      <Route path="/service-provider/*" element={<WatoaHudumaRoutes />} />
+  
        
         {/* Router for the main WEBSITE */}
         <Route path="*" element={

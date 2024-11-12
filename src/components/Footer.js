@@ -10,13 +10,13 @@ const Footer = () => {
     event.preventDefault();
     const form = document.getElementById('newsletterForm');
     const email = form.email.value;
-    
+
     // Here you can add your newsletter signup logic
     console.log('Subscribed email:', email);
-    
+
     // Clear the form
     form.reset();
-    
+
     // Optional: Show success message
     alert('Thanks for subscribing!');
   }
@@ -67,7 +67,10 @@ const Footer = () => {
                 <li><i className="bx bi-chevron-right"></i> <Link to="/e_card">Kadi za Kidigitali</Link></li>
                 <li><i className="bx bi-chevron-right"></i> <Link to="#tuma-mialiko">Tuma Mialiko</Link></li>
                 <li><i className="bx bi-chevron-right"></i> <Link to="#ripori-ya-fedha">Ripori ya Fedha</Link></li>
-                <li><i className="bx bi-chevron-right"></i> <Link to="/WatoaHuduma">Login As MtoaHuduma</Link></li>
+                <li>
+                  <i className="bx bi-chevron-right"></i>
+                  <Link to="/service-provider">Login As MtoaHuduma</Link>
+                </li>
 
               </ul>
             </Col>
