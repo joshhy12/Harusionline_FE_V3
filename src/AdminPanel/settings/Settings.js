@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Tabs, Tab, Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Tabs, Tab, Card,Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './Settings.css';
 
 
@@ -121,21 +122,47 @@ const EventSettings = () => {
 
 
         <Tab eventKey="color-theme" title="Color & Theme Settings" className="settings-nav-link">
-          <h2 className="settings-text-primary settings-mb-4">Color & Theme Settings</h2>
-          <Form.Group controlId="primaryColor" className="settings-mb-3">
+  <h2 className="settings-text-primary settings-mb-4">Color & Theme Settings</h2>
+  <Row>
+    <Col md={4}>
+      <Card className="settings-mb-3">
+        <Card.Body>
+          <Form.Group controlId="primaryColor">
             <Form.Label className="settings-form-label">Primary Color</Form.Label>
-            <Form.Control type="color" defaultValue="#007bff" className="settings-color-input" />
+            <Form.Control type="color" defaultValue="#007bff" className="settings-color-input w-100" />
           </Form.Group>
-          <Form.Group controlId="secondaryColor" className="settings-mb-3">
+        </Card.Body>
+      </Card>
+    </Col>
+
+    <Col md={4}>
+      <Card className="settings-mb-3">
+        <Card.Body>
+          <Form.Group controlId="secondaryColor">
             <Form.Label className="settings-form-label">Secondary Color</Form.Label>
-            <Form.Control type="color" defaultValue="#6c757d" className="settings-color-input" />
+            <Form.Control type="color" defaultValue="#6c757d" className="settings-color-input w-100" />
           </Form.Group>
-          <Form.Group controlId="secondaryColor" className="settings-mb-3">
+        </Card.Body>
+      </Card>
+    </Col>
+
+    <Col md={4}>
+      <Card className="settings-mb-3">
+        <Card.Body>
+          <Form.Group controlId="tertiaryColor">
             <Form.Label className="settings-form-label">Tertiary Color</Form.Label>
-            <Form.Control type="color" defaultValue="" className="settings-color-input" />
+            <Form.Control type="color" defaultValue="" className="settings-color-input w-100" />
           </Form.Group>
-          <Button variant="primary" className="settings-btn-primary">Save Color & Theme Settings</Button>
-        </Tab>
+        </Card.Body>
+      </Card>
+    </Col>
+  </Row>
+  <div className="d-flex justify-content-center mt-4">
+    <Button variant="primary" className="settings-btn-primary">Save Color & Theme Settings</Button>
+  </div>
+</Tab>
+
+
 
 
         <Tab eventKey="notification" title="Notification Settings" className="settings-nav-link">

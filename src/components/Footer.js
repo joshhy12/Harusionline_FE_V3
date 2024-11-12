@@ -3,12 +3,25 @@ import { Container, Row, Col } from 'react-bootstrap';
 import '../styles/Footer.css';
 import { Link } from 'react-router-dom';
 
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  return (
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = document.getElementById('newsletterForm');
+    const email = form.email.value;
+    
+    // Here you can add your newsletter signup logic
+    console.log('Subscribed email:', email);
+    
+    // Clear the form
+    form.reset();
+    
+    // Optional: Show success message
+    alert('Thanks for subscribing!');
+  }
 
+  return (
     <footer id="footer">
       <div className="footer-top">
         <Container>
@@ -26,8 +39,8 @@ const Footer = () => {
 
               <div className="social-links mt-3">
                 <Link to="#" className="btn btn-outline-primary me-2"><i className="bi bi-twitter"></i></Link>
-                <Link to="https://www.facebook.com/harusionlinetz/" className="btn btn-outline-primary me-2"  target="_blank" ><i className="bi bi-facebook"></i></Link>
-                <Link to="https://www.instagram.com/harusionline/" className="btn btn-outline-primary me-2"  target="_blank"  ><i className="bi bi-instagram"></i></Link>
+                <Link to="https://www.facebook.com/harusionlinetz/" className="btn btn-outline-primary me-2" target="_blank" ><i className="bi bi-facebook"></i></Link>
+                <Link to="https://www.instagram.com/harusionline/" className="btn btn-outline-primary me-2" target="_blank"  ><i className="bi bi-instagram"></i></Link>
                 <a href="https://wa.me/255747636516" className="btn btn-outline-primary me-2" target="_blank" rel="noopener noreferrer"> <i className="bi bi-whatsapp"></i>
                 </a>
               </div>
@@ -49,7 +62,7 @@ const Footer = () => {
             <Col lg={3} md={6} className="footer-links">
               <h4>Our Services</h4>
               <ul>
-              <li><i className="bi bi-chevron-right"></i> <Link to="/Events">All Events</Link></li>
+                <li><i className="bi bi-chevron-right"></i> <Link to="/Events">All Events</Link></li>
                 <li><i className="bi bi-chevron-right"></i> <Link to="#tuma-taarifa">Tuma Taarifa</Link></li>
                 <li><i className="bx bi-chevron-right"></i> <Link to="/e_card">Kadi za Kidigitali</Link></li>
                 <li><i className="bx bi-chevron-right"></i> <Link to="#tuma-mialiko">Tuma Mialiko</Link></li>
@@ -60,11 +73,14 @@ const Footer = () => {
             </Col>
             <Col lg={4} md={6} className="footer-newsletter">
               <h4>Our Newsletter</h4>
+
               <p>Join our community of engaged couples and receive valuable insights directly to your inbox.</p>
-              <form action="" method="post">
-                <input type="email" name="email" />
+
+              <form id="newsletterForm" onSubmit={handleSubmit}>
+                <input type="email" name="email" required />
                 <input type="submit" value="Subscribe" />
               </form>
+
 
               <h5 className="mt-4">Download Our App</h5>
               <div className="d-flex">
@@ -82,7 +98,7 @@ const Footer = () => {
       </div>
       <Container>
         <div className="copyright">
-          <p>&copy; {currentYear} Harusi online Tanzania. All rights reserved.</p>
+          <p>© {currentYear} Harusi online Tanzania. All rights reserved.</p>
         </div>
       </Container>
     </footer>
