@@ -113,3 +113,107 @@
     font-weight: 500;
   }
   
+
+  /* Modal Carousel Styles */
+.intro-modal .modal-content {
+  border-radius: 35px;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.intro-carousel {
+  padding: 20px 0;
+}
+
+.carousel-item {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.slide-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  animation: bounce 1s infinite;
+}
+
+.slide-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.slide-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.carousel-indicators {
+  bottom: -40px;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+  margin: 0 5px;
+}
+
+.carousel-indicators .active {
+  background-color: #007bff;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Modal Footer */
+.modal-footer {
+  border-top: none;
+  padding: 1.5rem;
+}
+
+.modal-footer .btn-primary {
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #0066ff, #24366b);
+  border: none;
+  transition: transform 0.2s;
+}
+
+.modal-footer .btn-primary:hover {
+  transform: scale(1.05);
+}
