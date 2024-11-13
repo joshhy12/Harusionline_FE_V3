@@ -2,80 +2,87 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 const CreateServiceForm = () => {
-  const [serviceData, setServiceData] = useState({
+  const [formData, setFormData] = useState({
     name: '',
     mobile: '',
     email: '',
     website: '',
     description: '',
     location: '',
-    categories: [],
     facebook: '',
     instagram: '',
     twitter: '',
     youtube: '',
+    categories: [],
     wallpaper: null
   });
 
-  const categories = [
-    { id: 1, name: 'Music & Mc' },
-    { id: 2, name: 'Mapambo' },
-    { id: 3, name: 'Mapishi' },
-    { id: 4, name: 'Vinywaji' }
-  ];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // API call to save service
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
   const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    setServiceData({...serviceData, wallpaper: file});
+    setFormData(prevState => ({
+      ...prevState,
+      wallpaper: e.target.files[0]
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add API submission logic here
   };
 
   return (
-    <Container className="py-4">
-      <h2 className="mb-4">Create New Service</h2>
+    <Container className="mt-4">
+      <h2>Create New Service</h2>
       <Form onSubmit={handleSubmit}>
         <Row>
           <Col md={6}>
             <Form.Group className="mb-3">
-              <Form.Label>Service Name</Form.Label>
-              <Form.Control 
+              <Form.Label>Business Name</Form.Label>
+              <Form.Control
                 type="text"
-                value={serviceData.name}
-                onChange={(e) => setServiceData({...serviceData, name: e.target.value})}
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
                 required
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Mobile</Form.Label>
-              <Form.Control 
+              <Form.Label>Mobile Number</Form.Label>
+              <Form.Control
                 type="tel"
-                value={serviceData.mobile}
-                onChange={(e) => setServiceData({...serviceData, mobile: e.target.value})}
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleInputChange}
                 required
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Email</Form.Label>
-              <Form.Control 
+              <Form.Control
                 type="email"
-                value={serviceData.email}
-                onChange={(e) => setServiceData({...serviceData, email: e.target.value})}
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 required
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Website</Form.Label>
-              <Form.Control 
+              <Form.Control
                 type="url"
-                value={serviceData.website}
-                onChange={(e) => setServiceData({...serviceData, website: e.target.value})}
+                name="website"
+                value={formData.website}
+                onChange={handleInputChange}
               />
             </Form.Group>
           </Col>
@@ -83,57 +90,32 @@ const CreateServiceForm = () => {
           <Col md={6}>
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
-              <Form.Control 
+              <Form.Control
                 as="textarea"
                 rows={3}
-                value={serviceData.description}
-                onChange={(e) => setServiceData({...serviceData, description: e.target.value})}
+                name="description"
+                value={formData.description}
+                onChange={handleInputChange}
                 required
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Location</Form.Label>
-              <Form.Control 
+              <Form.Control
                 type="text"
-                value={serviceData.location}
-                onChange={(e) => setServiceData({...serviceData, location: e.target.value})}
+                name="location"
+                value={formData.location}
+                onChange={handleInputChange}
                 required
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Categories</Form.Label>
-              {categories.map(category => (
-                <Form.Check 
-                  key={category.id}
-                  type="checkbox"
-                  label={category.name}
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      setServiceData({
-                        ...serviceData, 
-                        categories: [...serviceData.categories, category.id]
-                      });
-                    } else {
-                      setServiceData({
-                        ...serviceData,
-                        categories: serviceData.categories.filter(id => id !== category.id)
-                      });
-                    }
-                  }}
-                />
-              ))}
-            </Form.Group>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col md={12}>
-            <Form.Group className="mb-3">
-              <Form.Label>Service Image</Form.Label>
-              <Form.Control 
+              <Form.Label>Profile Image</Form.Label>
+              <Form.Control
                 type="file"
+                name="wallpaper"
                 onChange={handleImageUpload}
                 accept="image/*"
               />
@@ -141,43 +123,51 @@ const CreateServiceForm = () => {
           </Col>
         </Row>
 
-        <h4 className="mt-4">Social Media Links</h4>
         <Row>
-          <Col md={6}>
+          <Col md={12}>
+            <h4>Social Media Links</h4>
+          </Col>
+          <Col md={3}>
             <Form.Group className="mb-3">
               <Form.Label>Facebook</Form.Label>
-              <Form.Control 
+              <Form.Control
                 type="url"
-                value={serviceData.facebook}
-                onChange={(e) => setServiceData({...serviceData, facebook: e.target.value})}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Instagram</Form.Label>
-              <Form.Control 
-                type="url"
-                value={serviceData.instagram}
-                onChange={(e) => setServiceData({...serviceData, instagram: e.target.value})}
+                name="facebook"
+                value={formData.facebook}
+                onChange={handleInputChange}
               />
             </Form.Group>
           </Col>
-          <Col md={6}>
+          <Col md={3}>
             <Form.Group className="mb-3">
-              <Form.Label>Twitter</Form.Label>
-              <Form.Control 
+              <Form.Label>Instagram</Form.Label>
+              <Form.Control
                 type="url"
-                value={serviceData.twitter}
-                onChange={(e) => setServiceData({...serviceData, twitter: e.target.value})}
+                name="instagram"
+                value={formData.instagram}
+                onChange={handleInputChange}
               />
             </Form.Group>
-
+          </Col>
+          <Col md={3}>
+            <Form.Group className="mb-3">
+              <Form.Label>Twitter</Form.Label>
+              <Form.Control
+                type="url"
+                name="twitter"
+                value={formData.twitter}
+                onChange={handleInputChange}
+              />
+            </Form.Group>
+          </Col>
+          <Col md={3}>
             <Form.Group className="mb-3">
               <Form.Label>YouTube</Form.Label>
-              <Form.Control 
+              <Form.Control
                 type="url"
-                value={serviceData.youtube}
-                onChange={(e) => setServiceData({...serviceData, youtube: e.target.value})}
+                name="youtube"
+                value={formData.youtube}
+                onChange={handleInputChange}
               />
             </Form.Group>
           </Col>

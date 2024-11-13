@@ -4,6 +4,7 @@ import { Navbar, Nav, Container, Form, Button, Row, Col } from 'react-bootstrap'
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import ManageServices from './services/ManageServices';
 import CreateServiceForm from './services/CreateServiceForm';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 import Bookings from './bookings/Bookings';
 import Analytics from './analytics/Analytics';
@@ -13,6 +14,10 @@ import styles from '../../styles/Header.module.css';
 const WatoaHudumaRoutes = () => {
   const [expanded, setExpanded] = useState(false);
   const closeNavbar = () => setExpanded(false);
+
+  const handleLogout = () => {
+    // Add logout logic here
+  };
 
   return (
     <>
@@ -64,6 +69,13 @@ const WatoaHudumaRoutes = () => {
                 className={styles.navLink}
               >
                 Settings
+              </Nav.Link>
+              <Nav.Link
+                onClick={handleLogout}
+                className={styles.navLink}
+                style={{ cursor: 'pointer' }}
+              >
+                <FaSignOutAlt /> Logout
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
