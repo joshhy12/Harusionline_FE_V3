@@ -43,21 +43,33 @@ import Settings from './AdminPanel/settings/Settings.js';
 import SmsTopup from './AdminPanel/PaymentHistory/SmsTopup';
 import WebsiteTemplates from './AdminPanel/websiteTemplates/WebsiteTemplates';
 
-
+import MaintenancePage from './components/errors/MaintenancePage';
+import Error404 from './components/errors/Error404';
 import WatoaHudumaRoutes from './components/WatoaHuduma_admin_panel/WatoaHudumaRoutes';
 
 function App() {
+
+  // const MAINTENANCE_MODE = process.env.REACT_APP_MAINTENANCE_MODE === 'true';
+
+  // if (MAINTENANCE_MODE) {
+  //   return <MaintenancePage />;
+  // }
+
+
   return (
     <Router>
       <Routes>
         {/* Router for the EVENT WEBSITE */}
-      
+
         <Route path="/event-website/:slug" element={<EventWebsite />} />
-       
-      
-      
+
+
+
+
+
+
         {/* Admin panel routes */}
-          <Route path="/admin" element={<Layout />}>
+        <Route path="/admin" element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="kamati" element={<Kamati />} />
           <Route path="wageni" element={<Wageni />} />
@@ -82,11 +94,11 @@ function App() {
           {/* <Route path="/admin/calendar" element={<Calendar />} /> */}
         </Route>
 
-       
+
         {/* Router for the WATOA HUDUMA */}
-      <Route path="/service-provider/*" element={<WatoaHudumaRoutes />} />
-  
-       
+        <Route path="/service-provider/*" element={<WatoaHudumaRoutes />} />
+
+
         {/* Router for the main WEBSITE */}
         <Route path="*" element={
           <div className="App">
@@ -106,6 +118,11 @@ function App() {
                 <Route path="/Events" element={<Events />} />
                 <Route path="/event/:id" element={<EventDetails />} />
                 <Route path="/login" element={<LoginSignup />} />
+
+                {/* 404 route should always be last */}
+                <Route path="*" element={<Error404 />} />
+                <Route path="/maintenance" element={<MaintenancePage />} />
+
               </Routes>
             </main>
             <Footer />
