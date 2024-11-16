@@ -232,7 +232,7 @@ td {
 /* Mobile responsive styles */
 @media (max-width: 768px) {
   .modal-content {
-    margin: 10px;
+    margin: 0px;
     padding: 5px;
   }
 

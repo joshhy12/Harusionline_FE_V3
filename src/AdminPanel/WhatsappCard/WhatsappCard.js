@@ -2,11 +2,19 @@
   import { Card, CardContent, Typography } from '@mui/material';
   import DataTable from 'react-data-table-component';
   import { Form } from 'react-bootstrap';
+  import WhatsappDetailsModal from '../../models/WhatsappDetailsModal';
   import 'bootstrap/dist/css/bootstrap.min.css';
 
   const WhatsappCard = () => {
     const [perPage, setPerPage] = useState(100);
     const [searchTerm, setSearchTerm] = useState('');
+    const [showModal, setShowModal] = useState(false);
+    const [selectedMessage, setSelectedMessage] = useState(null);
+
+    const handleRowClick = (row) => {
+      setSelectedMessage(row);
+      setShowModal(true);
+    };
 
     const whatsappData = [
       { id: 1, name: 'Mr&Mrs Hance Humphrey', number: '255752848541', status: '✅✅ Read', sentTime: '2024-09-07T13:03:02.000000Z', deliveryTime: '', reply: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=)  ' },
@@ -55,8 +63,11 @@
             lineHeight: '1.2em',
             height: '4.8em',
             overflow: 'hidden',
-            textOverflow: 'ellipsis'
-          }}>
+            textOverflow: 'ellipsis',
+            cursor: 'pointer'
+          }}
+          onClick={() => handleRowClick(row)}
+          >
             {row.reply}
           </div>
         )
@@ -87,13 +98,11 @@
       <Card>
         <CardContent>
           <h2 className="text-center" style={{ color: '#24366b' }}>Whatsapp Cards Status</h2>
-        
+      
           <Typography variant="body2" color="textSecondary" gutterBottom>
-    Monitor message statuses in real-time, track delivery confirmations, and manage guest interactions effortlessly. Get comprehensive insights into message engagement, response rates, and guest participation - all in one centralized dashboard.
+            Monitor message statuses in real-time, track delivery confirmations, and manage guest interactions effortlessly. Get comprehensive insights into message engagement, response rates, and guest participation - all in one centralized dashboard.
+          </Typography>
 
-       </Typography>
-
-        
           <div className="search-box mb-3">
             <Form.Group controlId="searchInput">
               <Form.Label>Search</Form.Label>
@@ -123,6 +132,12 @@
               />
             </div>
           </div>
+
+          <WhatsappDetailsModal
+            show={showModal}
+            handleClose={() => setShowModal(false)}
+            message={selectedMessage}
+          />
         </CardContent>
       </Card>
     );
