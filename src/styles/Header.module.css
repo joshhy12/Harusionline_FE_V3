@@ -1,6 +1,22 @@
 .customShadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.416), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensures nav stays above other content */
+  background-color: #fff; /* Add background color to prevent content showing through */
+}
+
 
 .navLink {
   position: relative;
@@ -86,3 +102,4 @@
   width: 100%;
   left: 0;
 }
+

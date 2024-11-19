@@ -1,5 +1,5 @@
-import React from 'react';
-import { Dropdown } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Dropdown, Modal, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaUser, FaCog, FaSignOutAlt, FaBars, FaUserCircle, FaWhatsapp } from 'react-icons/fa';
 import './style/TopNav.css';
@@ -7,6 +7,7 @@ import './style/TopNav.css';
 const TopNav = ({ toggleSidebar }) => {
   //const adminName = "Admin Name";
   const notificationCount = 7; // You can make this dynamic based on your needs
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   return (
     <nav className="top-nav">
@@ -58,13 +59,39 @@ const TopNav = ({ toggleSidebar }) => {
       <FaCog className="menu-icon" /> Settings
     </Dropdown.Item>
     <Dropdown.Divider />
-    <Dropdown.Item as={Link} to="/Home" style={{ padding: '8px 15px', color: '#dc3545' }} className="logout-item">
-  <FaSignOutAlt className="menu-icon" /> Logout
-</Dropdown.Item>
+
+    
+    <Dropdown.Item 
+      onClick={() => setShowLogoutModal(true)}
+      style={{ padding: '8px 15px', color: '#dc3545' }}
+      className="logout-item"
+    >
+      <FaSignOutAlt className="menu-icon" /> Logout
+    </Dropdown.Item>
 
   </Dropdown.Menu>
 </Dropdown>
 
+<Modal show={showLogoutModal} onHide={() => setShowLogoutModal(false)}>
+  <Modal.Header closeButton>
+    <Modal.Title>Confirm Logout</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>Are you sure you want to logout from the system?</Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary" onClick={() => setShowLogoutModal(false)}>
+      Cancel
+    </Button>
+    <Button
+      variant="danger"
+      onClick={() => {
+        setShowLogoutModal(false);
+        window.location.href = '/Home';
+      }}
+    >
+      Logout
+    </Button>
+  </Modal.Footer>
+</Modal>
 
       </div>
     </nav>
