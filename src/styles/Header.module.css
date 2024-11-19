@@ -1,22 +1,22 @@
-.customShadow {
-  position: fixed;
+.fixedNav {
+  position: fixed !important;
   top: 0;
   left: 0;
-  right: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1030;
+  background-color: white;
+}
+
+/* Add this to create space for the fixed navbar */
+:global(main), :global(.main-content) {
+  padding-top: 60px; /* Adjust this value based on your navbar height */
+}
+
+
+
+.customShadow {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.416), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000; /* Ensures nav stays above other content */
-  background-color: #fff; /* Add background color to prevent content showing through */
-}
-
 
 .navLink {
   position: relative;
@@ -102,4 +102,3 @@
   width: 100%;
   left: 0;
 }
-

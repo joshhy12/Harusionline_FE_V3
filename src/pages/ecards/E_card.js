@@ -69,7 +69,7 @@ class E_card extends React.Component {
             <Form className="d-flex justify-content-end">
               <Form.Control
                 type="text"
-                placeholder="Search by name or event type"
+                placeholder="Search by Name , Color or Event type"
                 value={searchTerm}
                 onChange={this.handleSearchChange}
                 className="me-2"

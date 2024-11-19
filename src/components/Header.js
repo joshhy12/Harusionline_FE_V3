@@ -9,11 +9,9 @@ function Header() {
 
   return (
     <Navbar
-      bg="white"
       variant="light"
       expand="lg"
-      sticky="top"
-      className={`py-3 ${styles.customShadow}`}
+      className={`py-3 ${styles.customShadow} ${styles.fixedNav}`} // Ensures fixed nav
       expanded={expanded}
       onToggle={setExpanded}
     >
@@ -64,25 +62,50 @@ function Header() {
               Jisajili / Ingia
             </Nav.Link>
 
-            <NavDropdown 
-              title="More Options" 
-              id="basic-nav-dropdown" 
+            <NavDropdown
+              title="More Options"
+              id="basic-nav-dropdown"
               className={`px-3 ${styles.dropdownToggle}`}
             >
-              <NavDropdown.Item as={NavLink} to="/About" onClick={closeNavbar} className={styles.dropdownItem}>
+              <NavDropdown.Item
+                as={NavLink}
+                to="/About"
+                onClick={closeNavbar}
+                className={styles.dropdownItem}
+              >
                 About
               </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/Contact" onClick={closeNavbar} className={styles.dropdownItem}>
+              <NavDropdown.Item
+                as={NavLink}
+                to="/Contact"
+                onClick={closeNavbar}
+                className={styles.dropdownItem}
+              >
                 Contact
               </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/Gharama" onClick={closeNavbar} className={styles.dropdownItem}>
+              <NavDropdown.Item
+                as={NavLink}
+                to="/Gharama"
+                onClick={closeNavbar}
+                className={styles.dropdownItem}
+              >
                 Gharama
               </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/TermsAndConditions" onClick={closeNavbar} className={styles.dropdownItem}>
+              <NavDropdown.Item
+                as={NavLink}
+                to="/TermsAndConditions"
+                onClick={closeNavbar}
+                className={styles.dropdownItem}
+              >
                 Terms and Conditions
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={NavLink} to="/settings" onClick={closeNavbar} className={styles.dropdownItem}>
+              <NavDropdown.Item
+                as={NavLink}
+                to="/settings"
+                onClick={closeNavbar}
+                className={styles.dropdownItem}
+              >
                 Settings
               </NavDropdown.Item>
             </NavDropdown>
