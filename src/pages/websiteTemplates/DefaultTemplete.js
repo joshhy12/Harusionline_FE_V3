@@ -1,49 +1,60 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
-import styles from '../../styles/websiteTemplates/DefaultTemplate.module.css';
+import styles from './styles/DefaultTemplate.module.css';
 
 const DefaultTemplate = ({ event, theme = 'light', color = 'primary' }) => {
   const themeClass = theme === 'dark' ? styles.darkTheme : styles.lightTheme;
   const colorClass = styles[color] || '';
-  const [showRsvpForm, setShowRsvpForm] = useState(false);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     attending: 'yes',
     guests: '1',
-    message: ''
+    message: '',
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-    setShowRsvpForm(false);
+    console.log(formData); // Replace with your form submission logic
   };
 
   return (
     <div className={`${styles.defaultTemplate} ${themeClass} ${colorClass}`}>
       {/* Header Section */}
-      <header className={styles.header}>
-        <h1>{event?.event_title || "Event Title"}</h1>
-        <p>{event?.event_date ? new Date(event.event_date).toLocaleDateString() : "Event Date"}</p>
+      <header className={`${styles.header} text-center py-5 bg-light`}>
+        <Container>
+          <h1 className="display-4 fw-bold text-uppercase text-primary">
+            {event?.event_title || 'Our Wedding Day'}
+          </h1>
+          <p className="lead text-muted">
+            {event?.event_date
+              ? new Date(event.event_date).toLocaleDateString()
+              : 'Date to be announced'}
+          </p>
+        </Container>
       </header>
 
-      <Container>
+      <Container className="my-5">
         {/* Main Content Section */}
-        <Row className={styles.mainContent}>
+        <Row className="align-items-center my-5">
           <Col md={6}>
-            <img src={event?.wallpaper?.[0]?.md_photo || '/default-image.jpg'} alt="Event" className={styles.eventImage} />
+            <img
+              src={event?.wallpaper?.[0]?.md_photo || '/default-image.jpg'}
+              alt="Event"
+              className="img-fluid rounded shadow"
+            />
           </Col>
           <Col md={6}>
+            <h2 className="fw-bold text-primary mb-4">RSVP to Our Special Day</h2>
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
                 <Form.Label>Name</Form.Label>
@@ -53,6 +64,7 @@ const DefaultTemplate = ({ event, theme = 'light', color = 'primary' }) => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
+                  className="rounded"
                 />
               </Form.Group>
 
@@ -64,6 +76,7 @@ const DefaultTemplate = ({ event, theme = 'light', color = 'primary' }) => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  className="rounded"
                 />
               </Form.Group>
 
@@ -73,6 +86,7 @@ const DefaultTemplate = ({ event, theme = 'light', color = 'primary' }) => {
                   name="attending"
                   value={formData.attending}
                   onChange={handleInputChange}
+                  className="rounded"
                 >
                   <option value="yes">Yes, I will attend</option>
                   <option value="no">No, I cannot attend</option>
@@ -85,11 +99,13 @@ const DefaultTemplate = ({ event, theme = 'light', color = 'primary' }) => {
                   name="guests"
                   value={formData.guests}
                   onChange={handleInputChange}
+                  className="rounded"
                 >
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
+                  {[1, 2, 3, 4].map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
                 </Form.Select>
               </Form.Group>
 
@@ -101,72 +117,70 @@ const DefaultTemplate = ({ event, theme = 'light', color = 'primary' }) => {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
+                  className="rounded"
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" className="rounded-pill px-4">
                 Submit RSVP
               </Button>
             </Form>
           </Col>
         </Row>
 
-        <section className={styles.eventDetailsSection}>
-          <Container>
-            <Row className={styles.eventDetails}>
-              <Col md={4}>
-                <div className={styles.eventCard}>
-                  <h3>Kanisani</h3>
-                  <div className={styles.cardContent}>
-                    <p><i className="far fa-clock"></i> Time: 2:00 PM</p>
-                    <p><i className="fas fa-map-marker-alt"></i> Location:
+        {/* Event Details Section */}
+        <section className="my-5">
+          <Row className="g-4">
+            {[
+              {
+                title: 'Kanisani',
+                time: '2:00 PM',
+                location: 'KKKT Arusha Mjini',
+                link: 'https://maps.app.goo.gl/XkVC4AwKfRTUFGUo9',
+              },
+              {
+                title: 'Ukumbi',
+                time: '5:00 PM',
+                location: 'Panano Hotel',
+                link: 'https://maps.app.goo.gl/qfFjcDFuUUoRakrDA',
+              },
+              {
+                title: 'Dress Code',
+                time: 'Semi-formal',
+                location: null,
+              },
+            ].map((detail, idx) => (
+              <Col md={4} key={idx}>
+                <div className="text-center border rounded p-4 shadow-sm">
+                  <h3 className="text-primary mb-3">{detail.title}</h3>
+                  <p className="mb-1">
+                    <i className="far fa-clock me-2"></i>
+                    {detail.time}
+                  </p>
+                  {detail.location && (
+                    <p className="mb-0">
+                      <i className="fas fa-map-marker-alt me-2"></i>
                       <a
-                        href="https://maps.app.goo.gl/XkVC4AwKfRTUFGUo9"
+                        href={detail.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={styles.locationLink}
+                        className="text-decoration-none text-primary"
                       >
-                        KKKT Arusha Mjini
+                        {detail.location}
                       </a>
                     </p>
-                  </div>
+                  )}
                 </div>
               </Col>
-              <Col md={4}>
-                <div className={styles.eventCard}>
-                  <h3>Ukumbi</h3>
-                  <div className={styles.cardContent}>
-                    <p><i className="far fa-clock"></i> Time: 5:00 PM</p>
-                    <p><i className="fas fa-map-marker-alt"></i> Location:
-                      <a
-                        href="https://maps.app.goo.gl/qfFjcDFuUUoRakrDA"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.locationLink}
-                      >
-                        Panano Hotel
-                      </a>
-                    </p>
-                  </div>
-                </div>
-              </Col>
-              <Col md={4}>
-                <div className={styles.eventCard}>
-                  <h3>Dress Code</h3>
-                  <div className={styles.cardContent}>
-                    <p><i className="fas fa-tshirt"></i> Semi-formal</p>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </Container>
+            ))}
+          </Row>
         </section>
-
-        {/* Footer Section */}
-        <footer className={styles.footer}>
-          <p>We can't wait to celebrate with you!</p>
-        </footer>
       </Container>
+
+      {/* Footer Section */}
+      <footer className="bg-light text-center py-4">
+        <p className="mb-0">We can’t wait to celebrate with you!</p>
+      </footer>
     </div>
   );
 };

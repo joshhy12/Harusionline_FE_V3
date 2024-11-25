@@ -38,12 +38,20 @@ const Footer = () => {
 
 
               <div className="social-links mt-3">
-                <Link to="#" className="btn btn-outline-primary me-2"><i className="bi bi-twitter"></i></Link>
-                <Link to="https://www.facebook.com/harusionlinetz/" className="btn btn-outline-primary me-2" target="_blank" ><i className="bi bi-facebook"></i></Link>
-                <Link to="https://www.instagram.com/harusionline/" className="btn btn-outline-primary me-2" target="_blank"  ><i className="bi bi-instagram"></i></Link>
-                <a href="https://wa.me/255747636516" className="btn btn-outline-primary me-2" target="_blank" rel="noopener noreferrer"> <i className="bi bi-whatsapp"></i>
+                <Link to="#" className="btn btn-outline-primary me-2">
+                  <i className="bi bi-twitter"></i>
+                </Link>
+                <Link to="https://www.facebook.com/harusionlinetz/" className="btn btn-outline-primary me-2" target="_blank" >
+                  <i className="bi bi-facebook"></i>
+                </Link>
+                <Link to="https://www.instagram.com/harusionline/" className="btn btn-outline-primary me-2" target="_blank"  >
+                  <i className="bi bi-instagram"></i>
+                </Link>
+                <a href="https://wa.me/255747636516" className="btn btn-outline-primary me-2" target="_blank" rel="noopener noreferrer">
+                  <i className="bi bi-whatsapp"></i>
                 </a>
               </div>
+
 
 
             </Col>
