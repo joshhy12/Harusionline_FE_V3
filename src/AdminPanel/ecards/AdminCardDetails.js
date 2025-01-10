@@ -140,6 +140,12 @@ const AdminCardDetails = () => {
       style: {
         minHeight: '40px',
       },
+      highlightOnHoverStyle: {
+        backgroundColor: '#f5f5f5',
+        borderBottomColor: '#FFFFFF',
+        borderRadius: '25px',
+        outline: '1px solid #FFFFFF',
+      },
     },
     headCells: {
       style: {
@@ -148,6 +154,15 @@ const AdminCardDetails = () => {
       },
     },
   };
+
+  const conditionalRowStyles = [
+    {
+      when: row => selectedRows.some(selectedRow => selectedRow.phone === row.phone),
+      style: {
+        backgroundColor: '#e9eefb',
+      },
+    },
+  ];
 
   const handleRowSelected = (state) => {
     setSelectedRows(state.selectedRows);
@@ -265,12 +280,12 @@ const AdminCardDetails = () => {
               dense
               responsive
               customStyles={customStyles}
+              conditionalRowStyles={conditionalRowStyles}
               selectableRows
               onSelectedRowsChange={handleRowSelected}
               subHeader
               subHeaderComponent={subHeaderComponent}
               persistTableHead
-              selectableRowSelected={row => selectedRows.some(selectedRow => selectedRow.phone === row.phone)}
             />
           </div>
         </div>

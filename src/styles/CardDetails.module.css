@@ -36,3 +36,7 @@
     object-fit: contain; /* Ensure the full image is displayed */
   }
 }
+
+.selectedRow {
+  background-color: #e9eefb !important;
+}
