@@ -20,6 +20,16 @@
         margin-bottom: 1.5rem;
     }
 
+    .sms-card {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    
+    .sms-card:hover {
+        transform: scale(1.02);
+    }
+    
+
     .bi-envelope-plus-fill {
         color: #ffa500;
         font-size: 24px;

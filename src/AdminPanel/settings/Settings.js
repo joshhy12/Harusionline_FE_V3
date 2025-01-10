@@ -23,11 +23,11 @@ const EventSettings = () => {
               <Form.Group controlId="eventTitle" className="settings-mb-3">
                 <Form.Label className="settings-text-danger">Required</Form.Label>
                 <Form.Label className="settings-form-label">Event Title</Form.Label>
-                <Form.Control type="text" defaultValue="Fortunatus&Dorah" className="settings-form-control" />
+                <Form.Control type="text" placeholder="Fortunatus&Dorah" className="settings-form-control" />
               </Form.Group>
               <Form.Group controlId="eventType" className="settings-mb-3">
                 <Form.Label className="settings-form-label">Event Type</Form.Label>
-                <Form.Control type="text" defaultValue="Harusi" className="settings-form-control" />
+                <Form.Control type="text" placeholder="Harusi , Send-Off , Kitchen-Part" className="settings-form-control" />
               </Form.Group>
               <Form.Group controlId="eventLocation" className="settings-mb-3">
                 <Form.Label className="settings-form-label">Event Location</Form.Label>
@@ -54,11 +54,11 @@ const EventSettings = () => {
               </Form.Group>
               <Form.Group controlId="eventDate" className="settings-mb-3">
                 <Form.Label className="settings-form-label">Event Date</Form.Label>
-                <Form.Control type="date" defaultValue="14/09/2024" className="settings-form-control" />
+                <Form.Control type="date" placeholder="14/09/2024" className="settings-form-control" />
               </Form.Group>
               <Form.Group controlId="mobile" className="settings-mb-3">
                 <Form.Label className="settings-form-label">Mobile</Form.Label>
-                <Form.Control type="number" defaultValue="+255764192949" className="settings-form-control" />
+                <Form.Control type="number" placeholder="+255764192949" className="settings-form-control" />
               </Form.Group>
               <Form.Group controlId="ibadaLocation" className="settings-mb-3">
                 <Form.Label className="settings-form-label">Ibada Location</Form.Label>
@@ -91,7 +91,7 @@ const EventSettings = () => {
                   if (!/[0-9]/.test(e.key)) {
                     e.preventDefault()
                   }
-                }} defaultValue="0" className="settings-form-control" />
+                }} placeholder="0" className="settings-form-control" />
               </Form.Group>
               <Form.Group controlId="eventType" className="settings-mb-3">
                 <Form.Label className="settings-form-label">Default Pledge Amount</Form.Label>
@@ -99,7 +99,7 @@ const EventSettings = () => {
                   if (!/[0-9]/.test(e.key)) {
                     e.preventDefault()
                   }
-                }} defaultValue="0" className="settings-form-control" />
+                }} placeholder="0" className="settings-form-control" />
               </Form.Group>
             </Col>
             <Col md={6}>
@@ -109,7 +109,7 @@ const EventSettings = () => {
                   if (!/[0-9]/.test(e.key)) {
                     e.preventDefault()
                   }
-                }} defaultValue="0" className="settings-form-control" />
+                }} placeholder="0" className="settings-form-control" />
               </Form.Group>
             </Col>
           </Row>
@@ -129,7 +129,7 @@ const EventSettings = () => {
         <Card.Body>
           <Form.Group controlId="primaryColor">
             <Form.Label className="settings-form-label">Primary Color</Form.Label>
-            <Form.Control type="color" defaultValue="#007bff" className="settings-color-input w-100" />
+            <Form.Control type="color" placeholder="#007bff" className="settings-color-input w-100" />
           </Form.Group>
         </Card.Body>
       </Card>
@@ -140,7 +140,7 @@ const EventSettings = () => {
         <Card.Body>
           <Form.Group controlId="secondaryColor">
             <Form.Label className="settings-form-label">Secondary Color</Form.Label>
-            <Form.Control type="color" defaultValue="#6c757d" className="settings-color-input w-100" />
+            <Form.Control type="color" placeholder="#6c757d" className="settings-color-input w-100" />
           </Form.Group>
         </Card.Body>
       </Card>
@@ -151,7 +151,7 @@ const EventSettings = () => {
         <Card.Body>
           <Form.Group controlId="tertiaryColor">
             <Form.Label className="settings-form-label">Tertiary Color</Form.Label>
-            <Form.Control type="color" defaultValue="" className="settings-color-input w-100" />
+            <Form.Control type="color" placeholder="" className="settings-color-input w-100" />
           </Form.Group>
         </Card.Body>
       </Card>

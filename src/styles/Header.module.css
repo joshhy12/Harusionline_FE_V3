@@ -9,7 +9,7 @@
 
 /* Add this to create space for the fixed navbar */
 :global(main), :global(.main-content) {
-  padding-top: 60px; /* Adjust this value based on your navbar height */
+  padding-top: 2px; /* Adjust this value based on your navbar height */
 }
 
 
