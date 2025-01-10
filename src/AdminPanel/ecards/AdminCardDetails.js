@@ -10,6 +10,7 @@ const AdminCardDetails = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedRows, setSelectedRows] = useState([]);
   const [filterText, setFilterText] = useState('');
+  const [statusFilter, setStatusFilter] = useState('NOT SENT');
   const [contactData, setContactData] = useState([
     {
       name: '4ward Design',
@@ -56,7 +57,7 @@ const AdminCardDetails = () => {
   ]);
 
   const handleTypeChange = (row, value) => {
-    const updatedData = contactData.map(item => 
+    const updatedData = contactData.map(item =>
       item.phone === row.phone ? { ...item, type: value } : item
     );
     setContactData(updatedData);
@@ -64,19 +65,24 @@ const AdminCardDetails = () => {
 
   const filteredItems = useMemo(() => {
     return contactData.filter(item => {
-      return (
+      const matchesFilter = (
         (item.name && item.name.toLowerCase().includes(filterText.toLowerCase())) ||
         (item.phone && item.phone.includes(filterText)) ||
         (item.pledgeCard && item.pledgeCard.toLowerCase().includes(filterText.toLowerCase()))
       );
+      
+      if (statusFilter === 'ALL') {
+        return matchesFilter;
+      }
+      return matchesFilter && item.status === statusFilter;
     });
-  }, [contactData, filterText]);
+  }, [contactData, filterText, statusFilter]);
 
   const columns = [
     { name: 'Name', selector: (row) => row.name, sortable: true },
     { name: 'Phone', selector: (row) => row.phone, sortable: true },
     { name: 'PledgeCard', selector: (row) => row.pledgeCard, sortable: true },
-    { 
+    {
       name: 'Type',
       cell: (row) => (
         <div style={{ display: 'flex', gap: '8px' }}>
@@ -111,7 +117,7 @@ const AdminCardDetails = () => {
       sortable: true
     },
     {
-      name: 'Sent/Not Sent',
+      name: 'Status',
       selector: (row) => row.status,
       sortable: true,
       cell: (row) => (
@@ -133,14 +139,7 @@ const AdminCardDetails = () => {
     rows: {
       style: {
         minHeight: '40px',
-        '&:hover': {
-          cursor: 'pointer',
-          backgroundColor: '#e9eefb !important'
-        }
       },
-      selectedHighlightStyle: {
-        backgroundColor: '#e9eefb !important'
-      }
     },
     headCells: {
       style: {
@@ -154,22 +153,12 @@ const AdminCardDetails = () => {
     setSelectedRows(state.selectedRows);
   };
 
-  const handleRowClicked = (row) => {
-    const isSelected = selectedRows.some(selectedRow => selectedRow.phone === row.phone);
-    if (isSelected) {
-      setSelectedRows(selectedRows.filter(selectedRow => selectedRow.phone !== row.phone));
-    } else {
-      setSelectedRows([...selectedRows, row]);
-    }
-  };
-
   const handleSendCards = () => {
-    // Implementation for sending cards
     console.log('Sending cards to:', selectedRows);
   };
 
   const subHeaderComponent = (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '20px', width: '100%', marginBottom: '10px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginBottom: '10px', gap: '20px' }}>
       <Form.Control
         type="text"
         placeholder="Search contacts..."
@@ -181,11 +170,52 @@ const AdminCardDetails = () => {
         variant="primary"
         onClick={handleSendCards}
         disabled={selectedRows.length === 0}
+        style={{ margin: '0 20px' }}
       >
         Send Cards ({selectedRows.length})
       </Button>
-    </div>
-  );
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', backgroundColor: '#f8f9fa', padding: '5px', borderRadius: '20px' }}>
+        <div
+          onClick={() => setStatusFilter('NOT SENT')}
+          style={{
+            padding: '5px 15px',
+            borderRadius: '15px',
+            cursor: 'pointer',
+            backgroundColor: statusFilter === 'NOT SENT' ? '#007bff' : 'transparent',
+            color: statusFilter === 'NOT SENT' ? 'white' : '#495057',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          Not Sent
+        </div>
+        <div
+          onClick={() => setStatusFilter('SENT')}
+          style={{
+            padding: '5px 15px',
+            borderRadius: '15px',
+            cursor: 'pointer',
+            backgroundColor: statusFilter === 'SENT' ? '#007bff' : 'transparent',
+            color: statusFilter === 'SENT' ? 'white' : '#495057',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          Sent
+        </div>
+        <div
+          onClick={() => setStatusFilter('ALL')}
+          style={{
+            padding: '5px 15px',
+            borderRadius: '15px',
+            cursor: 'pointer',
+            backgroundColor: statusFilter === 'ALL' ? '#007bff' : 'transparent',
+            color: statusFilter === 'ALL' ? 'white' : '#495057',
+            transition: 'all 0.3s ease'
+          }}
+        >
+          All
+        </div>
+      </div>
+    </div>  );
 
   if (!card) {
     return <div>Card not found</div>;
@@ -219,18 +249,7 @@ const AdminCardDetails = () => {
         </Col>
       </Row>
 
-      {selectedRows.length > 0 && (
-        <div className="mt-3 mb-3">
-          <h5>Selected Contacts:</h5>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-            {selectedRows.map((row) => (
-              <Badge bg="primary" key={row.phone}>
-                {row.name} ({row.phone})
-              </Badge>
-            ))}
-          </div>
-        </div>
-      )}
+  
 
       <div className="mt-4">
         <h2 className="text-left" style={{ color: '#24366b' }}>Contact List</h2>
@@ -248,7 +267,6 @@ const AdminCardDetails = () => {
               customStyles={customStyles}
               selectableRows
               onSelectedRowsChange={handleRowSelected}
-              onRowClicked={handleRowClicked}
               subHeader
               subHeaderComponent={subHeaderComponent}
               persistTableHead
