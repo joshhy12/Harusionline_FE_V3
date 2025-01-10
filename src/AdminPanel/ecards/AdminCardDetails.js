@@ -164,12 +164,24 @@ const AdminCardDetails = () => {
     },
   ];
 
+  const [clearRows, setClearRows] = useState(false);
+
   const handleRowSelected = (state) => {
     setSelectedRows(state.selectedRows);
+    setClearRows(false);
   };
 
   const handleSendCards = () => {
     console.log('Sending cards to:', selectedRows);
+  };
+
+  const handleRowClicked = (row) => {
+    const isSelected = selectedRows.some(selectedRow => selectedRow.phone === row.phone);
+    const newSelectedRows = isSelected
+      ? selectedRows.filter(selectedRow => selectedRow.phone !== row.phone)
+      : [...selectedRows, row];
+    setSelectedRows(newSelectedRows);
+    setClearRows(!clearRows);
   };
 
   const subHeaderComponent = (
@@ -281,8 +293,8 @@ const AdminCardDetails = () => {
               responsive
               customStyles={customStyles}
               conditionalRowStyles={conditionalRowStyles}
-              selectableRows
-              onSelectedRowsChange={handleRowSelected}
+              onRowClicked={handleRowClicked}
+              clearSelectedRows={clearRows}
               subHeader
               subHeaderComponent={subHeaderComponent}
               persistTableHead
