@@ -193,14 +193,20 @@ const AdminCardDetails = () => {
         onChange={(e) => setFilterText(e.target.value)}
         style={{ maxWidth: '300px' }}
       />
-      <Button
-        variant="primary"
-        onClick={handleSendCards}
-        disabled={selectedRows.length === 0}
-        style={{ margin: '0 20px' }}
-      >
-        Send Cards ({selectedRows.length})
-      </Button>
+    <Button
+    variant="primary"
+    onClick={handleSendCards}
+    disabled={selectedRows.length === 0}
+    style={{ 
+        margin: '0 20px',
+        backgroundColor: '#e9eefb',
+        color: '#0066ff',
+        border: 'none'
+    }}
+>
+    Tengeneza kadi ({selectedRows.length})
+</Button>
+
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', backgroundColor: '#f8f9fa', padding: '5px', borderRadius: '20px' }}>
         <div
           onClick={() => setStatusFilter('NOT SENT')}
