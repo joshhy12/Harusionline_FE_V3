@@ -36,62 +36,62 @@ const TopNav = ({ toggleSidebar }) => {
 
       </div>
       <div className="d-flex align-items-center">
-      <Link to="/admin/whatsapp-card" className="text-decoration-none">
-  <div className="position-relative me-3">
-    <FaWhatsapp style={{ fontSize: '27px', color: '#25D366' }} />
-    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-      {notificationCount}
-    </span>
-  </div>
-</Link>
+        <Link to="/admin/whatsapp-card" className="text-decoration-none">
+          <div className="position-relative me-3">
+            <FaWhatsapp style={{ fontSize: '27px', color: '#25D366' }} />
+            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {notificationCount}
+            </span>
+          </div>
+        </Link>
 
 
-<Dropdown align="end" className="admin-dropdown">
-  <Dropdown.Toggle variant="light" id="dropdown-basic" className="admin-toggle">
-    <i className="bi bi-person-circle" style={{ fontSize: '24px' }}></i>
-  </Dropdown.Toggle>
+        <Dropdown align="end" className="admin-dropdown">
+          <Dropdown.Toggle variant="light" id="dropdown-basic" className="admin-toggle">
+            <i className="bi bi-person-circle" style={{ fontSize: '24px' }}></i>
+          </Dropdown.Toggle>
 
-  <Dropdown.Menu className="admin-menu">
-    <Dropdown.Item href="#/profile">
-      <FaUser className="menu-icon" /> Profile
-    </Dropdown.Item>
-    <Dropdown.Item href="/admin/settings">
-      <FaCog className="menu-icon" /> Settings
-    </Dropdown.Item>
-    <Dropdown.Divider />
+          <Dropdown.Menu className="admin-menu">
+            <Dropdown.Item href="#/profile">
+              <FaUser className="menu-icon" /> Profile
+            </Dropdown.Item>
+            <Dropdown.Item href="/admin/settings">
+              <FaCog className="menu-icon" /> Settings
+            </Dropdown.Item>
+            <Dropdown.Divider />
 
-    
-    <Dropdown.Item 
-      onClick={() => setShowLogoutModal(true)}
-      style={{ padding: '8px 15px', color: '#dc3545' }}
-      className="logout-item"
-    >
-      <FaSignOutAlt className="menu-icon" /> Logout
-    </Dropdown.Item>
 
-  </Dropdown.Menu>
-</Dropdown>
+            <Dropdown.Item
+              onClick={() => setShowLogoutModal(true)}
+              style={{ padding: '8px 15px', color: '#dc3545' }}
+              className="logout-item"
+            >
+              <FaSignOutAlt className="menu-icon" /> Logout
+            </Dropdown.Item>
 
-<Modal show={showLogoutModal} onHide={() => setShowLogoutModal(false)}>
-  <Modal.Header closeButton>
-    <Modal.Title>Confirm Logout</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>Are you sure you want to logout from the system?</Modal.Body>
-  <Modal.Footer>
-    <Button variant="secondary" onClick={() => setShowLogoutModal(false)}>
-      Cancel
-    </Button>
-    <Button
-      variant="danger"
-      onClick={() => {
-        setShowLogoutModal(false);
-        window.location.href = '/Home';
-      }}
-    >
-      Logout
-    </Button>
-  </Modal.Footer>
-</Modal>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Modal show={showLogoutModal} onHide={() => setShowLogoutModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Confirm Logout</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Are you sure you want to logout from the system?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={() => setShowLogoutModal(false)}>
+              Cancel
+            </Button>
+            <Button
+              variant="danger"
+              onClick={() => {
+                setShowLogoutModal(false);
+                window.location.href = '/Home';
+              }}
+            >
+              Logout
+            </Button>
+          </Modal.Footer>
+        </Modal>
 
       </div>
     </nav>

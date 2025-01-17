@@ -37,6 +37,75 @@
   }
 }
 
-.selectedRow {
-  background-color: #e9eefb !important;
+.filterContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8f9fa;
+  padding: 8px;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.filterButton {
+  padding: 8px 16px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  min-width: 90px;
+  text-align: center;
+  margin: 4px;
+  white-space: nowrap;
+}
+
+.filterButton.notSent {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,123,255,0.2);
+}
+
+.filterButton.sent {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,123,255,0.2);
+}
+
+.filterButton.all {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,123,255,0.2);
+}
+
+.filterButton.default {
+  background-color: transparent;
+  color: #495057;
+  border: 1px solid #dee2e6;
+}
+
+@media (max-width: 768px) {
+  .filterContainer {
+    padding: 6px;
+    gap: 6px;
+  }
+
+  .filterButton {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filterContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .filterButton {
+    width: 100%;
+    margin: 2px 0;
+  }
 }

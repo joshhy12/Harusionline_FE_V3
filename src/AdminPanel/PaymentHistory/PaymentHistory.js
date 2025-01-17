@@ -129,7 +129,7 @@ const Payments = () => {
           </div>
 
           <div className="dashboard col text-center">
-            <Link to="/admin/send-invitations" className="text-decoration-none">
+            <Link to="#" className="text-decoration-none">
               <div className="dashboard bg-dash p-4 rounded-lg">
                 <div className="dashText">
                   <FaWhatsapp className="mb-2" size={24} />
@@ -140,7 +140,7 @@ const Payments = () => {
           </div>
 
           <div className="dashboard col text-center">
-            <Link to="/admin/send-invitations" className="text-decoration-none">
+            <Link to="#" className="text-decoration-none">
               <div className="dashboard bg-dash p-4 rounded-lg">
                 <div className="dashText">
                   <FaGift className="mb-2" size={24} />

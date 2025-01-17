@@ -70,7 +70,7 @@ const AdminCardDetails = () => {
         (item.phone && item.phone.includes(filterText)) ||
         (item.pledgeCard && item.pledgeCard.toLowerCase().includes(filterText.toLowerCase()))
       );
-      
+
       if (statusFilter === 'ALL') {
         return matchesFilter;
       }
@@ -83,7 +83,7 @@ const AdminCardDetails = () => {
     { name: 'Phone', selector: (row) => row.phone, sortable: true },
     { name: 'PledgeCard', selector: (row) => row.pledgeCard, sortable: true },
     {
-      name: 'Type',
+      name: 'CardType',
       cell: (row) => (
         <div style={{ display: 'flex', gap: '8px' }}>
           <div
@@ -166,9 +166,9 @@ const AdminCardDetails = () => {
 
   const [clearRows, setClearRows] = useState(false);
 
-  const handleRowSelected = (state) => {
-    setSelectedRows(state.selectedRows);
-    setClearRows(false);
+  const handleClearRows = () => {
+    setSelectedRows([]);
+    setClearRows(!clearRows);
   };
 
   const handleSendCards = () => {
@@ -185,74 +185,57 @@ const AdminCardDetails = () => {
   };
 
   const subHeaderComponent = (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginBottom: '10px', gap: '20px' }}>
+    <div className={styles.filterContainer}>
       <Form.Control
         type="text"
         placeholder="Search contacts..."
         value={filterText}
         onChange={(e) => setFilterText(e.target.value)}
-        style={{ maxWidth: '300px' }}
+        style={{ maxWidth: '300px', flex: '1 1 auto', marginBottom: '10px' }}
       />
-    <Button
-    variant="primary"
-    onClick={handleSendCards}
-    disabled={selectedRows.length === 0}
-    style={{ 
-        margin: '0 20px',
-        backgroundColor: '#e9eefb',
-        color: '#0066ff',
-        border: 'none'
-    }}
->
-    Tengeneza kadi ({selectedRows.length})
-</Button>
+      <Button
+        variant="primary"
+        onClick={handleSendCards}
+        disabled={selectedRows.length === 0}
+        style={{
+          margin: '0 20px',
+          backgroundColor: '#e9eefb',
+          color: '#0066ff',
+          border: 'none',
+          flex: '1 1 auto',
+          marginBottom: '10px'
+        }}
+      >
+         Tengeneza kadi ({selectedRows.length})
+      </Button>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', backgroundColor: '#f8f9fa', padding: '5px', borderRadius: '20px' }}>
+      <div className={styles.filterContainer}>
         <div
           onClick={() => setStatusFilter('NOT SENT')}
-          style={{
-            padding: '5px 15px',
-            borderRadius: '15px',
-            cursor: 'pointer',
-            backgroundColor: statusFilter === 'NOT SENT' ? '#007bff' : 'transparent',
-            color: statusFilter === 'NOT SENT' ? 'white' : '#495057',
-            transition: 'all 0.3s ease'
-          }}
+          className={`${styles.filterButton} ${statusFilter === 'NOT SENT' ? styles.notSent : styles.default}`}
         >
           Not Sent
         </div>
         <div
           onClick={() => setStatusFilter('SENT')}
-          style={{
-            padding: '5px 15px',
-            borderRadius: '15px',
-            cursor: 'pointer',
-            backgroundColor: statusFilter === 'SENT' ? '#007bff' : 'transparent',
-            color: statusFilter === 'SENT' ? 'white' : '#495057',
-            transition: 'all 0.3s ease'
-          }}
+          className={`${styles.filterButton} ${statusFilter === 'SENT' ? styles.sent : styles.default}`}
         >
           Sent
         </div>
         <div
           onClick={() => setStatusFilter('ALL')}
-          style={{
-            padding: '5px 15px',
-            borderRadius: '15px',
-            cursor: 'pointer',
-            backgroundColor: statusFilter === 'ALL' ? '#007bff' : 'transparent',
-            color: statusFilter === 'ALL' ? 'white' : '#495057',
-            transition: 'all 0.3s ease'
-          }}
+          className={`${styles.filterButton} ${statusFilter === 'ALL' ? styles.all : styles.default}`}
         >
           All
         </div>
       </div>
-    </div>  );
+    </div>
+  );
 
   if (!card) {
     return <div>Card not found</div>;
   }
+
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -282,7 +265,7 @@ const AdminCardDetails = () => {
         </Col>
       </Row>
 
-  
+
 
       <div className="mt-4">
         <h2 className="text-left" style={{ color: '#24366b' }}>Contact List</h2>

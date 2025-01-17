@@ -63,7 +63,7 @@ class E_card extends React.Component {
             <Button variant="outline-primary" onClick={() => this.handleFilterChange('Invitation')} className={`m-1 rounded-pill ${filter === 'Invitation' ? 'active' : ''}`}>Invitation</Button>
             <Button variant="outline-primary" onClick={() => this.handleFilterChange('Contribution')} className={`m-1 rounded-pill ${filter === 'Contribution' ? 'active' : ''}`}>Contribution</Button>
             <Button variant="outline-primary" onClick={() => this.handleFilterChange('Wedding')} className={`m-1 rounded-pill ${filter === 'Wedding' ? 'active' : ''}`}>Wedding</Button>
-            <Button variant="outline-primary" onClick={() => this.handleFilterChange('sendoff')} className={`m-1 rounded-pill ${filter === 'sendoff' ? 'active' : ''}`}>send-off</Button>
+            <Button variant="outline-primary" onClick={() => this.handleFilterChange('sendoff')} className={`m-1 rounded-pill ${filter === 'sendoff' ? 'active' : ''}`}>sendOff</Button>
           </Col>
           <Col md={4}>
             <Form className="d-flex justify-content-end">
