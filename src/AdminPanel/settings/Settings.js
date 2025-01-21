@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Tabs, Tab, Card,Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Tabs, Tab, Card, Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './Settings.css';
 
 
@@ -122,45 +122,45 @@ const EventSettings = () => {
 
 
         <Tab eventKey="color-theme" title="Color & Theme Settings" className="settings-nav-link">
-  <h2 className="settings-text-primary settings-mb-4">Color & Theme Settings</h2>
-  <Row>
-    <Col md={4}>
-      <Card className="settings-mb-3">
-        <Card.Body>
-          <Form.Group controlId="primaryColor">
-            <Form.Label className="settings-form-label">Primary Color</Form.Label>
-            <Form.Control type="color" placeholder="#007bff" className="settings-color-input w-100" />
-          </Form.Group>
-        </Card.Body>
-      </Card>
-    </Col>
+          <h2 className="settings-text-primary settings-mb-4">Color & Theme Settings</h2>
+          <Row>
+            <Col md={4}>
+              <Card className="settings-mb-3">
+                <Card.Body>
+                  <Form.Group controlId="primaryColor">
+                    <Form.Label className="settings-form-label">Primary Color</Form.Label>
+                    <Form.Control type="color" placeholder="#007bff" className="settings-color-input w-100" />
+                  </Form.Group>
+                </Card.Body>
+              </Card>
+            </Col>
 
-    <Col md={4}>
-      <Card className="settings-mb-3">
-        <Card.Body>
-          <Form.Group controlId="secondaryColor">
-            <Form.Label className="settings-form-label">Secondary Color</Form.Label>
-            <Form.Control type="color" placeholder="#6c757d" className="settings-color-input w-100" />
-          </Form.Group>
-        </Card.Body>
-      </Card>
-    </Col>
+            <Col md={4}>
+              <Card className="settings-mb-3">
+                <Card.Body>
+                  <Form.Group controlId="secondaryColor">
+                    <Form.Label className="settings-form-label">Secondary Color</Form.Label>
+                    <Form.Control type="color" placeholder="#6c757d" className="settings-color-input w-100" />
+                  </Form.Group>
+                </Card.Body>
+              </Card>
+            </Col>
 
-    <Col md={4}>
-      <Card className="settings-mb-3">
-        <Card.Body>
-          <Form.Group controlId="tertiaryColor">
-            <Form.Label className="settings-form-label">Tertiary Color</Form.Label>
-            <Form.Control type="color" placeholder="" className="settings-color-input w-100" />
-          </Form.Group>
-        </Card.Body>
-      </Card>
-    </Col>
-  </Row>
-  <div className="d-flex justify-content-center mt-4">
-    <Button variant="primary" className="settings-btn-primary">Save Color & Theme Settings</Button>
-  </div>
-</Tab>
+            <Col md={4}>
+              <Card className="settings-mb-3">
+                <Card.Body>
+                  <Form.Group controlId="tertiaryColor">
+                    <Form.Label className="settings-form-label">Tertiary Color</Form.Label>
+                    <Form.Control type="color" placeholder="" className="settings-color-input w-100" />
+                  </Form.Group>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          <div className="d-flex justify-content-center mt-4">
+            <Button variant="primary" className="settings-btn-primary">Save Color & Theme Settings</Button>
+          </div>
+        </Tab>
 
 
 
@@ -171,14 +171,12 @@ const EventSettings = () => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-gray-700 mb-2">Event Information Message</label>
-              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-                Habari #jina, Tuna furaha kukuarifu #shughuli ya #title itakayofanyika #tarehe (siku #siku kutoka sasa ). Mawasiliano #simu.
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3" placeholder="Habari #jina, Tuna furaha kukuarifu #shughuli ya #title itakayofanyika #tarehe (siku #siku kutoka sasa ). Mawasiliano #simu.">
               </textarea>
             </div>
             <div>
               <label className="block text-gray-700 mb-2">Pledge Reminder Message</label>
-              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-                Habari #jina, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (#title) #saliolaahadi
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3" placeholder="Habari #jina, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (#title) #saliolaahadi">
               </textarea>
             </div>
             <div>
@@ -187,8 +185,7 @@ const EventSettings = () => {
                 <input type="checkbox" className="mr-2" checked />
                 <span>Enable</span>
               </div>
-              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-                Hello #jina. Asante kwa ahadi yako ya mchango wa #title. Kwa maelezo zaidi wasiliana nasi kwa Barua pepe #email au kwa simu: #simu
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3" placeholder="Hello #jina. Asante kwa ahadi yako ya mchango wa #title. Kwa maelezo zaidi wasiliana nasi kwa Barua pepe #email au kwa simu: #simu">
               </textarea>
             </div>
             <div>
@@ -197,26 +194,22 @@ const EventSettings = () => {
                 <input type="checkbox" className="mr-2" checked />
                 <span>Enable</span>
               </div>
-              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-                Ahsante sana #jina, Mchango wako umepokelewa kwa furaha kubwa! Kamati inakushukuru na kukupogeza kwa kukomboa ahadi yako.
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3" placeholder="Ahsante sana #jina, Mchango wako umepokelewa kwa furaha kubwa! Kamati inakushukuru na kukupogeza kwa kukomboa ahadi yako.">
               </textarea>
             </div>
             <div>
               <label className="block text-gray-700 mb-2">Event Invitation Message</label>
-              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-                Karibu #jina, kwenye #shughuli ya #title Namba ya kadi #kadi. #tarehe ,#mahali ,#muda. Fika na Meseji hii
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3" placeholder="Karibu #jina, kwenye #shughuli ya #title Namba ya kadi #kadi. #tarehe ,#mahali ,#muda. Fika na Meseji hii">
               </textarea>
             </div>
             <div>
               <label className="block text-gray-700 mb-2">Event Thanknote Message</label>
-              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3">
-                Event Thank-Note Message
+              <textarea className="w-full border border-gray-300 p-2 rounded" rows="3" placeholder="Event Thank-Note Message">
               </textarea>
             </div>
           </div>
           <Button variant="primary" className="mt-4 settings-btn-primary">Save Notification Settings</Button>
         </Tab>
-
       </Tabs>
     </Container>
   );

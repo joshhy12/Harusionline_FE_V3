@@ -119,7 +119,7 @@ h3 {
 @media (min-width: 769px) {
   .sidebar-container {
     transform: none;
-    width: 120px;
+   /* width: 120px; */
   }
 }
 
