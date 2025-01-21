@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Button, Form, Modal, Nav } from 'react-boots
 import { Link } from 'react-router-dom';
 import { getWatoaHuduma } from '../../api/api_WatoaHuduma';
 import styles from '../styles/WatoaHuduma.module.css';
+import SpinnerLoader from '../../components/Buttons/SpinnerLoader';
 
 const WatoaHuduma = () => {
   const [serviceProviders, setServiceProviders] = useState([]);
@@ -10,6 +11,7 @@ const WatoaHuduma = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [modalTab, setModalTab] = useState('login');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchServiceProviders = async () => {
@@ -17,6 +19,7 @@ const WatoaHuduma = () => {
       if (data) {
         setServiceProviders(data);
       }
+      setLoading(false);
     };
     fetchServiceProviders();
   }, []);
@@ -81,29 +84,30 @@ const WatoaHuduma = () => {
       </div>
 
       {/* Service Providers Cards */}
-      <Row className={styles.eventsGrid}>
-        {filteredProviders.map((provider) => (
-          <Col key={provider.id} xs={12} md={4} className="mb-4">
-            <Card className={styles.eventCard}>
-              <Link to={`/watoa-huduma-details/${provider.id}`} state={{ provider }}>
-                <Card.Img variant="top" src={provider.wallpaper.md_photo} alt={provider.name} className={styles.cardImage} />
-              </Link>
-              <Card.Body className={styles.cardBody}>
-                <Card.Title className={styles.cardTitle}>{provider.name}</Card.Title>
-                <Card.Text className={styles.cardText}>{provider.location}</Card.Text>
-                <div className={styles.buttonContainer}>
-                  <Link to={`/watoa-huduma-details/${provider.id}`} state={{ provider }}>
-                    <Button variant="outline-primary" className={styles.roundedPill}>View Details</Button>
-                  </Link>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-
-
-
+      {loading ? (
+        <SpinnerLoader />
+      ) : (
+        <Row className={styles.eventsGrid}>
+          {filteredProviders.map((provider) => (
+            <Col key={provider.id} xs={12} md={4} className="mb-4">
+              <Card className={styles.eventCard}>
+                <Link to={`/watoa-huduma-details/${provider.id}`} state={{ provider }}>
+                  <Card.Img variant="top" src={provider.wallpaper.md_photo} alt={provider.name} className={styles.cardImage} />
+                </Link>
+                <Card.Body className={styles.cardBody}>
+                  <Card.Title className={styles.cardTitle}>{provider.name}</Card.Title>
+                  <Card.Text className={styles.cardText}>{provider.location}</Card.Text>
+                  <div className={styles.buttonContainer}>
+                    <Link to={`/watoa-huduma-details/${provider.id}`} state={{ provider }}>
+                      <Button variant="outline-primary" className={styles.roundedPill}>View Details</Button>
+                    </Link>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      )}
 
       {/* Login/Register Modal */}
       <Modal show={showModal} onHide={handleModalClose}>

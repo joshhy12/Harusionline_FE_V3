@@ -1,84 +1,13 @@
-import React, { useState } from 'react';
-import { Modal, Button, Carousel } from 'react-bootstrap';
+import React from 'react';
 import { FaPaperPlane,  FaEnvelope, FaEnvelopeOpenText, FaUsers } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
 
 const Dashboard = () => {
-  const [showIntroModal, setShowIntroModal] = useState(true);
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
-
-  const introSlides = [
-    {
-      title: "Welcome to Your Wedding Dashboard",
-      description: "Your central hub for managing all aspects of your wedding planning",
-      icon: "🎉"
-    },
-    {
-      title: "Track Your Budget",
-      description: "Monitor all financial aspects including pledges and contributions",
-      icon: "💰"
-    },
-    {
-      title: "Manage Guest List",
-      description: "Send invitations and track RSVPs effortlessly",
-      icon: "👥"
-    },
-    {
-      title: "Send Updates",
-      description: "Keep your guests informed with automated notifications",
-      icon: "✉️"
-    }
-  ];
-
   const today = new Date();
 
   return (
     <>
-     <Modal 
-  show={showIntroModal} 
-  onHide={() => setShowIntroModal(false)}
-  centered
-  size="md"
-  className="intro-modal"
->
-
-        <Modal.Header closeButton>
-          <Modal.Title>Quick Tour</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Carousel
-            activeIndex={index}
-            onSelect={handleSelect}
-            interval={3000}
-            indicators={true}
-            controls={true}
-          >
-            {introSlides.map((slide, idx) => (
-             <Carousel.Item key={idx}>
-             <div className="slide-content">
-               <div className="slide-icon">
-                 {slide.icon}
-               </div>
-               <h3 className="slide-title">{slide.title}</h3>
-               <p className="slide-description">{slide.description}</p>
-             </div>
-           </Carousel.Item>
-           
-            ))}
-          </Carousel>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={() => setShowIntroModal(false)}>
-            Get Started
-          </Button>
-        </Modal.Footer>
-      </Modal>
-
       <div className="dashboard container mt-4">
         {/* Heading section */}
         <h2 className="dashboard-heading">Dashboard</h2>

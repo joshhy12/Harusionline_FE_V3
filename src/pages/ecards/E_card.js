@@ -4,6 +4,7 @@ import { Container, Button, Form, Row, Col } from 'react-bootstrap';
 import Masonry from 'react-masonry-css';
 import ECardService from '../../api/api_Ecard';
 import '../styles/e-card.css';
+import SpinnerLoader from '../../components/Buttons/SpinnerLoader';
 
 class E_card extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class E_card extends React.Component {
     const data = await ECardService.fetchECards();
     this.setState({ items: data, loading: false });
   };
-  
+
 
   handleFilterChange = (category) => {
     this.setState({ filter: category });
@@ -56,7 +57,7 @@ class E_card extends React.Component {
       <Container>
         <br />
         <h2 className="text-center mb-4 stylish-heading">Digital Card</h2>
-        
+
         <Row className="mb-4">
           <Col md={8} className="d-flex align-items-center">
             <Button variant="outline-primary" onClick={() => this.handleFilterChange('all')} className={`m-1 rounded-pill ${filter === 'all' ? 'active' : ''}`}>All</Button>
@@ -79,8 +80,9 @@ class E_card extends React.Component {
           </Col>
         </Row>
 
+
         {loading ? (
-          <h2 className="text-center">Loading cards...</h2>
+          <SpinnerLoader />
         ) : (
           <Masonry
             breakpointCols={breakpointColumnsObj}

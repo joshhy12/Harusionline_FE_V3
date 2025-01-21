@@ -33,3 +33,8 @@
     margin-left: 0;
   }
 }
+
+/* Styles for admin layout */
+.admin-layout .main-content {
+  min-height: 100vh;
+}

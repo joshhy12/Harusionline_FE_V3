@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1030;
+  z-index: 1000;
   background-color: white;
 }
 
@@ -12,6 +12,10 @@
   padding-top: 2px; /* Adjust this value based on your navbar height */
 }
 
+/* Add margin to the main content */
+.mainContent {
+  margin-top: 80px; /* Adjust this value based on your header height */
+}
 
 
 .customShadow {

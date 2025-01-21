@@ -4,6 +4,7 @@ import { Container, Button, Form, Row, Col } from 'react-bootstrap';
 import Masonry from 'react-masonry-css';
 import ECardService from '../../api/api_Ecard';
 import { FaPaperPlane, FaGift, FaEnvelopeOpenText, FaWhatsapp } from 'react-icons/fa';
+import SpinnerLoader from '../../components/Buttons/SpinnerLoader';
 import './admin_ecards.css';
 
 const AdminEcards = () => {
@@ -141,7 +142,7 @@ const AdminEcards = () => {
 
 
       {loading ? (
-        <h2 className="text-center">Loading cards...</h2>
+        <SpinnerLoader />
       ) : (
         <Masonry
           breakpointCols={breakpointColumnsObj}
