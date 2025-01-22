@@ -140,10 +140,10 @@ const EventWebsite = () => {
                   <div className="app-download">
                     <h3>Get Our App</h3>
                     <div className="app-buttons">
-                      <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+                      <a href="https://apps.apple.com/us/app/harusi-online/id1629222934" target="_blank" rel="noopener noreferrer">
                         <img src={require('../images/apple.png')} alt="Download on App Store" className="app-store-badge" />
                       </a>
-                      <a href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+                      <a href="https://play.google.com/store/apps/details?id=harusi.online.mobile&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                         <img src={require('../images/android.png')} alt="Get it on Google Play" className="app-store-badge" />
                       </a>
                     </div>

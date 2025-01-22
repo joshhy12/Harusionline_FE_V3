@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaPaperPlane,  FaEnvelope, FaEnvelopeOpenText, FaUsers } from 'react-icons/fa';
+import { FaPaperPlane, FaEnvelope, FaEnvelopeOpenText, FaUsers } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Dashboard.css';
 
@@ -31,25 +31,33 @@ const Dashboard = () => {
           <div className="dashboard col text-center">
             <div className="text-dark">Bajeti</div>
             <div className="dashText" style={{ fontSize: '1.5rem' }}>TZS 0.00</div>
+
             <br />
+
             <div className="dashText mt-2">Pledges PDF</div>
           </div>
 
           <div className="dashboard col text-center">
             <div className="text-dark">Matumizi</div>
             <div className="dashText" style={{ fontSize: '1.5rem' }}>TZS 0.00</div>
+
             <br />
+
             <div className="dashText mt-2">Pledges Excel</div>
           </div>
         </div>
 
+
+
+
+        {/* Middle section with buttons */}
         <div className="dashboard row mt-4">
           <div className="dashboard col text-center">
             <Link to="" className="text-decoration-none">
               <div className="dashboard bg-dash p-4 rounded-lg">
                 <div className="dashText">
                   <FaPaperPlane className="mb-2" size={24} />
-                  <div>Kumbushia Michango</div>
+                  <div> Michango</div>
                 </div>
               </div>
             </Link>
@@ -99,6 +107,48 @@ const Dashboard = () => {
             </Link>
           </div>
         </div>
+
+
+
+<br></br>
+
+
+        {/* Top section */}
+        <div className="dashboard row bg-dash p-4 rounded-lg">
+          <div className="dashboard col text-center">
+            <div className="text-dark">Salio la Message</div>
+            <div className="dashText" style={{ fontSize: '1.5rem' }}>400</div>
+            <div className="text-dark mt-2">In-Use</div>
+            <div className="dashText font-weight-bold" style={{ fontSize: '1.5rem' }}>200</div>
+          </div>
+
+          <div className="dashboard col text-center">
+            <div className="text-dark">Sms TopUp </div>
+            <div className="dashText" style={{ fontSize: '1.5rem' }}>Click Here</div>
+            <div className="text-dark mt-2">Waliotoa</div>
+            <div className="dashText font-weight-bold" style={{ fontSize: '1.5rem' }}>0</div>
+          </div>
+
+          <div className="dashboard col text-center">
+            <div className="text-dark">Bajeti</div>
+            <div className="dashText" style={{ fontSize: '1.5rem' }}>TZS 0.00</div>
+
+            <br />
+
+            <div className="dashText mt-2">Share Summary to WhatsApp</div>
+          </div>
+
+         
+
+          
+        </div>
+
+
+
+
+
+
+
 
         <div className="row mt-4 g-4">
           <div className="col-md-8">
