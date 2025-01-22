@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import InternetModal from './models/InternetModal';
+import { Routes, Route } from 'react-router-dom';
 import styles from './styles/Header.module.css';
 //import MainLayout from './layouts/MainLayout';
 
@@ -20,7 +19,7 @@ import Events from './pages/Events/Events.js';
 import EventDetails from './pages/Events/EventDetails.js';
 import WatoaHudumaDetails from './pages/WatoaHuduma/WatoaHudumaDetails.js';
 import LoginSignup from './pages/LoginSignup/LoginSignup.js';
-import EventWebsite from './pages/Events/EventWebsite.js';
+import EventWebsite from './pages/EventWebsite/EventWebsite';
 
 import MaintenancePage from './components/errors/MaintenancePage';
 import Error404 from './components/errors/Error404';
@@ -28,35 +27,35 @@ import Error404 from './components/errors/Error404';
 function UserApp() {
   return (
     <Routes>
-     {/* Router for the main WEBSITE */}
-     <Route path="*" element={
-            <div className="App">
-              <Header />
-              <main className={styles.mainContent}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/home" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/e_card" element={<E_card />} />
-                  <Route path="/card-details/:id" element={<CardDetails />} />
-                  <Route path="/gharama" element={<Gharama />} />
-                  <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
-                  <Route path="/WatoaHuduma" element={<WatoaHuduma />} />
-                  <Route path="/watoa-huduma-details/:id" element={<WatoaHudumaDetails />} />
-                  <Route path="/Events" element={<Events />} />
-                  <Route path="/event/:id" element={<EventDetails />} />
-                  <Route path="/login" element={<LoginSignup />} />
+      <Route path="/event-website/:slug" element={<EventWebsite />} />
+      <Route path="*" element={
+        <div className="App">
+          <Header />
+          <main className={styles.mainContent}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/e_card" element={<E_card />} />
+              <Route path="/card-details/:id" element={<CardDetails />} />
+              <Route path="/gharama" element={<Gharama />} />
+              <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
+              <Route path="/WatoaHuduma" element={<WatoaHuduma />} />
+              <Route path="/watoa-huduma-details/:id" element={<WatoaHudumaDetails />} />
+              <Route path="/Events" element={<Events />} />
+              <Route path="/event/:id" element={<EventDetails />} />
+              <Route path="/login" element={<LoginSignup />} />
 
-                  {/* 404 route should always be last */}
-                  <Route path="*" element={<Error404 />} />
-                  <Route path="/maintenance" element={<MaintenancePage />} />
+              {/* 404 route should always be last */}
+              <Route path="*" element={<Error404 />} />
+              <Route path="/maintenance" element={<MaintenancePage />} />
 
-                </Routes>
-              </main>
-              <Footer />
-            </div>
-          } />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      } />
     </Routes>
   );
 }

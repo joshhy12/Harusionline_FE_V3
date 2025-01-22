@@ -3,6 +3,7 @@ import { Container, Button, Card } from 'react-bootstrap';
 import styles from '../styles/Events.module.css';
 import eventService from '../../api/api_events';
 import { Link } from 'react-router-dom';
+import SpinnerLoader from '../../components/Buttons/SpinnerLoader';
 
 class Events extends React.Component {
   constructor(props) {
@@ -72,7 +73,7 @@ class Events extends React.Component {
           </div>
 
           {loading ? (
-            <h2 className="text-center">Loading events...</h2>
+            <SpinnerLoader />
           ) : (
             <div className={styles.eventsGrid}>
               {filteredEvents.map(event => (
