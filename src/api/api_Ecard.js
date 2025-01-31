@@ -30,5 +30,4 @@ class ECardService {
     }
   }
 }
-
 export default new ECardService();
