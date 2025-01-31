@@ -266,9 +266,7 @@ const Wageni = () => {
             <Modal.Body className="text-center">
               <p className="text-muted mb-4">Upload a CSV or Excel file with contacts</p>
               <p className="text-muted mb-2">Click to download</p>
-              <div className="mb-3">
-                <a href="#" className="link-custom">CSV format <FaDownload /></a>
-              </div>
+             
               <div className="mb-4">
                 <a href="#" className="link-custom">Excel format <FaDownload /></a>
               </div>

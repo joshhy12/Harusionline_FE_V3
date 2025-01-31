@@ -13,12 +13,7 @@ const Bajeti = () => {
   const handleShow = () => setShow(true);
 
   const steps = [
-    {
-      target: '.dashboard-heading',
-      content: 'Welcome to your Budget Management Dashboard!',
-      placement: 'bottom',
-      disableBeacon: true
-    },
+    
     {
       target: '.budget-pdf',
       content: 'Generate and download your complete budget report in PDF format.',
