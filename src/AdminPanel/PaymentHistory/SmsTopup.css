@@ -239,3 +239,48 @@
         background-color: #007bff;
         color: white;
     }
+
+@media (max-width: 768px) {
+  .payment-container {
+    padding: 15px;
+    width: 100%;
+  }
+
+  .payment-methods {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .payment-method {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .payment-method img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .payment-summary {
+    margin: 15px 0;
+    font-size: 14px;
+  }
+
+  .phone-input input {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .payment-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .payment-buttons button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+}

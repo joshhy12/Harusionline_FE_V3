@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './SmsTopup.css';
-import mpesaLogo from './images/mpesa.jpeg';
-import tigopesaLogo from './images/Yas_logo.png';
-import airtelLogo from './images/airtel_money.png';
+import mpesaLogo from './images/2.png';
+import tigopesaLogo from './images/1.png';
+import airtelLogo from './images/3.png';
 
 const SmsTopup = () => {
     const [smsCount, setSmsCount] = useState('');
@@ -45,7 +45,7 @@ const SmsTopup = () => {
     // Payment methods data
     const paymentMethods = [
         { id: 'mpesa', name: 'M-Pesa', image: mpesaLogo },
-        { id: 'tigopesa', name: 'Tigo Pesa', image: tigopesaLogo },
+        { id: 'tigopesa', name: 'Mixed By Yas', image: tigopesaLogo },
         { id: 'airtel', name: 'Airtel Money', image: airtelLogo }
     ];
     
@@ -116,6 +116,8 @@ const SmsTopup = () => {
                     </div>
                 </>
             ) : (
+
+
                 <div className="payment-container">
                     <h2 className="text-center" style={{ color: '#24366b' }}>Choose Payment Method</h2>
                     <div className="payment-summary">
@@ -135,9 +137,9 @@ const SmsTopup = () => {
                                 <img 
                                     src={method.image} 
                                     alt={method.name} 
-                                    style={{ width: '120px', height: '120px', objectFit: 'contain' }}
+                                    style={{ width: '180px', height: '180px', objectFit: 'contain' }}
                                 />
-                                <span>{method.name}</span>
+                                <div style={{ marginTop: '10px' }}>{method.name}</div>
                             </div>
                         ))}
                     </div>
@@ -156,6 +158,8 @@ const SmsTopup = () => {
                         <button onClick={handlePaymentSubmit}>Pay Now</button>
                     </div>
                 </div>
+
+
             )}
         </div>
     );
