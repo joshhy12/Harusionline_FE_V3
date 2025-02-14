@@ -70,7 +70,7 @@ const AdminCardDetails = () => {
         (item.phone && item.phone.includes(filterText)) ||
         (item.pledgeCard && item.pledgeCard.toLowerCase().includes(filterText.toLowerCase()))
       );
-      
+
       if (statusFilter === 'ALL') {
         return matchesFilter;
       }
@@ -139,6 +139,7 @@ const AdminCardDetails = () => {
     rows: {
       style: {
         minHeight: '40px',
+        cursor: 'pointer',
       },
       highlightOnHoverStyle: {
         backgroundColor: '#f5f5f5',
@@ -160,6 +161,7 @@ const AdminCardDetails = () => {
       when: row => selectedRows.some(selectedRow => selectedRow.phone === row.phone),
       style: {
         backgroundColor: '#e9eefb',
+        cursor: 'pointer',
       },
     },
   ];
@@ -193,19 +195,19 @@ const AdminCardDetails = () => {
         onChange={(e) => setFilterText(e.target.value)}
         style={{ maxWidth: '300px' }}
       />
-    <Button
-    variant="primary"
-    onClick={handleSendCards}
-    disabled={selectedRows.length === 0}
-    style={{ 
-        margin: '0 20px',
-        backgroundColor: '#e9eefb',
-        color: '#0066ff',
-        border: 'none'
-    }}
->
-    Tengeneza kadi ({selectedRows.length})
-</Button>
+      <Button
+        variant="primary"
+        onClick={handleSendCards}
+        disabled={selectedRows.length === 0}
+        style={{
+          margin: '0 20px',
+          backgroundColor: '#e9eefb',
+          color: '#0066ff',
+          border: 'none'
+        }}
+      >
+        Tengeneza kadi ({selectedRows.length})
+      </Button>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', backgroundColor: '#f8f9fa', padding: '5px', borderRadius: '20px' }}>
         <div
@@ -248,7 +250,7 @@ const AdminCardDetails = () => {
           All
         </div>
       </div>
-    </div>  );
+    </div>);
 
   if (!card) {
     return <div>Card not found</div>;
@@ -282,8 +284,6 @@ const AdminCardDetails = () => {
         </Col>
       </Row>
 
-  
-
       <div className="mt-4">
         <h2 className="text-left" style={{ color: '#24366b' }}>Contact List</h2>
         <div className="table-scroll">
@@ -293,7 +293,6 @@ const AdminCardDetails = () => {
               data={filteredItems}
               pagination
               paginationRowsPerPageOptions={[10, 20, 50]}
-              highlightOnHover
               striped
               dense
               responsive
@@ -304,8 +303,9 @@ const AdminCardDetails = () => {
               subHeader
               subHeaderComponent={subHeaderComponent}
               persistTableHead
+              pointerOnHover
             />
-          </div>
+          </div>  
         </div>
       </div>
 

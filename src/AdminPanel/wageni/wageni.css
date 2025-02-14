@@ -14,9 +14,6 @@
 /* Make container responsive */
 
 
-
-
-
 .table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;

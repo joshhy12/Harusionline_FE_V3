@@ -176,3 +176,57 @@
     justify-content: space-between;
   }
 }
+
+.datatable-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  max-width: 100vw;
+}
+
+.rdt_TableCell {
+  font-size: 16px !important;
+  padding: 15px !important;
+}
+
+.rdt_TableHeader {
+  font-size: 17px !important;
+  font-weight: bold !important;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  position: relative;
+}
+
+.rdt_Table {
+  min-width: 800px;
+  border-collapse: collapse;
+  background: white;
+}
+
+.rdt_TableHeader {
+  background: #f8f9fa;
+  padding: 12px;
+}
+
+.rdt_TableHeadRow {
+  font-weight: bold;
+  color: #4527a0;
+}
+
+/* Remove hover styles */
+.rdt_TableRow {
+  cursor: pointer;
+  background-color: white;
+}
+
+/* Keep selection styles */
+.rdt_TableRow.selected {
+  background-color: #e9eefb;
+}
+
+

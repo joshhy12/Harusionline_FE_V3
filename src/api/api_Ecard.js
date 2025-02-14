@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class ECardService {
   constructor() {
-    this.API_URL = 'https://api.harusi.online/api/ecards/templates';
+    this.API_URL = 'https://test.harusi.online/api/ecards/templates';
   }
 
   async fetchECards() {
