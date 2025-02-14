@@ -248,3 +248,24 @@ td {
     font-size: 14px;
   }
 }
+
+
+.preview-container {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.preview-container table {
+  margin-bottom: 10px;
+}
+
+.preview-container th {
+  background-color: #f8f9fa;
+  font-size: 14px;
+}
+
+.preview-container td {
+  font-size: 13px;
+}
