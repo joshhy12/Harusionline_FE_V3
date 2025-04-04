@@ -20,6 +20,7 @@ import WhatsappCard from './AdminPanel/WhatsappCard/WhatsappCard';
 import PaymentHistory from './AdminPanel/PaymentHistory/PaymentHistory';
 import SmsHistory from './AdminPanel/SmsHistory/SmsHistory';
 import Settings from './AdminPanel/settings/Settings.js';
+import Account_setting from './AdminPanel/settings/Account_setting';
 import SmsTopup from './AdminPanel/PaymentHistory/SmsTopup';
 import WebsiteTemplates from './AdminPanel/websiteTemplates/WebsiteTemplates';
 import WatoaHudumaRoutes from './components/WatoaHuduma_admin_panel/WatoaHudumaRoutes';
@@ -46,6 +47,7 @@ function AdminApp() {
         <Route path="payment-history" element={<div className="admin-layout"><div className="main-content"><PaymentHistory /></div></div>} />
         <Route path="sms-history" element={<div className="admin-layout"><div className="main-content"><SmsHistory /></div></div>} />
         <Route path="settings" element={<div className="admin-layout"><div className="main-content"><Settings /></div></div>} />
+        <Route path="Account_setting" element={<div className="admin-layout"><div className="main-content"><Account_setting /></div></div>} />
         <Route path="sms-topup" element={<div className="admin-layout"><div className="main-content"><SmsTopup /></div></div>} />
         <Route path="websiteTemplates" element={<div className="admin-layout"><div className="main-content"><WebsiteTemplates /></div></div>} />
       </Route>

@@ -110,7 +110,7 @@ const Dashboard = () => {
 
 
 
-<br></br>
+        <br></br>
 
 
         {/* Top section */}
@@ -122,11 +122,14 @@ const Dashboard = () => {
             <div className="dashText font-weight-bold" style={{ fontSize: '1.5rem' }}>200</div>
           </div>
 
+
           <div className="dashboard col text-center">
-            <div className="text-dark">Sms TopUp </div>
-            <div className="dashText" style={{ fontSize: '1.5rem' }}>Click Here</div>
-            <div className="text-dark mt-2">Waliotoa</div>
-            <div className="dashText font-weight-bold" style={{ fontSize: '1.5rem' }}>0</div>
+            <Link to="/admin/sms-topup" className="text-decoration-none">
+              <div className="text-dark">Sms TopUp</div>
+              <div className="dashText" style={{ fontSize: '1.5rem' }}>Click Here</div>
+              <div className="text-dark mt-2">Waliotoa</div>
+              <div className="dashText font-weight-bold" style={{ fontSize: '1.5rem' }}>0</div>
+            </Link>
           </div>
 
           <div className="dashboard col text-center">
@@ -138,9 +141,9 @@ const Dashboard = () => {
             <div className="dashText mt-2">Share Summary to WhatsApp</div>
           </div>
 
-         
 
-          
+
+
         </div>
 
 
