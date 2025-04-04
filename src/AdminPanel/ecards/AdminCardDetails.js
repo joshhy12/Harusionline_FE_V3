@@ -1,16 +1,16 @@
 import React, { useState, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Container, Card, Row, Col, Button, Modal, Badge, Form } from 'react-bootstrap';
-import DataTable from 'react-data-table-component';
+import { Container, Card, Row, Col, Button, Modal, Form } from 'react-bootstrap';
 import styles from '../../styles/CardDetails.module.css';
+import './admin_ecards.css';
 
 const AdminCardDetails = () => {
   const location = useLocation();
   const { card } = location.state || {};
-  const [showModal, setShowModal] = useState(false);
-  const [selectedRows, setSelectedRows] = useState([]);
   const [filterText, setFilterText] = useState('');
   const [statusFilter, setStatusFilter] = useState('NOT SENT');
+  const [selectedContacts, setSelectedContacts] = useState([]);
+
   const [contactData, setContactData] = useState([
     {
       name: '4ward Design',
@@ -56,19 +56,11 @@ const AdminCardDetails = () => {
     }
   ]);
 
-  const handleTypeChange = (row, value) => {
-    const updatedData = contactData.map(item =>
-      item.phone === row.phone ? { ...item, type: value } : item
-    );
-    setContactData(updatedData);
-  };
-
   const filteredItems = useMemo(() => {
     return contactData.filter(item => {
       const matchesFilter = (
         (item.name && item.name.toLowerCase().includes(filterText.toLowerCase())) ||
-        (item.phone && item.phone.includes(filterText)) ||
-        (item.pledgeCard && item.pledgeCard.toLowerCase().includes(filterText.toLowerCase()))
+        (item.phone && item.phone.includes(filterText))
       );
 
       if (statusFilter === 'ALL') {
@@ -78,196 +70,36 @@ const AdminCardDetails = () => {
     });
   }, [contactData, filterText, statusFilter]);
 
-  const columns = [
-    { name: 'Name', selector: (row) => row.name, sortable: true },
-    { name: 'Phone', selector: (row) => row.phone, sortable: true },
-    { name: 'PledgeCard', selector: (row) => row.pledgeCard, sortable: true },
-    {
-      name: 'Type',
-      cell: (row) => (
-        <div style={{ display: 'flex', gap: '8px' }}>
-          <div
-            onClick={() => handleTypeChange(row, 'Single')}
-            style={{
-              padding: '4px 12px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              backgroundColor: row.type === 'Single' ? '#007bff' : '#e9ecef',
-              color: row.type === 'Single' ? 'white' : '#495057',
-              transition: 'all 0.3s ease'
-            }}
-          >
-            Single
-          </div>
-          <div
-            onClick={() => handleTypeChange(row, 'Double')}
-            style={{
-              padding: '4px 12px',
-              borderRadius: '20px',
-              cursor: 'pointer',
-              backgroundColor: row.type === 'Double' ? '#007bff' : '#e9ecef',
-              color: row.type === 'Double' ? 'white' : '#495057',
-              transition: 'all 0.3s ease'
-            }}
-          >
-            Double
-          </div>
-        </div>
-      ),
-      sortable: true
-    },
-    {
-      name: 'Status',
-      selector: (row) => row.status,
-      sortable: true,
-      cell: (row) => (
-        <span style={{
-          padding: '6px 12px',
-          borderRadius: '4px',
-          fontSize: '12px',
-          fontWeight: '500',
-          backgroundColor: row.status === 'SENT' ? '#e0f2e9' : '#ffebee',
-          color: row.status === 'SENT' ? '#2e7d32' : '#d32f2f'
-        }}>
-          {row.status}
-        </span>
-      )
+  const toggleContactSelection = (phone) => {
+    setSelectedContacts(prev =>
+      prev.includes(phone)
+        ? prev.filter(p => p !== phone)
+        : [...prev, phone]
+    );
+  };
+
+  const selectAllFiltered = () => {
+    const allFilteredPhones = filteredItems.map(item => item.phone);
+    if (selectedContacts.length === allFilteredPhones.length) {
+      setSelectedContacts([]);
+    } else {
+      setSelectedContacts(allFilteredPhones);
     }
-  ];
-
-  const customStyles = {
-    rows: {
-      style: {
-        minHeight: '40px',
-        cursor: 'pointer',
-      },
-      highlightOnHoverStyle: {
-        backgroundColor: '#f5f5f5',
-        borderBottomColor: '#FFFFFF',
-        borderRadius: '25px',
-        outline: '1px solid #FFFFFF',
-      },
-    },
-    headCells: {
-      style: {
-        fontSize: '15px',
-        fontWeight: 'bold',
-      },
-    },
   };
-
-  const conditionalRowStyles = [
-    {
-      when: row => selectedRows.some(selectedRow => selectedRow.phone === row.phone),
-      style: {
-        backgroundColor: '#e9eefb',
-        cursor: 'pointer',
-      },
-    },
-  ];
-
-  const [clearRows, setClearRows] = useState(false);
-
-  const handleRowSelected = (state) => {
-    setSelectedRows(state.selectedRows);
-    setClearRows(false);
-  };
-
-  const handleSendCards = () => {
-    console.log('Sending cards to:', selectedRows);
-  };
-
-  const handleRowClicked = (row) => {
-    const isSelected = selectedRows.some(selectedRow => selectedRow.phone === row.phone);
-    const newSelectedRows = isSelected
-      ? selectedRows.filter(selectedRow => selectedRow.phone !== row.phone)
-      : [...selectedRows, row];
-    setSelectedRows(newSelectedRows);
-    setClearRows(!clearRows);
-  };
-
-  const subHeaderComponent = (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginBottom: '10px', gap: '20px' }}>
-      <Form.Control
-        type="text"
-        placeholder="Search contacts..."
-        value={filterText}
-        onChange={(e) => setFilterText(e.target.value)}
-        style={{ maxWidth: '300px' }}
-      />
-      <Button
-        variant="primary"
-        onClick={handleSendCards}
-        disabled={selectedRows.length === 0}
-        style={{
-          margin: '0 20px',
-          backgroundColor: '#e9eefb',
-          color: '#0066ff',
-          border: 'none'
-        }}
-      >
-        Tengeneza kadi ({selectedRows.length})
-      </Button>
-
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', backgroundColor: '#f8f9fa', padding: '5px', borderRadius: '20px' }}>
-        <div
-          onClick={() => setStatusFilter('NOT SENT')}
-          style={{
-            padding: '5px 15px',
-            borderRadius: '15px',
-            cursor: 'pointer',
-            backgroundColor: statusFilter === 'NOT SENT' ? '#007bff' : 'transparent',
-            color: statusFilter === 'NOT SENT' ? 'white' : '#495057',
-            transition: 'all 0.3s ease'
-          }}
-        >
-          Not Sent
-        </div>
-        <div
-          onClick={() => setStatusFilter('SENT')}
-          style={{
-            padding: '5px 15px',
-            borderRadius: '15px',
-            cursor: 'pointer',
-            backgroundColor: statusFilter === 'SENT' ? '#007bff' : 'transparent',
-            color: statusFilter === 'SENT' ? 'white' : '#495057',
-            transition: 'all 0.3s ease'
-          }}
-        >
-          Sent
-        </div>
-        <div
-          onClick={() => setStatusFilter('ALL')}
-          style={{
-            padding: '5px 15px',
-            borderRadius: '15px',
-            cursor: 'pointer',
-            backgroundColor: statusFilter === 'ALL' ? '#007bff' : 'transparent',
-            color: statusFilter === 'ALL' ? 'white' : '#495057',
-            transition: 'all 0.3s ease'
-          }}
-        >
-          All
-        </div>
-      </div>
-    </div>);
 
   if (!card) {
     return <div>Card not found</div>;
   }
 
-  const handleOpenModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
-
   return (
     <Container className={`${styles.container} admin-main-content`}>
+      {/* ... your existing card display code ... */}
       <Row>
         <Col md={6}>
           <img
             src={card.wallpaper}
             alt={card.name}
             className={styles.cardImage}
-            onClick={handleOpenModal}
           />
         </Col>
         <Col md={6}>
@@ -285,38 +117,92 @@ const AdminCardDetails = () => {
       </Row>
 
       <div className="mt-4">
-        <h2 className="text-left" style={{ color: '#24366b' }}>Contact List</h2>
-        <div className="table-scroll">
-          <div className="datatable-wrapper">
-            <DataTable
-              columns={columns}
-              data={filteredItems}
-              pagination
-              paginationRowsPerPageOptions={[10, 20, 50]}
-              striped
-              dense
-              responsive
-              customStyles={customStyles}
-              conditionalRowStyles={conditionalRowStyles}
-              onRowClicked={handleRowClicked}
-              clearSelectedRows={clearRows}
-              subHeader
-              subHeaderComponent={subHeaderComponent}
-              persistTableHead
-              pointerOnHover
-            />
-          </div>  
-        </div>
-      </div>
+        <h2 className="stylish-heading">Contact List</h2>
+        <table className="custom-table">
+          <thead>
+            <tr>
+              <th>
+                <Form.Control
+                  type="text"
+                  placeholder="Search contacts..."
+                  value={filterText}
+                  onChange={(e) => setFilterText(e.target.value)}
+                  className="table-search-input"
+                />
+              </th>
+              <th>
+                <Button
+                  variant="primary"
+                  disabled={selectedContacts.length === 0}
+                  className="table-action-button"
+                >
+                  Generate Cards ({selectedContacts.length})
+                </Button>
+              </th>
+              <th colSpan="2">
+                <div className="status-filter">
+                  <span
+                    className={`filter-option ${statusFilter === 'NOT SENT' ? 'active' : ''}`}
+                    onClick={() => setStatusFilter('NOT SENT')}
+                  >
+                    Not Sent
+                  </span>
+                  <span
+                    className={`filter-option ${statusFilter === 'SENT' ? 'active' : ''}`}
+                    onClick={() => setStatusFilter('SENT')}
+                  >
+                    Sent
+                  </span>
+                  <span
+                    className={`filter-option ${statusFilter === 'ALL' ? 'active' : ''}`}
+                    onClick={() => setStatusFilter('ALL')}
+                  >
+                    All
+                  </span>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <Form.Check
+                  type="checkbox"
+                  checked={selectedContacts.length > 0 && selectedContacts.length === filteredItems.length}
+                  onChange={selectAllFiltered}
+                  label="Name"
+                />
+              </th>
+              <th>Phone</th>
+              <th>PledgeCard</th>
+              <th>Status</th>
+            </tr>
+          </thead>
 
-      <Modal show={showModal} onHide={handleCloseModal} centered size="lg">
-        <Modal.Body>
-          <img src={card.wallpaper} alt={card.name} className="img-fluid" />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
-        </Modal.Footer>
-      </Modal>
+          <tbody>
+            {filteredItems.map((item, index) => (
+              <tr
+                key={index}
+                className={selectedContacts.includes(item.phone) ? 'selected' : ''}
+                onClick={() => toggleContactSelection(item.phone)}
+              >
+                <td>
+                  <Form.Check
+                    type="checkbox"
+                    checked={selectedContacts.includes(item.phone)}
+                    onChange={() => toggleContactSelection(item.phone)}
+                    label={item.name}
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                </td>
+                <td className="phone-column">{item.phone}</td>
+                <td>{item.pledgeCard}</td>
+                <td className={`status-badge ${item.status === 'SENT' ? 'sent' : 'not-sent'}`}>
+                  {item.status}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </Container>
   );
 };
