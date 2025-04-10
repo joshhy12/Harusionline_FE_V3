@@ -716,3 +716,61 @@
   font-weight: 500;
   transition: background-color 0.3s;
 }
+/* Card Action Buttons */
+.view-card-btn,
+.share-btn,
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 13px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+/* View Button */
+.view-card-btn {
+  background-color: #f8f9fa;
+  color: #24366b;
+  border: 1px solid #24366b;
+}
+
+.view-card-btn:hover {
+  background-color: #e9ecef;
+}
+
+/* Share Button */
+.share-btn {
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+}
+
+.share-btn:hover {
+  background-color: #5649c0;
+}
+
+/* Download Button */
+.download-btn {
+  background-color: #00b894;
+  color: white;
+  border: none;
+}
+
+.download-btn:hover {
+  background-color: #00a382;
+}
+
+/* Card Actions Container */
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}

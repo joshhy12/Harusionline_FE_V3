@@ -190,13 +190,13 @@ const CardBundleDetails = ({ bundle, cards, onBack }) => {
                       <FaEye /> View
                     </button>
                     <button
-                      className="view-card-btn"
+                      className="share-btn"
                       onClick={() => handleShareCard(card.cardId)}
                     >
                       <FaShare /> Share
                     </button>
                     <button
-                      className="view-card-btn"
+                      className="download-btn"
                       onClick={() => handleDownloadCard(card.cardId)}
                     >
                       <FaDownload /> Download
