@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { cardTemplates } from './cardData';
-import { FaSearch, FaWhatsapp, FaSms, FaEye, FaArrowLeft } from 'react-icons/fa';
+import { FaSearch, FaWhatsapp, FaSms, FaEye, FaArrowLeft, FaTimes, FaShare, FaDownload } from 'react-icons/fa';
 import './design.css';
 // Import the test image
 import testCardImage from './testcard.png'; // Adjust the path as needed
@@ -8,13 +8,15 @@ import testCardImage from './testcard.png'; // Adjust the path as needed
 const CardBundleDetails = ({ bundle, cards, onBack }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('name'); // Default sort by name
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   const getTemplateById = (id) => {
     const template = cardTemplates.find(template => template.id === id);
     // Return the template if found, otherwise return an object with a default image
-    return template || { 
-      imageUrl: testCardImage, 
-      name: 'Default Template' 
+    return template || {
+      imageUrl: testCardImage,
+      name: 'Default Template'
     };
   };
 
@@ -24,8 +26,13 @@ const CardBundleDetails = ({ bundle, cards, onBack }) => {
   };
 
   const handleViewCard = (card) => {
-    // Implement preview logic
-    alert(`Previewing card for ${card.recipientName}`);
+    setSelectedCard(card);
+    setShowPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    setSelectedCard(null);
   };
 
   const handleSendAllUnsent = () => {
@@ -37,8 +44,18 @@ const CardBundleDetails = ({ bundle, cards, onBack }) => {
     alert(`Sending all ${unsentCards.length} unsent cards.`);
   };
 
+  const handleShareCard = (cardId) => {
+    // Implement share logic
+    alert(`Sharing card ${cardId}`);
+  };
+
+  const handleDownloadCard = (cardId) => {
+    // Implement download logic
+    alert(`Downloading card ${cardId}`);
+  };
+
   // Filter cards based on search term
-  const filteredCards = cards.filter(card => 
+  const filteredCards = cards.filter(card =>
     card.recipientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
     card.recipientPhone.includes(searchTerm)
   );
@@ -172,6 +189,18 @@ const CardBundleDetails = ({ bundle, cards, onBack }) => {
                     >
                       <FaEye /> View
                     </button>
+                    <button
+                      className="view-card-btn"
+                      onClick={() => handleShareCard(card.cardId)}
+                    >
+                      <FaShare /> Share
+                    </button>
+                    <button
+                      className="view-card-btn"
+                      onClick={() => handleDownloadCard(card.cardId)}
+                    >
+                      <FaDownload /> Download
+                    </button>
                     {card.status === 'unsent' && bundle.paymentStatus === 'paid' && (
                       <div className="send-options">
                         <button
@@ -193,6 +222,83 @@ const CardBundleDetails = ({ bundle, cards, onBack }) => {
               </div>
             );
           })}
+        </div>
+      )}
+
+      {showPopup && selectedCard && (
+        <div className="card-popup-overlay">
+          <div className="card-popup-content">
+            <div className="card-popup-header">
+              <h3>Card Preview</h3>
+              <button className="close-popup-btn" onClick={handleClosePopup}>
+                <FaTimes />
+              </button>
+            </div>
+            <div className="card-popup-body">
+              <div className="card-popup-image-container">
+                <img 
+                  src={getTemplateById(selectedCard.templateId).imageUrl} 
+                  alt="Card Preview" 
+                  className="card-popup-image"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = testCardImage;
+                  }}
+                />
+              </div>
+              <div className="card-popup-details">
+                <div className="card-popup-info">
+                  <h4>Recipient Information</h4>
+                  <p><strong>Name:</strong> {selectedCard.recipientName}</p>
+                  <p><strong>Phone:</strong> {selectedCard.recipientPhone}</p>
+                  <p><strong>Status:</strong> <span className={`status-text ${selectedCard.status}`}>{selectedCard.status}</span></p>
+                  {selectedCard.status === 'sent' && (
+                    <p><strong>Sent Date:</strong> {new Date(selectedCard.sentAt).toLocaleString()}</p>
+                  )}
+                  {selectedCard.viewCount > 0 && (
+                    <p><strong>Views:</strong> {selectedCard.viewCount}</p>
+                  )}
+                </div>
+                <div className="card-popup-message">
+                  <h4>Message</h4>
+                  <p>{selectedCard.message || "No custom message"}</p>
+                </div>
+              </div>
+            </div>
+            <div className="card-popup-footer">
+              <button
+                className="share-btn"
+                onClick={() => handleShareCard(selectedCard.cardId)}
+              >
+                <FaShare /> Share
+              </button>
+              <button
+                className="download-btn"
+                onClick={() => handleDownloadCard(selectedCard.cardId)}
+              >
+                <FaDownload /> Download
+              </button>
+              {selectedCard.status === 'unsent' && bundle.paymentStatus === 'paid' && (
+                <div className="popup-send-options">
+                  <button
+                    className="send-btn whatsapp"
+                    onClick={() => handleSendCard(selectedCard.cardId, 'whatsapp')}
+                  >
+                    <FaWhatsapp /> Send via WhatsApp
+                  </button>
+                  <button
+                    className="send-btn sms"
+                    onClick={() => handleSendCard(selectedCard.cardId, 'sms')}
+                  >
+                    <FaSms /> Send via SMS
+                  </button>
+                </div>
+              )}
+              <button className="close-btn" onClick={handleClosePopup}>
+                Close
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>

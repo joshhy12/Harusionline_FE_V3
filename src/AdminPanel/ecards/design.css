@@ -37,7 +37,6 @@
 .filter-btn.active {
   background-color: #24366b;
   color: white;
-  border-color: #24366b;
 }
 
 /* Bundles List - Adjusted for better card layout */
@@ -72,17 +71,18 @@
   border-top: 4px solid #dc3545;
 }
 
-/* Bundle Image Container - Increased height for bigger images */
+/* Bundle Image Container - Full width and taller */
 .bundle-image-container {
   position: relative;
-  height: 250px; /* Increased from 180px */
+  height: 300px; /* Increased height for more prominent image */
+  width: 100%;
   overflow: hidden;
 }
 
 .bundle-preview-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* This ensures the image covers the entire container */
   transition: transform 0.5s ease;
 }
 
@@ -101,6 +101,8 @@
   font-weight: bold;
   text-transform: uppercase;
   color: white;
+  z-index: 2; /* Ensure it's above the image */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Add shadow for better visibility */
 }
 
 .status-badge.paid {
@@ -113,15 +115,16 @@
 
 /* Bundle Content - Adjusted for better text layout */
 .bundle-content {
-  padding: 20px;
+  padding: 15px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .bundle-header {
-  margin-bottom: 15px;
-  text-align: center; /* Center the bundle title */
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .bundle-header h3 {
@@ -130,28 +133,29 @@
   font-size: 18px;
 }
 
-/* Bundle Details - Smaller text and better spacing */
+/* Bundle Details - Compact and centered */
 .bundle-details {
   flex-grow: 1;
-  text-align: center; /* Center the details text */
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .bundle-details p {
-  margin: 8px 0;
+  margin: 5px 0;
   color: #555;
-  font-size: 13px; /* Smaller font size */
-  line-height: 1.4;
+  font-size: 12px; /* Even smaller font */
+  line-height: 1.3;
 }
 
 .bundle-details strong {
   color: #24366b;
 }
 
-/* Bundle Actions */
+/* Bundle Actions - Compact buttons */
 .bundle-actions {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 8px;
+  margin-top: auto; /* Push to bottom of content area */
 }
 
 .bundle-actions button {
@@ -162,8 +166,9 @@
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.3s ease;
-  font-size: 13px; /* Smaller font size for buttons */
+  font-size: 12px;
 }
+
 
 .view-btn {
   background-color: #f8f9fa;
@@ -400,18 +405,22 @@
   border-left: 4px solid #ffc107;
 }
 
+/* Card Preview - Increased height for full image display */
 .card-preview {
   position: relative;
-  height: 160px;
+  height: 300px; /* Increased height to show more of the image */
   overflow: hidden;
+  width: 100%;
 }
 
 .card-thumbnail {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Changed from cover to contain to show the full image */
   transition: transform 0.5s;
+  background-color: #f8f9fa; /* Light background for images with transparency */
 }
+
 
 .e-card:hover .card-thumbnail {
   transform: scale(1.05);
@@ -427,6 +436,8 @@
   font-weight: bold;
   text-transform: uppercase;
   color: white;
+  z-index: 2; /* Ensure it's above the image */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Add shadow for better visibility */
 }
 
 .card-status-indicator.sent {
@@ -439,7 +450,7 @@
 }
 
 .card-content {
-  padding: 15px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -447,24 +458,24 @@
 
 .card-details {
   flex-grow: 1;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .recipient-name {
-  margin: 0 0 5px 0;
+  margin: 0 0 3px 0;
   color: #24366b;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .recipient-phone {
-  margin: 0 0 8px 0;
+  margin: 0 0 5px 0;
   color: #6c757d;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .sent-date, .view-count {
-  margin: 5px 0;
-  font-size: 12px;
+  margin: 3px 0;
+  font-size: 11px;
   color: #6c757d;
 }
 
@@ -473,6 +484,7 @@
   flex-direction: column;
   gap: 10px;
 }
+
 
 .view-card-btn {
   display: flex;
@@ -488,7 +500,6 @@
   font-weight: 500;
   transition: background-color 0.3s;
 }
-
 .view-card-btn:hover {
   background-color: #e9ecef;
 }
@@ -535,4 +546,173 @@
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+
+
+/* Card Popup Styles */
+.card-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.card-popup-content {
+  background-color: white;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.card-popup-header h3 {
+  margin: 0;
+  color: #24366b;
+  font-size: 20px;
+}
+
+.close-popup-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #6c757d;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-popup-btn:hover {
+  color: #dc3545;
+}
+
+.card-popup-body {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  .card-popup-body {
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+
+.card-popup-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .card-popup-image-container {
+    margin-bottom: 0;
+  }
+}
+
+.card-popup-image {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-popup-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-popup-info, .card-popup-message {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.card-popup-info h4, .card-popup-message h4 {
+  color: #24366b;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.card-popup-info p, .card-popup-message p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #495057;
+}
+
+.status-text {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.status-text.sent {
+  color: #28a745;
+}
+
+.status-text.unsent {
+  color: #ffc107;
+}
+
+.card-popup-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .card-popup-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.popup-send-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.popup-send-options .send-btn {
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.close-btn {
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
 }
