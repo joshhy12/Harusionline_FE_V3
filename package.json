@@ -43,7 +43,7 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
-    "start": "cross-env HOST=harusionline.local react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -1,0 +1,538 @@
+/* Card Bundles Container */
+.card-bundles-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bundles-title {
+  color: #24366b;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 28px;
+}
+
+/* Filter Options */
+.filter-options {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: #e9e9e9;
+}
+
+.filter-btn.active {
+  background-color: #24366b;
+  color: white;
+  border-color: #24366b;
+}
+
+/* Bundles List - Adjusted for better card layout */
+.bundles-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Bundle Card Styles - Updated for larger images */
+.bundle-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bundle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.bundle-card.paid {
+  border-top: 4px solid #28a745;
+}
+
+.bundle-card.unpaid {
+  border-top: 4px solid #dc3545;
+}
+
+/* Bundle Image Container - Increased height for bigger images */
+.bundle-image-container {
+  position: relative;
+  height: 250px; /* Increased from 180px */
+  overflow: hidden;
+}
+
+.bundle-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.bundle-card:hover .bundle-preview-image {
+  transform: scale(1.05);
+}
+
+/* Status Badge */
+.status-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+.status-badge.paid {
+  background-color: #28a745;
+}
+
+.status-badge.unpaid {
+  background-color: #dc3545;
+}
+
+/* Bundle Content - Adjusted for better text layout */
+.bundle-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.bundle-header {
+  margin-bottom: 15px;
+  text-align: center; /* Center the bundle title */
+}
+
+.bundle-header h3 {
+  margin: 0;
+  color: #24366b;
+  font-size: 18px;
+}
+
+/* Bundle Details - Smaller text and better spacing */
+.bundle-details {
+  flex-grow: 1;
+  text-align: center; /* Center the details text */
+}
+
+.bundle-details p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 13px; /* Smaller font size */
+  line-height: 1.4;
+}
+
+.bundle-details strong {
+  color: #24366b;
+}
+
+/* Bundle Actions */
+.bundle-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.bundle-actions button {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  font-size: 13px; /* Smaller font size for buttons */
+}
+
+.view-btn {
+  background-color: #f8f9fa;
+  color: #24366b;
+  border: 1px solid #24366b !important;
+}
+
+.view-btn:hover {
+  background-color: #e9ecef;
+}
+
+.send-all-btn {
+  background-color: #24366b;
+  color: white;
+}
+
+.send-all-btn:hover {
+  background-color: #1a2a4d;
+}
+
+.pay-now-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.pay-now-btn:hover {
+  background-color: #c82333;
+}
+
+/* Header Styles */
+.bundle-info-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.bundle-info-header h2 {
+  color: #24366b;
+  margin: 15px 0;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.back-to-bundles {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #24366b;
+  font-weight: 500;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+  font-size: 14px;
+}
+
+.back-to-bundles:hover {
+  color: #3a5bb9;
+}
+
+.bundle-status-badge {
+  font-size: 14px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.bundle-status-badge.paid {
+  background-color: #28a745;
+}
+
+.bundle-status-badge.unpaid {
+  background-color: #dc3545;
+}
+
+/* Bundle Details Panel */
+.bundle-details-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.bundle-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6c757d;
+  margin-bottom: 3px;
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #24366b;
+}
+
+.send-all-unsent-btn {
+  background-color: #24366b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.send-all-unsent-btn:hover {
+  background-color: #1a2a4d;
+}
+
+/* Search and Sort Controls */
+.cards-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #24366b;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-container label {
+  font-size: 14px;
+  color: #495057;
+}
+
+.sort-select {
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: #24366b;
+}
+
+/* No Results Message */
+.no-results {
+  text-align: center;
+  padding: 40px 0;
+  color: #6c757d;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* E-Card Styles */
+.e-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.e-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.e-card.sent {
+  border-left: 4px solid #28a745;
+}
+
+.e-card.unsent {
+  border-left: 4px solid #ffc107;
+}
+
+.card-preview {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+
+.card-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.e-card:hover .card-thumbnail {
+  transform: scale(1.05);
+}
+
+.card-status-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+.card-status-indicator.sent {
+  background-color: #28a745;
+}
+
+.card-status-indicator.unsent {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.card-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-details {
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.recipient-name {
+  margin: 0 0 5px 0;
+  color: #24366b;
+  font-size: 16px;
+}
+
+.recipient-phone {
+  margin: 0 0 8px 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.sent-date, .view-count {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.view-card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  color: #24366b;
+  border: 1px solid #24366b;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.view-card-btn:hover {
+  background-color: #e9ecef;
+}
+
+.send-options {
+  display: flex;
+  gap: 8px;
+}
+
+.send-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.send-btn.whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+
+.send-btn.whatsapp:hover {
+  background-color: #1fba58;
+}
+
+.send-btn.sms {
+  background-color: #007bff;
+  color: white;
+}
+
+.send-btn.sms:hover {
+  background-color: #0069d9;
+}
+
+/* Cards in bundle container */
+.cards-in-bundle-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}

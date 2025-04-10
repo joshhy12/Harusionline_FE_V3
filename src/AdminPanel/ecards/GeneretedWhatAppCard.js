@@ -1,101 +1,126 @@
-import React, { useState, useEffect } from 'react';
-import { Typography, Box, Grid, Card, CardMedia, CardContent, CardActions, Button, Modal } from '@mui/material';
-import image1 from '../images/1.jpg';
+import React, { useState } from 'react';
+import { cardBundles, generatedCards, cardTemplates } from './cardData';
+import CardBundleDetails from './CardBundleDetails';
+import testcard from './testcard.png';
+import './design.css';
 
-const GeneratedWhatsAppCard = () => {
-  const [history, setHistory] = useState([]);
+const CardBundles = () => {
+  const [filter, setFilter] = useState('all');
   const [selectedBundle, setSelectedBundle] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {
-    const storedHistory = JSON.parse(localStorage.getItem('cardHistory')) || [];
-    setHistory(storedHistory);
-  }, []);
-
-  const handleSendCards = (cards) => {
-    const newHistory = [...history, { id: Date.now(), cards }];
-    setHistory(newHistory);
-    localStorage.setItem('cardHistory', JSON.stringify(newHistory));
+  
+  const filteredBundles = cardBundles.filter(bundle => {
+    if (filter === 'all') return true;
+    return bundle.paymentStatus === filter;
+  });
+  
+  const getCardsInBundle = (bundleId) => {
+    return generatedCards.filter(card => card.bundleId === bundleId);
   };
-
-  const handleViewDetails = (bundle) => {
-    setSelectedBundle(bundle);
-    setShowModal(true);
+  
+  const handleSendAll = (bundleId) => {
+    // Implement send all logic
+    alert(`Sending all cards in bundle ${bundleId}`);
   };
-
-  const handleResendCards = (cards) => {
-    // Implement resend logic here
-    console.log('Resending cards:', cards);
+  
+  const handlePayNow = (bundleId) => {
+    // Implement payment logic
+    alert(`Processing payment for bundle ${bundleId}`);
   };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setSelectedBundle(null);
+  
+  // Always use the test card image as the default for all bundles
+  const getBundlePreviewImage = () => {
+    return testcard; // Always return the test card image
   };
-
+  
+  if (selectedBundle) {
+    return (
+      <CardBundleDetails 
+        bundle={selectedBundle}
+        cards={getCardsInBundle(selectedBundle.bundleId)}
+        onBack={() => setSelectedBundle(null)}
+      />
+    );
+  }
+  
   return (
-    <Box sx={{ flexGrow: 1, p: 2 }}>
-      <h2 className="text-center" style={{ color: '#24366b' }}>Generated WhatsApp Cards</h2>
-      <Grid container spacing={3}>
-        {history.map((bundle) => (
-          <Grid item xs={12} sm={6} md={3} key={bundle.id}>
-            <Card sx={{ height: '100%' }}>
-              <CardMedia
-                component="img"
-                height="200"
-                image={image1}
-                alt={`Bundle ${bundle.id}`}
+    <div className="card-bundles-container">
+      <h2 className="bundles-title">Card Bundles</h2>
+      <div className="filter-options">
+        <button 
+          className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
+          onClick={() => setFilter('all')}
+        >
+          All
+        </button>
+        <button 
+          className={`filter-btn ${filter === 'paid' ? 'active' : ''}`}
+          onClick={() => setFilter('paid')}
+        >
+          Paid
+        </button>
+        <button 
+          className={`filter-btn ${filter === 'unpaid' ? 'active' : ''}`}
+          onClick={() => setFilter('unpaid')}
+        >
+          Unpaid
+        </button>
+      </div>
+      
+      <div className="bundles-list">
+        {filteredBundles.map(bundle => (
+          <div key={bundle.bundleId} className={`bundle-card ${bundle.paymentStatus}`}>
+            <div className="bundle-image-container">
+              <img 
+                src={getBundlePreviewImage()} 
+                alt={`Bundle ${bundle.bundleId}`} 
+                className="bundle-preview-image"
+                onError={(e) => {
+                  e.target.onerror = null; // Prevent infinite loop
+                  e.target.src = testcard; // Set default image on error
+                }}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Bundle {bundle.id}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {bundle.cards.length} cards
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small" variant="outlined" fullWidth onClick={() => handleViewDetails(bundle)}>
-                  View Details
-                </Button>
-                <Button size="small" variant="outlined" fullWidth onClick={() => handleResendCards(bundle.cards)}>
-                  Resend All
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
+              <span className={`status-badge ${bundle.paymentStatus}`}>
+                {bundle.paymentStatus}
+              </span>
+            </div>
+            <div className="bundle-content">
+              <div className="bundle-header">
+                <h3>Bundle #{bundle.bundleId}</h3>
+              </div>
+              <div className="bundle-details">
+                <p><strong>{bundle.totalCards}</strong> cards purchased</p>
+                <p><strong>Date:</strong> {bundle.purchaseDate}</p>
+                <p><strong>Amount:</strong> ${bundle.amount.toFixed(2)}</p>
+              </div>
+              <div className="bundle-actions">
+                <button 
+                  className="view-btn"
+                  onClick={() => setSelectedBundle(bundle)}
+                >
+                  View Cards
+                </button>
+                {bundle.paymentStatus === 'paid' ? (
+                  <button 
+                    className="send-all-btn"
+                    onClick={() => handleSendAll(bundle.bundleId)}
+                  >
+                    Send All
+                  </button>
+                ) : (
+                  <button 
+                    className="pay-now-btn"
+                    onClick={() => handlePayNow(bundle.bundleId)}
+                  >
+                    Pay Now
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
         ))}
-      </Grid>
-
-      <Modal open={showModal} onClose={handleCloseModal}>
-        <Box sx={{ p: 4, backgroundColor: 'white', margin: 'auto', maxWidth: '80%' }}>
-          <Typography variant="h6" gutterBottom>
-            Bundle Details
-          </Typography>
-          {selectedBundle && selectedBundle.cards.map((card, index) => (
-            <Card key={index} sx={{ mb: 2 }}>
-              <CardMedia
-                component="img"
-                height="200"
-                image={image1}
-                alt={`Card ${index + 1}`}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Card {index + 1}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small" variant="outlined" fullWidth onClick={() => handleResendCards([card])}>
-                  Resend
-                </Button>
-              </CardActions>
-            </Card>
-          ))}
-        </Box>
-      </Modal>
-    </Box>
+      </div>
+    </div>
   );
 };
 
-export default GeneratedWhatsAppCard;
+export default CardBundles;
