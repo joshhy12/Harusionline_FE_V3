@@ -4,6 +4,11 @@ import { Container, Card, Row, Col, Button, Modal, Form } from 'react-bootstrap'
 import styles from '../../styles/CardDetails.module.css';
 import './admin_ecards.css';
 
+// Import payment method logos
+import mpesaLogo from '../PaymentHistory/images/2.png';
+import tigopesaLogo from '../PaymentHistory/images/1.png';
+import airtelLogo from '../PaymentHistory/images/3.png';
+
 const AdminCardDetails = () => {
   const location = useLocation();
   const { card } = location.state || {};
@@ -11,6 +16,16 @@ const AdminCardDetails = () => {
   const [statusFilter, setStatusFilter] = useState('NOT SENT');
   const [selectedContacts, setSelectedContacts] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [selectedPayment, setSelectedPayment] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  
+  // Payment methods data
+  const paymentMethods = [
+    { id: 'mpesa', name: 'M-Pesa', image: mpesaLogo },
+    { id: 'tigopesa', name: 'Mixed By Yas', image: tigopesaLogo },
+    { id: 'airtel', name: 'Airtel Money', image: airtelLogo }
+  ];
   
   const [contactData, setContactData] = useState([
     {
@@ -98,15 +113,56 @@ const AdminCardDetails = () => {
 
   const handleGenerateCards = () => {
     // Get selected contacts data
-    const selectedContactsData = contactData.filter(contact => 
-      selectedContacts.includes(contact.phone)
-    );
-    console.log('Generating cards for:', selectedContactsData);
-    // Here you would implement the card generation logic
+    if (selectedContacts.length > 0) {
+      setShowPaymentModal(true);
+      // Reset payment selection when opening modal
+      setSelectedPayment('');
+      setPhoneNumber('');
+    } else {
+      alert("Please select at least one contact");
+    }
   };
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+  const handleClosePaymentModal = () => setShowPaymentModal(false);
+  
+  const handleProceedToPayment = () => {
+    if (!selectedPayment || !phoneNumber) {
+      alert('Please select payment method and enter phone number');
+      return;
+    }
+    
+    // Implement payment logic here
+    console.log('Processing payment:', {
+      amount: calculateTotalPrice(),
+      contacts: selectedContacts.length,
+      paymentMethod: selectedPayment,
+      phoneNumber
+    });
+    
+    // Close modal after successful payment
+    handleClosePaymentModal();
+    
+    // After successful payment, you might want to update the status of these contacts
+    // For example:
+    setContactData(prevData => 
+      prevData.map(contact => 
+        selectedContacts.includes(contact.phone) 
+          ? { ...contact, status: 'SENT' } 
+          : contact
+      )
+    );
+    
+    // Clear selected contacts after payment
+    setSelectedContacts([]);
+  };
+
+  // Calculate total price based on selected contacts and card price
+  const calculateTotalPrice = () => {
+    const pricePerCard = card?.price ? parseFloat(card.price.replace(/[^0-9.]/g, '')) : 750;
+    return (pricePerCard * selectedContacts.length).toFixed(2);
+  };
 
   if (!card) {
     return <div>Card not found</div>;
@@ -268,6 +324,65 @@ const AdminCardDetails = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Payment Modal with Payment Methods */}
+      <Modal show={showPaymentModal} onHide={handleClosePaymentModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Taarifa za kadi</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="payment-info">
+            <div className="payment-detail">
+              <strong>Selected Contacts:</strong> {selectedContacts.length}
+            </div>
+            <div className="payment-detail">
+              <strong>Total Price:</strong> TZS {calculateTotalPrice()}
+            </div>
+          </div>
+          
+          <div className="payment-methods-container mt-4">
+            <h5>Choose Payment Method</h5>
+            <div className="payment-methods">
+              {paymentMethods.map((method) => (
+                <div
+                  key={method.id}
+                  className={`payment-method ${selectedPayment === method.id ? 'selected' : ''}`}
+                  onClick={() => setSelectedPayment(method.id)}
+                >
+                  <img 
+                    src={method.image} 
+                    alt={method.name} 
+                    className="payment-logo"
+                  />
+                  <div className="payment-name">{method.name}</div>
+                </div>
+              ))}
+            </div>
+            
+            {selectedPayment && (
+              <div className="phone-input-container mt-3">
+                <Form.Group>
+                  <Form.Label>Enter Phone Number</Form.Label>
+                  <Form.Control
+                    type="number"
+                    placeholder="e.g. 0755123456"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                  />
+                </Form.Group>
+              </div>
+            )}
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClosePaymentModal}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleProceedToPayment}>
+            Fanya malipo
+          </Button>
         </Modal.Footer>
       </Modal>
     </Container>

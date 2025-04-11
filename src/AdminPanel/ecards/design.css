@@ -92,7 +92,7 @@
 
 /* Status Badge */
 .status-badge {
-  position: absolute;
+  /*position: absolute; */
   top: 10px;
   right: 10px;
   padding: 5px 12px;

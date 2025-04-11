@@ -211,3 +211,52 @@
 .row {
   margin-bottom: 30px;
 }
+
+/* Payment Modal Styles */
+.payment-info {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.payment-detail {
+  margin-bottom: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-detail strong {
+  color: #495057;
+}
+
+.modal-title {
+  color: #24366b;
+  font-weight: 600;
+}
+
+.modal-footer .btn-primary {
+  background-color: #24366b;
+  border-color: #24366b;
+  padding: 8px 20px;
+  font-weight: 500;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #1a2a4d;
+  border-color: #1a2a4d;
+}
+
+.payment-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.payment-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+  text-align: center;
+}
