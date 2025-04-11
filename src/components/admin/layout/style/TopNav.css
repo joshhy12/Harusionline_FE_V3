@@ -70,6 +70,19 @@
   background-color: #f8f9fc;
 }
 
+/* Add to your TopNav.css file */
+.dropdown-item.active, 
+.dropdown-item:active {
+  background-color: #4a85ff;
+  color: white;
+}
+
+.dropdown-toggle::after {
+  margin-left: 0.5rem;
+}
+
+
+
 .logout-item {
   color: #e74a3b;
 }
@@ -143,4 +156,13 @@
 
 .modal-footer .btn-danger:hover {
   background-color: #c82333;
+}
+
+/* Add to your existing TopNav.css */
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.dropdown-toggle .text-truncate {
+  max-width: 160px; /* Adjust as needed */
 }
