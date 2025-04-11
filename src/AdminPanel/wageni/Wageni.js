@@ -166,8 +166,8 @@ const Wageni = () => {
     <div className="container">
       <div className="row">
         <div className="container-fluid mt-4">
-          <h1 className="stylish-heading" style={{ color: '#4169e1' }}>Wageni Wa Shughuli</h1>
-
+              <h1 className="stylish-heading text-center" style={{ color: '#4169e1' }}>Wageni Wa Shughuli</h1>
+    
 
           <div className="dashboard row mt-4">
             <div className="dashboard col text-center">

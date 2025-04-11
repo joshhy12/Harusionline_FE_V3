@@ -101,3 +101,105 @@
     padding: 12px;
   }
   
+  /* Add these styles to your existing Takwimu.css file */
+
+/* Flex container for cards */
+.card-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Base card styles */
+.summary-card {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 24rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+/* Card color variants */
+.budget-card {
+  background-color: #e0e7ff; /* indigo-100 */
+}
+
+.pledges-card {
+  background-color: #ffedd5; /* orange-100 */
+}
+
+.cash-card {
+  background-color: #dcfce7; /* green-100 */
+}
+
+/* Text styles */
+.card-label {
+  color: #4b5563; /* text-gray-700 */
+}
+
+.card-value {
+  color: #4338ca; /* text-indigo-700 */
+  font-size: 1.5rem;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.pledges-value {
+  color: #ea580c; /* text-orange-600 */
+}
+
+.cash-value {
+  color: #16a34a; /* text-green-600 */
+}
+
+/* Icon container */
+.icon-container {
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 9999px; /* rounded-full */
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Icon colors */
+.budget-icon {
+  color: #4338ca; /* text-indigo-700 */
+  font-size: 1.25rem;
+}
+
+.pledges-icon {
+  color: #ea580c; /* text-orange-600 */
+  font-size: 1.25rem;
+}
+
+.cash-icon {
+  color: #16a34a; /* text-green-600 */
+  font-size: 1.25rem;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .summary-card {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .summary-card {
+    max-width: 14rem;
+  }
+}

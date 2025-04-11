@@ -15,6 +15,45 @@ const Takwimu = () => {
   return (
     <div className="takwimu-container">
       <h1 className="takwimu-title">Takwimu</h1>
+      
+    {/* New Cards with manual CSS */}
+<div className="card-container">
+  {/* Total Budget Card */}
+  <div className="summary-card budget-card">
+    <div>
+      <p className="card-label">Total Budget</p>
+      <p className="card-value">TZS 0.00</p>
+    </div>
+    <div className="icon-container">
+      <i className="fas fa-money-bill-wave budget-icon"></i>
+    </div>
+  </div>
+  
+  {/* Pledges Card */}
+  <div className="summary-card pledges-card">
+    <div>
+      <p className="card-label">Pledges</p>
+      <p className="card-value pledges-value">TZS 201,000.00</p>
+    </div>
+    <div className="icon-container">
+      <i className="fas fa-hand-holding-usd pledges-icon"></i>
+    </div>
+  </div>
+  
+  {/* Cash Collected Card */}
+  <div className="summary-card cash-card">
+    <div>
+      <p className="card-label">Cash Collected</p>
+      <p className="card-value cash-value">TZS 0.00</p>
+    </div>
+    <div className="icon-container">
+      <i className="fas fa-coins cash-icon"></i>
+    </div>
+  </div>
+</div>
+
+      
+      {/* Original Content */}
       <Row className="g-4">
         <Col md={6}>
           <div className="takwimu-card">
