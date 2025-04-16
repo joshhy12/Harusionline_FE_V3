@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://test.harusi.online/api/service_providers';
+const API_URL = 'https://api.harusi.online/api/service_providers';
 
 const getWatoaHuduma = async () => {
   try {
