@@ -77,6 +77,7 @@ export const cardBundles = [
     }
 ];
 
+
 export const generatedCards = [
     {
         cardId: "C001",

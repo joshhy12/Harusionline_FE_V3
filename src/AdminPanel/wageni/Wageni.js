@@ -118,9 +118,9 @@ const Wageni = () => {
     // Create sample data
     const sampleData = [
       {
-        name: 'Mrs and Mrs Lucas',
+        name: 'Mr and Mrs Lucas',
         phone_number: '255123456789',
-        email: 'lucas@example.com',
+        email: 'lucas@gmail.com',
         pledge: 'TZS 50,000',
         fund: 'General',
         CardType: 'Single/Double'
