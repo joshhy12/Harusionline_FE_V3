@@ -141,17 +141,7 @@ const Dashboard = () => {
             <div className="dashText mt-2">Share Summary to WhatsApp</div>
           </div>
 
-
-
-
         </div>
-
-
-
-
-
-
-
 
         <div className="row mt-4 g-4">
           <div className="col-md-8">

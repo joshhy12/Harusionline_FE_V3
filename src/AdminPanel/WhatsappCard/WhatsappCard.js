@@ -97,11 +97,8 @@
     return (
       <Card>
         <CardContent>
-          <h2 className="text-center" style={{ color: '#24366b' }}>Whatsapp Cards Status</h2>
-      
-          <Typography variant="body2" color="textSecondary" gutterBottom>
-            Monitor message statuses in real-time, track delivery confirmations, and manage guest interactions effortlessly. Get comprehensive insights into message engagement, response rates, and guest participation - all in one centralized dashboard.
-          </Typography>
+          <h1 className="stylish-heading" style={{ color: '#4169e1', textAlign: 'center' }}>Whatsapp Cards Status </h1>
+
 
           <div className="search-box mb-3">
             <Form.Group controlId="searchInput">

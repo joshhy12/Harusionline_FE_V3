@@ -98,11 +98,9 @@ const Payments = () => {
   return (
     <Card>
       <CardContent>
-        <h1 className="stylish-heading" style={{ color: '#4169e1' }}>Payments Panel </h1>
+        <h1 className="stylish-heading" style={{ color: '#4169e1', textAlign: 'center' }}>Payments Panel </h1>
 
-        <Typography variant="body2" color="textSecondary" gutterBottom>
-          Monitor payment statuses in real-time, track transactions, and manage payment interactions effortlessly. Get comprehensive insights into payment processing, success rates, and transaction details - all in one centralized dashboard.
-        </Typography>
+        
 
         <div className="dashboard row mt-4">
           <div className="dashboard col text-center">

@@ -21,7 +21,7 @@ const EventSettings = () => {
           <Row>
             <Col md={6}>
               <Form.Group controlId="eventTitle" className="settings-mb-3">
-                <Form.Label className="settings-text-danger">Required</Form.Label>
+               
                 <Form.Label className="settings-form-label">Event Title</Form.Label>
                 <Form.Control type="text" placeholder="Fortunatus&Dorah" className="settings-form-control" />
               </Form.Group>
@@ -48,7 +48,7 @@ const EventSettings = () => {
             </Col>
             <Col md={6}>
               <Form.Group controlId="eventDescription" className="settings-mb-3">
-                <Form.Label className="settings-text-danger">Required</Form.Label>
+           
                 <Form.Label className="settings-form-label">Event Description</Form.Label>
                 <Form.Control as="textarea" placeholder="Event Description" className="settings-form-control" />
               </Form.Group>

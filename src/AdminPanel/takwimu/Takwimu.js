@@ -14,7 +14,8 @@ const Takwimu = () => {
 
   return (
     <div className="takwimu-container">
-      <h1 className="takwimu-title">Takwimu</h1>
+      <h1 className="stylish-heading" style={{ color: '#4169e1', textAlign: 'center' }}>Takwimu </h1>
+
       
     {/* New Cards with manual CSS */}
 <div className="card-container">
@@ -22,7 +23,7 @@ const Takwimu = () => {
   <div className="summary-card budget-card">
     <div>
       <p className="card-label">Total Budget</p>
-      <p className="card-value">TZS 0.00</p>
+      <p className="card-value">TZS 301,000.00</p>
     </div>
     <div className="icon-container">
       <i className="fas fa-money-bill-wave budget-icon"></i>
