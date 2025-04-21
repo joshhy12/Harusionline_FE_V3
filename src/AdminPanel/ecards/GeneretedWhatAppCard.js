@@ -66,52 +66,49 @@ const CardBundles = () => {
         </button>
       </div>
       
-      <div className="bundles-list">
+      <div className="cards-grid">
         {filteredBundles.map(bundle => (
-          <div key={bundle.bundleId} className={`bundle-card ${bundle.paymentStatus}`}>
-            <div className="bundle-image-container">
-              <img 
-                src={getBundlePreviewImage()} 
-                alt={`Bundle ${bundle.bundleId}`} 
-                className="bundle-preview-image"
-                onError={(e) => {
-                  e.target.onerror = null; // Prevent infinite loop
-                  e.target.src = testcard; // Set default image on error
-                }}
-              />
+          <div key={bundle.bundleId} className="card-item">
+            <img 
+              src={getBundlePreviewImage()} 
+              alt={`Bundle ${bundle.bundleId}`} 
+              className="card-image"
+              onClick={() => setSelectedBundle(bundle)}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = testcard;
+              }}
+            />
+            <div className="card-overlay">
               <span className={`status-badge ${bundle.paymentStatus}`}>
                 {bundle.paymentStatus}
               </span>
-            </div>
-            <div className="bundle-content">
-              <div className="bundle-header">
-                <h3>Bundle #{bundle.bundleId}</h3>
-              </div>
-              <div className="bundle-details">
-                <p><strong>{bundle.totalCards}</strong> cards purchased</p>
-                <p><strong>Date:</strong> {bundle.purchaseDate}</p>
-                <p><strong>Amount:</strong> ${bundle.amount.toFixed(2)}</p>
-              </div>
-              <div className="bundle-actions">
+              <div className="card-actions">
                 <button 
                   className="view-btn"
                   onClick={() => setSelectedBundle(bundle)}
                 >
-                  View Cards
+                  View
                 </button>
                 {bundle.paymentStatus === 'paid' ? (
                   <button 
                     className="send-all-btn"
-                    onClick={() => handleSendAll(bundle.bundleId)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSendAll(bundle.bundleId);
+                    }}
                   >
-                    Send All
+                    Send
                   </button>
                 ) : (
                   <button 
                     className="pay-now-btn"
-                    onClick={() => handlePayNow(bundle.bundleId)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePayNow(bundle.bundleId);
+                    }}
                   >
-                    Pay Now
+                    Pay
                   </button>
                 )}
               </div>

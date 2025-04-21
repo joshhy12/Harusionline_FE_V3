@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import { cardTemplates } from './cardData';
-import { FaSearch, FaWhatsapp, FaSms, FaEye, FaArrowLeft, FaTimes, FaShare, FaDownload } from 'react-icons/fa';
+import { FaSearch, FaWhatsapp, FaSms, FaEye, FaArrowLeft, FaTimes, FaShare, FaDownload, FaPaperPlane } from 'react-icons/fa';
 import './design.css';
-// Import the test image
-import testCardImage from './testcard.png'; // Adjust the path as needed
+import testCardImage from './testcard.png';
 
 const CardBundleDetails = ({ bundle, cards, onBack }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [sortBy, setSortBy] = useState('name'); // Default sort by name
+  const [sortBy, setSortBy] = useState('name');
   const [selectedCard, setSelectedCard] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
 
   const getTemplateById = (id) => {
     const template = cardTemplates.find(template => template.id === id);
-    // Return the template if found, otherwise return an object with a default image
     return template || {
       imageUrl: testCardImage,
       name: 'Default Template'
@@ -21,7 +19,6 @@ const CardBundleDetails = ({ bundle, cards, onBack }) => {
   };
 
   const handleSendCard = (cardId, method) => {
-    // Implement send logic
     alert(`Sending card ${cardId} via ${method}`);
   };
 
@@ -45,178 +42,172 @@ const CardBundleDetails = ({ bundle, cards, onBack }) => {
   };
 
   const handleShareCard = (cardId) => {
-    // Implement share logic
     alert(`Sharing card ${cardId}`);
   };
 
   const handleDownloadCard = (cardId) => {
-    // Implement download logic
     alert(`Downloading card ${cardId}`);
   };
 
-  // Filter cards based on search term
   const filteredCards = cards.filter(card =>
     card.recipientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
     card.recipientPhone.includes(searchTerm)
   );
 
-  // Sort cards based on selected sort option
   const sortedCards = [...filteredCards].sort((a, b) => {
-    if (sortBy === 'name') {
-      return a.recipientName.localeCompare(b.recipientName);
-    } else if (sortBy === 'status') {
-      return a.status.localeCompare(b.status);
-    } else if (sortBy === 'date') {
-      return new Date(a.createdAt) - new Date(b.createdAt);
-    }
+    if (sortBy === 'name') return a.recipientName.localeCompare(b.recipientName);
+    if (sortBy === 'status') return a.status.localeCompare(b.status);
+    if (sortBy === 'date') return new Date(a.createdAt) - new Date(b.createdAt);
     return 0;
   });
 
   return (
-    <div className="cards-in-bundle-container">
-      <div className="bundle-info-header">
-        <button className="back-to-bundles" onClick={onBack}>
-          <FaArrowLeft /> Back to All Bundles
+    <div className="card-bundle-details-container">
+      {/* Header Section */}
+      <div className="bundle-header">
+        <button className="back-button" onClick={onBack}>
+          <FaArrowLeft /> Back to Bundles
         </button>
-        <h2>
-          Bundle #{bundle.bundleId} - {bundle.totalCards} Cards
-          <span className={`bundle-status-badge ${bundle.paymentStatus}`}>
+        <div className="bundle-title">
+          <h2>Bundle #{bundle.bundleId}</h2>
+          <span className={`status-badge ${bundle.paymentStatus}`}>
             {bundle.paymentStatus}
           </span>
-        </h2>
-      </div>
-
-      <div className="bundle-details-panel">
-        <div className="bundle-stats">
-          <div className="stat-item">
-            <span className="stat-label">Purchase Date:</span>
-            <span className="stat-value">{bundle.purchaseDate}</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-label">Amount:</span>
-            <span className="stat-value">${bundle.amount.toFixed(2)}</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-label">Sent:</span>
-            <span className="stat-value">{cards.filter(c => c.status === 'sent').length}</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-label">Unsent:</span>
-            <span className="stat-value">{cards.filter(c => c.status === 'unsent').length}</span>
-          </div>
         </div>
-
-        {bundle.paymentStatus === 'paid' && (
-          <button 
-            className="send-all-unsent-btn"
-            onClick={handleSendAllUnsent}
-          >
-            Send All Unsent Cards
-          </button>
-        )}
       </div>
 
-      <div className="cards-controls">
-        <div className="search-container">
+      {/* Stats Overview */}
+      <div className="stats-overview">
+        <div className="stat-card">
+          <div className="stat-value">{bundle.totalCards}</div>
+          <div className="stat-label">Total Cards</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-value">{cards.filter(c => c.status === 'sent').length}</div>
+          <div className="stat-label">Sent</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-value">{cards.filter(c => c.status === 'unsent').length}</div>
+          <div className="stat-label">Unsent</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-value">${bundle.amount.toFixed(2)}</div>
+          <div className="stat-label">Total Amount</div>
+        </div>
+      </div>
+
+      {/* Action Bar */}
+      <div className="action-bar">
+        <div className="search-box">
           <FaSearch className="search-icon" />
           <input
             type="text"
-            placeholder="Search by name or phone..."
+            placeholder="Search cards..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
           />
         </div>
         
-        <div className="sort-container">
-          <label htmlFor="sortSelect">Sort by:</label>
+        <div className="action-buttons">
           <select 
-            id="sortSelect" 
             value={sortBy} 
             onChange={(e) => setSortBy(e.target.value)}
             className="sort-select"
           >
-            <option value="name">Recipient Name</option>
-            <option value="status">Status</option>
-            <option value="date">Creation Date</option>
+            <option value="name">Sort by Name</option>
+            <option value="status">Sort by Status</option>
+            <option value="date">Sort by Date</option>
           </select>
+          
+          {bundle.paymentStatus === 'paid' && (
+            <button 
+              className="send-all-button"
+              onClick={handleSendAllUnsent}
+            >
+              <FaPaperPlane /> Send All Unsent
+            </button>
+          )}
         </div>
       </div>
 
+      {/* Cards Grid */}
       {filteredCards.length === 0 ? (
-        <div className="no-results">
-          <p>No cards match your search criteria.</p>
+        <div className="empty-state">
+          <div className="empty-icon">🎁</div>
+          <h3>No cards found</h3>
+          <p>Try adjusting your search criteria</p>
         </div>
       ) : (
-        <div className="cards-grid">
+        <div className="enhanced-cards-grid">
           {sortedCards.map(card => {
             const template = getTemplateById(card.templateId);
             return (
               <div key={card.cardId} className={`e-card ${card.status}`}>
-                <div className="card-preview">
+                <div className="card-image-container">
                   <img
                     src={template.imageUrl}
                     alt={template.name}
-                    className="card-thumbnail"
+                    className="card-image"
+                    onClick={() => handleViewCard(card)}
                     onError={(e) => {
-                      e.target.onerror = null; // Prevent infinite loop
-                      e.target.src = testCardImage; // Set default image on error
+                      e.target.onerror = null;
+                      e.target.src = testCardImage;
                     }}
                   />
-                  <span className={`card-status-indicator ${card.status}`}>
-                    {card.status}
-                  </span>
+                  <div className="card-status-badge">{card.status}</div>
                 </div>
-                <div className="card-content">
-                  <div className="card-details">
-                    <h4 className="recipient-name">{card.recipientName}</h4>
-                    <p className="recipient-phone">{card.recipientPhone}</p>
-                    {card.status === 'sent' && (
-                      <p className="sent-date">
-                        Sent: {new Date(card.sentAt).toLocaleDateString()}
-                      </p>
-                    )}
-                    {card.viewCount > 0 && (
-                      <p className="view-count">
-                        Viewed: {card.viewCount} times
-                      </p>
-                    )}
-                  </div>
+                
+                <div className="card-info">
+                  <h4 className="recipient-name">{card.recipientName}</h4>
+                  <p className="recipient-phone">{card.recipientPhone}</p>
+                  
+                  {card.status === 'sent' && (
+                    <p className="sent-date">
+                      Sent: {new Date(card.sentAt).toLocaleDateString()}
+                    </p>
+                  )}
+                  
                   <div className="card-actions">
-                    <button
-                      className="view-card-btn"
+                    <button 
+                      className="action-button view-button"
                       onClick={() => handleViewCard(card)}
                     >
                       <FaEye /> View
                     </button>
-                    <button
-                      className="share-btn"
-                      onClick={() => handleShareCard(card.cardId)}
-                    >
-                      <FaShare /> Share
-                    </button>
-                    <button
-                      className="download-btn"
-                      onClick={() => handleDownloadCard(card.cardId)}
-                    >
-                      <FaDownload /> Download
-                    </button>
-                    {card.status === 'unsent' && bundle.paymentStatus === 'paid' && (
-                      <div className="send-options">
-                        <button
-                          className="send-btn whatsapp"
-                          onClick={() => handleSendCard(card.cardId, 'whatsapp')}
-                        >
-                          <FaWhatsapp /> WhatsApp
-                        </button>
-                        <button
-                          className="send-btn sms"
-                          onClick={() => handleSendCard(card.cardId, 'sms')}
-                        >
-                          <FaSms /> SMS
-                        </button>
-                      </div>
-                    )}
+                    
+                    <div className="send-options">
+                      {card.status === 'unsent' && bundle.paymentStatus === 'paid' ? (
+                        <>
+                          <button
+                            className="action-button whatsapp-button"
+                            onClick={() => handleSendCard(card.cardId, 'whatsapp')}
+                          >
+                            <FaWhatsapp />
+                          </button>
+                          <button
+                            className="action-button sms-button"
+                            onClick={() => handleSendCard(card.cardId, 'sms')}
+                          >
+                            <FaSms />
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <button
+                            className="action-button share-button"
+                            onClick={() => handleShareCard(card.cardId)}
+                          >
+                            <FaShare />
+                          </button>
+                          <button
+                            className="action-button download-button"
+                            onClick={() => handleDownloadCard(card.cardId)}
+                          >
+                            <FaDownload />
+                          </button>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -225,78 +216,83 @@ const CardBundleDetails = ({ bundle, cards, onBack }) => {
         </div>
       )}
 
+      {/* Card Preview Popup */}
       {showPopup && selectedCard && (
-        <div className="card-popup-overlay">
-          <div className="card-popup-content">
-            <div className="card-popup-header">
+        <div className="card-preview-modal">
+          <div className="modal-overlay" onClick={handleClosePopup}></div>
+          <div className="modal-content">
+            <div className="modal-header">
               <h3>Card Preview</h3>
-              <button className="close-popup-btn" onClick={handleClosePopup}>
+              <button className="close-button" onClick={handleClosePopup}>
                 <FaTimes />
               </button>
             </div>
-            <div className="card-popup-body">
-              <div className="card-popup-image-container">
+            
+            <div className="modal-body">
+              <div className="card-preview-image">
                 <img 
                   src={getTemplateById(selectedCard.templateId).imageUrl} 
                   alt="Card Preview" 
-                  className="card-popup-image"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = testCardImage;
                   }}
                 />
               </div>
-              <div className="card-popup-details">
-                <div className="card-popup-info">
-                  <h4>Recipient Information</h4>
+              
+              <div className="card-details">
+                <div className="detail-section">
+                  <h4>Recipient Details</h4>
                   <p><strong>Name:</strong> {selectedCard.recipientName}</p>
                   <p><strong>Phone:</strong> {selectedCard.recipientPhone}</p>
-                  <p><strong>Status:</strong> <span className={`status-text ${selectedCard.status}`}>{selectedCard.status}</span></p>
-                  {selectedCard.status === 'sent' && (
-                    <p><strong>Sent Date:</strong> {new Date(selectedCard.sentAt).toLocaleString()}</p>
-                  )}
-                  {selectedCard.viewCount > 0 && (
-                    <p><strong>Views:</strong> {selectedCard.viewCount}</p>
-                  )}
+                  <p>
+                    <strong>Status:</strong> 
+                    <span className={`status-tag ${selectedCard.status}`}>
+                      {selectedCard.status}
+                    </span>
+                  </p>
                 </div>
-                <div className="card-popup-message">
-                  <h4>Message</h4>
-                  <p>{selectedCard.message || "No custom message"}</p>
+                
+                <div className="detail-section">
+                  <h4>Card Information</h4>
+                  <p><strong>Template:</strong> {getTemplateById(selectedCard.templateId).name}</p>
+                  {selectedCard.message && (
+                    <p><strong>Message:</strong> {selectedCard.message}</p>
+                  )}
                 </div>
               </div>
             </div>
-            <div className="card-popup-footer">
+            
+            <div className="modal-footer">
               <button
-                className="share-btn"
+                className="modal-button share-button"
                 onClick={() => handleShareCard(selectedCard.cardId)}
               >
                 <FaShare /> Share
               </button>
               <button
-                className="download-btn"
+                className="modal-button download-button"
                 onClick={() => handleDownloadCard(selectedCard.cardId)}
               >
                 <FaDownload /> Download
               </button>
+              
               {selectedCard.status === 'unsent' && bundle.paymentStatus === 'paid' && (
-                <div className="popup-send-options">
+                <div className="send-options">
                   <button
-                    className="send-btn whatsapp"
+                    className="modal-button whatsapp-button"
                     onClick={() => handleSendCard(selectedCard.cardId, 'whatsapp')}
                   >
                     <FaWhatsapp /> Send via WhatsApp
                   </button>
                   <button
-                    className="send-btn sms"
+                    className="modal-button sms-button"
                     onClick={() => handleSendCard(selectedCard.cardId, 'sms')}
                   >
                     <FaSms /> Send via SMS
                   </button>
                 </div>
               )}
-              <button className="close-btn" onClick={handleClosePopup}>
-                Close
-              </button>
             </div>
           </div>
         </div>
