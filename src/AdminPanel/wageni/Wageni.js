@@ -162,12 +162,15 @@ const Wageni = () => {
     visitor.namba.includes(searchTerm)
   );
 
+  const [previewRowsToShow, setPreviewRowsToShow] = useState(20);
+
+
   return (
     <div className="container">
       <div className="row">
         <div className="container-fluid mt-4">
-              <h1 className="stylish-heading text-center" style={{ color: '#4169e1' }}>Wageni Wa Shughuli</h1>
-    
+          <h1 className="stylish-heading text-center" style={{ color: '#4169e1' }}>Wageni Wa Shughuli</h1>
+
 
           <div className="dashboard row mt-4">
             <div className="dashboard col text-center">
@@ -330,6 +333,25 @@ const Wageni = () => {
               {showPreview && previewData.length > 0 && (
                 <div className="preview-container">
                   <h5>Preview</h5>
+                  <div className="d-flex justify-content-between align-items-center mb-2">
+                    <p className="text-muted mb-0">Showing {Math.min(previewRowsToShow, previewData.length)} of {previewData.length} records</p>
+                    <div className="d-flex align-items-center">
+                      <label htmlFor="rowsToShow" className="me-2 mb-0">Rows to display:</label>
+                      <Form.Select
+                        id="rowsToShow"
+                        className="form-select-sm"
+                        style={{ width: '100px' }}
+                        value={previewRowsToShow}
+                        onChange={(e) => setPreviewRowsToShow(Number(e.target.value))}
+                      >
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value={previewData.length}>All</option>
+                      </Form.Select>
+                    </div>
+                  </div>
                   <div className="table-responsive">
                     <table className="table table-bordered table-sm">
                       <thead>
@@ -343,7 +365,7 @@ const Wageni = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {previewData.slice(0, 100).map((row, index) => (
+                        {previewData.slice(0, previewRowsToShow).map((row, index) => (
                           <tr key={index}>
                             {Object.values(row).map((cell, i) => (
                               <td key={i}>{cell}</td>
@@ -353,9 +375,12 @@ const Wageni = () => {
                       </tbody>
                     </table>
                   </div>
-                  <p className="text-muted">Showing first 100 rows of {previewData.length} records</p>
                 </div>
               )}
+
+
+
+
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={() => setShowMultipleModal(false)}>
