@@ -72,7 +72,7 @@ const WatoaHuduma = () => {
 
       {/* Filter Buttons */}
       <div className={styles.filterButtons}>
-        {['all', 'mapambo', 'vinywaji', 'mapishi'].map(category => (
+        {['all', 'mapambo', 'vinywaji', 'mapishi','Picha'].map(category => (
           <button
             key={category}
             className={`${styles.filterButton} ${filter === category ? styles.filterButtonActive : ''}`}
