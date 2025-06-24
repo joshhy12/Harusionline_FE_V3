@@ -1,0 +1,82 @@
+/* Settings page styles */
+
+.stylish-heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  
+  .admin-main-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .settings-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    margin-bottom: 20px;
+  }
+  
+  .settings-nav {
+    margin-bottom: 20px;
+  }
+  
+  .settings-nav .nav-link {
+    color: #495057;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .settings-nav .nav-link.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .settings-button {
+    background-color: #007bff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  
+  .settings-button:hover {
+    background-color: #0069d9;
+  }
+  
+  /* Form styling */
+  .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .form-check-input:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .settings-nav {
+      display: flex;
+      flex-direction: row !important;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    
+    .settings-nav .nav-item {
+      margin-right: 10px;
+    }
+    
+    .settings-nav .nav-link {
+      padding: 8px 12px;
+    }
+  }
+  

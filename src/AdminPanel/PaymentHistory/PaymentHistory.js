@@ -52,7 +52,6 @@ const Payments = () => {
   const columns = [
     { name: 'Date', selector: (row) => row.date, sortable: true, width: '230px' },
     { name: 'Transaction Token', selector: (row) => row.transactionToken, sortable: true, width: '230px' },
-    { name: 'Reference', selector: (row) => row.reference, sortable: true, width: '130px' },
     { name: 'Payment For', selector: (row) => row.for, sortable: true, width: '200px' },
     { name: 'Amount', selector: (row) => row.amount, sortable: true, width: '100px' },
     { name: 'Payment Method', selector: (row) => row.paymentMethod, sortable: true, width: '150px' },
@@ -99,11 +98,9 @@ const Payments = () => {
   return (
     <Card>
       <CardContent>
-        <h2 className="text-center" style={{ color: '#24366b' }}> Payments Panel </h2>
+        <h1 className="stylish-heading" style={{ color: '#4169e1', textAlign: 'center' }}>Payments Panel </h1>
 
-        <Typography variant="body2" color="textSecondary" gutterBottom>
-          Monitor payment statuses in real-time, track transactions, and manage payment interactions effortlessly. Get comprehensive insights into payment processing, success rates, and transaction details - all in one centralized dashboard.
-        </Typography>
+        
 
         <div className="dashboard row mt-4">
           <div className="dashboard col text-center">
@@ -129,7 +126,7 @@ const Payments = () => {
           </div>
 
           <div className="dashboard col text-center">
-            <Link to="/admin/send-invitations" className="text-decoration-none">
+            <Link to="#" className="text-decoration-none">
               <div className="dashboard bg-dash p-4 rounded-lg">
                 <div className="dashText">
                   <FaWhatsapp className="mb-2" size={24} />
@@ -140,7 +137,7 @@ const Payments = () => {
           </div>
 
           <div className="dashboard col text-center">
-            <Link to="/admin/send-invitations" className="text-decoration-none">
+            <Link to="#" className="text-decoration-none">
               <div className="dashboard bg-dash p-4 rounded-lg">
                 <div className="dashText">
                   <FaGift className="mb-2" size={24} />

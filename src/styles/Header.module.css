@@ -1,3 +1,23 @@
+.fixedNav {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+}
+
+/* Add this to create space for the fixed navbar */
+:global(main), :global(.main-content) {
+  padding-top: 2px; /* Adjust this value based on your navbar height */
+}
+
+/* Add margin to the main content */
+.mainContent {
+  margin-top: 80px; /* Adjust this value based on your header height */
+}
+
+
 .customShadow {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.416), 0 1px 3px rgba(0, 0, 0, 0.08);
 }

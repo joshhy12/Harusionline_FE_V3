@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-
-
 import { Link } from 'react-router-dom';
-import { FaPaperPlane, FaUserFriends, FaDonate, FaWhatsapp, FaEdit, FaTrash, FaDownload  } from 'react-icons/fa';
-
+import { FaPaperPlane, FaUserFriends, FaDonate, FaWhatsapp, FaEdit, FaTrash, FaDownload } from 'react-icons/fa';
 import DataTable from 'react-data-table-component';
 import { Form, Button, Modal } from 'react-bootstrap';
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './wageni.css';
 
@@ -19,8 +18,10 @@ const Wageni = () => {
     jina: '',
     kikundi: '',
     namba: '',
-    mchango: '' 
+    mchango: ''
   });
+  const [previewData, setPreviewData] = useState([]);
+  const [showPreview, setShowPreview] = useState(false);
 
   const visitorsData = [
     { id: 1, jina: 'John Doe', kikundi: 'Kikundi A', namba: '0753123456', mchango: 'TZS 100,000' },
@@ -75,11 +76,33 @@ const Wageni = () => {
     setShowModal(false);
   };
 
+  const expectedHeaders = ['name', 'phone_number', 'email', 'pledge', 'fund', 'CardType'];
+
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
       setFileName(file.name);
-      console.log("File chosen:", file.name);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const workbook = XLSX.read(e.target.result, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const data = XLSX.utils.sheet_to_json(worksheet);
+
+        // Map data to expected format
+        const formattedData = data.map(row => ({
+          name: row.name || '',
+          phone_number: row.phone_number || '',
+          email: row.email || '',
+          pledge: row.pledge || '',
+          fund: row.fund || '',
+          CardType: row.CardType || ''
+        }));
+
+        setPreviewData(formattedData);
+        setShowPreview(true);
+      };
+      reader.readAsArrayBuffer(file);
     }
   };
 
@@ -91,8 +114,30 @@ const Wageni = () => {
     // Implement delete logic here
   };
 
+  const handleDownloadExcel = () => {
+    // Create sample data
+    const sampleData = [
+      {
+        name: 'Mr and Mrs Lucas',
+        phone_number: '255123456789',
+        email: 'lucas@gmail.com',
+        pledge: 'TZS 50,000',
+        fund: 'General',
+        CardType: 'Single/Double'
+      }
+    ];
+
+    // Create workbook and worksheet
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(sampleData);
+    XLSX.utils.book_append_sheet(wb, ws, "Template");
+
+    // Save file
+    XLSX.writeFile(wb, "excel_format_sample.xlsx");
+  };
+
   const columns = [
-    { 
+    {
       name: '#',
       cell: (row, index) => index + 1,
       width: '60px'
@@ -117,13 +162,17 @@ const Wageni = () => {
     visitor.namba.includes(searchTerm)
   );
 
+  const [previewRowsToShow, setPreviewRowsToShow] = useState(20);
+
+
   return (
     <div className="container">
       <div className="row">
         <div className="container-fluid mt-4">
-        <h2 className="text-center" style={{ color: '#24366b' }}>Wageni Wa Shughuli</h2>
+          <h1 className="stylish-heading text-center" style={{ color: '#4169e1' }}>Wageni Wa Shughuli</h1>
 
-        <div className="dashboard row mt-4">
+
+          <div className="dashboard row mt-4">
             <div className="dashboard col text-center">
               <Link to="" className="text-decoration-none">
                 <div className="dashboard bg-dash p-4 rounded-lg">
@@ -220,7 +269,7 @@ const Wageni = () => {
                   <Form.Control
                     type="text"
                     value={newWageni.jina}
-                    onChange={(e) => setNewWageni({...newWageni, jina: e.target.value})}
+                    onChange={(e) => setNewWageni({ ...newWageni, jina: e.target.value })}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -228,7 +277,7 @@ const Wageni = () => {
                   <Form.Control
                     type="text"
                     value={newWageni.kikundi}
-                    onChange={(e) => setNewWageni({...newWageni, kikundi: e.target.value})}
+                    onChange={(e) => setNewWageni({ ...newWageni, kikundi: e.target.value })}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -236,7 +285,7 @@ const Wageni = () => {
                   <Form.Control
                     type="text"
                     value={newWageni.namba}
-                    onChange={(e) => setNewWageni({...newWageni, namba: e.target.value})}
+                    onChange={(e) => setNewWageni({ ...newWageni, namba: e.target.value })}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3">
@@ -244,7 +293,7 @@ const Wageni = () => {
                   <Form.Control
                     type="text"
                     value={newWageni.mchango}
-                    onChange={(e) => setNewWageni({...newWageni, mchango: e.target.value})}
+                    onChange={(e) => setNewWageni({ ...newWageni, mchango: e.target.value })}
                   />
                 </Form.Group>
               </Form>
@@ -259,33 +308,96 @@ const Wageni = () => {
             </Modal.Footer>
           </Modal>
 
-          <Modal show={showMultipleModal} onHide={() => setShowMultipleModal(false)}>
+          <Modal show={showMultipleModal} onHide={() => setShowMultipleModal(false)} size="lg">
             <Modal.Header closeButton>
-              <Modal.Title>Import CSV / Excel File</Modal.Title>
+              <Modal.Title>Import Excel File</Modal.Title>
             </Modal.Header>
-            <Modal.Body className="text-center">
-              <p className="text-muted mb-4">Upload a CSV or Excel file with contacts</p>
-              <p className="text-muted mb-2">Click to download</p>
-              <div className="mb-3">
-                <a href="#" className="link-custom">CSV format <FaDownload /></a>
-              </div>
+            <Modal.Body>
               <div className="mb-4">
-                <a href="#" className="link-custom">Excel format <FaDownload /></a>
-              </div>
-              <div className="d-flex justify-content-center align-items-center mb-4">
                 <input
                   type="file"
-                  className="form-control-file mr-2"
-                  accept=".csv, .xlsx"
+                  className="form-control"
+                  accept=".xlsx, .xls"
                   onChange={handleFileUpload}
                 />
-                <span className="text-muted ml-2">{fileName}</span>
               </div>
+
+              <p className="text-muted mb-2">Click to download</p>
+              <div className="mb-4">
+                <a href="#" className="link-custom" onClick={handleDownloadExcel}>
+                  Excel format <FaDownload />
+                </a>
+              </div>
+
+
+              {showPreview && previewData.length > 0 && (
+                <div className="preview-container">
+                  <h5>Preview</h5>
+                  <div className="d-flex justify-content-between align-items-center mb-2">
+                    <p className="text-muted mb-0">Showing {Math.min(previewRowsToShow, previewData.length)} of {previewData.length} records</p>
+                    <div className="d-flex align-items-center">
+                      <label htmlFor="rowsToShow" className="me-2 mb-0">Rows to display:</label>
+                      <Form.Select
+                        id="rowsToShow"
+                        className="form-select-sm"
+                        style={{ width: '100px' }}
+                        value={previewRowsToShow}
+                        onChange={(e) => setPreviewRowsToShow(Number(e.target.value))}
+                      >
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value={previewData.length}>All</option>
+                      </Form.Select>
+                    </div>
+                  </div>
+                  <div className="table-responsive">
+                    <table className="table table-bordered table-sm">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Phone Number</th>
+                          <th>Email</th>
+                          <th>Pledge</th>
+                          <th>Fund</th>
+                          <th>Card Type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {previewData.slice(0, previewRowsToShow).map((row, index) => (
+                          <tr key={index}>
+                            {Object.values(row).map((cell, i) => (
+                              <td key={i}>{cell}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+
+
+
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={() => setShowMultipleModal(false)}>
-                Close
+                Cancel
               </Button>
+              {showPreview && (
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    // Handle import confirmation
+                    console.log('Importing data:', previewData);
+                    setShowMultipleModal(false);
+                  }}
+                >
+                  Confirm Import
+                </Button>
+              )}
             </Modal.Footer>
           </Modal>
         </div>

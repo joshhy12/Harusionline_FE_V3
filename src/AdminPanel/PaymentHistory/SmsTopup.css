@@ -20,6 +20,16 @@
         margin-bottom: 1.5rem;
     }
 
+    .sms-card {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    
+    .sms-card:hover {
+        transform: scale(1.02);
+    }
+    
+
     .bi-envelope-plus-fill {
         color: #ffa500;
         font-size: 24px;
@@ -155,3 +165,275 @@
         font-size: 1rem;
         text-align: center;
     }
+
+    .payment-container {
+        padding: 20px;
+       
+        margin: 0 auto;
+    }
+
+    .payment-summary {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+
+    .payment-methods {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .payment-method {
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .payment-method.selected {
+        border-color: #007bff;
+        background-color: #e9eefb;
+    }
+
+    .payment-method img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-bottom: 10px;
+    }
+
+    .phone-input {
+        margin: 20px 0;
+    }
+
+    .phone-input input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .payment-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .payment-buttons button {
+        padding: 10px 20px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .payment-buttons button:first-child {
+        background-color: #e9ecef;
+    }
+
+    .payment-buttons button:last-child {
+        background-color: #007bff;
+        color: white;
+    }
+
+@media (max-width: 768px) {
+  .payment-container {
+    padding: 15px;
+    width: 100%;
+  }
+
+  .payment-methods {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .payment-method {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .payment-method img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .payment-summary {
+    margin: 15px 0;
+    font-size: 14px;
+  }
+
+  .phone-input input {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .payment-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .payment-buttons button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+/* Service Type Selector */
+.service-type-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.service-option {
+    padding: 10px 15px;
+    border: 1px solid #24366b;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.service-option.active {
+    background-color: #24366b;
+    color: white;
+}
+
+/* WhatsApp Card Specific Styles */
+.whatsapp-card {
+    background-color: #25D366;
+    color: white;
+}
+
+.whatsapp-card .sms-card-header {
+    background-color: #128C7E;
+}
+
+/* Total Section */
+.total-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.total-amount {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.next-button {
+    padding: 10px 20px;
+    background-color: #24366b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.next-button:hover {
+    background-color: #1a2a4f;
+}
+
+/* Input Groups */
+.sms-input-group {
+    margin: 15px 0;
+}
+
+.sms-input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Credit Type Selector */
+.credit-type-selector {
+    margin-bottom: 20px;
+  }
+  
+  .credit-type-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .credit-type-option {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .credit-type-option:hover {
+    border-color: #24366b;
+    background-color: #f5f8ff;
+  }
+  
+  .credit-type-option.selected {
+    border-color: #24366b;
+    background-color: #e6ecff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .credit-type-option i {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #24366b;
+  }
+  
+  .credit-type-option span {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .credit-type-option small {
+    color: #666;
+    font-size: 12px;
+  }
+  
+  /* WhatsApp Input */
+  .whatsapp-input-group {
+    margin-bottom: 20px;
+  }
+  
+  .whatsapp-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .whatsapp-price {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+  }
+  
+  /* Total Amount */
+  .total-amount {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  

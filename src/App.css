@@ -13,3 +13,55 @@
 main {
   flex: 1;
 }
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+/* Styles for user-side layout */
+.user-layout .main-content {
+  padding-top: 76px;
+  min-height: 100vh;
+}
+
+/* Styles for admin layout */
+.admin-layout .main-content {
+  min-height: 100vh;
+}
+
+/* .main-content {
+  padding-top: 76px; /* Adjust based on your navbar height
+    min-height: 100vh;
+} */
+
+.admin-main-content {
+  padding-top: 0; /* No padding for admin panel */
+  min-height: 100vh;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+  }
+}

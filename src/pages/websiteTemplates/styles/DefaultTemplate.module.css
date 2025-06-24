@@ -1,0 +1,174 @@
+.defaultTemplate {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdfdfd;
+  }
+  
+  .header {
+    background-color: #00aaff; /* Using the theme blue color from the existing styles */
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
+  
+  
+  .header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    margin: 0;
+    color: #00aaff;
+  }
+  
+  .header p {
+    font-size: 1.2em;
+    color: #0088cc;
+    margin-top: 10px;
+  }
+  
+  /* Main Content */
+  .mainContent {
+    margin-top: 30px;
+    padding: 20px;
+  }
+  
+  .eventImage {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .actionButton {
+    margin-top: 20px;
+    color: #0056b3;
+    border: 2px solid #0056b3;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .actionButton:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+  }
+  
+  /* Event Details Section */
+  .eventDetailsSection {
+    padding: 60px 0;
+    background-color: #f8f8f8;
+  }
+  
+  .eventDetails h3 {
+    font-family: 'Pacifico', cursive;
+    color: #00aaff;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  
+  .eventCard {
+    background-color: white;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.2s;
+  }
+  
+  .eventCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cardContent p {
+    font-size: 1em;
+    color: #666666;
+  }
+  
+  .cardContent i {
+    margin-right: 8px;
+    color: #00aaff;
+  }
+  
+  /* Location Link */
+  .locationLink {
+    color: #00aaff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .locationLink:hover {
+    color: #0088cc;
+    text-decoration: underline;
+  }
+  
+  /* RSVP Form */
+  .rsvpForm {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px 0;
+  }
+  
+  .rsvpForm label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .rsvpForm input,
+  .rsvpForm select,
+  .rsvpForm textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .rsvpForm input:focus,
+  .rsvpForm select:focus,
+  .rsvpForm textarea:focus {
+    border-color: #00aaff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 170, 255, 0.2);
+  }
+  
+  .rsvpForm button[type="submit"] {
+    background-color: #00aaff;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .rsvpForm button[type="submit"]:hover {
+    background-color: #0088cc;
+  }
+  
+  /* Footer */
+  .footer {
+    
+    padding: 20px 0;
+      color: rgb(0, 0, 0);
+    font-size: 1.2em;
+    font-family: 'Pacifico', cursive;
+  }
+  
+  @media (max-width: 768px) {
+    .header h1 {
+      font-size: 2.5em;
+    }
+    
+    .eventCard {
+      padding: 20px;
+    }
+  
+    .rsvpForm {
+      padding: 20px;
+    }
+  }
+  

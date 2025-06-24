@@ -1,0 +1,51 @@
+/* Events Section */
+.eventsSection {
+    padding: 20px 0; /* Add padding for spacing */
+  }
+  
+  .sectionTitle {
+    font-size: 2rem; /* Increase font size for title */
+    font-weight: bold; /* Make title bold */
+    margin-bottom: 1.5rem; /* Space below title */
+  }
+  
+  /* Filter Button Styles */
+  .filterButtons {
+    margin-bottom: 1rem;
+  }
+  
+ /* Filter Button Styles */
+.filterBtn {
+    margin: 0 5px; /* Space between buttons */
+    border-radius: 20px; /* Make buttons rounder */
+    padding: 0.375rem 0.75rem; /* Add padding for button size */
+  }
+  
+  /* Events Grid */
+  .eventsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 15px; /* Space between cards */
+  }
+  
+  /* Card Styles */
+  .eventCard {
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Round corners */
+    transition: transform 0.2s; /* Smooth hover effect */
+  }
+  
+  .eventCard:hover {
+    transform: scale(1.03); /* Slightly enlarge card on hover */
+  }
+  
+  /* Card Image */
+  .card-img-top {
+    border-top-left-radius: 10px; /* Round top corners */
+    border-top-right-radius: 10px; /* Round top corners */
+  }
+  
+  .detailsButton {
+    border-radius: 20px; /* Round corners for the button */
+    padding: 0.375rem 0.75rem; /* Add padding for button size */
+  }

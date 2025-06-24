@@ -2,17 +2,25 @@
   import { Card, CardContent, Typography } from '@mui/material';
   import DataTable from 'react-data-table-component';
   import { Form } from 'react-bootstrap';
+  import WhatsappDetailsModal from '../../models/WhatsappDetailsModal';
   import 'bootstrap/dist/css/bootstrap.min.css';
 
   const WhatsappCard = () => {
     const [perPage, setPerPage] = useState(100);
     const [searchTerm, setSearchTerm] = useState('');
+    const [showModal, setShowModal] = useState(false);
+    const [selectedMessage, setSelectedMessage] = useState(null);
+
+    const handleRowClick = (row) => {
+      setSelectedMessage(row);
+      setShowModal(true);
+    };
 
     const whatsappData = [
       { id: 1, name: 'Mr&Mrs Hance Humphrey', number: '255752848541', status: '✅✅ Read', sentTime: '2024-09-07T13:03:02.000000Z', deliveryTime: '', reply: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=)  ' },
       { id: 2, name: 'Mr&Mrs Hance Humphrey', number: '255752848541', status: '✔ Sent', sentTime: '2024-09-07T13:02:57.000000Z', deliveryTime: '', reply: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=)  ' },
       { id: 3, name: 'Mr&Mrs Gozibert', number: '255682392032', status: '✅ Delivered', sentTime: '2024-08-28T16:57:36.000000Z', deliveryTime: '', reply: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=)  ' },
-      { id: 4, name: 'KAGE/FRAZIA', number: '255767516150', status: '✔ Sent', sentTime: '2024-08-27T18:32:24.000000Z', deliveryTime: '', reply: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=)  ' },
+      { id: 4, name: 'KAGE FRAZIA', number: '255767516150', status: '✔ Sent', sentTime: '2024-08-27T18:32:24.000000Z', deliveryTime: '', reply: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=)  ' },
       { id: 5, name: 'Jackline P Mwibule', number: '255763600949', status: '✅ Delivered', sentTime: '2024-09-14T11:34:39.000000Z', deliveryTime: '2024-09-14 11:34:42', reply: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=)  ' },
       { id: 6, name: 'Frank', number: '255655320361', status: '✅ Delivered', sentTime: '2024-09-14T05:36:01.000000Z', deliveryTime: '2024-09-14 05:56:59', reply: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=)  ' },
       { id: 7, name: 'John Doe', number: '255655320362', status: '✅✅ Read', sentTime: '2024-09-14T05:36:01.000000Z', deliveryTime: '2024-09-14 05:56:59', reply: 'Habari Paulo Transporter, kwa upendo mkubwa tunakukumbusha kumailza/kupunguza ahadi yako (Pretty Confimation) (Umechangia 0/= Bado: 200,000/=)  ' },
@@ -55,8 +63,11 @@
             lineHeight: '1.2em',
             height: '4.8em',
             overflow: 'hidden',
-            textOverflow: 'ellipsis'
-          }}>
+            textOverflow: 'ellipsis',
+            cursor: 'pointer'
+          }}
+          onClick={() => handleRowClick(row)}
+          >
             {row.reply}
           </div>
         )
@@ -86,14 +97,9 @@
     return (
       <Card>
         <CardContent>
-          <h2 className="text-center" style={{ color: '#24366b' }}>Whatsapp Cards Status</h2>
-        
-          <Typography variant="body2" color="textSecondary" gutterBottom>
-    Monitor message statuses in real-time, track delivery confirmations, and manage guest interactions effortlessly. Get comprehensive insights into message engagement, response rates, and guest participation - all in one centralized dashboard.
+          <h1 className="stylish-heading" style={{ color: '#4169e1', textAlign: 'center' }}>Whatsapp Cards Status </h1>
 
-       </Typography>
 
-        
           <div className="search-box mb-3">
             <Form.Group controlId="searchInput">
               <Form.Label>Search</Form.Label>
@@ -123,6 +129,12 @@
               />
             </div>
           </div>
+
+          <WhatsappDetailsModal
+            show={showModal}
+            handleClose={() => setShowModal(false)}
+            message={selectedMessage}
+          />
         </CardContent>
       </Card>
     );

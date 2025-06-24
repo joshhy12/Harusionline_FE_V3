@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
-import { Form, Button, Modal } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import KamatiModal from '../../models/KamatiModal';
 
 const Kamati = () => {
   const [perPage, setPerPage] = useState(100);
   const [searchTerm, setSearchTerm] = useState('');
   const [showModal, setShowModal] = useState(false);
-  const [newMember, setNewMember] = useState({
-    name: '',
-    phone: '',
-    role: ''
-  });
 
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
@@ -37,12 +33,6 @@ const Kamati = () => {
     // Implement delete logic here
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add new member logic here
-    handleClose();
-  };
-
   const columns = [
     {
       name: '#',
@@ -52,9 +42,9 @@ const Kamati = () => {
     { name: 'Name', selector: (row) => row.name, sortable: true },
     { name: 'Phone', selector: (row) => row.phone, sortable: true },
     { name: 'Role', selector: (row) => row.role, sortable: true },
-    { 
-      name: 'Status', 
-      selector: (row) => row.status, 
+    {
+      name: 'Status',
+      selector: (row) => row.status,
       sortable: true,
       cell: (row) => (
         <div style={{ color: row.status === 'Active' ? '#0066ee' : 'red' }}>
@@ -122,49 +112,7 @@ const Kamati = () => {
         </div>
       </div>
 
-      <Modal show={showModal} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Ongeza Mwanakamati Mpya</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
-              <Form.Label>Jina</Form.Label>
-              <Form.Control
-                type="text"
-                value={newMember.name}
-                onChange={(e) => setNewMember({...newMember, name: e.target.value})}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Namba ya Simu</Form.Label>
-              <Form.Control
-                type="number"
-                value={newMember.phone}
-                onChange={(e) => setNewMember({...newMember, phone: e.target.value})}
-                required
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Nafasi</Form.Label>
-              <Form.Select
-                value={newMember.role}
-                onChange={(e) => setNewMember({...newMember, role: e.target.value})}
-                required
-              >
-                <option value="">Chagua Nafasi</option>
-                <option value="Mwenyekiti">Mwenyekiti</option>
-                <option value="Mjumbe">Mjumbe</option>
-                <option value="Katibu">Katibu</option>
-              </Form.Select>
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Ongeza
-            </Button>
-          </Form>
-        </Modal.Body>
-      </Modal>
+      <KamatiModal show={showModal} handleClose={handleClose} />
     </div>
   );
 };

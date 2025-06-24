@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './Groups.css';
+import GroupModal from '../../models/GroupModal.js';
 
 function Groups() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
   const data = [
     { title: "Familia", description: "Kikundi cha wanafamilia wa karibu" },
     { title: "Marafiki", description: "Marafiki wa karibu wa maharusi/wazazi" },
@@ -24,7 +30,7 @@ function Groups() {
       <td className="group-cell">{title}</td>
       <td className="group-cell">{description}</td>
       <td className="group-cell">
-        <i className="fas fa-user-friends group-icon-action"></i>
+        <i className="fas fa-user-friends group-icon-action" onClick={handleShowModal}></i>
         <i className="fas fa-trash-alt group-icon-action"></i>
       </td>
     </tr>
@@ -32,8 +38,8 @@ function Groups() {
 
   return (
     <div className="group-container">
-            <h2 className="text-center" style={{ color: '#24366b' }}>Makundi Ya Wageni</h2>
-            <div className="group-table-wrapper">
+      <h2 className="text-center" style={{ color: '#24366b' }}>Makundi Ya Wageni</h2>
+      <div className="group-table-wrapper">
         <table className="group-table">
           <thead className="group-thead">
             <tr>
@@ -58,6 +64,8 @@ function Groups() {
           <i className="fas fa-chevron-right group-nav-icon"></i>
         </div>
       </div>
+
+      <GroupModal show={showModal} handleClose={handleCloseModal} />
     </div>
   );
 }
