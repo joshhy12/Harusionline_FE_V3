@@ -67,16 +67,18 @@ class E_card extends React.Component {
             <Button variant="outline-primary" onClick={() => this.handleFilterChange('sendoff')} className={`m-1 rounded-pill ${filter === 'sendoff' ? 'active' : ''}`}>sendOff</Button>
           </Col>
           <Col md={4}>
-            <Form className="d-flex justify-content-end">
+            <Form className="d-flex justify-content-end search-form">
               <Form.Control
                 type="text"
-                placeholder="Search by Name , Color or Event type"
+                placeholder="Search by Name, Color or Event type"
                 value={searchTerm}
                 onChange={this.handleSearchChange}
                 className="me-2"
               />
               <Button variant="outline-primary" className="rounded-pill">Search</Button>
             </Form>
+
+
           </Col>
         </Row>
 
