@@ -8,6 +8,15 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 const About = () => {
   const { headerContent, sections } = AboutModel;
 
+  const getImageSrc = (imageName) => {
+    try {
+      return require(`../images/Test_images/${imageName}`);
+    } catch (error) {
+      console.warn(`Image not found: ${imageName}`);
+      return 'https://via.placeholder.com/300x200?text=Image+Not+Found'; // Placeholder image
+    }
+  };
+
   return (
     <Container className="my-5">
       <section className="py-5">
@@ -25,7 +34,7 @@ const About = () => {
               <div key={section.id} className="col-md-4">
                 <div className="shadow p-4">
                   <img 
-                    src={require(`../images/Test_images/${section.image}`)} 
+                    src={getImageSrc(section.image)} 
                     alt={section.title} 
                     className="img-fluid rounded mb-4" 
                   />
