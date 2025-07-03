@@ -26,10 +26,12 @@ const WatoaHudumaDetails = () => {
               {/* <Card.Text className={styles.cardText}><strong className={styles.strongText}>ID:</strong> {provider.id}</Card.Text> */}
               <Card.Text className={styles.cardText}><strong className={styles.strongText}>Mobile:</strong> {provider.mobile}</Card.Text>
               <Card.Text className={styles.cardText}><strong className={styles.strongText}>Email:</strong> {provider.email}</Card.Text>
-              <Card.Text className={styles.cardText}>
+           
+              {/*  <Card.Text className={styles.cardText}>
                 <strong className={styles.strongText}>Website:</strong>
                 <a href={provider.website} target="_blank" rel="noopener noreferrer" className={styles.link}>{provider.website}</a>
-              </Card.Text>
+              </Card.Text> */}
+              
               <Card.Text className={styles.cardText}><strong className={styles.strongText}>Description:</strong> {provider.description}</Card.Text>
               <Card.Text className={styles.cardText}><strong className={styles.strongText}>Location:</strong> {provider.location}</Card.Text>
               <Card.Text className={styles.cardText}><strong className={styles.strongText}>Status:</strong> {provider.status === 1 ? 'Active' : 'Inactive'}</Card.Text>

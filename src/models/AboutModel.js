@@ -5,21 +5,21 @@ export const AboutModel = {
         title: "Okoa Muda na Pesa",
         description: "Okoa muda na pesa kwa kupanga harusi yako mtandaoni. Fuatilia bajeti yako, wageni wako, na watoa huduma wote kwa urahisi.",
         link: "#okoa-muda-na-pesa",
-        image: "2.jpg"
+        image: "5.png"
       },
       {
         id: 2,
         title: "Rahisi kutumia",
         description: "Mfumo wetu umeundwa kwa ajili ya kila mtu, hata kama wewe si mtaalamu wa teknolojia. Panga harusi yako kwa urahisi kutoka popote ulipo.",
         link: "#rahisi-kutumia",
-        image: "5.jpg"
+        image: "7.png"
       },
       {
         id: 3,
         title: "Watoa Huduma",
         description: "Tafuta watoa huduma bora wa harusi katika eneo lako kwa urahisi. Tumeunganishwa na watoa huduma mbalimbali waliothibitishwa.",
         link: "/WatoaHuduma",
-        image: "1.jpg"
+        image: "5.png"
       }
     ],
     headerContent: {
