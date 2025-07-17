@@ -26,7 +26,6 @@ class E_card extends React.Component {
     this.setState({ items: data, loading: false });
   };
 
-
   handleFilterChange = (category) => {
     this.setState({ filter: category });
   };
@@ -59,30 +58,70 @@ class E_card extends React.Component {
         <h2 className="text-center mb-4 stylish-heading">Digital Card</h2>
 
         <Row className="mb-4">
-          <Col md={8} className="d-flex align-items-center">
-            <Button variant="outline-primary" onClick={() => this.handleFilterChange('all')} className={`m-1 rounded-pill ${filter === 'all' ? 'active' : ''}`}>All</Button>
-            <Button variant="outline-primary" onClick={() => this.handleFilterChange('Invitation')} className={`m-1 rounded-pill ${filter === 'Invitation' ? 'active' : ''}`}>Invitation</Button>
-            <Button variant="outline-primary" onClick={() => this.handleFilterChange('Contribution')} className={`m-1 rounded-pill ${filter === 'Contribution' ? 'active' : ''}`}>Contribution</Button>
-            <Button variant="outline-primary" onClick={() => this.handleFilterChange('Wedding')} className={`m-1 rounded-pill ${filter === 'Wedding' ? 'active' : ''}`}>Wedding</Button>
-            <Button variant="outline-primary" onClick={() => this.handleFilterChange('sendoff')} className={`m-1 rounded-pill ${filter === 'sendoff' ? 'active' : ''}`}>sendOff</Button>
+          <Col xs={12} md={8} className="mb-3 mb-md-0">
+            <div className="filter-buttons-container d-flex flex-wrap justify-content-center justify-content-md-start align-items-center">
+              <Button
+                variant="outline-primary"
+                onClick={() => this.handleFilterChange('all')}
+                className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
+                size="sm"
+              >
+                All
+              </Button>
+              <Button
+                variant="outline-primary"
+                onClick={() => this.handleFilterChange('Invitation')}
+                className={`filter-btn ${filter === 'Invitation' ? 'active' : ''}`}
+                size="sm"
+              >
+                Invitation
+              </Button>
+              <Button
+                variant="outline-primary"
+                onClick={() => this.handleFilterChange('Contribution')}
+                className={`filter-btn ${filter === 'Contribution' ? 'active' : ''}`}
+                size="sm"
+              >
+                Contribution
+              </Button>
+              <Button
+                variant="outline-primary"
+                onClick={() => this.handleFilterChange('Wedding')}
+                className={`filter-btn ${filter === 'Wedding' ? 'active' : ''}`}
+                size="sm"
+              >
+                Wedding
+              </Button>
+              <Button
+                variant="outline-primary"
+                onClick={() => this.handleFilterChange('sendoff')}
+                className={`filter-btn ${filter === 'sendoff' ? 'active' : ''}`}
+                size="sm"
+              >
+                SendOff
+              </Button>
+            </div>
           </Col>
-          <Col md={4}>
-            <Form className="d-flex justify-content-end search-form">
-              <Form.Control
-                type="text"
-                placeholder="Search by Name, Color or Event type"
-                value={searchTerm}
-                onChange={this.handleSearchChange}
-                className="me-2"
-              />
-              <Button variant="outline-primary" className="rounded-pill">Search</Button>
+          <Col xs={12} md={4}>
+            <Form className="search-form">
+              <div className="search-input-container">
+                <Form.Control
+                  type="text"
+                  placeholder="Search by Name, Color or Event type"
+                  value={searchTerm}
+                  onChange={this.handleSearchChange}
+                  className="search-input"
+                  size="sm"
+                />
+                <Link to="/gharama" className="gharama-link">
+                  <Button variant="outline-primary" className="gharama-btn" size="sm">
+                    Gharama
+                  </Button>
+                </Link>
+              </div>
             </Form>
-
-
           </Col>
         </Row>
-
-
         {loading ? (
           <SpinnerLoader />
         ) : (
